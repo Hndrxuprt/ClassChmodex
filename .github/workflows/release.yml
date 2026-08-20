@@ -1,0 +1,26 @@
+name: Package and release
+
+# Build and publish a GitHub release whenever a version tag is pushed.
+# The tag name (the ClassCodex build id, e.g. 20260820080802-eda6d41)
+# becomes the release version.
+on:
+  push:
+    tags:
+      - '**'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Package and release
+        uses: BigWigsMods/packager@v2
+        env:
+          GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }}
