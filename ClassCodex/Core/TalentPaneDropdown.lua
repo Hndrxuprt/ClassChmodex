@@ -402,10 +402,16 @@ local function BuildLoadoutLabel(build)
     end
 
     local hero = build.heroTalent or "All"
-    local name = build.context or "Build"
-    if hero ~= "All" then name = hero .. " " .. name end
+    local ctx = build.context or "Build"
     local bl = build.buildLabel
-    if bl and bl ~= "" and bl ~= build.context and bl ~= source and bl ~= name then name = name .. " " .. bl end
+    local body
+    if build._ivSource then
+        body = (bl and bl ~= "" and bl ~= source) and bl or ctx
+    else
+        body = ctx
+        if bl and bl ~= "" and bl ~= ctx and bl ~= source then body = body .. " " .. bl end
+    end
+    local name = (hero ~= "All") and (hero .. " " .. body) or body
 
     if source and source ~= "" then return source .. " - " .. name end
     return name

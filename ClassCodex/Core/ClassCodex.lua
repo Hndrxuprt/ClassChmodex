@@ -255,7 +255,7 @@ end
 
 local FormatRotationStep = ns.FormatRotationStep
 
-local function EvalConditionExpr(expr, currentHeroTalent)
+local function EvalConditionExpr(expr, currentHeroTalent, viewingOwnHero)
     local pos, len = 1, #expr
     local function peek()
         if pos > len then return nil end
@@ -290,6 +290,7 @@ local function EvalConditionExpr(expr, currentHeroTalent)
             local s, e = expr:find("^(%d+)", pos)
             if not s then return false end
             pos = e + 1
+            if not viewingOwnHero then return true end
             return IsPlayerSpell(tonumber(expr:sub(s, e))) and true or false
         end
     end
@@ -346,17 +347,25 @@ local function PlayerKnowsSpell(spellId)
     return known
 end
 
+local function ViewingOwnHero(currentHeroTalent)
+    if not currentHeroTalent or currentHeroTalent == "All" then return true end
+    local active = GetActiveHeroTalentName()
+    if not active then return true end
+    return active:lower() == currentHeroTalent:lower()
+end
+
 local function ShouldShowStep(stepText, currentHeroTalent)
+    local ownHero = ViewingOwnHero(currentHeroTalent)
     local reqId = stepText:match("^%?{(%d+)}:")
-    if reqId then return PlayerKnowsSpell(tonumber(reqId)) end
+    if reqId then return (not ownHero) or PlayerKnowsSpell(tonumber(reqId)) end
     local negId = stepText:match("^%?!{(%d+)}:")
-    if negId then return not PlayerKnowsSpell(tonumber(negId)) end
+    if negId then return (not ownHero) or (not PlayerKnowsSpell(tonumber(negId))) end
 
     local exprParen = stepText:match("^%?(%b()):")
-    if exprParen then return EvalConditionExpr(exprParen:sub(2, -2), currentHeroTalent) end
+    if exprParen then return EvalConditionExpr(exprParen:sub(2, -2), currentHeroTalent, ownHero) end
 
     local primaryId = ns.StripConditionPrefix(stepText):match("{(%d+)}")
-    if primaryId and not PlayerKnowsSpell(tonumber(primaryId)) then return false end
+    if primaryId and ownHero and not PlayerKnowsSpell(tonumber(primaryId)) then return false end
     return true
 end
 

@@ -582,19 +582,13 @@ local function BuildLoadoutMenu(_, root)
     if uggSpecData and uggSpecData.contexts and ns.GroupUggContexts then
         local groups = ns.GroupUggContexts(uggSpecData)
 
-        -- the recommended pick of a u.gg context is its top-pickrate build,
+        -- the recommended pick of a u.gg context is builds[1] — SourceReader
+        -- pre-sorts each context by popularity (pickrate weighted by hero usage),
         -- matching how the talents page marks builds
         local function uggTopBuild(entry)
             local builds = entry and entry.ctx and entry.ctx.builds
             if not builds then return nil end
-            local best, bestRate = nil, -1
-            for _, b in ipairs(builds) do
-                local rate = b.pickrate or 0
-                if rate > bestRate then
-                    best, bestRate = b, rate
-                end
-            end
-            return best or builds[1]
+            return builds[1]
         end
 
         local function uggLabel(entry, override)

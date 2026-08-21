@@ -191,13 +191,19 @@ local function buildUggBuilds(ugg, ref)
                 for heroSlug, byContext in pairs(sd.talents) do
                     local heroDisplay = (ref and ref.heroNames and ref.heroNames[heroSlug]) or heroSlug
                     local tr = sd.tierRank and sd.tierRank[heroSlug]
-                    local perf = tr and (tr.raid or tr.mplus) or nil
-                    local heroTier = perf and perf.tier or nil
-                    local heroPop = perf and perf.pop or nil
+                    local raidPerf = tr and tr.raid or nil
+                    local mplusPerf = tr and tr.mplus or nil
                     for ctxKey, builds in pairs(byContext) do
                         local uggKey, zoneType, difficulty, encounter, label, isOverview =
                             describeUggContext(ctxKey, ref)
                         if uggKey then
+                            local perf = (zoneType == "mythic-plus" and mplusPerf)
+                                or (zoneType == "raid" and raidPerf)
+                                or raidPerf
+                                or mplusPerf
+                            local heroTier = perf and perf.tier or nil
+                            local heroPop = perf and perf.pop or nil
+                            local heroWeight = (perf and (perf.pop or perf.count)) or 1
                             local ctx = contexts[uggKey]
                             if not ctx then
                                 ctx = {
@@ -224,6 +230,7 @@ local function buildUggBuilds(ugg, ref)
                                         topDps = b.topDps,
                                         heroTier = heroTier,
                                         heroPop = heroPop,
+                                        popScore = (b.pickrate or 0) * heroWeight,
                                         honor = b.honor,
                                     }
                                 end
@@ -236,10 +243,14 @@ local function buildUggBuilds(ugg, ref)
                         contexts[k] = nil
                     else
                         -- Builds are appended hero-by-hero in pairs() order, so
-                        -- sort by pickrate here: consumers (talent pane, loadout
-                        -- dock, talents section) all treat builds[1] as the
-                        -- recommended build.
+                        -- sort by popularity here: pickrate is a share WITHIN a
+                        -- hero, so weight it by how many players run that hero
+                        -- (heroPop) to compare builds across heroes. Consumers
+                        -- (talent pane, loadout dock, talents section) all treat
+                        -- builds[1] as the recommended build.
                         table.sort(ctx.builds, function(a, b)
+                            local sa, sb = a.popScore or 0, b.popScore or 0
+                            if sa ~= sb then return sa > sb end
                             if (a.pickrate or 0) ~= (b.pickrate or 0) then
                                 return (a.pickrate or 0) > (b.pickrate or 0)
                             end
@@ -310,9 +321,6 @@ local function uggTalentBuilds(class, spec)
         for _, b in ipairs(ctx.builds) do
             if b.exportString and b.exportString ~= "" then ranked[#ranked + 1] = b end
         end
-        table.sort(ranked, function(a, b)
-            return (a.pickrate or 0) > (b.pickrate or 0)
-        end)
         for idx, b in ipairs(ranked) do
             out[#out + 1] = {
                 label = label,
