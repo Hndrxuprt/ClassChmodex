@@ -1,6 +1,5 @@
 # ZCode agent settings
 .zcode/
 
-# Daily-run logs and build marker (regenerated each run)
-downloader/logs/
-downloader/.last_build
+# Local tooling: downloader scripts, daily logs, build marker
+downloader/
