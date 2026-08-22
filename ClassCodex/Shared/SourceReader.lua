@@ -88,7 +88,15 @@ local function buildClassCodexData(iv)
                 for _, tier in ipairs(sp.secondary) do
                     local names = {}
                     for _, k in ipairs(tier) do
-                        names[#names + 1] = STAT_DISPLAY[k] or k
+                        -- Qualified entries ({stat="haste",note="to 22%"}) carry an
+                        -- upstream breakpoint ("Haste to 22%"); plain strings are bare keys.
+                        local base, note = k, nil
+                        if type(k) == "table" then
+                            base, note = k.stat, k.note
+                        end
+                        local name = STAT_DISPLAY[base] or base
+                        if note and note ~= "" then name = name .. " " .. note end
+                        names[#names + 1] = name
                     end
                     if #names > 0 then tiers[#tiers + 1] = names end
                 end
@@ -144,7 +152,7 @@ end
 local PVP_BRACKET_LABEL = { ["2v2"] = "2v2", ["3v3"] = "3v3", rbg = "Rated BG", shuffle = "Solo Shuffle" }
 local function describeUggContext(ctxKey, ref)
     if ctxKey == "mplus" then
-        return "mythic-plus:high-keys:all-dungeons", "mythic-plus", nil, "all-dungeons", "All Dungeons", true
+        return "mythic-plus:high-keys:all-dungeons", "mplus", nil, "all-dungeons", "All Dungeons", true
     end
     if ctxKey == "raid" then return "raid:mythic:all-bosses", "raid", "mythic", "all-bosses", "All Bosses", true end
     if ctxKey == "raidh" then return "raid:heroic:all-bosses", "raid", "heroic", "all-bosses", "All Bosses", true end
@@ -153,7 +161,7 @@ local function describeUggContext(ctxKey, ref)
     local enc = ref and ref.encounters
     if bucket == "mplus" then
         local label = (enc and enc.dungeons and enc.dungeons[tonumber(id)]) or ("Dungeon " .. id)
-        return "mythic-plus:high-keys:ugg-" .. id, "mythic-plus", nil, "ugg-" .. id, label, false
+        return "mythic-plus:high-keys:ugg-" .. id, "mplus", nil, "ugg-" .. id, label, false
     elseif bucket == "raid" then
         local label = (enc and enc.bosses and enc.bosses[tonumber(id)]) or ("Boss " .. id)
         return "raid:mythic:ugg-" .. id, "raid", "mythic", "ugg-" .. id, label, false
@@ -197,7 +205,7 @@ local function buildUggBuilds(ugg, ref)
                         local uggKey, zoneType, difficulty, encounter, label, isOverview =
                             describeUggContext(ctxKey, ref)
                         if uggKey then
-                            local perf = (zoneType == "mythic-plus" and mplusPerf)
+                            local perf = (zoneType == "mplus" and mplusPerf)
                                 or (zoneType == "raid" and raidPerf)
                                 or raidPerf
                                 or mplusPerf
@@ -283,6 +291,9 @@ local function icyVeinsTalentBuilds(class, spec)
     -- (and vice versa). Leveling builds stay zone-agnostic but are excluded
     -- from PvP by the section's content check.
     local IV_ZONE_KIND = { PvP = "pvp", Raid = "raid", ["Mythic+"] = "mplus", Delves = "mplus", General = "mplus" }
+    -- Finer than zoneKind: Delves ride under the M+ content view but get their
+    -- own card icon.
+    local IV_ART_KIND = { PvP = "pvp", Raid = "raid", ["Mythic+"] = "mplus", Delves = "delve" }
     for _, b in ipairs(builds) do
         local k = (b.heroTalent or "all") .. "\0" .. (b.exportString or "")
         if b.exportString and b.exportString ~= "" and not seen[k] then
@@ -298,6 +309,7 @@ local function icyVeinsTalentBuilds(class, spec)
                 contextId = label .. "\0" .. (b.heroTalent or ""),
                 provider = "Icy Veins",
                 zoneKind = (not b.leveling) and (IV_ZONE_KIND[b.context] or "mplus") or nil,
+                artKind = (not b.leveling) and IV_ART_KIND[b.context] or nil,
                 honor = b.honor,
                 isPvp = b.context == "PvP",
             }
@@ -335,6 +347,8 @@ local function uggTalentBuilds(class, spec)
                 encounterLabel = (not isOverview) and label or nil,
                 contextId = contextId,
                 provider = "u.gg",
+                isOverview = isOverview or nil,
+                separatorBefore = entry.separatorBefore or nil,
             }
         end
     end

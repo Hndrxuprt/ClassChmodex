@@ -137,6 +137,11 @@ L["settings.tooltip.page_hard_stops"] =
     "Lock scrolling to the current section — the mouse wheel stops at each section instead of sliding into the next. Use the side tabs to change sections."
 L["settings.label.panel_width"] = "面板寬度"
 L["settings.tooltip.panel_width"] = "Class Codex 面板的寬度（像素）。同時適用於停靠和浮動模式。"
+L["settings.label.gear_source"] = "顯示物品來源"
+L["settings.hint.gear_source_no_icons"] = "顯示在表格和清單檢視中。"
+L["settings.tooltip.gear_source"] =
+    "顯示每個推薦物品的來源——掉落地點或製造方式。清單檢視中顯示在物品名稱下方，表格檢視中作為獨立欄位。圖示檢視仍會在物品提示資訊中顯示。每個面板分開記住此選擇。僅限Icy Veins資料。"
+L["settings.hint.gear_source_no_icons"] = "顯示在表格和清單檢視中。"
 L["settings.label.minimap_button"] = "小地圖按鈕"
 L["settings.label.login_message"] = "登入訊息"
 L["settings.label.pin_talent_source"] = "固定天賦來源"

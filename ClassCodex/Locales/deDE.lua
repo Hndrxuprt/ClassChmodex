@@ -139,6 +139,11 @@ L["settings.tooltip.page_hard_stops"] =
 L["settings.label.panel_width"] = "Panel-Breite"
 L["settings.tooltip.panel_width"] =
     "Breite des Class-Codex-Panels in Pixeln. Gilt für angedockten und schwebenden Modus."
+L["settings.label.gear_source"] = "Gegenstandsquelle anzeigen"
+L["settings.hint.gear_source_no_icons"] = "Wird in der Tabellen- und Listenansicht angezeigt."
+L["settings.tooltip.gear_source"] =
+    "Zeigt, woher jeder Best-in-Slot-Gegenstand stammt – Fundort oder Herstellung. In der Listenansicht unter dem Gegenstandsnamen, in der Tabellenansicht als eigene Spalte. Die Symbolansicht behält die Angabe im Tooltip des Gegenstands. Jedes Panel merkt sich diese Wahl separat. Nur mit Icy-Veins-Daten."
+L["settings.hint.gear_source_no_icons"] = "Wird in der Tabellen- und Listenansicht angezeigt."
 L["settings.label.minimap_button"] = "Minikarten-Button"
 L["settings.label.login_message"] = "Anmeldenachricht"
 L["settings.label.pin_talent_source"] = "Talentquelle anheften"

@@ -155,6 +155,10 @@ L["settings.tooltip.page_hard_stops"] =
 L["settings.label.panel_width"] = "Panel Width"
 L["settings.tooltip.panel_width"] =
     "Width of the Class Codex panel in pixels. Applies to both the docked and floating modes."
+L["settings.label.gear_source"] = "Show Item Source"
+L["settings.hint.gear_source_no_icons"] = "Appears in the table and list views."
+L["settings.tooltip.gear_source"] =
+    "Show where each Best in Slot item comes from — its drop location or crafting. Under the item name in the list view and as a column in the table view. Icon view keeps it in the item tooltip. Each panel remembers this choice separately. Icy Veins data only."
 L["settings.label.minimap_button"] = "Minimap Button"
 L["settings.label.login_message"] = "Login Message"
 L["settings.label.pin_talent_source"] = "Pin Talent Source"

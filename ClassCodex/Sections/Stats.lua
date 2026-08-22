@@ -61,6 +61,134 @@ end
 -- Stat Priority subsection
 -- ============================================================
 
+-- Stat-priority variants WITHIN one content view, mirroring the Best in Slot
+-- variant tabs: the section always follows the page's content context (like
+-- BiS does), and the suffix/cog only appear when the source publishes more
+-- than one genuinely different priority for that same content type —
+-- identical orders collapse, so no option is shown when the stats don't
+-- differ. "raid" resolves through the "all" (single-target) bucket today; a
+-- future AoE context slots in here and appears automatically once ingested.
+local CT_VARIANTS = {
+    mplus = { { key = "mplus", label = "Mythic+" } },
+    raid = { { key = "raid", label = "Single Target" } },
+    pvp = { { key = "pvp", label = "PvP" } },
+}
+
+local function LoadStatPrefs(specKey)
+    specKey = specKey or (ns.GetSpecKey and ns.GetSpecKey())
+    if specKey and ClassCodexCharDB and ClassCodexCharDB.perSpec and ClassCodexCharDB.perSpec[specKey] then
+        return ClassCodexCharDB.perSpec[specKey].statPriorityTab
+    end
+    return nil
+end
+
+local function SaveStatPrefs(specKey, tabLabel)
+    specKey = specKey or (ns.GetSpecKey and ns.GetSpecKey())
+    if not specKey or not ClassCodexCharDB then return end
+    ClassCodexCharDB.perSpec = ClassCodexCharDB.perSpec or {}
+    ClassCodexCharDB.perSpec[specKey] = ClassCodexCharDB.perSpec[specKey] or {}
+    ClassCodexCharDB.perSpec[specKey].statPriorityTab = tabLabel
+end
+
+local function prioritySignature(tiers)
+    local parts = {}
+    for i, tier in ipairs(tiers) do
+        parts[i] = table.concat(tier, "\1")
+    end
+    return table.concat(parts, "\2")
+end
+
+local function resolvePriority(inst, args)
+    if not (args.classToken and args.specKey and ns.GetStatPriority) then
+        inst.variantOptions = nil
+        return args.priorityStats
+    end
+    local view = args.contentType or (ns.Context and ns.Context.contentType()) or "mplus"
+    if type(view) == "string" and view:sub(1, 4) == "pvp:" then view = "pvp" end
+    local variants, seenSig = {}, {}
+    for _, v in ipairs(CT_VARIANTS[view] or {}) do
+        local p = ns.GetStatPriority(args.classToken, args.specKey, v.key, args.source, args.heroSlug)
+        if p then
+            local sig = prioritySignature(p)
+            if not seenSig[sig] then
+                seenSig[sig] = true
+                variants[#variants + 1] = { label = v.label, priority = p }
+            end
+        end
+    end
+    inst.variantOptions = #variants > 1 and variants or nil
+    if #variants == 0 then return nil end
+    local chosen = variants[1]
+    if inst.variantOptions then
+        local saved = LoadStatPrefs(args.specKey)
+        for _, v in ipairs(variants) do
+            if v.label == saved then
+                chosen = v
+                break
+            end
+        end
+        inst.currentVariant = chosen.label
+        inst.specKey = args.specKey
+    else
+        inst.currentVariant = nil
+    end
+    return chosen.priority
+end
+
+local function makeCog(inst, refresh)
+    local cog = CreateFrame("Button", nil, inst.header)
+    cog:SetSize(14, 14)
+    cog:RegisterForClicks("LeftButtonUp")
+    local cogIcon = cog:CreateTexture(nil, "ARTWORK")
+    cogIcon:SetAllPoints()
+    cogIcon:SetAtlas("QuestLog-icon-setting")
+    cogIcon:SetVertexColor(0.6, 0.6, 0.6)
+    cog:SetScript("OnEnter", function(self)
+        cogIcon:SetVertexColor(1, 1, 1)
+        ns.Tooltip
+            .Open(self, "ANCHOR_RIGHT")
+            .Title(L["section.stat_priority"] or "Stat Priority")
+            .Hint("Click to change variant.")
+            .Show()
+    end)
+    cog:SetScript("OnLeave", function()
+        cogIcon:SetVertexColor(0.6, 0.6, 0.6)
+        ns.Tooltip.Hide()
+    end)
+    cog:SetScript("OnClick", function(self)
+        if not (MenuUtil and MenuUtil.CreateContextMenu) then return end
+        local opts = inst.variantOptions
+        if not (opts and #opts > 1) then return end
+        MenuUtil.CreateContextMenu(self, function(_, root)
+            root:CreateTitle(L["section.stat_priority"] or "Stat Priority")
+            for _, v in ipairs(opts) do
+                root:CreateRadio(v.label, function()
+                    return inst.currentVariant == v.label
+                end, function()
+                    SaveStatPrefs(inst.specKey, v.label)
+                    if refresh then refresh() end
+                    return MenuResponse.Refresh
+                end)
+            end
+        end)
+    end)
+    cog:Hide()
+    inst.cog = cog
+    inst.cogSetShown = function(shown)
+        cog:SetShown(shown)
+    end
+    if ns.MakeCogGlow then
+        ns.MakeCogGlow(cog, cogIcon)
+        ns.MakeLabelMenuHotspot(inst.header, cog)
+    end
+    return cog
+end
+
+local function placeCog(inst)
+    if not (inst.cog and inst.header and inst.header.AddHeaderWidget) then return end
+    inst.header:AddHeaderWidget(inst.cog)
+end
+
 local function buildPriority(inst, opts, collapsible)
     inst.section = CreateFrame("Frame", nil, opts.parent)
     inst.header = (opts.header or opts.headerFactory)(inst.section, L["section.stat_priority"], collapsible)
@@ -111,12 +239,22 @@ local function renderPriority(inst, args)
         inst.ctxDropdown:Hide()
     end
 
+    local priority = resolvePriority(inst, args)
+    local hasVariants = inst.variantOptions and #inst.variantOptions > 1 or false
+    if inst.cogSetShown then inst.cogSetShown(hasVariants) end
+    if inst.header and inst.header.label then
+        local base = L["section.stat_priority"] or "Stat Priority"
+        if hasVariants and inst.currentVariant and inst.currentVariant ~= "" then
+            inst.header.label:SetText(base .. " · " .. inst.currentVariant)
+        else
+            inst.header.label:SetText(base)
+        end
+    end
+
     inst.pvpFallback:Hide()
     for i = 1, MAX_ROWS do
         inst.rows[i]:Hide()
     end
-
-    local priority = args.priorityStats
     if priority then
         local yOffset = showCtx and -30 or 0
         local count = math.min(#priority, MAX_ROWS)
@@ -138,7 +276,7 @@ local function renderPriority(inst, args)
         end
         inst.section:Show()
         return count
-    elseif args.showPvpFallback then
+    elseif args.showPvpFallback or (args.contentType and args.contentType:sub(1, 3) == "pvp") then
         local yOffset = showCtx and -30 or 0
         inst.pvpFallback:SetText(L["pvp.no_stat_priority"] or "No PvP stat priority for this spec yet.")
         inst.pvpFallback:ClearAllPoints()
@@ -546,6 +684,8 @@ local tgtComp = { ddName = "ClassCodexCompStatTargetCtxDropdown" }
 
 function Stats.InitPanel(opts)
     buildPriority(priPanel, opts, false)
+    makeCog(priPanel, opts.refresh)
+    placeCog(priPanel)
     return priPanel.section, priPanel.header, priPanel.content
 end
 
@@ -564,6 +704,8 @@ end
 
 function Stats.InitCompendium(opts)
     buildPriority(priComp, opts, true)
+    makeCog(priComp, opts.refresh)
+    placeCog(priComp)
     return priComp.section, priComp.header, priComp.content
 end
 

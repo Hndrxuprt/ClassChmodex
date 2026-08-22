@@ -139,6 +139,11 @@ L["settings.tooltip.page_hard_stops"] =
 L["settings.label.panel_width"] = "Anchura del panel"
 L["settings.tooltip.panel_width"] =
     "Anchura del panel de Class Codex en píxeles. Se aplica a los modos fijo y flotante."
+L["settings.label.gear_source"] = "Mostrar la fuente del objeto"
+L["settings.hint.gear_source_no_icons"] = "Aparece en las vistas de tabla y lista."
+L["settings.tooltip.gear_source"] =
+    "Muestra de dónde proviene cada objeto recomendado: lugar de obtención o fabricación. Aparece bajo el nombre del objeto en la vista de lista y como columna en la vista de tabla. La vista de iconos lo mantiene en la descripción emergente. Cada panel recuerda esta elección por separado. Solo con datos de Icy Veins."
+L["settings.hint.gear_source_no_icons"] = "Aparece en las vistas de tabla y lista."
 L["settings.label.minimap_button"] = "Botón del minimapa"
 L["settings.label.login_message"] = "Mensaje de inicio de sesión"
 L["settings.label.pin_talent_source"] = "Fijar fuente de talentos"

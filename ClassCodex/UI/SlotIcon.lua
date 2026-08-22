@@ -248,13 +248,6 @@ function ns.MakeTableRow(content)
     label:SetTextColor(0.6, 0.6, 0.6)
     row.labelText = label
 
-    local name = row:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
-    name:SetPoint("LEFT", label, "RIGHT", 4, 0)
-    name:SetPoint("RIGHT", row, "RIGHT", -24, 0)
-    name:SetJustifyH("LEFT")
-    name:SetWordWrap(false)
-    row.itemText = name
-
     local check = row:CreateTexture(nil, "OVERLAY")
     check:SetSize(14, 14)
     check:SetPoint("RIGHT", row, "RIGHT", -4, 0)
@@ -263,17 +256,43 @@ function ns.MakeTableRow(content)
     check:Hide()
     row.checkmark = check
 
+    local source = row:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    source:SetPoint("RIGHT", check, "LEFT", -4, 0)
+    source:SetJustifyH("RIGHT")
+    source:SetWordWrap(false)
+    source:SetTextColor(0.5, 0.5, 0.52)
+    source:Hide()
+    row.sourceCol = source
+
+    local name = row:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+    name:SetPoint("LEFT", label, "RIGHT", 4, 0)
+    name:SetPoint("RIGHT", row, "RIGHT", -24, 0)
+    name:SetJustifyH("LEFT")
+    name:SetWordWrap(false)
+    row.itemText = name
+
     ns.SetupItemTooltip(row)
     row:Hide()
     return row
 end
 
-function ns.LayoutTable(content, rows, items)
+function ns.LayoutTable(content, rows, items, opts)
     for i = 1, #rows do
         rows[i]:Hide()
     end
     local count = math.min(#items, #rows)
     if count == 0 then return 0 end
+
+    local showSource = opts and opts.showSource
+    local sourceWidth = (opts and opts.sourceWidth) or 120
+    if showSource then
+        -- The source column stays strictly narrower than the item-name column:
+        -- the icon, label (up to 55px), gaps and checkmark take ~126px, and the
+        -- two columns split the remainder — capping below half of it (with a
+        -- 2px margin) always leaves the name the wider one.
+        local cap = math.floor(((content:GetWidth() or 0) - 128) / 2)
+        if cap > 0 and sourceWidth > cap then sourceWidth = cap end
+    end
 
     for i = 1, count do
         local item = items[i]
@@ -292,6 +311,18 @@ function ns.LayoutTable(content, rows, items)
             or ""
         if item.count and item.count > 1 then name = name .. "  |cff808080×" .. item.count .. "|r" end
         row.itemText:SetText(name)
+
+        row.itemText:ClearAllPoints()
+        row.itemText:SetPoint("LEFT", row.labelText, "RIGHT", 4, 0)
+        if showSource and item.sourceText and item.sourceText ~= "" then
+            row.sourceCol:SetWidth(sourceWidth)
+            row.sourceCol:SetText(item.sourceText)
+            row.sourceCol:Show()
+            row.itemText:SetPoint("RIGHT", row.sourceCol, "LEFT", -4, 0)
+        else
+            row.sourceCol:Hide()
+            row.itemText:SetPoint("RIGHT", row, "RIGHT", -24, 0)
+        end
 
         if item.spellId then
             row.icon:SetSpell(item.spellId)

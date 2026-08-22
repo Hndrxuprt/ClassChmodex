@@ -42,6 +42,17 @@ local function viewContext(override)
     return "dock"
 end
 
+local function refreshView(context)
+    context = viewContext(context)
+    if context == "comp" then
+        if ns.UpdateCompendiumBis then ns:UpdateCompendiumBis() end
+        if ns.LayoutCompendium then ns:LayoutCompendium() end
+    else
+        if ns.UpdateGearingSections then ns:UpdateGearingSections() end
+        if ns.LayoutPanel then ns:LayoutPanel() end
+    end
+end
+
 function Gear.GetViewMode(context)
     context = viewContext(context)
     return (ClassCodexDB and ClassCodexDB["gearView_" .. context]) or "table"
@@ -51,13 +62,27 @@ function Gear.SetViewMode(mode, context)
     context = viewContext(context)
     if not ClassCodexDB then ClassCodexDB = {} end
     ClassCodexDB["gearView_" .. context] = mode
-    if context == "comp" then
-        if ns.UpdateCompendiumBis then ns:UpdateCompendiumBis() end
-        if ns.LayoutCompendium then ns:LayoutCompendium() end
-    else
-        if ns.UpdateGearingSections then ns:UpdateGearingSections() end
-        if ns.LayoutPanel then ns:LayoutPanel() end
-    end
+    refreshView(context)
+end
+
+-- The docked panel and the Compendium remember the source setting separately
+-- (same convention as the per-context view mode above).
+function Gear.IsSourceShown(context)
+    context = viewContext(context)
+    local shown = ClassCodexDB and ClassCodexDB["gearSource_" .. context]
+    return shown == true
+end
+
+function Gear.SetSourceShown(shown, context)
+    context = viewContext(context)
+    if not ClassCodexDB then ClassCodexDB = {} end
+    ClassCodexDB["gearSource_" .. context] = shown and true or false
+    refreshView(context)
+end
+
+function Gear.ToggleSource(context)
+    context = viewContext(context)
+    Gear.SetSourceShown(not Gear.IsSourceShown(context), context)
 end
 
 local function FindTabByLabel(tabs, label)
@@ -141,6 +166,21 @@ local function makeCog(inst, ctx)
                 Gear.SetViewMode("icons", ctx)
                 return MenuResponse.Refresh
             end)
+            root:CreateDivider()
+            local srcCheck = root:CreateCheckbox(L["settings.label.gear_source"] or "Show Item Source", function()
+                return Gear.IsSourceShown(ctx)
+            end, function()
+                Gear.ToggleSource(ctx)
+                return MenuResponse.Refresh
+            end)
+            if srcCheck and srcCheck.SetTooltip then
+                srcCheck:SetTooltip(function(tip)
+                    GameTooltip_AddNormalLine(
+                        tip,
+                        L["settings.hint.gear_source_no_icons"] or "Appears in the table and list views."
+                    )
+                end)
+            end
         end)
     end)
     cog:Hide()
@@ -234,6 +274,15 @@ local function buildRows(inst)
         name:SetJustifyH("LEFT")
         name:SetWordWrap(false)
         row.itemText = name
+
+        local src = row:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+        src:SetPoint("TOPLEFT", name, "BOTTOMLEFT", 0, 0)
+        src:SetPoint("RIGHT", row, "RIGHT", -4, 0)
+        src:SetJustifyH("LEFT")
+        src:SetWordWrap(false)
+        src:SetTextColor(0.5, 0.5, 0.52)
+        src:Hide()
+        row.sourceLine = src
 
         ns.SetupItemTooltip(row)
         row:Hide()
@@ -346,6 +395,7 @@ local function render(inst, args)
     local ctxBonus = (curCT == "raid") and "raid" or "dungeon"
     local count = math.min(#selectedSlots, MAX_ROWS)
     local viewMode = Gear.GetViewMode(args._viewCtx)
+    local showSource = Gear.IsSourceShown(args._viewCtx)
 
     if viewMode == "icons" then
         local items = {}
@@ -383,7 +433,15 @@ local function render(inst, args)
             }
         end
         hideIcons(inst.icons)
-        inst.lastContentHeight = ns.LayoutTable(inst.content, inst.tableRows, items)
+        -- The column is never hidden by panel width — the toggle is an explicit
+        -- choice; it scales down instead so the item name keeps room.
+        local tableOpts = nil
+        if showSource then
+            tableOpts = { showSource = true }
+            local w = inst.content:GetWidth() or 0
+            if w > 0 then tableOpts.sourceWidth = math.min(160, math.floor(w * 0.34)) end
+        end
+        inst.lastContentHeight = ns.LayoutTable(inst.content, inst.tableRows, items, tableOpts)
     else
         for i = 1, MAX_ROWS do
             if inst.tableRows and inst.tableRows[i] then inst.tableRows[i]:Hide() end
@@ -394,6 +452,17 @@ local function render(inst, args)
             local source, bonusIDs = ResolveRow(entry, nil, ctxBonus)
             local itemLabel = ns.FormatItem(entry.item)
             row.itemText:SetText(itemLabel)
+            local hasSource = showSource and source and source ~= ""
+            local yOff = hasSource and 5 or 0
+            row.itemText:ClearAllPoints()
+            row.itemText:SetPoint("LEFT", row.icon.slot, "RIGHT", 2, yOff)
+            row.itemText:SetPoint("RIGHT", row, "RIGHT", -4, yOff)
+            if hasSource then
+                row.sourceLine:SetText(source)
+                row.sourceLine:Show()
+            else
+                row.sourceLine:Hide()
+            end
             row.itemId = entry.item.itemId
             row.bonusIDs = bonusIDs
             row.altItemId = nil

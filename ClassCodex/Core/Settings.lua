@@ -297,6 +297,15 @@ function ns.RegisterSettings()
         sections(panels.check, "dock", function()
             ns.UpdatePanelIfVisible("docked")
         end)
+        panels.check(
+            "gearSource_dock",
+            L["settings.label.gear_source"],
+            L["settings.tooltip.gear_source"],
+            false,
+            function()
+                ns.UpdatePanelIfVisible("docked")
+            end
+        )
 
         panels.header(L["settings.header.floating_panel"])
         panels.charCheck(
@@ -324,6 +333,13 @@ function ns.RegisterSettings()
             refreshFloat
         )
         sections(panels.check, "float", refreshFloat)
+        panels.check(
+            "gearSource_float",
+            L["settings.label.gear_source"],
+            L["settings.tooltip.gear_source"],
+            false,
+            refreshFloat
+        )
 
         panels.header(L["settings.header.tab_order"])
         panels.button(L["settings.label.reorder_tabs"], L["settings.value.reorder"], function()
@@ -343,6 +359,15 @@ function ns.RegisterSettings()
         sections(compendium.check, "comp", function()
             if ns.UpdateCompendium then ns:UpdateCompendium() end
         end, L["settings.tooltip.comp_show_tab"])
+        compendium.check(
+            "gearSource_comp",
+            L["settings.label.gear_source"],
+            L["settings.tooltip.gear_source"],
+            false,
+            function()
+                if ns.UpdateCompendium then ns:UpdateCompendium() end
+            end
+        )
 
         local dock = group(L["settings.header.loadout_dock"])
         ns.loadoutDockSettingsCategory = dock.category

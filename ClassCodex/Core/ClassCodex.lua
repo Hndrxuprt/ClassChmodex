@@ -1458,6 +1458,51 @@ local function CreateSourceButton(name, parent, badgeSize)
         end)
     end
 
+    -- Reopen with the menu's top-left pinned where the open menu is now, so a
+    -- pick that adds sections grows the menu downward in place instead of
+    -- growing upward from a bottom-anchored cursor anchor or jumping elsewhere.
+    function btn:ReopenGrowDown()
+        local owner = self
+        -- The menu closes before the deferred reopen, so its top-left must be
+        -- captured now, from the still-open menu.
+        local anchor, maxHeight
+        local ok, menu = pcall(function()
+            local mgr = Menu.GetManager()
+            return mgr and mgr.GetOpenMenu and mgr:GetOpenMenu() or nil
+        end)
+        if ok and menu then
+            local left, top = menu:GetLeft(), menu:GetTop()
+            local pscale = UIParent:GetScale() or 1
+            if pscale <= 0 then pscale = 1 end
+            local mscale = menu:GetEffectiveScale() or pscale
+            if left and top then
+                local x = left * mscale / pscale
+                local y = top * mscale / pscale
+                anchor = AnchorUtil.CreateAnchor("TOPLEFT", UIParent, "BOTTOMLEFT", x, y)
+                maxHeight = y
+            end
+        end
+        if not anchor then
+            -- Menu not reachable: fall back to dropping down from the button.
+            local bottom = owner:GetBottom()
+            if bottom then
+                local pscale = UIParent:GetScale() or 1
+                if pscale <= 0 then pscale = 1 end
+                local escale = owner:GetEffectiveScale() or 1
+                anchor = AnchorUtil.CreateAnchor("TOPLEFT", owner, "BOTTOMLEFT", 0, -4)
+                maxHeight = math.max(120, (bottom - 4) * escale / pscale)
+            end
+        end
+        C_Timer.After(0, function()
+            if not owner:IsVisible() then return end
+            if anchor then
+                owner._menuAnchor = anchor
+                owner._menuMaxHeight = maxHeight
+            end
+            owner:OpenMenu(true)
+        end)
+    end
+
     local function BuildGenericMenu(owner, cfg, root)
         -- Always read the live context: selection handlers rebuild it via SetContext,
         -- and MenuResponse.Refresh must show the fresh state without reopening the menu.
@@ -1689,6 +1734,9 @@ ns.GetPanelWidth = GetPanelWidth
 local statSection, statHeader, statContent = ns.Sections.Stats.InitPanel({
     parent = contentFrame,
     header = CreateSectionHeader,
+    refresh = function()
+        ns:UpdatePanel()
+    end,
 })
 
 statInfoBtn:Show()
@@ -2008,9 +2056,11 @@ end)
 local cachedRanks = nil
 local cachedRanksHero = nil
 local cachedRanksCtx = nil
+local cachedBreakpoints = nil
 
 function ns:UpdatePanel()
     cachedRanks = nil
+    cachedBreakpoints = nil
     local specData, classToken, specKey = GetSpecData()
     if not specData then
         ns:LayoutPanel()
@@ -2111,11 +2161,13 @@ function ns:UpdatePanel()
 
     local priorityHero = (currentHeroTalent and ns.HeroSlugFromDisplay and ns.HeroSlugFromDisplay(currentHeroTalent))
         or nil
-    local priorityStats = ns.GetStatPriority
-        and ns.GetStatPriority(classToken, specKey, ns.Context.contentType(), nil, priorityHero)
     lastStatRowCount = ns.Sections.Stats.RenderPanel({
         contextOptions = {},
-        priorityStats = priorityStats,
+        classToken = classToken,
+        specKey = specKey,
+        source = ns.ActiveSource and ns.ActiveSource(),
+        heroSlug = priorityHero,
+        contentType = ns.Context.contentType(),
         rankColors = RANK_COLORS,
     })
 
@@ -3518,6 +3570,7 @@ local function GetCachedRanks()
     local tiers = ns.GetStatPriority and ns.GetStatPriority(classToken, specKey, ctx)
     cachedRanksHero = hero
     cachedRanksCtx = ctx
+    cachedBreakpoints = nil
     if not tiers then
         cachedRanks = nil
         return nil
@@ -3528,6 +3581,7 @@ local function GetCachedRanks()
             cachedRanks[stat] = i
         end
     end
+    if ns.GetStatBreakpoints then cachedBreakpoints = ns.GetStatBreakpoints(classToken, specKey, ctx) end
     return cachedRanks
 end
 
@@ -3619,6 +3673,20 @@ local function OnTooltipItem(tooltip, tooltipData)
                     for localizedStat, englishStat in pairs(STAT_LOOKUP) do
                         if text:find(localizedStat, 1, true) and not text:find("#%d") then
                             local rank = ranks[englishStat]
+                            -- Breakpoint stats ("Haste to 22%", "Haste (until
+                            -- 1800 rating)") rank at the qualified tier until
+                            -- the player actually reaches the threshold, then
+                            -- fall back to their bare tier (if any).
+                            local bp = cachedBreakpoints and cachedBreakpoints[englishStat]
+                            if bp then
+                                local current
+                                if bp.kind == "rating" then
+                                    current = ns.GetPlayerStatRating and ns.GetPlayerStatRating(bp.statKey)
+                                else
+                                    current = ns.GetPlayerStatPercent and ns.GetPlayerStatPercent(bp.statKey)
+                                end
+                                if current and current < bp.value then rank = bp.tier end
+                            end
                             if rank then
                                 local color = RANK_COLORS[rank]
                                 if color then
@@ -4012,6 +4080,7 @@ eventFrame:SetScript("OnEvent", function(_, event, arg1)
         end
         currentHeroTalent = nil
         cachedRanks = nil
+        cachedBreakpoints = nil
         if panel:IsShown() then ns:UpdatePanel() end
     elseif event == "TRAIT_CONFIG_UPDATED" then
         if ns._talentApplyInProgress then return end
@@ -4019,6 +4088,7 @@ eventFrame:SetScript("OnEvent", function(_, event, arg1)
         if perSpec then perSpec.heroTalent = nil end
         currentHeroTalent = nil
         cachedRanks = nil
+        cachedBreakpoints = nil
         wipe(spellKnownCache)
         if panel:IsShown() then ns:UpdatePanel() end
     elseif event == "COMBAT_RATING_UPDATE" or event == "UNIT_STATS" then

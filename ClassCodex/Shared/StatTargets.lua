@@ -96,10 +96,13 @@ end
 local STAT_PRIORITY_DISPLAY =
     { crit = "Critical Strike", haste = "Haste", mastery = "Mastery", versatility = "Versatility" }
 
-function ns.GetStatPriority(classToken, specKey, context, source, heroSlug)
+local function resolveStatPriority(classToken, specKey, context, source, heroSlug)
     if not classToken or not specKey then return nil end
     local hero = heroSlug
-    if not hero then
+    -- "all" must go through the same active-hero resolution as nil: u.gg keys
+    -- statPriority per hero (its "all" bucket only carries PvP), so a literal
+    -- "all" lookup shows nothing in PvE views even on the player's own spec.
+    if not hero or hero == "all" then
         hero = "all"
         local pc, ps
         if ns.GetClassAndSpec then
@@ -121,15 +124,65 @@ function ns.GetStatPriority(classToken, specKey, context, source, heroSlug)
         sp = ns.SourceValue and ns.SourceValue(source, classToken, specKey, "statPriority", hero, "all")
     end
     if not (sp and sp.secondary) then return nil end
+    return sp
+end
+
+function ns.GetStatPriority(classToken, specKey, context, source, heroSlug)
+    local sp = resolveStatPriority(classToken, specKey, context, source, heroSlug)
+    if not sp then return nil end
     local tiers = {}
     for _, tier in ipairs(sp.secondary) do
         local names = {}
         for _, k in ipairs(tier) do
-            names[#names + 1] = STAT_PRIORITY_DISPLAY[k] or k
+            -- Qualified entries ({stat="haste",note="to 22%"}) carry an upstream
+            -- breakpoint ("Haste to 22%"); plain strings are bare keys.
+            local base, note = k, nil
+            if type(k) == "table" then
+                base, note = k.stat, k.note
+            end
+            local name = STAT_PRIORITY_DISPLAY[base] or base
+            if note and note ~= "" then name = name .. " " .. note end
+            names[#names + 1] = name
         end
         if #names > 0 then tiers[#tiers + 1] = names end
     end
     return #tiers > 0 and tiers or nil
+end
+
+--- Qualified breakpoint entries in a spec's priority ("Haste to 22%",
+--- "Haste (until 1800 rating)"), keyed by display name:
+--- { statKey, tier, kind = "pct"|"rating", value }. While the player is below
+--- the threshold the stat ranks at the qualified tier; from the threshold up,
+--- its bare tier (if any) applies. Notes without a readable threshold are
+--- ignored — there is no value to compare against.
+function ns.GetStatBreakpoints(classToken, specKey, context, source, heroSlug)
+    local sp = resolveStatPriority(classToken, specKey, context, source, heroSlug)
+    if not sp then return nil end
+    local out
+    for i, tier in ipairs(sp.secondary) do
+        for _, k in ipairs(tier) do
+            if type(k) == "table" and k.stat then
+                local note = k.note or ""
+                -- Percent thresholds ("to 22%") compare against the player's
+                -- stat percent; explicit ratings ("until 1800 rating") and bare
+                -- "to N" numbers ("to 700+", "to 200") against the rating.
+                local kind, value
+                local pct = note:match("(%d+%.?%d*)%s*%%")
+                local rating = note:match("(%d+)%s*rating") or note:match("to%s+(%d+)")
+                if pct then
+                    kind, value = "pct", tonumber(pct)
+                elseif rating then
+                    kind, value = "rating", tonumber(rating)
+                end
+                if kind then
+                    out = out or {}
+                    out[STAT_PRIORITY_DISPLAY[k.stat] or k.stat] =
+                        { statKey = k.stat, tier = i, kind = kind, value = value }
+                end
+            end
+        end
+    end
+    return out
 end
 
 local function safeNum(v)

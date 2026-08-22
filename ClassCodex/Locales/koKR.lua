@@ -141,6 +141,11 @@ L["settings.tooltip.page_hard_stops"] =
 L["settings.label.panel_width"] = "패널 너비"
 L["settings.tooltip.panel_width"] =
     "Class Codex 패널의 너비(픽셀). 고정 및 플로팅 모드 모두에 적용됩니다."
+L["settings.label.gear_source"] = "아이템 획득처 표시"
+L["settings.hint.gear_source_no_icons"] = "표 보기와 목록 보기에 표시됩니다."
+L["settings.tooltip.gear_source"] =
+    "추천 아이템의 획득처(획득 위치 또는 제작)를 표시합니다. 목록 보기에서는 아이템 이름 아래에, 표 보기에서는 항목으로 나타납니다. 아이콘 보기에서는 아이템 툴팁에 표시됩니다. 각 패널은 이 선택을 개별적으로 저장합니다. Icy Veins 데이터에만 적용됩니다."
+L["settings.hint.gear_source_no_icons"] = "표 보기와 목록 보기에 표시됩니다."
 L["settings.label.minimap_button"] = "미니맵 버튼"
 L["settings.label.login_message"] = "로그인 메시지"
 L["settings.label.pin_talent_source"] = "특성 출처 고정"

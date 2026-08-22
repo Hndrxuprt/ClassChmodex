@@ -8,10 +8,16 @@ ns.Sections.Rotation = Rotation
 
 -- Longest list in the data is 33 steps (Marksmanship AoE); 40 leaves headroom.
 local MAX_STEPS = 40
-local STEP_GAP = 5
-local TOP_PAD = 6
+local STEP_GAP = 7
+local TOP_PAD = 2
 local ICON_SIZE = 18
 local RIGHT_PAD = 10
+local NOTE_GAP = 2
+-- A noted row carries the note's own leading, so it takes a slightly
+-- smaller gap to the next step than plain rows do.
+local NOTE_STEP_GAP = 3
+-- Left edge of the step text (icon block: 24px inset + ICON_SIZE + 8px gap).
+local STEP_TEXT_X = 24 + ICON_SIZE + 8
 
 local function makeStepHelpers(opts)
     return {
@@ -28,6 +34,30 @@ local function makeStepHelpers(opts)
             return s
         end,
     }
+end
+
+local function rowTotalHeight(row)
+    local base = row.stepH or ns.ROW_HEIGHT
+    -- Noted rows stack top-down (text, NOTE_GAP, note, 2px edges), so the
+    -- note hugs its step instead of riding on the padded single-line height.
+    if row.hasNote and row.noteFullH and row.noteFullH > 0 then
+        return math.max(ns.ROW_HEIGHT, (row.textH or base) + NOTE_GAP + row.noteFullH + 4)
+    end
+    return base
+end
+
+local function layoutRows(inst)
+    local y = -TOP_PAD
+    for _, row in ipairs(inst.shownRows) do
+        row:ClearAllPoints()
+        row:SetPoint("TOPLEFT", inst.content, "TOPLEFT", 0, y)
+        row:SetPoint("RIGHT", inst.content, "RIGHT", -RIGHT_PAD, 0)
+        row:SetHeight(rowTotalHeight(row))
+        y = y - rowTotalHeight(row) - (row.hasNote and NOTE_STEP_GAP or STEP_GAP)
+    end
+    local total = math.abs(y)
+    inst.content:SetHeight(math.max(total, 1))
+    return total
 end
 
 local function makeCtxCog(inst)
@@ -141,6 +171,30 @@ local function makeStepRow(parent)
     stepText:SetScript("OnHyperlinkLeave", function()
         GameTooltip:Hide()
     end)
+
+    local note = CreateFrame("SimpleHTML", nil, row)
+    note:SetFontObject("p", "GameFontHighlightSmall")
+    note:SetJustifyH("p", "LEFT")
+    note:SetTextColor("p", 0.62, 0.66, 0.72)
+    note:EnableMouse(true)
+    note:SetScript("OnHyperlinkEnter", function(self, link)
+        local itemId = tonumber(link and link:match("^item:(%d+)"))
+        local spellId = tonumber(link and link:match("^spell:(%d+)"))
+        if itemId or spellId then
+            GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+            if itemId then
+                GameTooltip:SetItemByID(itemId)
+            else
+                GameTooltip:SetSpellByID(spellId)
+            end
+            GameTooltip:Show()
+        end
+    end)
+    note:SetScript("OnHyperlinkLeave", function()
+        GameTooltip:Hide()
+    end)
+    note:Hide()
+    row.note = note
     return row
 end
 
@@ -165,6 +219,7 @@ local function build(inst, opts, collapsible)
     if inst.header.AddHeaderWidget then inst.header:AddHeaderWidget(inst.ivIcon) end
 
     inst.rows = {}
+    inst.shownRows = {}
     for i = 1, MAX_STEPS do
         inst.rows[i] = makeStepRow(inst.content)
     end
@@ -202,8 +257,11 @@ local function render(inst, args)
     end
 
     for i = 1, MAX_STEPS do
-        inst.rows[i]:Hide()
+        local r = inst.rows[i]
+        if r.note then r.note:Hide() end
+        r:Hide()
     end
+    wipe(inst.shownRows)
     inst.fallback:Hide()
     if inst.content.emptyMsg then inst.content.emptyMsg:Hide() end
 
@@ -213,17 +271,17 @@ local function render(inst, args)
     local textW = (args.textAreaWidth or 200) - RIGHT_PAD
 
     if rotation then
-        local yOffset = 0
         local visibleStep = 0
-        local currentY = yOffset - TOP_PAD
         for _, step in ipairs(rotation.steps) do
             -- Steps may carry structured hero conditions (source per-hero
             -- rotation presets): unpack the text and apply the hero filter
             -- before the text-based heuristics.
             local stepText = step
+            local note = nil
             local heroOk = true
             if type(step) == "table" then
                 stepText = step.text
+                note = step.note
                 if step.heroRequired and #step.heroRequired > 0 then
                     -- Hero-specific step: shown only for a matching hero
                     -- selection (none selected = shared skeleton only).
@@ -248,9 +306,7 @@ local function render(inst, args)
                 visibleStep = visibleStep + 1
                 if visibleStep > MAX_STEPS then break end
                 local row = inst.rows[visibleStep]
-                row:ClearAllPoints()
-                row:SetPoint("TOPLEFT", inst.content, "TOPLEFT", 0, currentY)
-                row:SetPoint("RIGHT", inst.content, "RIGHT", -RIGHT_PAD, 0)
+                row:Show()
                 row.rank:SetText(visibleStep .. ".")
                 row.icon:SetTexture(h.getIcon(stepText))
                 local cleanStep = h.strip(stepText)
@@ -266,18 +322,44 @@ local function render(inst, args)
                     row.itemId = nil
                     row.spellId = spellId and tonumber(spellId) or nil
                 end
+                local hasNote = note ~= nil and note ~= ""
+                row.hasNote = hasNote
                 row.stepText:SetWidth(textW)
                 row.stepText:SetText(h.format(cleanStep))
                 local textHeight = row.stepText:GetContentHeight() or 12
+                -- A wrapped line block reads as taller than the same text at an
+                -- unbounded width; single-line steps center in the row, wrapped
+                -- ones align to the top so icon, text and note share a top edge.
+                row.stepText:SetWidth(4096)
+                local oneLineH = row.stepText:GetContentHeight() or textHeight
+                row.stepText:SetWidth(textW)
                 row.stepText:SetHeight(textHeight)
-                local rowH = math.max(ns.ROW_HEIGHT, textHeight + 8)
-                row:SetHeight(rowH)
-                row:Show()
-                currentY = currentY - rowH - STEP_GAP
+                row.textH = textHeight
+                row.stepH = math.max(ns.ROW_HEIGHT, textHeight + 8)
+                row.stepText:ClearAllPoints()
+                if hasNote or textHeight > oneLineH + 1 then
+                    -- A noted step stacks top-down (text, gap, note), so it
+                    -- always aligns to the top, wrapped or not.
+                    row.stepText:SetPoint("TOPLEFT", row, "TOPLEFT", STEP_TEXT_X, -2)
+                else
+                    row.stepText:SetPoint("TOPLEFT", row, "TOPLEFT", STEP_TEXT_X, -((row.stepH - textHeight) / 2))
+                end
+                if hasNote then
+                    row.note:SetPoint("TOPLEFT", row.stepText, "BOTTOMLEFT", 0, -NOTE_GAP)
+                    row.note:SetWidth(textW)
+                    row.note:SetText(h.format(note))
+                    row.noteFullH = row.note:GetContentHeight() or 0
+                    row.note:SetHeight(row.noteFullH)
+                    row.note:Show()
+                else
+                    row.noteFullH = 0
+                end
+                inst.shownRows[#inst.shownRows + 1] = row
             end
         end
+        local total = layoutRows(inst)
         inst.section:Show()
-        return math.abs(currentY - yOffset)
+        return total
     elseif args.hasAnyRotation then
         inst.fallback:SetHeight(ns.ROW_HEIGHT)
         inst.fallbackText:SetJustifyH("LEFT")

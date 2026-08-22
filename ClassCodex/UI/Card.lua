@@ -243,17 +243,57 @@ function ns.CreateCard(parent, opts)
     function card:SetTitle(text)
         self.title:SetText(text or "")
     end
+    function card:_StopPlaceholder()
+        if self._phAnim and self._phAnim:IsPlaying() then self._phAnim:Stop() end
+        self.iconTex:SetAlpha(1)
+    end
     function card:SetIcon(value)
+        self:_StopPlaceholder()
+        self._portraitDisplayID = nil
+        self.iconTex:SetVertexColor(1, 1, 1)
         applyTexture(self.iconTex, value)
         self.iconTex:SetTexCoord(0, 1, 0, 1)
     end
     function card:SetPortrait(displayID)
         if displayID and SetPortraitTextureFromCreatureDisplayID then
-            SetPortraitTextureFromCreatureDisplayID(self.iconTex, displayID)
-            self.iconTex:SetTexCoord(0, 1, 0, 1)
+            if self._portraitDisplayID ~= displayID then
+                self:_StopPlaceholder()
+                self.iconTex:SetVertexColor(1, 1, 1)
+                SetPortraitTextureFromCreatureDisplayID(self.iconTex, displayID)
+                self.iconTex:SetTexCoord(0, 1, 0, 1)
+                self._portraitDisplayID = displayID
+            end
             return true
         end
         return false
+    end
+    function card:SetPortraitPlaceholder()
+        self._portraitDisplayID = nil
+        self.iconTex:SetTexture("Interface\\Buttons\\WHITE8X8")
+        self.iconTex:SetTexCoord(0, 1, 0, 1)
+        -- Skeleton gray bright enough to read as "loading" on the dark card
+        -- tint; the alpha breathe is deep and quick so it can't pass for an
+        -- empty slot.
+        self.iconTex:SetVertexColor(0.42, 0.42, 0.48, 1)
+        if not self._phAnim then
+            local ag = self.iconTex:CreateAnimationGroup()
+            ag:SetLooping("REPEAT")
+            local down = ag:CreateAnimation("Alpha")
+            down:SetFromAlpha(1)
+            down:SetToAlpha(0.35)
+            down:SetDuration(0.4)
+            down:SetOrder(1)
+            down:SetSmoothing("OUT")
+            local up = ag:CreateAnimation("Alpha")
+            up:SetFromAlpha(0.35)
+            up:SetToAlpha(1)
+            up:SetDuration(0.4)
+            up:SetOrder(2)
+            up:SetSmoothing("IN")
+            self._phAnim = ag
+        end
+        self.iconTex:SetAlpha(1)
+        self._phAnim:Play()
     end
     function card:SetHeroIcon(value, name)
         if value then

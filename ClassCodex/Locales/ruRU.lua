@@ -142,6 +142,11 @@ L["settings.tooltip.page_hard_stops"] =
 L["settings.label.panel_width"] = "Ширина панели"
 L["settings.tooltip.panel_width"] =
     "Ширина панели Class Codex в пикселях. Применяется к закреплённому и плавающему режимам."
+L["settings.label.gear_source"] = "Показывать источник предмета"
+L["settings.hint.gear_source_no_icons"] = "Отображается в режимах таблицы и списка."
+L["settings.tooltip.gear_source"] =
+    "Показывает, откуда берется каждый рекомендуемый предмет — место добычи или изготовление. Под названием предмета в режиме списка и отдельным столбцом в режиме таблицы. В режиме значков информация остается в подсказке предмета. Каждая панель запоминает выбор отдельно. Только для данных Icy Veins."
+L["settings.hint.gear_source_no_icons"] = "Отображается в режимах таблицы и списка."
 L["settings.label.minimap_button"] = "Кнопка на миникарте"
 L["settings.label.login_message"] = "Сообщение при входе"
 L["settings.label.pin_talent_source"] = "Закрепить источник талантов"

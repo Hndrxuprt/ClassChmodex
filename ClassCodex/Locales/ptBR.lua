@@ -139,6 +139,11 @@ L["settings.tooltip.page_hard_stops"] =
 L["settings.label.panel_width"] = "Largura do Painel"
 L["settings.tooltip.panel_width"] =
     "Largura do painel do Class Codex em pixels. Aplica-se aos modos encaixado e flutuante."
+L["settings.label.gear_source"] = "Mostrar a fonte do item"
+L["settings.hint.gear_source_no_icons"] = "Aparece nas visões de tabela e lista."
+L["settings.tooltip.gear_source"] =
+    "Mostra de onde vem cada item recomendado — local de queda ou criação. Sob o nome do item na visão de lista e como coluna na visão de tabela. A visão de ícones mantém a informação na dica do item. Cada painel lembra essa escolha separadamente. Somente com dados do Icy Veins."
+L["settings.hint.gear_source_no_icons"] = "Aparece nas visões de tabela e lista."
 L["settings.label.minimap_button"] = "Botão do Minimapa"
 L["settings.label.login_message"] = "Mensagem de Login"
 L["settings.label.pin_talent_source"] = "Fixar fonte de talentos"

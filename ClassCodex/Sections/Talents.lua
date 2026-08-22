@@ -28,6 +28,7 @@ local function buildCardList(args)
 
     local out = {}
     local usedContext = {}
+    local lastWasOverview = false
     for order, b in ipairs(raw) do
         local contentOk = (not b.zoneKind) or b.zoneKind == ct or (b.leveling and ct ~= "pvp")
         local diffOk = (not b.difficulty) or b.difficulty == diff
@@ -49,12 +50,16 @@ local function buildCardList(args)
             end
 
             if keep then
-                local icon, portrait, tintKey
+                local icon, portrait, tintKey, portraitPending
                 if b.zoneKind == "raid" then
                     tintKey = (ns.GetCurrentRaidName and ns.GetCurrentRaidName()) or "raid"
                     if b.encounterLabel then
                         local ba = ns.GetBossArtByName and ns.GetBossArtByName(b.encounterLabel)
-                        if ba then portrait = ba.displayID end
+                        if ba then
+                            portrait = ba.displayID
+                        elseif ns.IsBossMapReady and not ns.IsBossMapReady() then
+                            portraitPending = true
+                        end
                     end
                 elseif b.zoneKind == "mplus" then
                     tintKey = b.encounterLabel or "mythic-plus"
@@ -63,6 +68,12 @@ local function buildCardList(args)
                     end
                 else
                     tintKey = b.label
+                end
+
+                -- No specific art (raid/M+ overview, unknown boss, delves, PvP):
+                -- fall back to a generic content-type icon before the spec icon.
+                if not portrait and not portraitPending and not icon then
+                    icon = ns.GetContentFallbackAtlas and ns.GetContentFallbackAtlas(b.artKind or b.zoneKind)
                 end
 
                 out[#out + 1] = {
@@ -74,14 +85,17 @@ local function buildCardList(args)
                     provider = b.provider,
                     icon = icon,
                     portrait = portrait,
+                    portraitPending = portraitPending,
                     tintKey = tintKey,
                     leveling = b.leveling,
                     tags = b.tags,
                     honor = b.honor,
+                    gapBefore = b.separatorBefore or (lastWasOverview and not b.isOverview) or nil,
                     _order = order,
                 }
             end
         end
+        lastWasOverview = b.isOverview or false
     end
 
     table.sort(out, function(a, b)
@@ -218,6 +232,7 @@ local function render(inst, args)
     local count = math.min(#list, MAX_CARDS)
     for i = 1, count do
         local d = list[i]
+        if d.gapBefore then yPos = yPos + 8 end
         local card = ensureCard(inst, i)
         card:ClearAllPoints()
         card:SetPoint("TOPLEFT", inst.content, "TOPLEFT", HPAD, -yPos)
@@ -228,6 +243,10 @@ local function render(inst, args)
 
         local iconSet = false
         if d.portrait then iconSet = card:SetPortrait(d.portrait) end
+        if not iconSet and d.portraitPending then
+            card:SetPortraitPlaceholder()
+            iconSet = true
+        end
         if not iconSet and d.icon then
             card:SetIcon(d.icon)
             iconSet = true

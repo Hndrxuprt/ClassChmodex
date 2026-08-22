@@ -139,6 +139,11 @@ L["settings.tooltip.page_hard_stops"] =
     "Lock scrolling to the current section — the mouse wheel stops at each section instead of sliding into the next. Use the side tabs to change sections."
 L["settings.label.panel_width"] = "Largeur du panneau"
 L["settings.tooltip.panel_width"] = "Largeur du panneau Class Codex en pixels. S'applique aux modes ancré et flottant."
+L["settings.label.gear_source"] = "Afficher la source des objets"
+L["settings.hint.gear_source_no_icons"] = "Apparaît en vue tableau et liste."
+L["settings.tooltip.gear_source"] =
+    "Indique la provenance de chaque objet recommandé – lieu d'obtention ou artisanat. Sous le nom de l'objet en vue liste et sous forme de colonne en vue tableau. La vue icônes la conserve dans l'infobulle. Chaque panneau mémorise ce choix séparément. Données Icy Veins uniquement."
+L["settings.hint.gear_source_no_icons"] = "Apparaît en vue tableau et liste."
 L["settings.label.minimap_button"] = "Bouton minicarte"
 L["settings.label.login_message"] = "Message de connexion"
 L["settings.label.pin_talent_source"] = "Épingler la source des talents"

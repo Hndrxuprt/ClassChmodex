@@ -230,7 +230,12 @@ ClassCodexSource["icyveins"] = {
             },
           },
         },
-        statPriority={all={all={secondary={{"haste"},{"crit"},{"mastery"},{"versatility"}}}}},
+        statPriority={
+          all={
+            all={secondary={{"haste"},{"crit"},{"mastery"},{"versatility"}}},
+            mplus={secondary={{"crit"},{"mastery","versatility"},{"haste"}}},
+          },
+        },
         talents={
           deathbringer={
             delve={
@@ -1177,6 +1182,7 @@ ClassCodexSource["icyveins"] = {
         statPriority={
           all={
             all={secondary={{"haste"},{"mastery"},{"crit"},{"versatility"}}},
+            mplus={secondary={{{note="to 18%",stat="haste"}},{"crit"},{"mastery"},{"versatility"},{"haste"}}},
             pvp={secondary={{"versatility"},{"mastery"},{"haste"},{"crit"}}},
           },
         },
@@ -1474,37 +1480,37 @@ ClassCodexSource["icyveins"] = {
                 {heroRequired={"Aldrachi Reaver"},text="Cast {191427} if {198013} and {210152} are both on cooldown"},
                 {
                   heroRequired={"Aldrachi Reaver"},
-                  text="Cast {370965} - Click for Notes Make sure you've spent any active {442294} procs before casting.",
+                  note="Make sure you've spent any active {442294} procs before casting.",
+                  text="Cast {370965}",
                 },
                 {
                   heroRequired={"Aldrachi Reaver"},
-                  text="Cast {232893} with {427640} ready - Click for Notes If {232893} isn't available, use {344865} instead.",
+                  note="If {232893} isn't available, use {344865} instead.",
+                  text="Cast {232893} with {427640} ready",
                 },
-                "Cast {198793} to trigger {206476} - Click for Notes Always try to align this with {198013} for {388108}.",
-                "Cast {198793} to trigger {388108} - Click for Notes Always try to align this with {198013}.",
+                {note="Always try to align this with {198013} for {388108}.",text="Cast {198793} to trigger {206476}"},
+                {note="Always try to align this with {198013}.",text="Cast {198793} to trigger {388108}"},
                 {
                   heroRequired={"Aldrachi Reaver"},
-                  text="Cast {442294} - Click for Notes Make sure to have no active {442442} or {442435} buffs active Follow this up with {344862} / {201427} to apply {442624} to your priority target",
+                  note="Make sure to have no active {442442} or {442435} buffs active Follow this up with {344862} / {201427} to apply {442624} to your priority target",
+                  text="Cast {442294}",
                 },
-                {
-                  heroRequired={"Fel-Scarred"},
-                  text="Cast {191427} if {198013} and {210152} are both on cooldown - Click for Notes Make sure you've consumed any {210152} and {201427} procs of {452402}",
-                },
-                {heroRequired={"Fel-Scarred"},text="Cast {370965} - Click for Notes If {191427} is available, hold to buff {452497}."},
                 {heroRequired={"Fel-Scarred"},text="Cast {210152} with {452402} active"},
                 {heroRequired={"Fel-Scarred"},text="Cast {210152} during {258860} or with {452402} active"},
                 {heroRequired={"Aldrachi Reaver"},text="Cast {210152} during {258860}"},
                 {
                   heroRequired={"Fel-Scarred"},
-                  text="Cast {258920} if at 2 charges - Click for Notes If {191427} is almost ready, dump both charges to make use of the reset.",
+                  note="If {191427} is almost ready, dump both charges to make use of the reset.",
+                  text="Cast {258920} if at 2 charges",
                 },
                 {heroRequired={"Fel-Scarred"},text="Cast {201427} with {452402} active"},
                 {heroRequired={"Aldrachi Reaver"},text="Cast {198013}"},
                 {
                   heroRequired={"Fel-Scarred"},
-                  text="Cast {198013} / {452497} - Click for Notes Make sure you've consumed any {201427} and {210152} procs of {452402}.",
+                  note="Make sure you've consumed any {201427} and {210152} procs of {452402}.",
+                  text="Cast {198013} / {452497}",
                 },
-                "Cast {258860} - Click for Notes If {198013}'s cooldown has 4 or less seconds remaining, hold until after.",
+                {note="If {198013}'s cooldown has 4 or less seconds remaining, hold until after.",text="Cast {258860}"},
                 "Cast {210152} / {188499}",
                 {heroRequired={"Fel-Scarred"},text="Cast {258920} / {452487}"},
                 {heroRequired={"Aldrachi Reaver"},text="Cast {258920}"},
@@ -1562,37 +1568,37 @@ ClassCodexSource["icyveins"] = {
                 {heroRequired={"Aldrachi Reaver"},text="Cast {191427} if {198013} and {210152} are both on cooldown"},
                 {
                   heroRequired={"Aldrachi Reaver"},
-                  text="Cast {370965} - Click for Notes Make sure you've spent any active {442294} procs before casting.",
+                  note="Make sure you've spent any active {442294} procs before casting.",
+                  text="Cast {370965}",
                 },
                 {
                   heroRequired={"Aldrachi Reaver"},
-                  text="Cast {232893} with {427640} ready - Click for Notes If {232893} isn't available, use {344865} instead.",
+                  note="If {232893} isn't available, use {344865} instead.",
+                  text="Cast {232893} with {427640} ready",
                 },
-                "Cast {198793} to trigger {206476} - Click for Notes Always try to align this with {198013} for {388108}.",
-                "Cast {198793} to trigger {388108} - Click for Notes Always try to align this with {198013}.",
+                {note="Always try to align this with {198013} for {388108}.",text="Cast {198793} to trigger {206476}"},
+                {note="Always try to align this with {198013}.",text="Cast {198793} to trigger {388108}"},
                 {
                   heroRequired={"Aldrachi Reaver"},
-                  text="Cast {442294} - Click for Notes Make sure to have no active {442442} or {442435} buffs active Follow this up with {344862} / {201427} to apply {442624}",
+                  note="Make sure to have no active {442442} or {442435} buffs active Follow this up with {344862} / {201427} to apply {442624}",
+                  text="Cast {442294}",
                 },
-                {
-                  heroRequired={"Fel-Scarred"},
-                  text="Cast {191427} if {198013} and {210152} are both on cooldown - Click for Notes Make sure you've consumed any {210152} and {201427} procs of {452402}",
-                },
-                {heroRequired={"Fel-Scarred"},text="Cast {370965} - Click for Notes If {191427} is available, hold to buff {452497}."},
                 {heroRequired={"Fel-Scarred"},text="Cast {210152} with {452402} active"},
                 {heroRequired={"Fel-Scarred"},text="Cast {210152} during {258860} or with {452402} active"},
                 {heroRequired={"Aldrachi Reaver"},text="Cast {210152} during {258860}"},
                 {
                   heroRequired={"Fel-Scarred"},
-                  text="Cast {258920} if at 2 charges - Click for Notes If {191427} is almost ready, dump both charges to make use of the reset.",
+                  note="If {191427} is almost ready, dump both charges to make use of the reset.",
+                  text="Cast {258920} if at 2 charges",
                 },
                 {heroRequired={"Fel-Scarred"},text="Cast {201427} with {452402} active"},
                 {heroRequired={"Aldrachi Reaver"},text="Cast {198013}"},
                 {
                   heroRequired={"Fel-Scarred"},
-                  text="Cast {198013} / {452497} - Click for Notes Make sure you've consumed any {201427} and {210152} procs of {452402}.",
+                  note="Make sure you've consumed any {201427} and {210152} procs of {452402}.",
+                  text="Cast {198013} / {452497}",
                 },
-                "Cast {258860} - Click for Notes If {198013}'s cooldown has 4 or less seconds remaining, hold until after.",
+                {note="If {198013}'s cooldown has 4 or less seconds remaining, hold until after.",text="Cast {258860}"},
                 "Cast {210152} / {188499}",
                 {heroRequired={"Fel-Scarred"},text="Cast {452487} with {452402} active"},
                 "Cast {201427} / {344862}",
@@ -2265,6 +2271,7 @@ ClassCodexSource["icyveins"] = {
         statPriority={
           all={
             all={secondary={{"mastery"},{"haste"},{"crit"},{"versatility"}}},
+            mplus={secondary={{"mastery"},{"crit"},{"haste"},{"versatility"}}},
             pvp={secondary={{"haste"},{"versatility"},{"mastery"},{"crit"}}},
           },
         },
@@ -2603,6 +2610,7 @@ ClassCodexSource["icyveins"] = {
         statPriority={
           all={
             all={secondary={{"mastery"},{"haste","crit"},{"versatility"}}},
+            mplus={secondary={{"mastery"},{"crit"},{"haste"},{"versatility"}}},
             pvp={secondary={{"mastery"},{"versatility"},{"haste"},{"crit"}}},
           },
         },
@@ -2853,7 +2861,12 @@ ClassCodexSource["icyveins"] = {
             },
           },
         },
-        statPriority={all={all={secondary={{"haste"},{"versatility"},{"mastery"},{"crit"}}}}},
+        statPriority={
+          all={
+            all={secondary={{"haste"},{"versatility"},{"mastery"},{"crit"}}},
+            mplus={secondary={{"haste"},{"versatility"},{"crit","mastery"}}},
+          },
+        },
         talents={
           ["druid-of-the-claw"]={
             mplus={
@@ -3125,6 +3138,7 @@ ClassCodexSource["icyveins"] = {
         statPriority={
           all={
             all={secondary={{"haste","mastery"},{"versatility"},{"crit"}}},
+            mplus={secondary={{"mastery","haste"},{"versatility"},{"crit"}}},
             pvp={secondary={{"mastery"},{"versatility"},{"haste"},{"crit"}}},
           },
         },
@@ -4326,7 +4340,8 @@ ClassCodexSource["icyveins"] = {
         statPriority={
           all={
             all={secondary={{"mastery"},{"haste"},{"crit"},{"versatility"}}},
-            pvp={secondary={{"versatility"},{"mastery"},{"haste"},{"crit"}}},
+            mplus={secondary={{"mastery"},{"crit"},{"versatility"},{"haste"}}},
+            pvp={secondary={{{note="to 24%",stat="versatility"}},{"mastery"},{"haste"},{"crit"}}},
           },
         },
         talents={
@@ -4393,9 +4408,13 @@ ClassCodexSource["icyveins"] = {
             },
             raid={
               {
-                export="C0PAAAAAAAAAAAAAAAAAAAAAAAMmxwCsAzwQDbAAYGGzsMzwMmZMDzMGzMMzYGzsYmZMjZwYaGAAAAwMAAAMmZGgZ2gNYWAbDAD",
+                export="C0PAAAAAAAAAAAAAAAAAAAAAAAMmxwCsAzwQDbAAYGGzsMzwMmZYYmxYmxMzYGzsYmZMjZwYaGAAAAwMAAAMmZGgZ2gNYWAbDAD",
                 label="Single-Target",
                 recommended=true,
+              },
+              {
+                export="C0PAAAAAAAAAAAAAAAAAAAAAAAMmxwCsAzwQDbAAYGGzsMzwMmZMDzMGzMMzYGzsYmZMjZwYaGAAAAwMAAAMmZGgZ2gNYWAbDAD",
+                label="Single-Target (Easy Mode)",
               },
             },
           },
@@ -4729,7 +4748,7 @@ ClassCodexSource["icyveins"] = {
         statPriority={
           all={
             all={secondary={{"crit"},{"mastery"},{"versatility"},{"haste"}}},
-            pvp={secondary={{"versatility"},{"mastery"},{"haste"},{"crit"}}},
+            pvp={secondary={{{note="to 24%",stat="versatility"}},{"mastery"},{"haste"},{"crit"}}},
           },
         },
         talents={
@@ -5040,7 +5059,7 @@ ClassCodexSource["icyveins"] = {
         statPriority={
           all={
             all={secondary={{"mastery"},{"crit"},{"haste"},{"versatility"}}},
-            pvp={secondary={{"versatility"},{"mastery"},{"haste"},{"crit"}}},
+            pvp={secondary={{{note="to 24%",stat="versatility"}},{"mastery"},{"haste"},{"crit"}}},
           },
         },
         talents={
@@ -6292,7 +6311,12 @@ ClassCodexSource["icyveins"] = {
             },
           },
         },
-        statPriority={all={all={secondary={{"crit","versatility","mastery"},{"haste"}}}}},
+        statPriority={
+          all={
+            all={secondary={{"crit","versatility","mastery"},{"haste"}}},
+            mplus={secondary={{"crit","mastery"},{"versatility"},{"haste"}}},
+          },
+        },
         talents={
           ["master-of-harmony"]={
             delve={
@@ -6569,6 +6593,7 @@ ClassCodexSource["icyveins"] = {
         statPriority={
           all={
             all={secondary={{"haste"},{"crit"},{"versatility"},{"mastery"}}},
+            mplus={secondary={{"haste"},{"crit","versatility"},{"mastery"}}},
             pvp={secondary={{"haste"},{"versatility"},{"mastery"},{"crit"}}},
           },
         },
@@ -7161,6 +7186,7 @@ ClassCodexSource["icyveins"] = {
         statPriority={
           all={
             all={secondary={{"mastery"},{"haste"},{"crit"},{"versatility"}}},
+            mplus={secondary={{"mastery"},{"crit"},{"haste"},{"versatility"}}},
             pvp={secondary={{"versatility"},{"mastery"},{"haste"},{"crit"}}},
           },
         },
@@ -7412,7 +7438,12 @@ ClassCodexSource["icyveins"] = {
             },
           },
         },
-        statPriority={all={all={secondary={{"haste"},{"versatility","mastery"},{"crit"}}}}},
+        statPriority={
+          all={
+            all={secondary={{"haste"},{"versatility","mastery"},{"crit"}}},
+            mplus={secondary={{"haste"},{"crit"},{"versatility","mastery"}}},
+          },
+        },
         talents={
           lightsmith={
             mplus={
@@ -7967,7 +7998,8 @@ ClassCodexSource["icyveins"] = {
         },
         statPriority={
           all={
-            all={secondary={{"haste"},{"mastery"},{"crit"},{"versatility"}}},
+            all={secondary={{{note="(until 1800 rating)",stat="haste"}},{"mastery"},{"crit"},{"versatility"}}},
+            mplus={secondary={{"haste"},{"mastery"},{"crit"},{"versatility"}}},
             pvp={secondary={{"versatility"},{"mastery"},{"haste"},{"crit"}}},
           },
         },
@@ -8284,6 +8316,7 @@ ClassCodexSource["icyveins"] = {
         statPriority={
           all={
             all={secondary={{"crit"},{"mastery","versatility"},{"haste"}}},
+            mplus={secondary={{"crit"},{"versatility","haste"},{"mastery"}}},
             pvp={secondary={{"versatility"},{"mastery"},{"haste"},{"crit"}}},
           },
         },
@@ -9003,7 +9036,7 @@ ClassCodexSource["icyveins"] = {
         statPriority={
           all={
             all={secondary={{"crit","haste"},{"mastery"},{"versatility"}}},
-            pvp={secondary={{"versatility"},{"mastery"},{"crit"},{"haste"}}},
+            pvp={secondary={{{note="to 25%",stat="versatility"}},{"mastery"},{"crit"},{"haste"}}},
           },
         },
         talents={
@@ -9277,8 +9310,8 @@ ClassCodexSource["icyveins"] = {
         },
         statPriority={
           all={
-            all={secondary={{"crit"},{"haste"},{"versatility"},{"mastery"}}},
-            pvp={secondary={{"versatility"},{"haste"},{"crit"},{"mastery"}}},
+            all={secondary={{{note="to 40%",stat="crit"}},{{note="to 25%",stat="haste"}},{"versatility"},{"mastery"}}},
+            pvp={secondary={{"versatility"},{{note="to 25%",stat="haste"}},{"crit"},{"mastery"}}},
           },
         },
         talents={
@@ -9575,8 +9608,8 @@ ClassCodexSource["icyveins"] = {
         },
         statPriority={
           all={
-            all={secondary={{"mastery"},{"haste"},{"versatility"},{"crit"}}},
-            pvp={secondary={{"versatility"},{"haste"},{"mastery"},{"crit"}}},
+            all={secondary={{"mastery"},{{note="(to 700+)",stat="haste"}},{"versatility"},{"crit"}}},
+            pvp={secondary={{{note="to 25%",stat="versatility"}},{{note="to 200",stat="haste"}},{"mastery"},{"crit"}}},
           },
         },
         talents={
@@ -10173,7 +10206,8 @@ ClassCodexSource["icyveins"] = {
                 {heroRequired={"Totemic"},text="Cast {197214}"},
                 {
                   heroRequired={"Stormbringer"},
-                  text="Cast {470057} - Click for Notes With the 2-piece this should be kept on cooldown whenever possible",
+                  note="With the 2-piece this should be kept on cooldown whenever possible",
+                  text="Cast {470057}",
                 },
                 "Cast {114051}",
                 "Cast {384352}",
@@ -10227,27 +10261,27 @@ ClassCodexSource["icyveins"] = {
               steps={
                 {heroRequired={"Totemic"},text="Cast {470057} if {188389} isn't active"},
                 {heroRequired={"Totemic"},text="Cast {444995}"},
-                {heroRequired={"Totemic"},text="Cast {197214} - Click for Notes Aim to sync up every other cast with {444995}."},
+                {heroRequired={"Totemic"},note="Aim to sync up every other cast with {444995}.",text="Cast {197214}"},
                 {heroRequired={"Totemic"},text="Cast {60103} with {201900} or {453405} active"},
                 {
                   heroRequired={"Totemic"},
-                  text="Cast {470057} - Click for Notes With the 2-piece this should be kept on cooldown whenever possible",
+                  note="With the 2-piece this should be kept on cooldown whenever possible",
+                  text="Cast {470057}",
                 },
                 {heroRequired={"Totemic"},text="Cast {384352}"},
                 {
                   heroRequired={"Totemic"},
-                  text="Cast {1218047} with 10 {187880} stacks - Click for Notes If the buff is about to expire, this can be cast at 5+ stacks instead.",
+                  note="If the buff is about to expire, this can be cast at 5+ stacks instead.",
+                  text="Cast {1218047} with 10 {187880} stacks",
                 },
-                {heroRequired={"Stormbringer"},text="Cast {1218047} with 10 {187880} stacks"},
-                {heroRequired={"Stormbringer"},text="Cast {197214} - Click for Notes Aim to align this with {114051}"},
-                {heroRequired={"Stormbringer"},text="Cast {197214}"},
                 "Cast {187874}",
                 "Cast {114051}",
                 "Cast {115356} during {114051}",
                 "Cast {17364} during {384352}",
                 {
                   heroRequired={"Totemic"},
-                  text="Cast {188196} with 10 {187880} stacks - Click for Notes This can be used as low as 5+ if {1250364} will reset {60103} cooldown.",
+                  note="This can be used as low as 5+ if {1250364} will reset {60103} cooldown.",
+                  text="Cast {188196} with 10 {187880} stacks",
                 },
                 {heroRequired={"Stormbringer"},text="Cast {454009} / {188196} with 10 {187880} stacks"},
                 {heroRequired={"Stormbringer"},text="Cast {17364}"},
@@ -10293,6 +10327,7 @@ ClassCodexSource["icyveins"] = {
         statPriority={
           all={
             all={secondary={{"mastery","haste"},{"crit"},{"versatility"}}},
+            mplus={secondary={{"mastery"},{"haste"},{"crit"},{"versatility"}}},
             pvp={secondary={{"versatility"},{"haste"},{"mastery"},{"crit"}}},
           },
         },
@@ -11128,7 +11163,7 @@ ClassCodexSource["icyveins"] = {
         },
         statPriority={
           all={
-            all={secondary={{"haste"},{"crit"},{"mastery"},{"haste"},{"versatility"}}},
+            all={secondary={{{note="to 22%",stat="haste"}},{"crit"},{"mastery"},{"haste"},{"versatility"}}},
             pvp={secondary={{"versatility"},{"haste"},{"mastery"},{"crit"}}},
           },
         },
@@ -11421,7 +11456,7 @@ ClassCodexSource["icyveins"] = {
         },
         statPriority={
           all={
-            all={secondary={{"haste"},{"crit"},{"mastery"},{"haste"},{"versatility"}}},
+            all={secondary={{{note="to 22%",stat="haste"}},{"crit"},{"mastery"},{"haste"},{"versatility"}}},
             pvp={secondary={{"haste"},{"versatility"},{"mastery"},{"crit"}}},
           },
         },
@@ -12542,7 +12577,7 @@ ClassCodexSource["icyveins"] = {
       },
     },
   },
-  meta={contentHash="b902633d0cf2742e",generatedAt="2026-08-20T22:16:30.400Z",schemaVersion=1,source="icyveins"},
+  meta={contentHash="be2d32830310218b",generatedAt="2026-08-21T23:28:20.571Z",schemaVersion=1,source="icyveins"},
   reference={
     heroNames={
       ["aldrachi-reaver"]="Aldrachi Reaver",

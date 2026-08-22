@@ -89,11 +89,14 @@ function ns.GetDungeonIconByName(name)
 end
 
 local bossByName
-local function EnsureBossMap()
-    if bossByName then return end
+local bossMapReady = false
+local bossScanStarted = false
+
+local function BuildBossMap()
+    if bossByName then return true end
     if C_AddOns and C_AddOns.LoadAddOn then pcall(C_AddOns.LoadAddOn, "Blizzard_EncounterJournal") end
     if not (EJ_GetInstanceByIndex and EJ_SelectInstance and EJ_GetEncounterInfoByIndex and EJ_GetCreatureInfo) then
-        return
+        return false
     end
     local map, any = {}, false
     local function scanTier(tier)
@@ -121,16 +124,65 @@ local function EnsureBossMap()
     end
     pcall(function()
         local n = (EJ_GetNumTiers and EJ_GetNumTiers()) or 1
-        for tier = n, 1, -1 do
-            scanTier(tier)
-        end
+        scanTier(n)
+        -- Expansion boundaries can briefly report the current tier empty;
+        -- one tier back is cheap insurance before settling on no portraits.
+        if not any and n > 1 then scanTier(n - 1) end
     end)
     if any then bossByName = map end
+    bossMapReady = true
+    return true
+end
+
+local function EnsureBossMap()
+    if bossMapReady or bossScanStarted then return end
+    bossScanStarted = true
+    C_Timer.After(0, function()
+        local ejReady = BuildBossMap()
+        if ejReady then
+            -- Refresh even when the scan came up empty: cards holding a
+            -- placeholder must fall back to their normal icon, not pulse
+            -- forever.
+            if ns.RefreshBossArt then ns.RefreshBossArt() end
+        else
+            bossScanStarted = false
+        end
+    end)
+end
+
+function ns.RefreshBossArt()
+    if ns.UpdatePanelIfVisible then ns.UpdatePanelIfVisible() end
+    if ns.UpdateCompendium then ns:UpdateCompendium() end
+    if ns.RefreshTalentPaneDropdown then ns.RefreshTalentPaneDropdown() end
 end
 
 function ns.GetBossArtByName(name)
     local key = norm(name)
     if not key then return nil end
     EnsureBossMap()
-    return bossByName[key]
+    return bossByName and bossByName[key] or nil
+end
+
+-- "Ready" means the scan has settled — with or without portraits. An empty
+-- result makes cards fall back to their normal icon instead of a placeholder.
+function ns.IsBossMapReady()
+    return bossMapReady
+end
+
+-- Generic per-content-type icons for cards with no specific art (raid
+-- overview, unknown bosses, M+ overview, delves, PvP). Blizzard's quest-log
+-- tag icons read cleanly at card-icon size; guarded so a client rename
+-- degrades to the spec icon instead of a broken texture.
+local CONTENT_FALLBACK_ATLAS = {
+    raid = "questlog-questtypeicon-raid",
+    mplus = "questlog-questtypeicon-dungeon",
+    delve = "questlog-questtypeicon-delves",
+    pvp = "questlog-questtypeicon-pvp",
+}
+
+function ns.GetContentFallbackAtlas(kind)
+    local atlas = kind and CONTENT_FALLBACK_ATLAS[kind] or nil
+    if not atlas then return nil end
+    if C_Texture and C_Texture.GetAtlasInfo and not C_Texture.GetAtlasInfo(atlas) then return nil end
+    return atlas
 end
