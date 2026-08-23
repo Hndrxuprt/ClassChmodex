@@ -21,42 +21,6 @@ local function PickRankColor(i, override)
     return (override and override[i]) or DEFAULT_RANK_COLORS[i] or DEFAULT_RANK_COLORS[5]
 end
 
-function ns.CreateStatInfoButton(parent)
-    local btn = CreateFrame("Button", nil, parent)
-    btn:SetSize(14, 14)
-    btn:RegisterForClicks("LeftButtonUp")
-    local icon = btn:CreateTexture(nil, "ARTWORK")
-    icon:SetAllPoints()
-    icon:SetAtlas("QuestLog-icon-setting")
-    icon:SetVertexColor(0.6, 0.6, 0.6)
-    btn:SetScript("OnEnter", function(self)
-        ns.Tooltip
-            .Open(self, "ANCHOR_RIGHT")
-            .Title(L["settings.label.stat_priority_on_tooltips"])
-            .Intro("Item tooltips show each stat's priority rank (#1, #2, …) for your hero talent.")
-            .Hint("Click to change tooltip settings.")
-            .Show()
-        icon:SetVertexColor(1, 1, 1)
-    end)
-    btn:SetScript("OnLeave", function()
-        ns.Tooltip.Hide()
-        icon:SetVertexColor(0.6, 0.6, 0.6)
-    end)
-    btn:SetScript("OnClick", function(self)
-        if not (MenuUtil and MenuUtil.CreateContextMenu) then return end
-        MenuUtil.CreateContextMenu(self, function(_, root)
-            root:CreateCheckbox(L["settings.label.stat_priority_ranks"], function()
-                return ClassCodexDB and ClassCodexDB.showTooltipBadges ~= false
-            end, function()
-                if ClassCodexDB then ClassCodexDB.showTooltipBadges = ClassCodexDB.showTooltipBadges == false end
-                if ns.InvalidateTooltipCache then ns.InvalidateTooltipCache() end
-                return MenuResponse.Refresh
-            end)
-        end)
-    end)
-    return btn
-end
-
 -- ============================================================
 -- Stat Priority subsection
 -- ============================================================
@@ -66,11 +30,27 @@ end
 -- BiS does), and the suffix/cog only appear when the source publishes more
 -- than one genuinely different priority for that same content type —
 -- identical orders collapse, so no option is shown when the stats don't
--- differ. "raid" resolves through the "all" (single-target) bucket today; a
--- future AoE context slots in here and appears automatically once ingested.
+-- differ. Beyond a genuine content split ("Mythic+", Icy Veins' editorial
+-- M+ sections), sources can publish playstyle-flavored priorities on their
+-- own axis — "single-target" and "aoe" (u.gg's target-count data, Icy Veins'
+-- split pairs) and "damage" (tank Survivability vs Damage Output pairs).
+-- Mythic+ is always the AoE order when the source publishes one (there is no
+-- single-target option there at all); Raid offers Single Target vs AoE.
+-- Variant keys the source doesn't carry fall back to the general order, so
+-- they're only offered when a real entry resolved.
 local CT_VARIANTS = {
-    mplus = { { key = "mplus", label = "Mythic+" } },
-    raid = { { key = "raid", label = "Single Target" } },
+    mplus = {
+        { key = "mplus", label = "Mythic+" },
+        { key = "aoe", label = "AoE" },
+        { key = "damage", label = "Damage" },
+    },
+    raid = {
+        -- No source publishes a raid-specific priority (raid resolves through
+        -- the aggregate), so the raid view offers the playstyle axis directly.
+        { key = "single-target", label = "Single Target" },
+        { key = "aoe", label = "AoE" },
+        { key = "damage", label = "Damage" },
+    },
     pvp = { { key = "pvp", label = "PvP" } },
 }
 
@@ -98,41 +78,124 @@ local function prioritySignature(tiers)
     return table.concat(parts, "\2")
 end
 
-local function resolvePriority(inst, args)
-    if not (args.classToken and args.specKey and ns.GetStatPriority) then
-        inst.variantOptions = nil
-        return args.priorityStats
-    end
-    local view = args.contentType or (ns.Context and ns.Context.contentType()) or "mplus"
-    if type(view) == "string" and view:sub(1, 4) == "pvp:" then view = "pvp" end
+-- The offered variants for one content view, in order, deduplicated by their
+-- actual stat order. Each entry carries the context key its data resolved
+-- through ("mplus", "damage", "all" for the wildcard fallback) so callers can
+-- derive breakpoints from the same priority they display.
+local function computeVariants(classToken, specKey, view, source, heroSlug)
     local variants, seenSig = {}, {}
-    for _, v in ipairs(CT_VARIANTS[view] or {}) do
-        local p = ns.GetStatPriority(args.classToken, args.specKey, v.key, args.source, args.heroSlug)
-        if p then
+    for i, v in ipairs(CT_VARIANTS[view] or {}) do
+        local p, hitCtx = ns.GetStatPriority(classToken, specKey, v.key, source, heroSlug)
+        -- A non-first variant resolving through the wildcard means the source
+        -- has no entry for it — the lookup fell back to the general order the
+        -- first option already shows, so don't offer it again under a variant
+        -- label.
+        if p and not (i > 1 and hitCtx == "all") then
+            -- The view's own context key resolving through the wildcard means
+            -- the source has no context-specific split: what's shown is the
+            -- general order, and "General" says so.
+            local label = (i == 1 and hitCtx == "all") and "General" or v.label
             local sig = prioritySignature(p)
             if not seenSig[sig] then
                 seenSig[sig] = true
-                variants[#variants + 1] = { label = v.label, priority = p }
+                variants[#variants + 1] = { label = label, priority = p, hitCtx = hitCtx }
             end
         end
     end
-    inst.variantOptions = #variants > 1 and variants or nil
-    if #variants == 0 then return nil end
+    -- Mythic+ is always the AoE order when the source publishes one: the
+    -- wildcard placeholder (the general/single-target order) drops out rather
+    -- than trailing behind a real AoE entry. Specs with no AoE data keep the
+    -- placeholder — it's the best available order — and tank Defensive/Damage
+    -- pairs are untouched (their axis is survivability, not target count).
+    if view == "mplus" then
+        local hasAoe = false
+        for _, v in ipairs(variants) do
+            if v.hitCtx == "aoe" then
+                hasAoe = true
+                break
+            end
+        end
+        if hasAoe then
+            for i = #variants, 1, -1 do
+                if variants[i].hitCtx == "all" then table.remove(variants, i) end
+            end
+        end
+    end
+    -- Wildcard-fallback placeholders read as the pair they're the default
+    -- side of — the tank orders read Defensive vs Damage, the split pairs
+    -- Single Target vs AoE — rather than "General", wherever the placeholder
+    -- sits (the M+ default swap above can demote it).
+    local placeholderLabel
+    for _, v in ipairs(variants) do
+        if v.label == "Damage" then
+            placeholderLabel = "Defensive"
+        elseif v.label == "AoE" and not placeholderLabel then
+            placeholderLabel = "Single Target"
+        end
+    end
+    if placeholderLabel then
+        for _, v in ipairs(variants) do
+            if v.label == "General" then v.label = placeholderLabel end
+        end
+    end
+    -- A single offered order (e.g. u.gg specs whose single-target and AoE
+    -- orders are identical) carries no label — there is nothing to choose,
+    -- so nothing may ever surface one.
+    if #variants == 1 then variants[1].label = nil end
+    return variants
+end
+
+--- The variant-aware stat priority for one content view: the offered variants
+--- for that view with the per-spec saved choice applied. `specKey` is the data
+--- key (raw spec slug); `prefKey` is the per-spec preferences key
+--- ("CLASS-spec") when the caller knows it. Returns the display tiers, the
+--- context key they resolved through, the chosen variant's label (nil when the
+--- view offers no real choice), and the full variant list. Shared by the
+--- pane/compendium sections and the item-tooltip rank badges so both always
+--- follow the same selection.
+function Stats.ResolveViewPriority(classToken, specKey, contentType, source, heroSlug, prefKey)
+    if not (classToken and specKey and ns.GetStatPriority) then return nil end
+    local view = contentType or (ns.Context and ns.Context.contentType()) or "mplus"
+    if type(view) == "string" and view:sub(1, 4) == "pvp:" then view = "pvp" end
+    local variants = computeVariants(classToken, specKey, view, source, heroSlug)
+    if #variants == 0 then return nil, nil, nil, variants end
     local chosen = variants[1]
-    if inst.variantOptions then
-        local saved = LoadStatPrefs(args.specKey)
+    local label
+    if #variants > 1 then
+        local saved = LoadStatPrefs(prefKey or specKey)
         for _, v in ipairs(variants) do
             if v.label == saved then
                 chosen = v
                 break
             end
         end
-        inst.currentVariant = chosen.label
-        inst.specKey = args.specKey
+        label = chosen.label
+    end
+    return chosen.priority, chosen.hitCtx, label, variants
+end
+
+local function resolvePriority(inst, args)
+    if not (args.classToken and args.specKey and ns.GetStatPriority) then
+        inst.variantOptions = nil
+        return args.priorityStats
+    end
+    local priority, _, label, variants = Stats.ResolveViewPriority(
+        args.classToken,
+        args.specKey,
+        args.contentType,
+        args.source,
+        args.heroSlug,
+        args.prefKey
+    )
+    inst.variantOptions = #variants > 1 and variants or nil
+    if #variants == 0 then return nil end
+    if inst.variantOptions then
+        inst.currentVariant = label
+        inst.specKey = args.prefKey or args.specKey
     else
         inst.currentVariant = nil
     end
-    return chosen.priority
+    return priority
 end
 
 local function makeCog(inst, refresh)
@@ -145,11 +208,10 @@ local function makeCog(inst, refresh)
     cogIcon:SetVertexColor(0.6, 0.6, 0.6)
     cog:SetScript("OnEnter", function(self)
         cogIcon:SetVertexColor(1, 1, 1)
-        ns.Tooltip
-            .Open(self, "ANCHOR_RIGHT")
-            .Title(L["section.stat_priority"] or "Stat Priority")
-            .Hint("Click to change variant.")
-            .Show()
+        local opts = inst.variantOptions
+        local hint = (opts and #opts > 1) and "Click to change variant or tooltip settings."
+            or "Click to change tooltip settings."
+        ns.Tooltip.Open(self, "ANCHOR_RIGHT").Title(L["section.stat_priority"] or "Stat Priority").Hint(hint).Show()
     end)
     cog:SetScript("OnLeave", function()
         cogIcon:SetVertexColor(0.6, 0.6, 0.6)
@@ -157,17 +219,37 @@ local function makeCog(inst, refresh)
     end)
     cog:SetScript("OnClick", function(self)
         if not (MenuUtil and MenuUtil.CreateContextMenu) then return end
-        local opts = inst.variantOptions
-        if not (opts and #opts > 1) then return end
         MenuUtil.CreateContextMenu(self, function(_, root)
             root:CreateTitle(L["section.stat_priority"] or "Stat Priority")
-            for _, v in ipairs(opts) do
-                root:CreateRadio(v.label, function()
-                    return inst.currentVariant == v.label
-                end, function()
-                    SaveStatPrefs(inst.specKey, v.label)
-                    if refresh then refresh() end
-                    return MenuResponse.Refresh
+            local opts = inst.variantOptions
+            if opts and #opts > 1 then
+                for _, v in ipairs(opts) do
+                    root:CreateRadio(v.label, function()
+                        return inst.currentVariant == v.label
+                    end, function()
+                        SaveStatPrefs(inst.specKey, v.label)
+                        -- The item-tooltip rank badges follow the saved choice.
+                        if ns.InvalidateStatRankCache then ns.InvalidateStatRankCache() end
+                        if refresh then refresh() end
+                        return MenuResponse.Refresh
+                    end)
+                end
+                root:CreateDivider()
+            end
+            local rankCheck = root:CreateCheckbox(L["settings.label.stat_priority_ranks"], function()
+                return ClassCodexDB and ClassCodexDB.showTooltipBadges ~= false
+            end, function()
+                if ClassCodexDB then ClassCodexDB.showTooltipBadges = ClassCodexDB.showTooltipBadges == false end
+                if ns.InvalidateTooltipCache then ns.InvalidateTooltipCache() end
+                return MenuResponse.Refresh
+            end)
+            if rankCheck and rankCheck.SetTooltip then
+                rankCheck:SetTooltip(function(tip)
+                    ns.Tooltip.MenuTip(
+                        tip,
+                        L["settings.label.stat_priority_ranks"] or "Stat priority ranks",
+                        "Item tooltips show each stat's priority rank (#1, #2, …) for your hero talent."
+                    )
                 end)
             end
         end)
@@ -241,7 +323,9 @@ local function renderPriority(inst, args)
 
     local priority = resolvePriority(inst, args)
     local hasVariants = inst.variantOptions and #inst.variantOptions > 1 or false
-    if inst.cogSetShown then inst.cogSetShown(hasVariants) end
+    -- Like the Best in Slot cog: always present while the section shows — the
+    -- menu carries the tooltip-ranks setting even when no variant choice exists.
+    if inst.cogSetShown then inst.cogSetShown(true) end
     if inst.header and inst.header.label then
         local base = L["section.stat_priority"] or "Stat Priority"
         if hasVariants and inst.currentVariant and inst.currentVariant ~= "" then

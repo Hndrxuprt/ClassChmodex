@@ -368,9 +368,9 @@ local function makeCog(inst, refresh)
             end)
             if rec and rec.SetTooltip then
                 rec:SetTooltip(function(tip)
-                    GameTooltip_SetTitle(tip, "Recommended")
-                    GameTooltip_AddNormalLine(
+                    ns.Tooltip.MenuTip(
                         tip,
+                        "Recommended",
                         "Show the build most players run for each boss or dungeon, from any hero talent. Off shows your current hero talent's build."
                     )
                 end)

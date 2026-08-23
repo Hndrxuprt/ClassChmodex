@@ -467,9 +467,6 @@ local function InitFrame()
             ns:UpdateCompendium()
         end,
     })
-    if ns.CreateStatInfoButton and UI.statHeader.AddHeaderWidget then
-        UI.statHeader:AddHeaderWidget(ns.CreateStatInfoButton(UI.statHeader))
-    end
 
     UI.talentSection, UI.talentHeader, UI.talentContent = ns.Sections.Talents.InitCompendium({
         parent = UI.scrollChild,
@@ -821,7 +818,8 @@ local function RenderStatPrioritySection(specData, heroTalent)
     ns.Sections.Stats.RenderCompendium({
         contextOptions = {},
         classToken = selectedClass,
-        specKey = selectedSpec,
+        specKey = selectedSpec, -- raw data key
+        prefKey = (selectedClass or "") .. "-" .. (selectedSpec or ""), -- per-spec pref key
         source = compSource,
         heroSlug = ns.HeroSlugFromDisplay and ns.HeroSlugFromDisplay(heroTalent) or nil,
         contentType = compContent,
