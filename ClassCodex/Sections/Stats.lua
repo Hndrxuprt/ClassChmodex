@@ -667,13 +667,24 @@ local function renderTargets(inst, args)
         if showCurrent then
             local current = ns.GetPlayerStatRating(statKey)
             local livePct = ns.GetPlayerStatPercent(statKey)
-            kind = hasTarget and (ns.ClassifyStatDelta(current, target) or "below") or "at"
-            local status = STATUS_ICONS[kind]
-            row.statusIcon:SetTexture(status.texture)
-            row.statusIcon:SetTexCoord(status.texCoord[1], status.texCoord[2], status.texCoord[3], status.texCoord[4])
-            row.statusIcon:SetVertexColor(status.r, status.g, status.b)
-            row.statusIcon:Show()
-            row.rating:SetText(string.format("%.1f%%  |cff9a9a9a%d / %d|r", livePct, current, target))
+            if current then
+                kind = hasTarget and (ns.ClassifyStatDelta(current, target) or "below") or "at"
+                local status = STATUS_ICONS[kind]
+                row.statusIcon:SetTexture(status.texture)
+                row.statusIcon:SetTexCoord(
+                    status.texCoord[1],
+                    status.texCoord[2],
+                    status.texCoord[3],
+                    status.texCoord[4]
+                )
+                row.statusIcon:SetVertexColor(status.r, status.g, status.b)
+                row.statusIcon:Show()
+                row.rating:SetText(string.format("%.1f%%  |cff9a9a9a%d / %d|r", livePct, current, target))
+            else
+                kind = "at"
+                row.statusIcon:Hide()
+                row.rating:SetText(hasTarget and string.format("|cff9a9a9a— / %d|r", target) or "—")
+            end
             local marginal = ns.GetMarginalDR and ns.GetMarginalDR(livePct) or 1
             if marginal >= 1 then
                 row.rating:SetTextColor(0.85, 0.85, 0.85)
@@ -701,7 +712,7 @@ local function renderTargets(inst, args)
                 end)
                 row._statTooltipBound = true
             end
-            local ratio = hasTarget and (current / target) or 1
+            local ratio = (current and hasTarget) and (current / target) or 1
             progress = math.min(ratio, BAR_MAX_RATIO) / BAR_MAX_RATIO
         else
             kind = "at"

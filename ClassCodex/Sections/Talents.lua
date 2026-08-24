@@ -28,7 +28,6 @@ local function buildCardList(args)
 
     local out = {}
     local usedContext = {}
-    local lastWasOverview = false
     for order, b in ipairs(raw) do
         local contentOk = (not b.zoneKind) or b.zoneKind == ct or (b.leveling and ct ~= "pvp")
         local diffOk = (not b.difficulty) or b.difficulty == diff
@@ -50,9 +49,10 @@ local function buildCardList(args)
             end
 
             if keep then
-                local icon, portrait, tintKey, portraitPending
+                local icon, portrait, tintKind, tintKey, portraitPending
                 if b.zoneKind == "raid" then
-                    tintKey = (ns.GetCurrentRaidName and ns.GetCurrentRaidName()) or "raid"
+                    tintKind = b.raidGroup
+                    if not tintKind then tintKey = (ns.GetCurrentRaidName and ns.GetCurrentRaidName()) or "raid" end
                     if b.encounterLabel then
                         local ba = ns.GetBossArtByName and ns.GetBossArtByName(b.encounterLabel)
                         if ba then
@@ -86,16 +86,15 @@ local function buildCardList(args)
                     icon = icon,
                     portrait = portrait,
                     portraitPending = portraitPending,
+                    tintKind = tintKind,
                     tintKey = tintKey,
                     leveling = b.leveling,
                     tags = b.tags,
                     honor = b.honor,
-                    gapBefore = b.separatorBefore or (lastWasOverview and not b.isOverview) or nil,
                     _order = order,
                 }
             end
         end
-        lastWasOverview = b.isOverview or false
     end
 
     table.sort(out, function(a, b)
@@ -232,7 +231,6 @@ local function render(inst, args)
     local count = math.min(#list, MAX_CARDS)
     for i = 1, count do
         local d = list[i]
-        if d.gapBefore then yPos = yPos + 8 end
         local card = ensureCard(inst, i)
         card:ClearAllPoints()
         card:SetPoint("TOPLEFT", inst.content, "TOPLEFT", HPAD, -yPos)
@@ -256,7 +254,9 @@ local function render(inst, args)
         local heroAtlas = d.heroTalent and ns.HERO_TALENT_ATLAS and ns.HERO_TALENT_ATLAS[d.heroTalent]
         card:SetHeroIcon(heroAtlas, d.heroTalent)
 
-        if d.tintKey and ns.TintFromKey then
+        if d.tintKind and ns.GetRaidGroupTint then
+            card:SetBackgroundColor(ns.GetRaidGroupTint(d.tintKind))
+        elseif d.tintKey and ns.TintFromKey then
             card:SetBackgroundColor(ns.TintFromKey(d.tintKey))
         else
             card:SetBackgroundColor(nil)

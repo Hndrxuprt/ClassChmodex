@@ -4214,7 +4214,7 @@ ClassCodexSource["icyveins"] = {
     HUNTER={
       ["beast-mastery"]={
         consumables={all={all={augmentRune={259085},flask={241322},food={255846,255845,242747},potions={241288,241308,271883}}}},
-        crafting={all={all={crafts={265337,268207,244581,244584,275707,258556},embellishments={273060,240167}}}},
+        crafting={all={all={crafts={265337,268207,244581,244584,244582,275707,258556},embellishments={273060,240167}}}},
         enchants={
           all={
             all={
@@ -4492,6 +4492,11 @@ ClassCodexSource["icyveins"] = {
             },
             mplus={
               {
+                export="C0PAAAAAAAAAAAAAAAAAAAAAAAMmxwCsAzwQDbAAYGmZmlZGzMzMjZGMzYmhZGzYmFzMjZMDGTzAAAAAAAAgxMzAMzGsBzCYbAYA",
+                label="Raid AoE / Cleave",
+                recommended=true,
+              },
+              {
                 export="C0PAAAAAAAAAAAAAAAAAAAAAAAMmxwCsAzwQDbAAYGzMzsYGzMzMjZGMzYmhZGzMzYbmZMjZYZMNDAAAAAAAA8AjxAmZDAzCYbAYA",
                 label="Mythic+",
                 labels={"AoE"},
@@ -4515,6 +4520,11 @@ ClassCodexSource["icyveins"] = {
               {
                 export="C0PAAAAAAAAAAAAAAAAAAAAAAAMmxwCsAzwQDbAAYGGzsMzwMmZYYmxYmxMzYGzsYmZMjZwYaGAAAAwMAAAMmZGgZ2gNYWAbDAD",
                 label="Single-Target",
+                recommended=true,
+              },
+              {
+                export="C0PAAAAAAAAAAAAAAAAAAAAAAAMmxwCsAzwQDbAAYGmZmlZGzMzMjZGMzYmhZGzYmFzMjZMDGTzAAAAAAAAgxMzAMzGsBzCYbAYA",
+                label="Raid AoE / Cleave",
                 recommended=true,
               },
               {
@@ -4551,7 +4561,7 @@ ClassCodexSource["icyveins"] = {
       },
       marksmanship={
         consumables={all={all={augmentRune={259085},flask={241326},food={255846,255845,242747},potions={241288,241308,271883}}}},
-        crafting={all={all={crafts={265337,268207,244581,244584,275707,258556},embellishments={273060,240167}}}},
+        crafting={all={all={crafts={265337,268207,244581,244584,244582,275707,258556},embellishments={273060,240167}}}},
         enchants={
           all={
             all={
@@ -4697,7 +4707,7 @@ ClassCodexSource["icyveins"] = {
                 },
                 {
                   heroRequired={"Sentinel"},
-                  text="Cast {257044} on cooldown with {257621} up at a target without {1253601}, and clip the end of the channel with {257620} - Click for Details {257620} is nearly always the button you press after {257044} anyway, so cast it just before the channel finishes and you will lose only the last tick of {257044}. The {257620} will benefit from the {257044}-granted {260240} that would normally only affect the {185358} fired by {1277548}. Both shots get the buff instead of only one. By having a {257620} with {260240} benefit here, we get to spread more {1253601}s around for more DPS.",
+                  text="Cast {257044} on cooldown with {257621} up at a target without {1253601}, and clip the end of the channel with {257620} - Click for Details {257620} is nearly always the button you press after {257044} anyway, so cast it just before the channel finishes and you will lose only the last tick of {257044}. That {257620} should be mouseovered on on targets your {257044} was not hitting to spread more {1253601}s around. {257620} does the same damage on all targets hit, so there is no priority damage lost here.",
                 },
                 {heroRequired={"Sentinel"},text="Cast {257044} on cooldown with {257621} up."},
                 {
@@ -4719,10 +4729,7 @@ ClassCodexSource["icyveins"] = {
                   heroRequired={"Dark Ranger"},
                   text="Before you press {288613}, swap to a target that does not already have {466872} - Click for Details Feathered Frenzy makes {288613} apply {466872} to whatever you have targeted when you press it, as pressing {288613} on a target that is already marked wastes it. In an opener, you {288613} on one target, {257044} on a second, and a {257620} on a third clipping the end of that {257044} channel. One {19434} then consumes all three Marks at once. Spending {260240} applies a Mark around 40% of the time, and around 90% of the time inside {288613}. This is somewhat difficult to perform and it breaks the flow of the rotation. Without some practice to perform it smoothly and consistently, the swapping will cost you more damage than the extra Marks are worth.",
                 },
-                {
-                  heroRequired={"Dark Ranger"},
-                  text="Cast {257044} with {257621} up, and clip the end of the channel with {466932} - Click for Details {466932} is nearly always the button you press after {257044} anyway, so cast it just before the channel finishes and you will lose only the last tick of {257044}. The {466932} will benefit from the {257044}-granted {260240} that would normally only affect the {185358} fired by {1277548}. Both shots get the buff instead of only one. {466932} hits much harder than that {185358}, so the same proc is worth more.",
-                },
+                {heroRequired={"Dark Ranger"},text="Cast {257044} with {257621} up."},
                 {heroRequired={"Dark Ranger"},text="Cast {257044} with {257621} up if {389019} is about to expire."},
                 {heroRequired={"Dark Ranger"},text="Cast {392060} if {466932} is not ready."},
                 {
@@ -4806,12 +4813,12 @@ ClassCodexSource["icyveins"] = {
                 },
                 {
                   heroRequired={"Sentinel"},
-                  text="Cast {185358} to spend {260240}, preferring targets without {1253601} unless you are focusing a priority target. During {288613}, only do this immediately after an {19434}.",
+                  text="Cast {185358} to spend {260240}, preferring targets without {1253601} unless you are focusing a priority target.",
                 },
                 {heroRequired={"Sentinel"},text="Cast {257044} on cooldown."},
                 {
                   heroRequired={"Sentinel"},
-                  text="Cast {257044} on cooldown at a target without {1253601}, and outside of {288613}, clip the end of the channel with {185358} - Click for Details Your {185358} will benefit from the {257044}-granted {260240} that would normally only affect the {185358} fired by {1277548}. Both shots get the buff instead of only one. This is a small DPS increase of around 0.3%. Unlike {257620}, swapping targets for {257044} moves real damage off your priority target, so stay on the priority target when there is one.",
+                  text="Cast {257044} on cooldown at a target without {1253601} - Click for Details You do not need to spend {260240} first. The first shot {1277548} fires consumes it, {473385} reapplies it immediately thereafter, and the last shot of the channel consumes the fresh one, so the proc ends up on two shots instead of one. Unlike {257620}, swapping targets for {257044} does cost you significant priority target damage, so stay on the priority target when there is one.",
                 },
                 {
                   heroRequired={"Sentinel"},
@@ -4833,7 +4840,7 @@ ClassCodexSource["icyveins"] = {
                 },
                 {
                   heroRequired={"Dark Ranger"},
-                  text="Cast {257044} on cooldown at a target without {466872}, and clip the end of the channel with {466932} - Click for Details {466932} is nearly always the button you press after {257044} anyway, so cast it just before the channel finishes and you will lose only the last tick of {257044}. Your {466932} will benefit from the {257044}-granted {260240} that would normally only affect the {185358} fired by {1277548}. Both shots get the buff instead of only one. {466932} hits much harder than that {185358}, so the same proc is worth more. This is a DPS increase of around 0.9%. Unlike {257620}, swapping targets for {257044} moves real damage off your priority target, so stay on the priority target when there is one.",
+                  text="Cast {257044} on cooldown at a target without {466872}, and let the channel finish - Click for Details Unlike {257620}, swapping targets for {257044} does cost you significant priority target damage, so stay on the priority target when there is one.",
                 },
                 {heroRequired={"Dark Ranger"},text="Cast {392060} on cooldown."},
                 {
@@ -4915,7 +4922,7 @@ ClassCodexSource["icyveins"] = {
           sentinel={
             delve={
               {
-                export="C4PAAAAAAAAAAAAAAAAAAAAAAwCMwMGNWGAzgNAAAAAAAAwMmZmBjZmxMDjphBzy2yMzMzMzMzsgZbYGAAgZGjBgZshlZA2YmtZMA",
+                export="C4PAAAAAAAAAAAAAAAAAAAAAAwGMwMGNWGAzgNAAAAAAAAwMmZmBjZmxMDjphBzy22MzMzMzMzsgZbYGAAgZGjBgZshlZA2YmtZMA",
                 label="Delves",
                 recommended=true,
               },
@@ -4933,8 +4940,13 @@ ClassCodexSource["icyveins"] = {
                 recommended=true,
               },
               {
-                export="C4PAAAAAAAAAAAAAAAAAAAAAAwCMwMGNWGAzgNAAAAAAAAwMmZmx2MmZGzwyYaGDmltlZmZmZmZmZhZWGmBAAwDMGDAzYDMAbMz2MG",
+                export="C4PAAAAAAAAAAAAAAAAAAAAAAwGMwMGNWGAzgNAAAAAAAAwMmZmx2MmZGzwyYaGDmlttZmZmZmZmZhZWGmBAAwDMGDAzYDMAbMz2MG",
                 label="Mythic+",
+                recommended=true,
+              },
+              {
+                export="C4PAAAAAAAAAAAAAAAAAAAAAAwCMwMGNWGAzgNAAAAAAAAwMmZmx2MmZGzwyYaGDmltlZmZmZmZmZhZWGmBAAwDMGDAzYDMAbMz2MG",
+                label="Mythic+ (Weekly Key)",
                 labels={"Dungeon"},
                 recommended=true,
                 tags={"Weekly Key","High Key"},
@@ -4988,7 +5000,7 @@ ClassCodexSource["icyveins"] = {
       },
       survival={
         consumables={all={all={augmentRune={259085},flask={241322},food={255846,255845,242747},potions={241288,241308,271883}}}},
-        crafting={all={all={crafts={237847,245771,244581,244584,268215,275707,258556},embellishments={273060,240167}}}},
+        crafting={all={all={crafts={237847,245771,244581,244584,268215,244582,275707,258556},embellishments={273060,240167}}}},
         enchants={
           all={
             all={
@@ -5045,15 +5057,15 @@ ClassCodexSource["icyveins"] = {
               {bonusIDs={13848},itemId=271493,slot="Hands"},
               {bonusIDs={13848},itemId=240952,slot="Neck"},
               {bonusIDs={13848},itemId=244565,slot="Waist"},
-              {bonusIDs={13848},itemId=244564,slot="Shoulders"},
-              {bonusIDs={13848},itemId=271491,slot="Legs"},
-              {bonusIDs={13848},itemId=239678,slot="Back"},
-              {bonusIDs={13848},itemId=244561,slot="Feet"},
+              {bonusIDs={13848},itemId=271490,slot="Shoulders"},
+              {bonusIDs={13848},itemId=244566,slot="Legs"},
+              {bonusIDs={13848},itemId=270580,slot="Back"},
+              {bonusIDs={13848},itemId=270744,slot="Feet"},
               {bonusIDs={13848},itemId=271495,slot="Chest"},
               {bonusIDs={13848},itemId=240951,slot="Finger 1"},
               {bonusIDs={13848},itemId=240951,slot="Finger 2"},
               {bonusIDs={13848},itemId=270605,slot="Trinket 1"},
-              {bonusIDs={13848},itemId=244568,slot="Wrist"},
+              {bonusIDs={13848},itemId=270755,slot="Wrist"},
               {bonusIDs={13848},itemId=270603,slot="Trinket 2"},
               {bonusIDs={13848},itemId=270844,slot="Main Hand"},
             },
@@ -5332,7 +5344,13 @@ ClassCodexSource["icyveins"] = {
         crafting={
           all={
             all={
-              crafts={{bonusIDs={13751,12497,13836,13771},itemId=245769},{bonusIDs={13751,12497,13836,12384},itemId=239648},245770,275707},
+              crafts={
+                {bonusIDs={13751,12497,13836,13771},itemId=245769},
+                {bonusIDs={13751,12497,13836,12384},itemId=239648},
+                271092,
+                245770,
+                275707,
+              },
               embellishments={273060,240167},
             },
             pvp={crafts={},embellishments={240167}},
@@ -5623,7 +5641,14 @@ ClassCodexSource["icyveins"] = {
         crafting={
           all={
             all={
-              crafts={{bonusIDs={13751,12497,13836,12384},itemId=239649},{bonusIDs={13751,12497,13836,12384},itemId=239648},245770,275707},
+              crafts={
+                {bonusIDs={13751,12497,13836,12384},itemId=239649},
+                {bonusIDs={13751,12497,13836,12384},itemId=239648},
+                271092,
+                245770,
+                {bonusIDs={13751,12497,13836,13771},itemId=245769},
+                275707,
+              },
               embellishments={240167,273060},
             },
             pvp={crafts={},embellishments={240167}},
@@ -5654,7 +5679,7 @@ ClassCodexSource["icyveins"] = {
               {bonusIDs={12854},itemId=271567,slot="Chest",source="Altar of Fangs + Catalyst"},
               {bonusIDs={13751,12497,13836,12384},itemId=239648,slot="Wrist",source="Crafted by Tailoring"},
               {bonusIDs={13848},itemId=271565,slot="Hands",source="Coiled Altar + Catalyst"},
-              {bonusIDs={13751,12497,13836,12384},itemId=239649,slot="Waist",source="Crafted by Tailoring"},
+              {bonusIDs={13848,13708},itemId=268257,slot="Waist",source="Sszorak"},
               {bonusIDs={12854},itemId=271563,slot="Legs",source="Nek'zali + Catalyst"},
               {bonusIDs={13848},itemId=268255,slot="Feet",source="Coiled Altar"},
               {bonusIDs={12854},itemId=268266,slot="Finger 1",source="Nek'zali"},
@@ -5662,7 +5687,7 @@ ClassCodexSource["icyveins"] = {
               {bonusIDs={12854},itemId=273796,slot="Trinket 1",source="Altar of Fangs"},
               {bonusIDs={12854},itemId=270164,slot="Trinket 2",source="Lost Explorers"},
               {bonusIDs={13848},itemId=271092,slot="Main Hand",source="Ula'tek"},
-              {bonusIDs={12854},itemId=159667,slot="Off Hand",source="King's Rest"},
+              {bonusIDs={13751,12497,13836,13771},itemId=245769,slot="Off Hand",source="Crafted by Inscription"},
             },
             mplus={
               {bonusIDs={12854},itemId=271564,slot="Head",source="Voidscar Arena + Catalyst"},
@@ -5707,7 +5732,7 @@ ClassCodexSource["icyveins"] = {
               {bonusIDs={12854},itemId=271567,slot="Chest",source="Vashnik"},
               {bonusIDs={13751,12497,13836,12384},itemId=239648,slot="Wrist",source="Crafted by Tailoring"},
               {bonusIDs={13848},itemId=271565,slot="Hands",source="Coiled Altar + Catalyst"},
-              {bonusIDs={13751,12497,13836,12384},itemId=239649,slot="Waist",source="Crafted by Tailoring"},
+              {bonusIDs={13848,13708},itemId=268257,slot="Waist",source="Sszorak"},
               {bonusIDs={12854},itemId=271563,slot="Legs",source="Nek'zali + Catalyst"},
               {bonusIDs={13848},itemId=268255,slot="Feet",source="Coiled Altar"},
               {bonusIDs={12854},itemId=268266,slot="Finger 1",source="Nek'zali"},
@@ -5715,7 +5740,7 @@ ClassCodexSource["icyveins"] = {
               {bonusIDs={12854},itemId=270170,slot="Trinket 1",source="Twin Fangs"},
               {bonusIDs={12854},itemId=270164,slot="Trinket 2",source="Lost Explorers"},
               {bonusIDs={13848},itemId=271092,slot="Main Hand",source="Ula'tek"},
-              {bonusIDs={12854},itemId=268263,slot="Off Hand",source="Nek'zali"},
+              {bonusIDs={13751,12497,13836,13771},itemId=245769,slot="Off Hand",source="Crafted by Inscription"},
             },
           },
         },
@@ -10421,8 +10446,14 @@ ClassCodexSource["icyveins"] = {
             ["aoe-opener"]={
               steps={
                 {heroRequired={"Stormbringer"},text="Pre-cast {187874} Avoid hitting anything early!"},
-                "Pre-pot {item:241288|Potion of Recklessness} Pre-potting avoids stat procs switching it away from Mastery",
-                "Cast {470057} on the way into melee",
+                "Pre-pot {item:241288|Potion of Recklessness} Pre-potting avoids stat procs switching it away from Mastery or Critical Strike",
+                {
+                  heroRequired={"Stormbringer"},
+                  text="Cast {187874} as soon as you reach melee Use {item:271886|Liquid Luster} as the pull starts",
+                },
+                {heroRequired={"Totemic"},text="Cast {470057} on the way into melee"},
+                {heroRequired={"Stormbringer"},text="Cast {470057} on the way into melee"},
+                {heroRequired={"Totemic"},text="Cast {470057} on the way into melee Use {item:271886|Liquid Luster} as the pull starts"},
                 {heroRequired={"Stormbringer"},text="Cast {17364} once for starting {187880}"},
                 {
                   heroRequired={"Totemic"},
@@ -10449,6 +10480,7 @@ ClassCodexSource["icyveins"] = {
                 {heroRequired={"Stormbringer"},text="Cast {115356} every GCD otherwise"},
                 {heroRequired={"Stormbringer"},text="Cast {470057} as soon as its cooldown expires"},
                 "Continue with normal ability priority.",
+                "With {item:241288|Potion of Recklessness}, you need to make sure it triggers either Critical Strike or Mastery with your current gear.",
               },
             },
             ["single-target"]={
@@ -10485,9 +10517,15 @@ ClassCodexSource["icyveins"] = {
             },
             ["single-target-opener"]={
               steps={
+                {
+                  heroRequired={"Stormbringer"},
+                  text="Pre-pot {item:271886|Liquid Luster} 12 seconds before the pull This allows it to ramp before your opening {467263}",
+                },
                 "Pre-cast {187874} Avoid hitting anything early!",
-                "Pre-pot {item:241288|Potion of Recklessness} Pre-potting avoids stat procs switching it away from Mastery",
-                "Cast {470057} on the way into melee",
+                "Pre-pot {item:241288|Potion of Recklessness} Pre-potting avoids stat procs switching it away from Mastery or Critical Strike",
+                {heroExcluded={"Totemic"},text="Cast {470057} on the way into melee"},
+                {heroRequired={"Totemic"},text="Cast {470057} on the way into melee"},
+                {heroRequired={"Totemic"},text="Cast {470057} on the way into melee Use {item:271886|Liquid Luster} at the same time"},
                 {heroRequired={"Stormbringer"},text="Cast {17364} once for {187880}"},
                 {
                   heroRequired={"Totemic"},
@@ -10514,6 +10552,8 @@ ClassCodexSource["icyveins"] = {
                 {heroRequired={"Stormbringer"},text="Cast {470057} as soon as its cooldown expires"},
                 {heroRequired={"Stormbringer"},text="Cast {1218047} with 10 {187880} before it expires"},
                 "Continue with normal ability priority.",
+                "When using {item:241288|Potion of Recklessness}, you need to ensure it grants Critical Strike or Mastery with your current gear.",
+                "{item:271886|Liquid Luster} is used 12 seconds before the pull to ramp it before {114051}.",
               },
             },
           },
@@ -12812,7 +12852,7 @@ ClassCodexSource["icyveins"] = {
       },
     },
   },
-  meta={contentHash="3d959d7998740061",generatedAt="2026-08-22T22:21:44.833Z",schemaVersion=1,source="icyveins"},
+  meta={contentHash="9a428b3e50b24d1b",generatedAt="2026-08-23T10:11:33.981Z",schemaVersion=1,source="icyveins"},
   reference={
     heroNames={
       ["aldrachi-reaver"]="Aldrachi Reaver",

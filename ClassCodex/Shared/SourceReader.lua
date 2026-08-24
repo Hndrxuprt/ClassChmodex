@@ -354,6 +354,7 @@ local function uggTalentBuilds(class, spec)
                 topDps = b.topDps,
                 zoneKind = zoneKind,
                 difficulty = difficulty,
+                raidGroup = (zoneKind == "raid" and ns.GetUggRaidGroupKind and ns.GetUggRaidGroupKind(ctx)) or nil,
                 encounterLabel = (not isOverview) and label or nil,
                 contextId = contextId,
                 provider = "u.gg",

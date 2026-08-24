@@ -717,7 +717,7 @@ local function BuildCardParts(entry)
         and heroTalent ~= HERO_ALL
         and ns.HERO_TALENT_ATLAS
         and ns.HERO_TALENT_ATLAS[heroTalent]
-    local title, portrait, icon, tintKey, portraitPending
+    local title, portrait, icon, tintKind, tintKey, portraitPending
     if selectedSource == "icyveins" then
         title = entry.build.buildLabel or entry.build.context or "Build"
         tintKey = title
@@ -726,7 +726,7 @@ local function BuildCardParts(entry)
         title = (ns.GetUggEncounterLabel and ns.GetUggEncounterLabel(ctx)) or ctx.encounterLabel or "Build"
         local label = (ns.GetUggEncounterLabel and ns.GetUggEncounterLabel(ctx)) or ctx.encounterLabel
         if ctx.zoneType == "raid" then
-            tintKey = (ns.GetCurrentRaidName and ns.GetCurrentRaidName()) or "raid"
+            tintKind = (ns.GetUggRaidGroupKind and ns.GetUggRaidGroupKind(ctx)) or nil
             if label and ns.GetBossArtByName then
                 local ba = ns.GetBossArtByName(label)
                 if ba then
@@ -754,6 +754,7 @@ local function BuildCardParts(entry)
         portrait = portrait,
         portraitPending = portraitPending,
         icon = icon,
+        tintKind = tintKind,
         tintKey = tintKey,
         recommended = (selectedUggHero == HERO_ALL),
     }
@@ -787,7 +788,9 @@ RefreshBuildCard = function()
     end
     if not iconSet then buildCard:SetIcon(GENERIC_BUILD_ICON) end
 
-    if parts.tintKey and ns.TintFromKey then
+    if parts.tintKind and ns.GetRaidGroupTint then
+        buildCard:SetBackgroundColor(ns.GetRaidGroupTint(parts.tintKind))
+    elseif parts.tintKey and ns.TintFromKey then
         buildCard:SetBackgroundColor(ns.TintFromKey(parts.tintKey))
     else
         buildCard:SetBackgroundColor(nil)

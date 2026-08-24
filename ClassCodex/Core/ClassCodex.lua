@@ -432,7 +432,12 @@ do
 
         local stripped = ns.StripConditionPrefix(stepText)
         local refStart, _, primaryId = stripped:find("{(%d+)}")
-        if primaryId and ownHero and LeadsWithAction(stripped, refStart) and not PlayerKnowsSpell(tonumber(primaryId)) then
+        if
+            primaryId
+            and ownHero
+            and LeadsWithAction(stripped, refStart)
+            and not PlayerKnowsSpell(tonumber(primaryId))
+        then
             return false
         end
         return true

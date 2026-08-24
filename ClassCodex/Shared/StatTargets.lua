@@ -223,19 +223,34 @@ local PLAYER_STAT_READERS = {
 
 local playerStatCache = {}
 
+local canUseStatValue
+if canaccessvalue then
+    canUseStatValue = canaccessvalue
+elseif issecretvalue then
+    canUseStatValue = function(v)
+        return not issecretvalue(v)
+    end
+else
+    canUseStatValue = function()
+        return true
+    end
+end
+
 local function readPlayerStat(statKey)
     local read = PLAYER_STAT_READERS[statKey]
     if not read then return 0, 0 end
     if not InCombatLockdown() then
         local rating, pct = read()
-        playerStatCache[statKey] = { rating = rating, pct = pct }
-        return rating, pct
+        if canUseStatValue(rating) and canUseStatValue(pct) then
+            playerStatCache[statKey] = { rating = rating, pct = pct }
+            return rating, pct
+        end
     end
     local cached = playerStatCache[statKey]
     if cached then return cached.rating, cached.pct end
-    -- No pre-combat snapshot yet (e.g. reload during a pull) — a live read is
-    -- still better than zeros.
-    return read()
+    local rating, pct = read()
+    if canUseStatValue(rating) and canUseStatValue(pct) then return rating, pct end
+    return nil, nil
 end
 
 function ns.GetPlayerStatRating(statKey)
@@ -248,7 +263,7 @@ function ns.GetPlayerStatPercent(statKey)
 end
 
 function ns.ClassifyStatDelta(currentRating, targetRating)
-    if not targetRating or targetRating <= 0 then return nil, 0 end
+    if not currentRating or not targetRating or targetRating <= 0 then return nil, 0 end
     local diff = currentRating - targetRating
     local pct = (diff / targetRating) * 100
     if math.abs(pct) < 5 then
@@ -270,8 +285,8 @@ function ns.AppendStatExtrasToTooltip(tooltip, statKey, snapshot, opts)
     if not tooltip or not statKey then return end
     opts = opts or {}
     local label = ns.STAT_LABELS[statKey] or statKey
-    local current = ns.GetPlayerStatRating(statKey) or 0
-    local livePct = ns.GetPlayerStatPercent(statKey) or 0
+    local current = ns.GetPlayerStatRating(statKey)
+    local livePct = ns.GetPlayerStatPercent(statKey)
     local target = snapshot and snapshot.targets and snapshot.targets[statKey]
 
     local COLORS = ns.Tooltip.COLORS
@@ -281,8 +296,8 @@ function ns.AppendStatExtrasToTooltip(tooltip, statKey, snapshot, opts)
         tooltip:AddLine(label, ct[1], ct[2], ct[3])
         local cl, cr = COLORS.intro, COLORS.muted
         tooltip:AddDoubleLine(
-            string.format("%.1f%%", livePct),
-            string.format("%d rating", current),
+            livePct and string.format("%.1f%%", livePct) or "—",
+            current and string.format("%d rating", current) or "—",
             cl[1],
             cl[2],
             cl[3],
@@ -296,24 +311,26 @@ function ns.AppendStatExtrasToTooltip(tooltip, statKey, snapshot, opts)
         if opts.includeTitle then tooltip:AddLine(" ") end
         local cl, cr = COLORS.muted, COLORS.intro
         tooltip:AddDoubleLine("Target", string.format("%d", target), cl[1], cl[2], cl[3], cr[1], cr[2], cr[3])
-        local kind = ns.ClassifyStatDelta(current, target) or "below"
-        local diff = current - target
-        local sign = (diff >= 0) and "+" or "−"
-        local stateLabels = {
-            above = "Above target",
-            at = "At target",
-            below = "Below target",
-        }
-        local c = STATE_COLORS[kind]
-        tooltip:AddDoubleLine(
-            stateLabels[kind],
-            string.format("%s%d", sign, math.abs(diff)),
-            c[1],
-            c[2],
-            c[3],
-            c[1],
-            c[2],
-            c[3]
-        )
+        if current then
+            local kind = ns.ClassifyStatDelta(current, target) or "below"
+            local diff = current - target
+            local sign = (diff >= 0) and "+" or "−"
+            local stateLabels = {
+                above = "Above target",
+                at = "At target",
+                below = "Below target",
+            }
+            local c = STATE_COLORS[kind]
+            tooltip:AddDoubleLine(
+                stateLabels[kind],
+                string.format("%s%d", sign, math.abs(diff)),
+                c[1],
+                c[2],
+                c[3],
+                c[1],
+                c[2],
+                c[3]
+            )
+        end
     end
 end

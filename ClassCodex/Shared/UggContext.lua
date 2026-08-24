@@ -223,6 +223,16 @@ function ns.GroupUggContexts(specData)
     return out
 end
 
+function ns.GetUggRaidGroupKind(ctx)
+    if not ctx then return nil end
+    if ctx.encounter == "all-bosses" then return "overview" end
+    if type(ctx.encounter) == "string" then
+        local id = tonumber(ctx.encounter:match("ugg%-(%d+)$"))
+        if id and SEASON_RAID_BREAK[id] then return "other" end
+    end
+    return "main"
+end
+
 local activeContextKey
 local lastEncounterID
 local lastEncounterName
