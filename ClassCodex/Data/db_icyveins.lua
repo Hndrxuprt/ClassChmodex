@@ -19,7 +19,6 @@ ClassCodexSource["icyveins"] = {
               crafts={
                 {bonusIDs={13751,9627,13768,8960},itemId=240949},
                 {bonusIDs={12214,13836,13751,9627,13750,8960,13764,8792},itemId=237834},
-                275707,
               },
               embellishments={273060,245876},
             },
@@ -311,12 +310,7 @@ ClassCodexSource["icyveins"] = {
         crafting={
           all={
             all={
-              crafts={
-                251513,
-                {bonusIDs={13751,12497,13836,12384,8791},itemId=237834},
-                {bonusIDs={13751,12497,13836,12384,8791},itemId=237828},
-                275707,
-              },
+              crafts={251513,{bonusIDs={13751,12497,13836,12384,8791},itemId=237834},{bonusIDs={13751,12497,13836,12384,8791},itemId=237828}},
               embellishments={240167,251490,245876},
             },
             pvp={crafts={},embellishments={240167}},
@@ -630,7 +624,7 @@ ClassCodexSource["icyveins"] = {
         crafting={
           all={
             all={
-              crafts={{bonusIDs={13751,12497,13836,12384,8791},itemId=237834},{bonusIDs={13751,12497,13836,12384,8791},itemId=237828},275707},
+              crafts={{bonusIDs={13751,12497,13836,12384,8791},itemId=237834},{bonusIDs={13751,12497,13836,12384,8791},itemId=237828}},
               embellishments={240167,245876},
             },
             pvp={crafts={},embellishments={240167}},
@@ -1374,11 +1368,7 @@ ClassCodexSource["icyveins"] = {
         crafting={
           all={
             all={
-              crafts={
-                {bonusIDs={13751,12497,13836,13771,8791},itemId=237840},
-                {bonusIDs={13751,12497,13836,12384,8791},itemId=244576},
-                {bonusIDs={13848},itemId=268209},
-              },
+              crafts={{bonusIDs={13751,12497,13836,13771,8791},itemId=237840},{bonusIDs={13751,12497,13836,12384,8791},itemId=244576}},
               embellishments={273060,240167,245876,273069,273066,270899},
             },
             pvp={crafts={},embellishments={240167}},
@@ -2118,12 +2108,7 @@ ClassCodexSource["icyveins"] = {
     DRUID={
       balance={
         consumables={all={all={augmentRune={259085},flask={241322,241325},food={255846,255845,242275},potions={241288,241308,271883,5512}}}},
-        crafting={
-          all={
-            all={crafts={245769,271092,268203,245770,275707},embellishments={273060,240167}},
-            pvp={crafts={},embellishments={240167}},
-          },
-        },
+        crafting={all={all={crafts={245769,245770},embellishments={273060,240167}},pvp={crafts={},embellishments={240167}}}},
         enchants={
           all={
             all={
@@ -2469,7 +2454,6 @@ ClassCodexSource["icyveins"] = {
               crafts={
                 {bonusIDs={13751,12497,13836,12384,8793},itemId=244569},
                 {bonusIDs={13751,12497,13836,12384,8793},itemId=244576},
-                {bonusIDs={13848,13846},itemId=268215},
                 {bonusIDs={13751,12497,13836,13771,8793},itemId=245771},
               },
               embellishments={240167,273060,245876,273069,273066,270899},
@@ -3035,7 +3019,7 @@ ClassCodexSource["icyveins"] = {
         consumables={all={all={augmentRune={259085},flask={241325,241322},food={255845,242272,255846,255847},potions={241288,271883,5512}}}},
         crafting={
           all={
-            all={crafts={245769,244572,244569,275707},embellishments={240167,245876,273069}},
+            all={crafts={245769,244572,244569},embellishments={240167,245876,273069}},
             pvp={crafts={},embellishments={240167,244603}},
           },
         },
@@ -3324,13 +3308,11 @@ ClassCodexSource["icyveins"] = {
                 {bonusIDs={12066,13622,9627,8791,13453},itemId=240949},
                 {bonusIDs={12066,13622,9627,8791,13453},itemId=240950},
                 {bonusIDs={13751,13836,12497,8791,13771},itemId=245769},
-                {bonusIDs={12854},itemId=271092},
                 {bonusIDs={13751,13836,12497,8791,13771},itemId=237838},
                 {bonusIDs={12066,13622,9627,12384,8791},itemId=244584},
                 {bonusIDs={12066,13622,9627,12384,8791},itemId=244581},
                 {bonusIDs={13836,13751,9627,13750,11137},itemId=244745},
                 {bonusIDs={13836,13751,9627,13750,11137},itemId=244773},
-                275707,
               },
               embellishments={240167,273060,245876,251487},
             },
@@ -3949,9 +3931,7 @@ ClassCodexSource["icyveins"] = {
       },
       preservation={
         consumables={all={all={augmentRune={259085},flask={241322,241325},food={242747},potions={241288,241301,271883}}}},
-        crafting={
-          all={all={crafts={244584,244577,245769,275707},embellishments={240167,245876}},pvp={crafts={},embellishments={244603}}},
-        },
+        crafting={all={all={crafts={244584,244577,245769},embellishments={240167,245876}},pvp={crafts={},embellishments={244603}}}},
         enchants={
           all={
             all={
@@ -4147,10 +4127,11 @@ ClassCodexSource["icyveins"] = {
           flameshaper={
             delve={
               {
-                export="CwbBAAAAAAAAAAAAAAAAAAAAAAAAAAAmZmZ2WGzYYmxsZGw2wAAAzYGzMjhZiZmBAAAMzMTGzMjxMzAAjZgFwCYGmAbM2MMAmZGD",
+                export="CwbBAAAAAAAAAAAAAAAAAAAAAAAAAAAmZmZ2WmZGDjxsZGw2wAAAzYGzMjhZiZmBAAAMzMTGzMjxMzAAjZgFwCYGmAbM2MMAmZGD",
                 label="Mythic+ / Delve",
-                labels={"Dungeon"},
+                labels={"Default Mythic+"},
                 recommended=true,
+                tags={"Weekly Key","High Key"},
               },
             },
             leveling={
@@ -4161,16 +4142,15 @@ ClassCodexSource["icyveins"] = {
             },
             mplus={
               {
-                export="CwbBAAAAAAAAAAAAAAAAAAAAAAAAAAAmZmZ2WGzYYmxsZGw2wAAAzYGzMjhZiZmBAAAMzMTGzMjxMzAAjZgFwCYGmAbM2MMAmZGD",
-                label="Mythic+ / Delve",
-                labels={"Dungeon"},
-                recommended=true,
-              },
-              {
                 export="CwbBAAAAAAAAAAAAAAAAAAAAAAAAAAAmZmZ2WmZGDjxsZGw2wAAAzYGzMjhZiZmBAAAMzMTGzMjxMzAAjZgFwCYGmAbM2MMAmZGD",
-                label="Default Mythic+",
+                label="Mythic+ / Delve",
+                labels={"Default Mythic+"},
                 recommended=true,
                 tags={"Weekly Key","High Key"},
+              },
+              {
+                export="CwbBAAAAAAAAAAAAAAAAAAAAAAAAAAAmZmZ2WGzYYmxsZGw2wAAAzYGzMjhZiZmBAAAMzMTGzMjxMzAAjZgFwCYGmAbM2MMAmZGD",
+                label="Dungeon",
               },
             },
             raid={
@@ -4214,7 +4194,7 @@ ClassCodexSource["icyveins"] = {
     HUNTER={
       ["beast-mastery"]={
         consumables={all={all={augmentRune={259085},flask={241322},food={255846,255845,242747},potions={241288,241308,271883}}}},
-        crafting={all={all={crafts={265337,268207,244581,244584,244582,275707,258556},embellishments={273060,240167}}}},
+        crafting={all={all={crafts={265337,244581,244584,244582},embellishments={273060,240167}}}},
         enchants={
           all={
             all={
@@ -4561,7 +4541,7 @@ ClassCodexSource["icyveins"] = {
       },
       marksmanship={
         consumables={all={all={augmentRune={259085},flask={241326},food={255846,255845,242747},potions={241288,241308,271883}}}},
-        crafting={all={all={crafts={265337,268207,244581,244584,244582,275707,258556},embellishments={273060,240167}}}},
+        crafting={all={all={crafts={265337,244581,244584,244582},embellishments={273060,240167}}}},
         enchants={
           all={
             all={
@@ -5000,7 +4980,7 @@ ClassCodexSource["icyveins"] = {
       },
       survival={
         consumables={all={all={augmentRune={259085},flask={241322},food={255846,255845,242747},potions={241288,241308,271883}}}},
-        crafting={all={all={crafts={237847,245771,244581,244584,268215,244582,275707,258556},embellishments={273060,240167}}}},
+        crafting={all={all={crafts={237847,245771,244581,244584,244582},embellishments={273060,240167}}}},
         enchants={
           all={
             all={
@@ -5344,13 +5324,7 @@ ClassCodexSource["icyveins"] = {
         crafting={
           all={
             all={
-              crafts={
-                {bonusIDs={13751,12497,13836,13771},itemId=245769},
-                {bonusIDs={13751,12497,13836,12384},itemId=239648},
-                271092,
-                245770,
-                275707,
-              },
+              crafts={{bonusIDs={13751,12497,13836,13771},itemId=245769},{bonusIDs={13751,12497,13836,12384},itemId=239648},245770},
               embellishments={273060,240167},
             },
             pvp={crafts={},embellishments={240167}},
@@ -5644,10 +5618,8 @@ ClassCodexSource["icyveins"] = {
               crafts={
                 {bonusIDs={13751,12497,13836,12384},itemId=239649},
                 {bonusIDs={13751,12497,13836,12384},itemId=239648},
-                271092,
                 245770,
                 {bonusIDs={13751,12497,13836,13771},itemId=245769},
-                275707,
               },
               embellishments={240167,273060},
             },
@@ -5948,10 +5920,7 @@ ClassCodexSource["icyveins"] = {
       frost={
         consumables={all={all={augmentRune={259085},flask={241326},food={255846,255845,242275,255847},potions={241288,271883,5512}}}},
         crafting={
-          all={
-            all={crafts={245770,239649,245769,275707},embellishments={248130,273060,240167}},
-            pvp={crafts={},embellishments={240167}},
-          },
+          all={all={crafts={245770,239649,245769},embellishments={248130,273060,240167}},pvp={crafts={},embellishments={240167}}},
         },
         enchants={
           all={
@@ -6269,7 +6238,6 @@ ClassCodexSource["icyveins"] = {
           all={
             all={
               crafts={
-                268215,
                 {bonusIDs={13751,12497,13836,8795,13771},itemId=237847},
                 {bonusIDs={13751,12497,13836},itemId=251513},
                 {bonusIDs={13751,12497,13836,8795,13454},itemId=244576},
@@ -6634,7 +6602,7 @@ ClassCodexSource["icyveins"] = {
             },
           },
         },
-        crafting={all={all={crafts={275707},embellishments={240167,245873}},pvp={crafts={},embellishments={244603}}}},
+        crafting={all={all={crafts={},embellishments={240167,245873}},pvp={crafts={},embellishments={244603}}}},
         enchants={
           all={
             all={
@@ -6894,7 +6862,7 @@ ClassCodexSource["icyveins"] = {
       },
       windwalker={
         consumables={all={all={augmentRune={259085},flask={241325},food={255846,242275},potions={241288,271883}}}},
-        crafting={all={all={crafts={275707},embellishments={240167}},pvp={crafts={},embellishments={240167}}}},
+        crafting={all={all={crafts={},embellishments={240167}},pvp={crafts={},embellishments={240167}}}},
         enchants={
           all={
             all={
@@ -7198,10 +7166,7 @@ ClassCodexSource["icyveins"] = {
       holy={
         consumables={all={all={flask={241322,241325,241326},food={242747},potions={241288,241301,271883}}}},
         crafting={
-          all={
-            all={crafts={237834,237828,237843,237831,275707},embellishments={240167,245876}},
-            pvp={crafts={},embellishments={244603}},
-          },
+          all={all={crafts={237834,237828,237843,237831},embellishments={240167,245876}},pvp={crafts={},embellishments={244603}}},
         },
         enchants={
           all={
@@ -7493,7 +7458,7 @@ ClassCodexSource["icyveins"] = {
       },
       protection={
         consumables={all={all={augmentRune={259085},flask={241326},food={242274,255846,242273},potions={241308,271883,5512}}}},
-        crafting={all={all={crafts={237839,237831,237834,237828,275707},embellishments={240167,245876}}}},
+        crafting={all={all={crafts={237839,237831,237834,237828},embellishments={240167,245876}}}},
         enchants={
           all={
             all={
@@ -7709,10 +7674,7 @@ ClassCodexSource["icyveins"] = {
         consumables={all={all={augmentRune={259085},flask={241322},food={242275},potions={241288,241308,271883,5512}}}},
         crafting={
           all={
-            all={
-              crafts={{bonusIDs={13751,12497,13836},itemId=251513},240892,237846,275707},
-              embellishments={251490,240167,273069,273060},
-            },
+            all={crafts={{bonusIDs={13751,12497,13836},itemId=251513},240892,237846},embellishments={251490,240167,273069,273060}},
             pvp={crafts={},embellishments={240167}},
           },
         },
@@ -8030,7 +7992,7 @@ ClassCodexSource["icyveins"] = {
         consumables={all={all={augmentRune={259085},flask={241325},potions={241308,241288,241294,271883}}}},
         crafting={
           all={
-            all={crafts={{bonusIDs={13751,13836,12497,8793,13771},itemId=245769},275707},embellishments={273060,240167}},
+            all={crafts={{bonusIDs={13751,13836,12497,8793,13771},itemId=245769}},embellishments={273060,240167}},
             pvp={crafts={},embellishments={244603}},
           },
         },
@@ -8341,7 +8303,6 @@ ClassCodexSource["icyveins"] = {
                 {bonusIDs={13751,13836,12497,8791},itemId=245769},
                 {bonusIDs={13751,13836,12497,8791,12384},itemId=239649},
                 {bonusIDs={13751,13836,12497,8791,12384},itemId=239648},
-                275707,
               },
               embellishments={245876,240167},
             },
@@ -8658,7 +8619,6 @@ ClassCodexSource["icyveins"] = {
                 239662,
                 239661,
                 251513,
-                275707,
               },
               embellishments={240167,273060},
             },
@@ -9034,7 +8994,7 @@ ClassCodexSource["icyveins"] = {
             all={augmentRune={259085},flask={241325,241326,241319},food={255845,242275},potions={241308,241285,271883,241305,5512}},
           },
         },
-        crafting={all={all={crafts={237837,244576,275707},embellishments={273060,273069}},pvp={crafts={},embellishments={240167}}}},
+        crafting={all={all={crafts={237837,244576},embellishments={273060,273069}},pvp={crafts={},embellishments={240167}}}},
         enchants={
           all={
             all={
@@ -9355,9 +9315,7 @@ ClassCodexSource["icyveins"] = {
             all={augmentRune={259085},flask={241326,241325,241319},food={255845,242275},potions={241288,241285,271883,241305,5512}},
           },
         },
-        crafting={
-          all={all={crafts={237839,244569,244573,275707},embellishments={240167,245873}},pvp={crafts={},embellishments={240167}}},
-        },
+        crafting={all={all={crafts={237839,244569,244573},embellishments={240167,245873}},pvp={crafts={},embellishments={240167}}}},
         enchants={
           all={
             all={
@@ -9636,7 +9594,7 @@ ClassCodexSource["icyveins"] = {
       },
       subtlety={
         consumables={all={all={augmentRune={259085},flask={241325,241322},food={255846,242275},potions={241308,241292,241288,271883}}}},
-        crafting={all={all={crafts={237837,244576,275707},embellishments={273060,240167}},pvp={crafts={},embellishments={240167}}}},
+        crafting={all={all={crafts={237837,244576},embellishments={273060,240167}},pvp={crafts={},embellishments={240167}}}},
         enchants={
           all={
             all={
@@ -9928,13 +9886,7 @@ ClassCodexSource["icyveins"] = {
         crafting={
           all={
             all={
-              crafts={
-                {bonusIDs={13751,12497,13836,1686},itemId=245770},
-                {bonusIDs={13848},itemId=271092},
-                {bonusIDs={13751,12497,13836,1686},itemId=244584},
-                {bonusIDs={13708,13848},itemId=271876},
-                275707,
-              },
+              crafts={{bonusIDs={13751,12497,13836,1686},itemId=245770},{bonusIDs={13751,12497,13836,1686},itemId=244584}},
               embellishments={273060,240167},
             },
             pvp={crafts={},embellishments={240167}},
@@ -10686,7 +10638,6 @@ ClassCodexSource["icyveins"] = {
                 {bonusIDs={13751,12497,13836,8795,12384},itemId=244584},
                 {bonusIDs={13751,12497,13836,8795,12384},itemId=239656},
                 {bonusIDs={13751,12497,13836,8795,12384},itemId=244577},
-                275707,
               },
               embellishments={240167,273060},
             },
@@ -10921,7 +10872,7 @@ ClassCodexSource["icyveins"] = {
         consumables={all={all={augmentRune={259085},flask={241325},potions={241288,241308,270168,271886,271883}}}},
         crafting={
           all={
-            all={crafts={{bonusIDs={13751,12497,13836},itemId=245770},275707},embellishments={240167,273059,273060}},
+            all={crafts={{bonusIDs={13751,12497,13836},itemId=245770}},embellishments={240167,273059,273060}},
             pvp={crafts={},embellishments={240167}},
           },
         },
@@ -11220,7 +11171,7 @@ ClassCodexSource["icyveins"] = {
         consumables={all={all={augmentRune={259085},flask={241326},potions={241288,241308,271883}}}},
         crafting={
           all={
-            all={crafts={{bonusIDs={13751,12497,13836},itemId=245770},275707},embellishments={240167,273059,273060}},
+            all={crafts={{bonusIDs={13751,12497,13836},itemId=245770}},embellishments={240167,273059,273060}},
             pvp={crafts={},embellishments={240167}},
           },
         },
@@ -11501,7 +11452,7 @@ ClassCodexSource["icyveins"] = {
         consumables={all={all={augmentRune={259085},flask={241326,241322,250215,244031},potions={241288,241308,271883}}}},
         crafting={
           all={
-            all={crafts={{bonusIDs={13751,12497,13836},itemId=245770},275707},embellishments={240167,273059,273060}},
+            all={crafts={{bonusIDs={13751,12497,13836},itemId=245770}},embellishments={240167,273059,273060}},
             pvp={crafts={},embellishments={240167}},
           },
         },
@@ -11793,7 +11744,7 @@ ClassCodexSource["icyveins"] = {
     WARRIOR={
       arms={
         consumables={all={all={augmentRune={259085},flask={241325,241326},food={255846,242275},potions={241288,241308,271883}}}},
-        crafting={all={all={crafts={237834,237828,275707},embellishments={245876,273069}},pvp={crafts={},embellishments={240167}}}},
+        crafting={all={all={crafts={237834,237828},embellishments={245876,273069}},pvp={crafts={},embellishments={240167}}}},
         enchants={
           all={
             all={
@@ -12129,9 +12080,7 @@ ClassCodexSource["icyveins"] = {
       },
       fury={
         consumables={all={all={augmentRune={259085},flask={241322,241325},food={255846,242275},potions={241288,241308,271883}}}},
-        crafting={
-          all={all={crafts={237847,237834,237828,275707},embellishments={245876,273069}},pvp={crafts={},embellishments={240167}}},
-        },
+        crafting={all={all={crafts={237847,237834,237828},embellishments={245876,273069}},pvp={crafts={},embellishments={240167}}}},
         enchants={
           all={
             all={
@@ -12518,7 +12467,6 @@ ClassCodexSource["icyveins"] = {
                 {bonusIDs={12066,13622,9627,12384,8790},itemId=237834},
                 {bonusIDs={13622,13667,12066,9627,12693,8960,8790},itemId=237828},
                 {bonusIDs={13622,13667,12066,9627,12693,8960,8790},itemId=239656},
-                275707,
               },
               embellishments={245876,240167},
             },
@@ -12852,7 +12800,7 @@ ClassCodexSource["icyveins"] = {
       },
     },
   },
-  meta={contentHash="9a428b3e50b24d1b",generatedAt="2026-08-23T10:11:33.981Z",schemaVersion=1,source="icyveins"},
+  meta={contentHash="5dbac0e817eed1c5",generatedAt="2026-08-24T10:26:22.720Z",schemaVersion=1,source="icyveins"},
   reference={
     heroNames={
       ["aldrachi-reaver"]="Aldrachi Reaver",
