@@ -2,7 +2,7 @@
 ## Title: Class Codex
 ## Notes: Stat priorities, talent builds, rotation guides, and gearing recommendations for your current spec.
 ## Author: jfstn
-## Version: 1.0.8
+## Version: 1.1.1
 ## SavedVariables: ClassCodexDB
 ## SavedVariablesPerCharacter: ClassCodexCharDB
 ## X-Curse-Project-ID: 1480030
@@ -79,3 +79,4 @@ Core\LoadoutDock.lua
 Core\UnitMenuIntegration.lua
 Core\SettingsAbout.lua
 Core\Settings.lua
+Core\Onboarding.lua
