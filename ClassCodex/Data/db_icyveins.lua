@@ -8460,6 +8460,7 @@ ClassCodexSource["icyveins"] = {
                 "{2061} with 1 or more stacks of {109186}",
                 "{596} for general purpose group healing.",
                 "{2061} in an emergency on an ally near death.",
+                "{2061} on an injured ally.",
                 "{132157} while moving or when little healing is required.",
                 "{585} an enemy when no healing is required.",
                 "With Archon's talent {1247178}, you should aim to use all of your {109186} procs on {596}. This maximizes the healing output from {453799} and also makes the most of the mana reduction from {109186}.",
@@ -8518,26 +8519,12 @@ ClassCodexSource["icyveins"] = {
               {
                 export="CEQAAAAAAAAAAAAAAAAAAAAAAwYAAAAAAAMMzsMgZmZYmZGLzMzMAAAAGzsMDmZmxmxMjBMTBAmZzMMbGAYMYzMjFANjZGjBzstMADYA",
                 label="Mythic+ Lasting Words",
-                labels={"Dungeon"},
-                recommended=true,
-                tags={"Weekly Key"},
               },
-              {
-                export="CEQAAAAAAAAAAAAAAAAAAAAAAADAAAAAAMMMzsMgZmZMzMzYZmZmBAAAwYmlZwMzM2MmZMgZKAwMbmhZzAAjBbmhFANjZGjBzstMADYA",
-                label="Mythic+ Lightweaver",
-              },
-              {export="CEQAAAAAAAAAAAAAAAAAAAAAAwYAAAAAAgZzwYWGwMzMjZmZsMzMzAAAAYMzyMYmZGbGzMGwMFAYmNzwsZAgxgNjxCgmxMjxgZ2WGgBMA"},
             },
             raid={
               {
                 export="CEQAAAAAAAAAAAAAAAAAAAAAAwYAAAAAAAgZmlxYMzMDzMzYZGmBAAAwwsMDzMzMMDzYAzUAgZWMDziBAGD2MzMLAaGzMGDzMbLDwAGA",
                 label="Raid",
-                labels={"Standard Raid"},
-                recommended=true,
-              },
-              {
-                export="CEQAAAAAAAAAAAAAAAAAAAAAAwYAAAAAAgZBmZWGjxMzMjZmZsMDzAAAAYYWmhZmZGmhZMgZKAwMLmhZxAAjBbMmFANjZGjhZmtlBYAD",
-                label="Lightweaver Raid",
               },
             },
           },
@@ -8546,8 +8533,8 @@ ClassCodexSource["icyveins"] = {
               {
                 export="CEQAAAAAAAAAAAAAAAAAAAAAAADAAAAAAgZmxsMMjZGDzwYZmZmBAAAwYmlZwMzM2MmZMgZKAmZBDhxsNAjBWMzMLAMjZGjBzAMzMgB",
                 label="Mythic+ / Delve",
+                labels={"Dungeon"},
                 recommended=true,
-                tags={"High Key"},
               },
             },
             leveling={
@@ -8560,9 +8547,10 @@ ClassCodexSource["icyveins"] = {
               {
                 export="CEQAAAAAAAAAAAAAAAAAAAAAAADAAAAAAgZmxsMMjZGDzwYZmZmBAAAwYmlZwMzM2MmZMgZKAmZBDhxsNAjBWMzMLAMjZGjBzAMzMgB",
                 label="Mythic+ / Delve",
+                labels={"Dungeon"},
                 recommended=true,
-                tags={"High Key"},
               },
+              {export="CEQAAAAAAAAAAAAAAAAAAAAAAADAAAAAAgZmxsMmZMzYYGYZmZmBAAAwYmlZwMzM2MmZMgZKAmZBDhxsNAjBWMzMLAMjZGjBzAMzMgB"},
             },
             pvp={
               {
@@ -8580,12 +8568,9 @@ ClassCodexSource["icyveins"] = {
             },
             raid={
               {
-                export="CEQAAAAAAAAAAAAAAAAAAAAAAwYAAAAAAgZBmZWGzMmZmZMzMsMDzAAAAYYWmhZmZGmhZMgZKAmZBDhxsNAjBWYMbAMjZGjhZGgZmBMA",
-                label="Lightweaver Raid",
-              },
-              {
-                export="CEQAAAAAAAAAAAAAAAAAAAAAAwYAAAAAAAGjZmlZmZMzMDzMDLzMmBAAAwwsMDzMzMMDzYAzUAMzCGCjZbAGDswwCAzYmxYYmBYmZAD",
-                label="Epiphany Raid",
+                export="CEQAAAAAAAAAAAAAAAAAAAAAAADAAAAAAYBmZWGzMmZMMDzsMzYGAAAAzYWmBzMzwMMjBMTBwMLYIMmtBYMwiZmZBgZMzYMMzAMzMgB",
+                label="Raid",
+                recommended=true,
               },
             },
           },
@@ -9305,16 +9290,16 @@ ClassCodexSource["icyveins"] = {
             all={
               {bonusIDs={13848},itemId=270175,tier="S"},
               {bonusIDs={13848},itemId=270168,tier="S"},
+              {itemId=270165,tier="S"},
               {itemId=270173,tier="A"},
-              {bonusIDs={12854},itemId=250259,tier="A"},
               {itemId=270164,tier="A"},
-              {itemId=270165,tier="A"},
               {bonusIDs={12854},itemId=159617,tier="B"},
               {itemId=250228,tier="B"},
+              {itemId=250215,tier="B"},
               {itemId=273796,tier="B"},
               {itemId=270166,tier="B"},
               {itemId=250225,tier="B"},
-              {itemId=250215,tier="C"},
+              {bonusIDs={12854},itemId=250259,tier="B"},
               {bonusIDs={657,10358,5871,7981},itemId=193757,tier="C"},
               {itemId=273797,tier="C"},
               {itemId=250214,tier="C"},
@@ -12020,6 +12005,10 @@ ClassCodexSource["icyveins"] = {
                 export="CcEAAAAAAAAAAAAAAAAAAAAAAgZmZmFzMzYGAAAghphxYmZzMzMzYmxMDAAAAgxmZgJAWMjhNYgZYjGDWAzMM2mhZbmtBzMAAGGA",
                 label="Mythic+ / Delves",
               },
+              {
+                export="CcEAAAAAAAAAAAAAAAAAAAAAAgZmxsMzMzYGAAAghphxYmZzMzMzYmxMDAAAAgxmZgJLAbmxwCMwMsRjBLgZGGGjZzsNYmBAYGGA",
+                label="Mythic+",
+              },
             },
             pvp={
               {
@@ -12047,6 +12036,11 @@ ClassCodexSource["icyveins"] = {
             },
             mplus={
               {
+                export="CcEAAAAAAAAAAAAAAAAAAAAAAAzMzsMzYmZGAAAghphxYmxyMzMzgxMDAAAAgZWmZgJMW2GYBMgZYCMD2AzM2GbDsMz2AMzAgZYA",
+                label="Raid Multitarget",
+                recommended=true,
+              },
+              {
                 export="CcEAAAAAAAAAAAAAAAAAAAAAAgZmZmFzYmZGAAAghphxYmZzMzMzYmxMDAAAAgxyMDMhxy2ALgBMDTgZwGYmhhBzyMbDwMDAmhBA",
                 label="Mythic+",
                 labels={"Mythic+ / Delves","Dungeon"},
@@ -12065,6 +12059,11 @@ ClassCodexSource["icyveins"] = {
                 export="CcEAAAAAAAAAAAAAAAAAAAAAAAzMzsMzMmZGAAAghphxYmZzMzMzgxMDAAAAgZWmZAhxyyALgBMDTgZwGYmx2YbglZWGgZGAMDDA",
                 label="Single-Target Raid",
                 labels={"Single-Target"},
+                recommended=true,
+              },
+              {
+                export="CcEAAAAAAAAAAAAAAAAAAAAAAAzMzsMzYmZGAAAghphxYmxyMzMzgxMDAAAAgZWmZgJMW2GYBMgZYCMD2AzM2GbDsMz2AMzAgZYA",
+                label="Raid Multitarget",
                 recommended=true,
               },
             },
@@ -12363,9 +12362,10 @@ ClassCodexSource["icyveins"] = {
           ["mountain-thane"]={
             delve={
               {
-                export="CgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgGDjZMz2yMzMjZmxMzMzMjZWmZmZmxsZmZGAAIMwGssY0YGAzCmxCgZwAAmZAYYxMAjB",
+                export="CgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgGDjZMz2yMzMjZmxMzMzMjZWmZmZmxsYmZGAAIMwGssY0YGAzCmxCgZwAAmZAYYxMAjB",
                 label="Mythic+ / Delves",
                 recommended=true,
+                tags={"Weekly Key","High Key"},
               },
             },
             leveling={
@@ -12376,13 +12376,14 @@ ClassCodexSource["icyveins"] = {
             },
             mplus={
               {
-                export="CgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgGDjZmZ2WmZmZMMmZmZmZMzyMzMzMmNzMzAAAhB2glFjGzAYWwMWAMzGDAYmBghFzAMG",
+                export="CgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgGDjZmZ2WmZmZMMmZmZmZMzyMzMzMmFzMzAAAhB2glFjGzAYWwMWAMzGDAYmBghFzAMG",
                 label="Multi-Target Raid",
               },
               {
-                export="CgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgGDjZMz2yMzMjZmxMzMzMjZWmZmZmxsZmZGAAIMwGssY0YGAzCmxCgZwAAmZAYYxMAjB",
+                export="CgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgGDjZMz2yMzMjZmxMzMzMjZWmZmZmxsYmZGAAIMwGssY0YGAzCmxCgZwAAmZAYYxMAjB",
                 label="Mythic+ / Delves",
                 recommended=true,
+                tags={"Weekly Key","High Key"},
               },
             },
             pvp={
@@ -12394,7 +12395,7 @@ ClassCodexSource["icyveins"] = {
             },
             raid={
               {
-                export="CgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgGDjZmZ2WmZmZMMmZmZmZMzyMzMzMmNzMzAAAhB2glFjGzAYWwMWAMzGDAYmBghFzAMG",
+                export="CgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgGDjZmZ2WmZmZMMmZmZmZMzyMzMzMmFzMzAAAhB2glFjGzAYWwMWAMzGDAYmBghFzAMG",
                 label="Multi-Target Raid",
               },
             },
@@ -12816,7 +12817,7 @@ ClassCodexSource["icyveins"] = {
       },
     },
   },
-  meta={contentHash="65bda1340d62b6bf",generatedAt="2026-08-25T10:19:53.817Z",schemaVersion=1,source="icyveins"},
+  meta={contentHash="9e4abc23c16d2750",generatedAt="2026-08-26T10:23:03.468Z",schemaVersion=1,source="icyveins"},
   reference={
     heroNames={
       ["aldrachi-reaver"]="Aldrachi Reaver",

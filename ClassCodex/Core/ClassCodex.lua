@@ -3705,6 +3705,10 @@ local function GetCachedRanks()
 end
 
 local function OnTooltipItem(tooltip, tooltipData)
+    -- IsForbidden is the one call permitted on forbidden tooltips (e.g.
+    -- quest-reward tooltips assembled through secure code by the Journeys
+    -- UI); any other method raises "access forbidden object".
+    if tooltip:IsForbidden() then return end
     if not ClassCodexDB then return end
 
     local itemId = tooltipData and tooltipData.id
