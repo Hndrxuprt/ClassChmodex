@@ -108,6 +108,15 @@ local function ResolveRow(entry, whLookup, context)
     return source or "", bonusIDs
 end
 
+-- Catalyst entries: bonus ids describe the SOURCE item's roll, not the tier
+-- piece shown, so they move to the catalyst link; the displayed item links
+-- without bonuses. Non-catalyst rows keep ResolveRow's bonus resolution.
+local function ResolveStatIds(entry, bonusIDs)
+    local cat = entry.item and entry.item.catalyst
+    if cat then return nil, cat.itemId, cat.bonusIDs end
+    return bonusIDs, nil, nil
+end
+
 local CONTENT_LABEL = { mplus = "Mythic+", raid = "Raid", pvp = "PvP" }
 
 local function makeCog(inst, ctx)
@@ -248,6 +257,10 @@ local function layoutGrid(content, icons, items)
         ic:SetItem(item.itemId)
         ic.itemId = item.itemId
         ic.bonusIDs = item.bonusIDs
+        ic.catalystItemId = item.catalystItemId
+        ic.catalystBonusIDs = item.catalystBonusIDs
+        ic.ejClassID = item.ejClassID
+        ic.ejSpecID = item.ejSpecID
         ic.altItemId = nil
         ic.embItemId = nil
         ic.sourceText = item.sourceText
@@ -348,6 +361,14 @@ local function render(inst, args)
     if not ctOk(curCT) then curCT = contentOpts[1] and contentOpts[1].value or "mplus" end
 
     local variants = ns.GearVariants(class, spec, curSource, curCT)
+    -- Journal loot-filter target: the spec being browsed — the player's own
+    -- in the panel, the compendium's subject in the compendium. args.spec
+    -- must win: specKey falls back to the PLAYER's spec key when the caller
+    -- (compendium) doesn't pass one, which would shadow the browsed spec.
+    local ejClassID, ejSpecID
+    if ns.GetSpecIDForKeys then
+        ejClassID, ejSpecID = ns.GetSpecIDForKeys(class, spec or specKey)
+    end
     local variantLabels = {}
     for _, v in ipairs(variants) do
         variantLabels[#variantLabels + 1] = v.label
@@ -403,11 +424,16 @@ local function render(inst, args)
         for i = 1, count do
             local entry = selectedSlots[i]
             local source, bonusIDs = ResolveRow(entry, nil, ctxBonus)
+            local rowBonus, catalystItemId, catalystBonusIDs = ResolveStatIds(entry, bonusIDs)
             local owned = ns.IsItemOwned(entry.item.itemId)
             if inst.gateOwned then owned = owned and ns.compOwnClass end
             items[#items + 1] = {
                 itemId = entry.item.itemId,
-                bonusIDs = bonusIDs,
+                bonusIDs = rowBonus,
+                catalystItemId = catalystItemId,
+                catalystBonusIDs = catalystBonusIDs,
+                ejClassID = ejClassID,
+                ejSpecID = ejSpecID,
                 sourceText = (source ~= "" and source) or nil,
                 popText = entry.pop and (entry.pop .. "%") or nil,
                 isOwned = owned,
@@ -422,11 +448,16 @@ local function render(inst, args)
         for i = 1, count do
             local entry = selectedSlots[i]
             local source, bonusIDs = ResolveRow(entry, nil, ctxBonus)
+            local rowBonus, catalystItemId, catalystBonusIDs = ResolveStatIds(entry, bonusIDs)
             local owned = ns.IsItemOwned(entry.item.itemId)
             if inst.gateOwned then owned = owned and ns.compOwnClass end
             items[#items + 1] = {
                 itemId = entry.item.itemId,
-                bonusIDs = bonusIDs,
+                bonusIDs = rowBonus,
+                catalystItemId = catalystItemId,
+                catalystBonusIDs = catalystBonusIDs,
+                ejClassID = ejClassID,
+                ejSpecID = ejSpecID,
                 sourceText = (source ~= "" and source) or nil,
                 popText = entry.pop and (entry.pop .. "%") or nil,
                 isOwned = owned,
@@ -451,6 +482,7 @@ local function render(inst, args)
             local entry = selectedSlots[i]
             local row = inst.rows[i]
             local source, bonusIDs = ResolveRow(entry, nil, ctxBonus)
+            local rowBonus, catalystItemId, catalystBonusIDs = ResolveStatIds(entry, bonusIDs)
             local itemLabel = ns.FormatItem(entry.item)
             row.itemText:SetText(itemLabel)
             local hasSource = showSource and source and source ~= ""
@@ -465,7 +497,11 @@ local function render(inst, args)
                 row.sourceLine:Hide()
             end
             row.itemId = entry.item.itemId
-            row.bonusIDs = bonusIDs
+            row.bonusIDs = rowBonus
+            row.catalystItemId = catalystItemId
+            row.catalystBonusIDs = catalystBonusIDs
+            row.ejClassID = ejClassID
+            row.ejSpecID = ejSpecID
             row.altItemId = nil
             row.embItemId = nil
             row.sourceText = (source ~= "" and source) or nil

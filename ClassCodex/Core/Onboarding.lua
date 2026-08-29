@@ -333,9 +333,9 @@ local function EnsureFrames()
                 tint = GREY,
                 color = GREY,
                 alpha = 0.28,
-                onClick = function()
+                onClick = function(self)
                     FinishTour({})
-                    if ns.OpenSettings then ns.OpenSettings() end
+                    if ns.OpenSettings then ns.OpenSettings(self) end
                 end,
             },
             {

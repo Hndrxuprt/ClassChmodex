@@ -364,3 +364,26 @@ function ns.CreateCard(parent, opts)
 
     return card
 end
+
+-- Flashes a frame's real backdrop border red once to signal that a click was
+-- refused because of combat protection (e.g. opening settings in combat).
+-- Only frames that own a backdrop take part (rows, the dock); the border
+-- color is captured, set red, and restored one beat later — two setters and
+-- one C_Timer, no loops. Repeated clicks while flashing are ignored so the
+-- captured color is never the flash itself.
+do
+    local FLASH_R, FLASH_G, FLASH_B = 1, 0.08, 0.08
+
+    ns.FlashBlocked = function(frame)
+        if type(frame) ~= "table" then return end
+        if frame._ccBlockedFlashing then return end
+        if not (frame.GetBackdrop and frame.GetBackdropBorderColor and frame:GetBackdrop()) then return end
+        local r, g, b, a = frame:GetBackdropBorderColor()
+        frame._ccBlockedFlashing = true
+        frame:SetBackdropBorderColor(FLASH_R, FLASH_G, FLASH_B, a or 1)
+        C_Timer.After(0.25, function()
+            frame._ccBlockedFlashing = nil
+            if frame.GetBackdropBorderColor then frame:SetBackdropBorderColor(r, g, b, a) end
+        end)
+    end
+end

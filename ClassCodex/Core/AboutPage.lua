@@ -326,8 +326,8 @@ local function buildSettings(parent, context)
         L["about.all_settings"],
         L["about.settings_tip"],
         ARROW_RIGHT,
-        function()
-            if ns.OpenSettings then ns.OpenSettings() end
+        function(self)
+            if ns.OpenSettings then ns.OpenSettings(self) end
         end,
         GREY,
         GREY,

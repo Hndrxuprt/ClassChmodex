@@ -115,6 +115,9 @@ L["settings.subcat.compendium"] = "Compendium"
 L["settings.subcat.tabs"] = "Tabs"
 L["settings.label.floating_mode"] = "Floating panel"
 L["settings.tooltip.floating_mode"] = "Detach the panel from the character pane so you can move it anywhere on screen."
+L["settings.label.float_esc"] = "Закрывать по Esc"
+L["settings.tooltip.float_esc"] =
+    "Позволяет закрывать отсоединённую панель клавишей Esc."
 L["settings.tooltip.comp_show_tab"] = "Show this tab in the Compendium."
 L["settings.header.dock_behavior"] = "Behavior"
 L["settings.header.dock_display"] = "Display"
@@ -283,6 +286,7 @@ L["talent_pane.placeholder.encounter"] = "Выберите бой"
 L["talent_pane.placeholder.bracket"] = "Выберите формат"
 L["gear.tooltip.alternative"] = "Альтернатива:"
 L["gear.tooltip.embellishment"] = "Украшения:"
+L["gear.tooltip.catalyst"] = "Преобразовано из:"
 L["loadout_dock.custom_build"] = "Свой билд"
 L["loadout_dock.no_spec"] = "Выберите специализацию"
 L["loadout_dock.saved_loadouts"] = "Сохранённые раскладки"
@@ -497,6 +501,7 @@ L["item.menu.ah_listed"] = 'Added to your Auctionator "Class Codex" shopping lis
 L["item.menu.ah_list_fail"] = "Could not update the Auctionator shopping list."
 
 L["item.menu.copy_name"] = "Copy name"
+L["item.menu.view_journal"] = "Открыть в журнале подземелий"
 
 L["item.tooltip.menu_hint"] = "Right-click for options"
 
