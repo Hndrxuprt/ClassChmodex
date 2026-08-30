@@ -108,12 +108,14 @@ local function ResolveRow(entry, whLookup, context)
     return source or "", bonusIDs
 end
 
--- Catalyst entries: bonus ids describe the SOURCE item's roll, not the tier
--- piece shown, so they move to the catalyst link; the displayed item links
--- without bonuses. Non-catalyst rows keep ResolveRow's bonus resolution.
+-- Catalyst entries: the tier piece (entry.item) displays, and the conversion
+-- preserves the source's upgrade track — the bonuses apply to the DISPLAYED
+-- item (chat links, tooltips, dressing room render at the rolled item level;
+-- wowhead models it the same way: item=<tier id>&bonus=…&original-item=<src>).
+-- The source id is kept for the "Converted from" tooltip line.
 local function ResolveStatIds(entry, bonusIDs)
     local cat = entry.item and entry.item.catalyst
-    if cat then return nil, cat.itemId, cat.bonusIDs end
+    if cat then return cat.bonusIDs, cat.itemId, cat.bonusIDs end
     return bonusIDs, nil, nil
 end
 

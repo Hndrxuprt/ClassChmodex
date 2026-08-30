@@ -445,6 +445,7 @@ L["crafting.menu.sort_popular"] = "Show most popular only"
 
 -- Item right-click menu (enhancements/gear rows)
 L["item.menu.search_ah"] = "Add to Auctionator List"
+L["item.menu.link_chat"] = "Link in chat"
 L["item.menu.copy_name"] = "Copy name"
 L["item.menu.view_journal"] = "View in Dungeon Journal"
 L["item.tooltip.menu_hint"] = "Right-click for options"

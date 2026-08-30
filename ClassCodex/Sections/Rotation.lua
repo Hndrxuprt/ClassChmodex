@@ -142,6 +142,7 @@ local function makeStepRow(parent)
     iconFrame:SetScript("OnEnter", function(self)
         local row = self:GetParent()
         if row.itemId then
+            ns.Tooltip.MakeClickThrough()
             GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
             GameTooltip:SetItemByID(row.itemId)
             GameTooltip:Show()
@@ -159,6 +160,7 @@ local function makeStepRow(parent)
         local itemId = tonumber(link and link:match("^item:(%d+)"))
         local spellId = tonumber(link and link:match("^spell:(%d+)"))
         if itemId or spellId then
+            if itemId then ns.Tooltip.MakeClickThrough() end
             GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
             if itemId then
                 GameTooltip:SetItemByID(itemId)
@@ -181,6 +183,7 @@ local function makeStepRow(parent)
         local itemId = tonumber(link and link:match("^item:(%d+)"))
         local spellId = tonumber(link and link:match("^spell:(%d+)"))
         if itemId or spellId then
+            if itemId then ns.Tooltip.MakeClickThrough() end
             GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
             if itemId then
                 GameTooltip:SetItemByID(itemId)

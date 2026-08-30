@@ -785,11 +785,22 @@ function ns.BuildItemLink(itemId, bonusIDs)
         -- (item:ID:…:50:72::22:COUNT:bonus…). Tooltips only apply the bonuses
         -- from a COMPLETE hyperlink (|Hitem:…|h[name]|h), not the bare
         -- "item:…" string.
-        local name, _, quality = GetItemInfo(itemId)
-        if not name then
+        local bare = format("item:%d::::::::::::%d:%s", itemId, #bonusIDs, table.concat(bonusIDs, ":"))
+        -- Prefer the CLIENT's own link for this exact bonus combo: GetItemInfo
+        -- on an item string returns the engine-sanctioned hyperlink (correct
+        -- color placement, whatever field layout this client build validates
+        -- on send). Hand-built links risk "Invalid escape code in chat
+        -- message" rejections inside C_ChatInfo.SendChatMessage, which does
+        -- no Lua-side validation we could satisfy ourselves.
+        local _, link = GetItemInfo(bare)
+        if not link then
             C_Item.RequestLoadItemDataByID(itemId)
-            name = GetItemInfo(itemId)
+            _, link = GetItemInfo(bare)
         end
+        if link then return link end
+        -- Uncached: hand-build as a fallback (color outside the |H…|h pair,
+        -- matching real client links) until the item data arrives.
+        local name, _, quality = GetItemInfo(itemId)
         if not name then return GetItemLink(itemId) end
         local color = "|cffffffff"
         local ok, r, g, b = pcall(GetItemQualityColor, quality or 1)
@@ -801,8 +812,7 @@ function ns.BuildItemLink(itemId, bonusIDs)
                 math.floor(b * 255 + 0.5)
             )
         end
-        local bare = format("item:%d::::::::::::%d:%s", itemId, #bonusIDs, table.concat(bonusIDs, ":"))
-        return format("|H%s|h%s[%s]|h|r", bare, color, name:gsub("[%[%]]", ""))
+        return format("%s|H%s|h[%s]|h|r", color, bare, name:gsub("[%[%]]", ""))
     end
     return GetItemLink(itemId)
 end
@@ -810,8 +820,10 @@ end
 local function HandleItemClick(self)
     if not self.itemId then return end
     local link = (ns.BuildItemLink and ns.BuildItemLink(self.itemId, self.bonusIDs)) or GetItemLink(self.itemId)
-    if not link then return end
+    if not link then return end -- uncached item; BuildItemLink already requested the load, next click works
     if IsModifiedClick("CHATLINK") then
+        -- Bag behaviour: insert into the open chat box only; never open chat
+        -- on the user's behalf.
         ChatEdit_InsertLink(link)
     elseif IsModifiedClick("DRESSUP") then
         DressUpItemLink(link)
@@ -1041,6 +1053,12 @@ local function OpenItemContextMenu(row)
                 end
             end)
         end
+        root:CreateButton((L and L["item.menu.link_chat"]) or "Link in chat", function()
+            local link = (ns.BuildItemLink and ns.BuildItemLink(itemId, row.bonusIDs)) or GetItemLink(itemId)
+            if link then
+                if not ChatEdit_InsertLink(link) then ChatFrame_OpenChat(link) end
+            end
+        end)
         root:CreateButton((L and L["item.menu.copy_name"]) or "Copy name", function()
             local text = name or tostring(itemId)
             if ns.ShowCopyPopup then ns.ShowCopyPopup(text, row) end
@@ -1061,7 +1079,7 @@ local function SetupItemTooltip(row)
         if button ~= "RightButton" then HandleItemClick(self) end
     end)
     row:SetScript("OnEnter", function(self)
-        GameTooltip:EnableMouse(false)
+        ns.Tooltip.MakeClickThrough()
         if self.spellId then
             GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
             GameTooltip:SetSpellByID(self.spellId)
@@ -1117,6 +1135,7 @@ local function SetupItemTooltip(row)
 end
 
 ns.FormatItem = FormatItem
+ns.CleanItemText = CleanItemText
 ns.IsItemOwned = IsItemOwned
 ns.CreateRowIcon = CreateRowIcon
 ns.SetRowIcon = SetRowIcon

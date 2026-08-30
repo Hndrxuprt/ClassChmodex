@@ -411,6 +411,7 @@ local function InitFrame()
         row:RegisterForClicks("LeftButtonUp")
         row:SetScript("OnEnter", function(self)
             if self.itemId then
+                ns.Tooltip.MakeClickThrough()
                 GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
                 if self.bonusIDs and #self.bonusIDs > 0 and ns.BuildItemLink then
                     local ok =
