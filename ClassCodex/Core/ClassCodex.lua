@@ -4183,8 +4183,7 @@ eventFrame:SetScript("OnEvent", function(_, event, arg1)
                     end
                 end,
                 OnTooltipShow = function(tip)
-                    local ver = C_AddOns.GetAddOnMetadata(addonName, "Version") or ""
-                    tip:AddLine("Class Codex v" .. ver, 1, 1, 1)
+                    tip:AddLine("Class Codex", 1, 1, 1)
                     tip:AddLine("Left-click to open Compendium", 1, 0.82, 0)
                     tip:AddLine("Right-click to open Settings", 1, 0.82, 0)
                 end,

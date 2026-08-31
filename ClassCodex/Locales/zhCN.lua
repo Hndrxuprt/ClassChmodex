@@ -450,6 +450,7 @@ L["item.menu.search_ah"] = "Add to Auctionator List"
 L["item.menu.ah_listed"] = 'Added to your Auctionator "Class Codex" shopping list.'
 L["item.menu.ah_list_fail"] = "Could not update the Auctionator shopping list."
 
+L["item.menu.link_chat"] = "Link in chat"
 L["item.menu.copy_name"] = "Copy name"
 L["item.menu.view_journal"] = "在地下城手册中查看"
 
