@@ -221,19 +221,55 @@ ClassCodexSource["ugg"] = {
         },
         statTargets={
           all={
-            mplus={crit=1026,haste=1152,mastery=1007,versatility=668},
-            pvp={crit=831,haste=1085,mastery=915,versatility=1335},
-            raid={crit=1088,haste=1289,mastery=818,versatility=432},
+            mplus={
+              top20={crit=1026,haste=1152,mastery=1007,versatility=668},
+              top50={crit=933,haste=1025,mastery=840,versatility=563},
+              top80={crit=844,haste=928,mastery=722,versatility=483},
+            },
+            pvp={
+              top20={crit=831,haste=1085,mastery=915,versatility=1335},
+              top50={crit=708,haste=933,mastery=694,versatility=1225},
+              top80={crit=379,haste=790,mastery=568,versatility=973},
+            },
+            raid={
+              top20={crit=1088,haste=1289,mastery=818,versatility=432},
+              top50={crit=955,haste=1159,mastery=722,versatility=364},
+              top80={crit=913,haste=1079,mastery=644,versatility=300},
+            },
           },
           deathbringer={
-            mplus={crit=1158,haste=1058,mastery=1054,versatility=904},
-            pvp={crit=875,haste=900,mastery=855,versatility=1283},
-            raid={crit=1275,haste=625,mastery=1025,versatility=625},
+            mplus={
+              top20={crit=1158,haste=1058,mastery=1054,versatility=904},
+              top50={crit=975,haste=933,mastery=900,versatility=763},
+              top80={crit=861,haste=730,mastery=842,versatility=566},
+            },
+            pvp={
+              top20={crit=875,haste=900,mastery=855,versatility=1283},
+              top50={crit=685,haste=735,mastery=710,versatility=1208},
+              top80={crit=446,haste=588,mastery=531,versatility=922},
+            },
+            raid={
+              top20={crit=1275,haste=625,mastery=1025,versatility=625},
+              top50={crit=950,haste=558,mastery=1025,versatility=550},
+              top80={crit=808,haste=558,mastery=992,versatility=392},
+            },
           },
           sanlayn={
-            mplus={crit=1026,haste=1152,mastery=1007,versatility=668},
-            pvp={crit=831,haste=1085,mastery=915,versatility=1335},
-            raid={crit=1088,haste=1289,mastery=818,versatility=432},
+            mplus={
+              top20={crit=1026,haste=1152,mastery=1007,versatility=668},
+              top50={crit=933,haste=1025,mastery=840,versatility=563},
+              top80={crit=844,haste=928,mastery=722,versatility=483},
+            },
+            pvp={
+              top20={crit=831,haste=1085,mastery=915,versatility=1335},
+              top50={crit=708,haste=933,mastery=694,versatility=1225},
+              top80={crit=379,haste=790,mastery=568,versatility=973},
+            },
+            raid={
+              top20={crit=1088,haste=1289,mastery=818,versatility=432},
+              top50={crit=955,haste=1159,mastery=722,versatility=364},
+              top80={crit=913,haste=1079,mastery=644,versatility=300},
+            },
           },
         },
         talents={
@@ -681,16 +717,16 @@ ClassCodexSource["ugg"] = {
         trinkets={
           all={
             all={
-              {bonusIDs={41,13335,12806},itemId=249344,pop=17.8,tier="A"},
+              {bonusIDs={6652,13335,13654},itemId=249344,pop=17.8,tier="A"},
               {bonusIDs={6652,13335,13654},itemId=249343,pop=11.6,tier="B"},
-              {bonusIDs={13440,6652,12699,12846},itemId=273796,pop=7.1,tier="B"},
-              {bonusIDs={12843,13440,6652,12699},itemId=250228,pop=6.2,tier="B"},
-              {bonusIDs={12843,13440,40,12699},itemId=250229,pop=6.2,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=273796,pop=7.1,tier="B"},
+              {bonusIDs={13440,6652,12699,12846},itemId=250228,pop=6.2,tier="B"},
+              {bonusIDs={13440,6652,12699,12846},itemId=250229,pop=6.2,tier="B"},
               {bonusIDs={13440,6652,12699,12846},itemId=250238,pop=5.6,tier="B"},
-              {bonusIDs={12843,13440,41,12699},itemId=250245,pop=5.2,tier="B"},
-              {bonusIDs={13440,6652,12699,12846},itemId=193762,pop=5.1,tier="B"},
-              {bonusIDs={13439,6652,12699,12834},itemId=250259,pop=3.9,tier="C"},
-              {bonusIDs={12843,13440,6652,12699},itemId=273797,pop=3.2,tier="C"},
+              {bonusIDs={13440,6652,12699,12846},itemId=250245,pop=5.2,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=193762,pop=5.1,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250259,pop=3.9,tier="C"},
+              {bonusIDs={13440,6652,12699,12846},itemId=273797,pop=3.2,tier="C"},
               {bonusIDs={6652,13335,13654},itemId=249342,pop=2.9,tier="C"},
             },
             pvp={{bonusIDs={13650,13657},itemId=270556,pop=31.3,tier="S"},{bonusIDs={13650,13657},itemId=270558,pop=24,tier="S"}},
@@ -940,19 +976,55 @@ ClassCodexSource["ugg"] = {
         },
         statTargets={
           all={
-            mplus={crit=1250,haste=746,mastery=1169,versatility=316},
-            pvp={crit=557,haste=530,mastery=1065,versatility=1245},
-            raid={crit=1305,haste=638,mastery=1285,versatility=288},
+            mplus={
+              top20={crit=1250,haste=746,mastery=1169,versatility=316},
+              top50={crit=1204,haste=637,mastery=1101,versatility=240},
+              top80={crit=1130,haste=548,mastery=1029,versatility=162},
+            },
+            pvp={
+              top20={crit=557,haste=530,mastery=1065,versatility=1245},
+              top50={crit=149,haste=358,mastery=933,versatility=1213},
+              top80={crit=149,haste=274,mastery=840,versatility=1202},
+            },
+            raid={
+              top20={crit=1305,haste=638,mastery=1285,versatility=288},
+              top50={crit=1258,haste=556,mastery=1225,versatility=219},
+              top80={crit=1217,haste=467,mastery=1129,versatility=134},
+            },
           },
           deathbringer={
-            mplus={crit=1250,haste=746,mastery=1169,versatility=316},
-            pvp={crit=557,haste=530,mastery=1065,versatility=1245},
-            raid={crit=1305,haste=638,mastery=1285,versatility=288},
+            mplus={
+              top20={crit=1250,haste=746,mastery=1169,versatility=316},
+              top50={crit=1204,haste=637,mastery=1101,versatility=240},
+              top80={crit=1130,haste=548,mastery=1029,versatility=162},
+            },
+            pvp={
+              top20={crit=557,haste=530,mastery=1065,versatility=1245},
+              top50={crit=149,haste=358,mastery=933,versatility=1213},
+              top80={crit=149,haste=274,mastery=840,versatility=1202},
+            },
+            raid={
+              top20={crit=1305,haste=638,mastery=1285,versatility=288},
+              top50={crit=1258,haste=556,mastery=1225,versatility=219},
+              top80={crit=1217,haste=467,mastery=1129,versatility=134},
+            },
           },
           ["rider-of-the-apocalypse"]={
-            mplus={crit=1275,haste=838,mastery=1163,versatility=295},
-            pvp={crit=875,haste=442,mastery=975,versatility=1325},
-            raid={crit=1025,haste=825,mastery=1075,versatility=275},
+            mplus={
+              top20={crit=1275,haste=838,mastery=1163,versatility=295},
+              top50={crit=1186,haste=695,mastery=1055,versatility=235},
+              top80={crit=1041,haste=632,mastery=998,versatility=157},
+            },
+            pvp={
+              top20={crit=875,haste=442,mastery=975,versatility=1325},
+              top50={crit=282,haste=425,mastery=913,versatility=1263},
+              top80={crit=282,haste=367,mastery=775,versatility=1192},
+            },
+            raid={
+              top20={crit=1025,haste=825,mastery=1075,versatility=275},
+              top50={crit=1025,haste=825,mastery=1075,versatility=275},
+              top80={crit=875,haste=625,mastery=975,versatility=175},
+            },
           },
         },
         talents={
@@ -1394,17 +1466,17 @@ ClassCodexSource["ugg"] = {
         trinkets={
           all={
             all={
-              {bonusIDs={41,13335,12806},itemId=249344,pop=26.7,tier="A"},
+              {bonusIDs={6652,13335,13654},itemId=249344,pop=26.7,tier="A"},
               {bonusIDs={6652,13335,13654},itemId=249343,pop=16.8,tier="A"},
               {bonusIDs={13440,6652,12699,12846},itemId=250238,pop=9.3,tier="B"},
-              {bonusIDs={12843,13440,6652,12699},itemId=273797,pop=6.1,tier="B"},
-              {bonusIDs={12843,13440,6652,12699},itemId=250228,pop=4.8,tier="C"},
-              {bonusIDs={6652,13333,12836},itemId=270175,pop=4.4,tier="C"},
-              {bonusIDs={13439,6652,12699,12834},itemId=250259,pop=4,tier="C"},
-              {bonusIDs={13440,6652,12699,12846},itemId=273796,pop=3.9,tier="C"},
-              {bonusIDs={6652,12846,13185},itemId=248583,pop=3.8,tier="C"},
-              {bonusIDs={12843,13440,40,12699},itemId=250229,pop=3.6,tier="C"},
-              {bonusIDs={13440,6652,12699,13654},itemId=193701,pop=2.2,tier="C"},
+              {bonusIDs={13440,6652,12699,12846},itemId=273797,pop=6.1,tier="B"},
+              {bonusIDs={13440,6652,12699,12846},itemId=250228,pop=4.8,tier="C"},
+              {bonusIDs={6652,13333,12838},itemId=270175,pop=4.4,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250259,pop=4,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=273796,pop=3.9,tier="C"},
+              {bonusIDs={13183,6652,12843},itemId=248583,pop=3.8,tier="C"},
+              {bonusIDs={13440,6652,12699,12846},itemId=250229,pop=3.6,tier="C"},
+              {bonusIDs={13440,42,12699,13654},itemId=193701,pop=2.2,tier="C"},
             },
             pvp={
               {bonusIDs={13650,13657},itemId=270558,pop=42.9,tier="S"},
@@ -1625,19 +1697,55 @@ ClassCodexSource["ugg"] = {
         },
         statTargets={
           all={
-            mplus={crit=1267,haste=667,mastery=1264,versatility=325},
-            pvp={crit=138,haste=598,mastery=946,versatility=1255},
-            raid={crit=1367,haste=631,mastery=1139,versatility=206},
+            mplus={
+              top20={crit=1267,haste=667,mastery=1264,versatility=325},
+              top50={crit=1198,haste=580,mastery=1142,versatility=219},
+              top80={crit=1168,haste=454,mastery=1074,versatility=146},
+            },
+            pvp={
+              top20={crit=138,haste=598,mastery=946,versatility=1255},
+              top50={crit=138,haste=538,mastery=810,versatility=1228},
+              top80={crit=138,haste=428,mastery=754,versatility=1196},
+            },
+            raid={
+              top20={crit=1367,haste=631,mastery=1139,versatility=206},
+              top50={crit=1275,haste=594,mastery=1129,versatility=143},
+              top80={crit=1218,haste=499,mastery=1064,versatility=102},
+            },
           },
           ["rider-of-the-apocalypse"]={
-            mplus={crit=1267,haste=667,mastery=1264,versatility=325},
-            pvp={crit=138,haste=598,mastery=946,versatility=1255},
-            raid={crit=1445,haste=665,mastery=1275,versatility=285},
+            mplus={
+              top20={crit=1267,haste=667,mastery=1264,versatility=325},
+              top50={crit=1198,haste=580,mastery=1142,versatility=219},
+              top80={crit=1168,haste=454,mastery=1074,versatility=146},
+            },
+            pvp={
+              top20={crit=138,haste=598,mastery=946,versatility=1255},
+              top50={crit=138,haste=538,mastery=810,versatility=1228},
+              top80={crit=138,haste=428,mastery=754,versatility=1196},
+            },
+            raid={
+              top20={crit=1445,haste=665,mastery=1275,versatility=285},
+              top50={crit=1338,haste=525,mastery=1171,versatility=171},
+              top80={crit=1270,haste=443,mastery=1093,versatility=108},
+            },
           },
           sanlayn={
-            mplus={crit=1246,haste=715,mastery=1225,versatility=344},
-            pvp={crit=1150,haste=700,mastery=992,versatility=1075},
-            raid={crit=1367,haste=631,mastery=1139,versatility=206},
+            mplus={
+              top20={crit=1246,haste=715,mastery=1225,versatility=344},
+              top50={crit=1216,haste=628,mastery=1128,versatility=236},
+              top80={crit=1144,haste=530,mastery=1073,versatility=148},
+            },
+            pvp={
+              top20={crit=1150,haste=700,mastery=992,versatility=1075},
+              top50={crit=1085,haste=665,mastery=925,versatility=785},
+              top80={crit=900,haste=575,mastery=875,versatility=594},
+            },
+            raid={
+              top20={crit=1367,haste=631,mastery=1139,versatility=206},
+              top50={crit=1275,haste=594,mastery=1129,versatility=143},
+              top80={crit=1218,haste=499,mastery=1064,versatility=102},
+            },
           },
         },
         talents={
@@ -2103,17 +2211,17 @@ ClassCodexSource["ugg"] = {
         trinkets={
           all={
             all={
-              {bonusIDs={41,13335,12806},itemId=249344,pop=45.9,tier="S"},
+              {bonusIDs={6652,13335,13654},itemId=249344,pop=45.9,tier="S"},
               {bonusIDs={6652,13335,13654},itemId=249343,pop=22.4,tier="A"},
-              {bonusIDs={12843,13440,6652,12699},itemId=273797,pop=6,tier="B"},
-              {bonusIDs={12843,13440,6652,12699},itemId=250228,pop=4.1,tier="C"},
-              {bonusIDs={6652,13333,12836},itemId=270175,pop=4.1,tier="C"},
-              {bonusIDs={12843,13440,40,12699},itemId=250229,pop=2.7,tier="C"},
+              {bonusIDs={13440,6652,12699,12846},itemId=273797,pop=6,tier="B"},
+              {bonusIDs={13440,6652,12699,12846},itemId=250228,pop=4.1,tier="C"},
+              {bonusIDs={6652,13333,12838},itemId=270175,pop=4.1,tier="C"},
+              {bonusIDs={13440,6652,12699,12846},itemId=250229,pop=2.7,tier="C"},
               {bonusIDs={13440,6652,12699,12846},itemId=250238,pop=2.1,tier="C"},
-              {bonusIDs={13440,6652,12699,12846},itemId=273796,pop=1.5,tier="C"},
-              {bonusIDs={13440,6652,12699,12846},itemId=193762,pop=1.3,tier="C"},
-              {bonusIDs={12841,6652},itemId=265657,pop=1.3,tier="C"},
-              {bonusIDs={6652,12830},itemId=274493,pop=1.3,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=273796,pop=1.5,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=193762,pop=1.3,tier="C"},
+              {bonusIDs={6652,12846},itemId=265657,pop=1.3,tier="C"},
+              {bonusIDs={6652,12846},itemId=274493,pop=1.3,tier="C"},
             },
             pvp={
               {bonusIDs={13650,13657},itemId=270558,pop=44.7,tier="S"},
@@ -2352,19 +2460,55 @@ ClassCodexSource["ugg"] = {
         },
         statTargets={
           all={
-            mplus={crit=1022,haste=1120,mastery=1175,versatility=233},
-            pvp={crit=477,haste=816,mastery=1065,versatility=1190},
-            raid={crit=1181,haste=954,mastery=1035,versatility=195},
+            mplus={
+              top20={crit=1022,haste=1120,mastery=1175,versatility=233},
+              top50={crit=906,haste=1016,mastery=1066,versatility=145},
+              top80={crit=796,haste=985,mastery=999,versatility=105},
+            },
+            pvp={
+              top20={crit=477,haste=816,mastery=1065,versatility=1190},
+              top50={crit=144,haste=659,mastery=961,versatility=1171},
+              top80={crit=144,haste=485,mastery=849,versatility=1053},
+            },
+            raid={
+              top20={crit=1181,haste=954,mastery=1035,versatility=195},
+              top50={crit=1063,haste=933,mastery=950,versatility=123},
+              top80={crit=983,haste=877,mastery=891,versatility=93},
+            },
           },
           annihilator={
-            mplus={crit=1022,haste=1120,mastery=1175,versatility=233},
-            pvp={crit=531,haste=1125,mastery=1106,versatility=1180},
-            raid={crit=1258,haste=1058,mastery=1125,versatility=392},
+            mplus={
+              top20={crit=1022,haste=1120,mastery=1175,versatility=233},
+              top50={crit=906,haste=1016,mastery=1066,versatility=145},
+              top80={crit=796,haste=985,mastery=999,versatility=105},
+            },
+            pvp={
+              top20={crit=531,haste=1125,mastery=1106,versatility=1180},
+              top50={crit=131,haste=954,mastery=975,versatility=1088},
+              top80={crit=131,haste=769,mastery=839,versatility=881},
+            },
+            raid={
+              top20={crit=1258,haste=1058,mastery=1125,versatility=392},
+              top50={crit=1068,haste=982,mastery=1032,versatility=268},
+              top80={crit=921,haste=896,mastery=929,versatility=157},
+            },
           },
           ["void-scarred"]={
-            mplus={crit=1154,haste=925,mastery=964,versatility=150},
-            pvp={crit=477,haste=816,mastery=1065,versatility=1190},
-            raid={crit=1181,haste=954,mastery=1035,versatility=195},
+            mplus={
+              top20={crit=1154,haste=925,mastery=964,versatility=150},
+              top50={crit=1081,haste=875,mastery=894,versatility=116},
+              top80={crit=1023,haste=844,mastery=849,versatility=90},
+            },
+            pvp={
+              top20={crit=477,haste=816,mastery=1065,versatility=1190},
+              top50={crit=144,haste=659,mastery=961,versatility=1171},
+              top80={crit=144,haste=485,mastery=849,versatility=1053},
+            },
+            raid={
+              top20={crit=1181,haste=954,mastery=1035,versatility=195},
+              top50={crit=1063,haste=933,mastery=950,versatility=123},
+              top80={crit=983,haste=877,mastery=891,versatility=93},
+            },
           },
         },
         talents={
@@ -2817,16 +2961,16 @@ ClassCodexSource["ugg"] = {
           all={
             all={
               {bonusIDs={6652,13335,13654},itemId=249346,pop=26.6,tier="A"},
-              {bonusIDs={13440,6652,12699,12844},itemId=250215,pop=20.9,tier="A"},
+              {bonusIDs={13440,6652,12699,12843},itemId=250215,pop=20.9,tier="A"},
               {bonusIDs={6652,13335,13654},itemId=249343,pop=19.5,tier="A"},
-              {bonusIDs={13440,6652,12699,12846},itemId=273796,pop=5.4,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=273796,pop=5.4,tier="B"},
               {bonusIDs={12830},itemId=264507,pop=3.4,tier="C"},
-              {bonusIDs={13440,6652,12699,12846},itemId=250224,pop=3.3,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250224,pop=3.3,tier="C"},
               {bonusIDs={6652,13334,12841},itemId=270167,pop=3.2,tier="C"},
-              {bonusIDs={6652,13333,11215,12838},itemId=270164,pop=2.6,tier="C"},
-              {bonusIDs={6652,12846,13185},itemId=248583,pop=2,tier="C"},
-              {bonusIDs={6652,12830},itemId=274493,pop=2,tier="C"},
-              {bonusIDs={13440,6652,12699,12846},itemId=250214,pop=1.7,tier="C"},
+              {bonusIDs={6652,13333,12838},itemId=270164,pop=2.6,tier="C"},
+              {bonusIDs={13183,6652,12843},itemId=248583,pop=2,tier="C"},
+              {bonusIDs={6652,12846},itemId=274493,pop=2,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250214,pop=1.7,tier="C"},
             },
             pvp={{bonusIDs={13650,13657},itemId=270556,pop=40.2,tier="S"},{bonusIDs={13650,13657},itemId=270558,pop=34.4,tier="S"}},
           },
@@ -3085,19 +3229,55 @@ ClassCodexSource["ugg"] = {
         },
         statTargets={
           ["aldrachi-reaver"]={
-            mplus={crit=1400,haste=613,mastery=1095,versatility=375},
-            pvp={crit=45,haste=357,mastery=1273,versatility=1224},
-            raid={crit=1445,haste=705,mastery=1142,versatility=333},
+            mplus={
+              top20={crit=1400,haste=613,mastery=1095,versatility=375},
+              top50={crit=1325,haste=425,mastery=1050,versatility=331},
+              top80={crit=1229,haste=425,mastery=975,versatility=255},
+            },
+            pvp={
+              top20={crit=45,haste=357,mastery=1273,versatility=1224},
+              top50={crit=45,haste=189,mastery=1197,versatility=1182},
+              top80={crit=45,haste=189,mastery=1112,versatility=1109},
+            },
+            raid={
+              top20={crit=1445,haste=705,mastery=1142,versatility=333},
+              top50={crit=1307,haste=494,mastery=1057,versatility=263},
+              top80={crit=1210,haste=428,mastery=1008,versatility=192},
+            },
           },
           all={
-            mplus={crit=1392,haste=455,mastery=1238,versatility=375},
-            pvp={crit=45,haste=357,mastery=1273,versatility=1224},
-            raid={crit=1445,haste=705,mastery=1142,versatility=333},
+            mplus={
+              top20={crit=1392,haste=455,mastery=1238,versatility=375},
+              top50={crit=1310,haste=380,mastery=1171,versatility=259},
+              top80={crit=1252,haste=293,mastery=1107,versatility=174},
+            },
+            pvp={
+              top20={crit=45,haste=357,mastery=1273,versatility=1224},
+              top50={crit=45,haste=189,mastery=1197,versatility=1182},
+              top80={crit=45,haste=189,mastery=1112,versatility=1109},
+            },
+            raid={
+              top20={crit=1445,haste=705,mastery=1142,versatility=333},
+              top50={crit=1307,haste=494,mastery=1057,versatility=263},
+              top80={crit=1210,haste=428,mastery=1008,versatility=192},
+            },
           },
           ["fel-scarred"]={
-            mplus={crit=1392,haste=455,mastery=1238,versatility=375},
-            pvp={crit=481,haste=353,mastery=1146,versatility=1264},
-            raid={crit=1492,haste=605,mastery=1218,versatility=285},
+            mplus={
+              top20={crit=1392,haste=455,mastery=1238,versatility=375},
+              top50={crit=1310,haste=380,mastery=1171,versatility=259},
+              top80={crit=1252,haste=293,mastery=1107,versatility=174},
+            },
+            pvp={
+              top20={crit=481,haste=353,mastery=1146,versatility=1264},
+              top50={crit=146,haste=264,mastery=1044,versatility=1217},
+              top80={crit=146,haste=199,mastery=964,versatility=1170},
+            },
+            raid={
+              top20={crit=1492,haste=605,mastery=1218,versatility=285},
+              top50={crit=1394,haste=405,mastery=1148,versatility=148},
+              top80={crit=1292,haste=334,mastery=1108,versatility=148},
+            },
           },
         },
         talents={
@@ -3541,18 +3721,18 @@ ClassCodexSource["ugg"] = {
         trinkets={
           all={
             all={
-              {bonusIDs={13440,6652,12699,13654},itemId=193701,pop=31.6,tier="S"},
+              {bonusIDs={13440,42,12699,13654},itemId=193701,pop=31.6,tier="S"},
               {bonusIDs={6652,13335,13654},itemId=249343,pop=18.6,tier="A"},
-              {bonusIDs={13439,6652,12699,12834},itemId=250259,pop=7.3,tier="B"},
-              {bonusIDs={13440,6652,12699,12846},itemId=273796,pop=6.5,tier="B"},
-              {bonusIDs={13440,6652,12699,12844},itemId=250215,pop=4.7,tier="C"},
-              {bonusIDs={6652,13333,12837},itemId=270166,pop=4.2,tier="C"},
-              {bonusIDs={12843,13440,6652,12699},itemId=250228,pop=3.6,tier="C"},
-              {bonusIDs={6652,12846,13185},itemId=248583,pop=3.1,tier="C"},
-              {bonusIDs={13440,6652,12699,12846},itemId=250214,pop=2.7,tier="C"},
-              {bonusIDs={6652,13333,12836},itemId=270175,pop=2.7,tier="C"},
-              {bonusIDs={6652,13333,12838},itemId=270173,pop=2.1,tier="C"},
-              {bonusIDs={12841,6652},itemId=265657,pop=2,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250259,pop=7.3,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=273796,pop=6.5,tier="B"},
+              {bonusIDs={13440,6652,12699,12843},itemId=250215,pop=4.7,tier="C"},
+              {bonusIDs={6652,13334,12846},itemId=270166,pop=4.2,tier="C"},
+              {bonusIDs={13440,6652,12699,12846},itemId=250228,pop=3.6,tier="C"},
+              {bonusIDs={13183,6652,12843},itemId=248583,pop=3.1,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250214,pop=2.7,tier="C"},
+              {bonusIDs={6652,13333,12838},itemId=270175,pop=2.7,tier="C"},
+              {bonusIDs={6652,13334,12846},itemId=270173,pop=2.1,tier="C"},
+              {bonusIDs={6652,12846},itemId=265657,pop=2,tier="C"},
             },
             pvp={{bonusIDs={13650,13657},itemId=270558,pop=49.6,tier="S"},{bonusIDs={13650,13657},itemId=270556,pop=48.8,tier="S"}},
           },
@@ -3782,19 +3962,55 @@ ClassCodexSource["ugg"] = {
         },
         statTargets={
           ["aldrachi-reaver"]={
-            mplus={crit=775,haste=1350,mastery=900,versatility=475},
-            pvp={crit=225,haste=675,mastery=1025,versatility=1125},
-            raid={crit=775,haste=825,mastery=675,versatility=425},
+            mplus={
+              top20={crit=775,haste=1350,mastery=900,versatility=475},
+              top50={crit=775,haste=1208,mastery=763,versatility=475},
+              top80={crit=735,haste=1055,mastery=695,versatility=425},
+            },
+            pvp={
+              top20={crit=225,haste=675,mastery=1025,versatility=1125},
+              top50={crit=200,haste=625,mastery=850,versatility=1100},
+              top80={crit=158,haste=492,mastery=592,versatility=992},
+            },
+            raid={
+              top20={crit=775,haste=825,mastery=675,versatility=425},
+              top50={crit=775,haste=825,mastery=675,versatility=425},
+              top80={crit=775,haste=825,mastery=675,versatility=425},
+            },
           },
           all={
-            mplus={crit=1068,haste=1234,mastery=866,versatility=550},
-            pvp={crit=225,haste=675,mastery=1025,versatility=1125},
-            raid={crit=1000,haste=1242,mastery=1000,versatility=550},
+            mplus={
+              top20={crit=1068,haste=1234,mastery=866,versatility=550},
+              top50={crit=973,haste=1127,mastery=731,versatility=462},
+              top80={crit=908,haste=1031,mastery=619,versatility=380},
+            },
+            pvp={
+              top20={crit=225,haste=675,mastery=1025,versatility=1125},
+              top50={crit=200,haste=625,mastery=850,versatility=1100},
+              top80={crit=158,haste=492,mastery=592,versatility=992},
+            },
+            raid={
+              top20={crit=1000,haste=1242,mastery=1000,versatility=550},
+              top50={crit=875,haste=1213,mastery=695,versatility=485},
+              top80={crit=818,haste=1089,mastery=582,versatility=454},
+            },
           },
           annihilator={
-            mplus={crit=1068,haste=1234,mastery=866,versatility=550},
-            pvp={crit=425,haste=875,mastery=875,versatility=1225},
-            raid={crit=1000,haste=1242,mastery=1000,versatility=550},
+            mplus={
+              top20={crit=1068,haste=1234,mastery=866,versatility=550},
+              top50={crit=973,haste=1127,mastery=731,versatility=462},
+              top80={crit=908,haste=1031,mastery=619,versatility=380},
+            },
+            pvp={
+              top20={crit=425,haste=875,mastery=875,versatility=1225},
+              top50={crit=425,haste=875,mastery=875,versatility=1225},
+              top80={crit=225,haste=450,mastery=825,versatility=875},
+            },
+            raid={
+              top20={crit=1000,haste=1242,mastery=1000,versatility=550},
+              top50={crit=875,haste=1213,mastery=695,versatility=485},
+              top80={crit=818,haste=1089,mastery=582,versatility=454},
+            },
           },
         },
         talents={
@@ -4212,17 +4428,17 @@ ClassCodexSource["ugg"] = {
           all={
             all={
               {bonusIDs={6652,13335,13654},itemId=249343,pop=16.4,tier="A"},
-              {bonusIDs={13440,6652,12699,12846},itemId=273796,pop=10.2,tier="B"},
-              {bonusIDs={12843,13440,6652,12699},itemId=250228,pop=7.2,tier="B"},
-              {bonusIDs={13440,6652,12699,12844},itemId=250215,pop=6.3,tier="B"},
-              {bonusIDs={12843,13440,41,12699},itemId=250245,pop=5.2,tier="B"},
-              {bonusIDs={13440,6652,12699,13654},itemId=250256,pop=5.2,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=273796,pop=10.2,tier="B"},
+              {bonusIDs={13440,6652,12699,12846},itemId=250228,pop=7.2,tier="B"},
+              {bonusIDs={13440,6652,12699,12843},itemId=250215,pop=6.3,tier="B"},
+              {bonusIDs={13440,6652,12699,12846},itemId=250245,pop=5.2,tier="B"},
+              {bonusIDs={13440,6652,12699,12806},itemId=250256,pop=5.2,tier="B"},
               {bonusIDs={6652,13335,13786},itemId=268292,pop=5.1,tier="B"},
               {bonusIDs={12843,13440,6652,12699},itemId=250225,pop=3.7,tier="C"},
-              {bonusIDs={13440,6652,12699,12843},itemId=159617,pop=3.4,tier="C"},
-              {bonusIDs={13440,6652,12699,12806},itemId=252420,pop=3.4,tier="C"},
+              {bonusIDs={13440,6652,12699,12846},itemId=159617,pop=3.4,tier="C"},
+              {bonusIDs={13440,6652,12699,13654},itemId=252420,pop=3.4,tier="C"},
               {bonusIDs={6652,13335,13654},itemId=260235,pop=2.9,tier="C"},
-              {bonusIDs={6652,12830},itemId=274493,pop=2.8,tier="C"},
+              {bonusIDs={6652,12846},itemId=274493,pop=2.8,tier="C"},
             },
             pvp={
               {bonusIDs={13650,13657},itemId=270556,pop=66.7,tier="S"},
@@ -4462,19 +4678,55 @@ ClassCodexSource["ugg"] = {
         },
         statTargets={
           all={
-            mplus={crit=962,haste=1053,mastery=1095,versatility=375},
-            pvp={crit=36,haste=1103,mastery=268,versatility=1249},
-            raid={crit=1004,haste=1003,mastery=1175,versatility=294},
+            mplus={
+              top20={crit=962,haste=1053,mastery=1095,versatility=375},
+              top50={crit=867,haste=975,mastery=1008,versatility=302},
+              top80={crit=804,haste=882,mastery=961,versatility=227},
+            },
+            pvp={
+              top20={crit=36,haste=1103,mastery=268,versatility=1249},
+              top50={crit=36,haste=1046,mastery=107,versatility=1206},
+              top80={crit=36,haste=978,mastery=107,versatility=1193},
+            },
+            raid={
+              top20={crit=1004,haste=1003,mastery=1175,versatility=294},
+              top50={crit=897,haste=886,mastery=1064,versatility=211},
+              top80={crit=845,haste=785,mastery=995,versatility=185},
+            },
           },
           ["elunes-chosen"]={
-            mplus={crit=962,haste=1053,mastery=1095,versatility=375},
-            pvp={crit=875,haste=1075,mastery=1008,versatility=1192},
-            raid={crit=945,haste=1155,mastery=1150,versatility=339},
+            mplus={
+              top20={crit=962,haste=1053,mastery=1095,versatility=375},
+              top50={crit=867,haste=975,mastery=1008,versatility=302},
+              top80={crit=804,haste=882,mastery=961,versatility=227},
+            },
+            pvp={
+              top20={crit=875,haste=1075,mastery=1008,versatility=1192},
+              top50={crit=750,haste=944,mastery=681,versatility=1144},
+              top80={crit=422,haste=829,mastery=513,versatility=789},
+            },
+            raid={
+              top20={crit=945,haste=1155,mastery=1150,versatility=339},
+              top50={crit=828,haste=1029,mastery=1038,versatility=245},
+              top80={crit=804,haste=915,mastery=995,versatility=203},
+            },
           },
           ["keeper-of-the-grove"]={
-            mplus={crit=825,haste=575,mastery=1125,versatility=225},
-            pvp={crit=36,haste=1103,mastery=268,versatility=1249},
-            raid={crit=1004,haste=1003,mastery=1175,versatility=294},
+            mplus={
+              top20={crit=825,haste=575,mastery=1125,versatility=225},
+              top50={crit=825,haste=575,mastery=1125,versatility=225},
+              top80={crit=825,haste=575,mastery=1125,versatility=225},
+            },
+            pvp={
+              top20={crit=36,haste=1103,mastery=268,versatility=1249},
+              top50={crit=36,haste=1046,mastery=107,versatility=1206},
+              top80={crit=36,haste=978,mastery=107,versatility=1193},
+            },
+            raid={
+              top20={crit=1004,haste=1003,mastery=1175,versatility=294},
+              top50={crit=897,haste=886,mastery=1064,versatility=211},
+              top80={crit=845,haste=785,mastery=995,versatility=185},
+            },
           },
         },
         talents={
@@ -4905,17 +5157,17 @@ ClassCodexSource["ugg"] = {
         trinkets={
           all={
             all={
-              {bonusIDs={13440,6652,12699,12846},itemId=273796,pop=22.8,tier="A"},
+              {bonusIDs={12843,13440,6652,12699},itemId=273796,pop=22.8,tier="A"},
               {bonusIDs={6652,13335,13654},itemId=249346,pop=18.8,tier="A"},
               {bonusIDs={6652,13335,13654},itemId=249343,pop=14.7,tier="B"},
-              {bonusIDs={13440,6652,12699,12844},itemId=250215,pop=7,tier="B"},
-              {bonusIDs={13440,6652,12699,12846},itemId=250214,pop=6.7,tier="B"},
-              {bonusIDs={13440,6652,12699,12846},itemId=250224,pop=3.6,tier="C"},
+              {bonusIDs={13440,6652,12699,12843},itemId=250215,pop=7,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250214,pop=6.7,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250224,pop=3.6,tier="C"},
               {bonusIDs={13440,6652,12699,13654},itemId=250144,pop=3.4,tier="C"},
-              {bonusIDs={6652,12830},itemId=274493,pop=3.2,tier="C"},
+              {bonusIDs={6652,12846},itemId=274493,pop=3.2,tier="C"},
               {bonusIDs={6652,13334,12841},itemId=270167,pop=2.8,tier="C"},
-              {bonusIDs={6652,13333,11215,12838},itemId=270164,pop=2.6,tier="C"},
-              {bonusIDs={13440,6652,12699,13654},itemId=250256,pop=2.5,tier="C"},
+              {bonusIDs={6652,13333,12838},itemId=270164,pop=2.6,tier="C"},
+              {bonusIDs={13440,6652,12699,12806},itemId=250256,pop=2.5,tier="C"},
             },
             pvp={{bonusIDs={13650,13657},itemId=270556,pop=48.6,tier="S"},{bonusIDs={13650,13657},itemId=270558,pop=46.5,tier="S"}},
           },
@@ -5162,19 +5414,55 @@ ClassCodexSource["ugg"] = {
         },
         statTargets={
           all={
-            mplus={crit=955,haste=1125,mastery=1117,versatility=417},
-            pvp={crit=130,haste=387,mastery=1038,versatility=1252},
-            raid={crit=825,haste=1025,mastery=1025,versatility=625},
+            mplus={
+              top20={crit=955,haste=1125,mastery=1117,versatility=417},
+              top50={crit=814,haste=1002,mastery=1044,versatility=321},
+              top80={crit=730,haste=943,mastery=975,versatility=238},
+            },
+            pvp={
+              top20={crit=130,haste=387,mastery=1038,versatility=1252},
+              top50={crit=76,haste=288,mastery=940,versatility=1209},
+              top80={crit=76,haste=227,mastery=844,versatility=1196},
+            },
+            raid={
+              top20={crit=825,haste=1025,mastery=1025,versatility=625},
+              top50={crit=792,haste=942,mastery=892,versatility=475},
+              top80={crit=738,haste=900,mastery=850,versatility=315},
+            },
           },
           ["druid-of-the-claw"]={
-            mplus={crit=955,haste=1125,mastery=1117,versatility=417},
-            pvp={crit=838,haste=950,mastery=1013,versatility=1175},
-            raid={crit=775,haste=875,mastery=725,versatility=375},
+            mplus={
+              top20={crit=955,haste=1125,mastery=1117,versatility=417},
+              top50={crit=814,haste=1002,mastery=1044,versatility=321},
+              top80={crit=730,haste=943,mastery=975,versatility=238},
+            },
+            pvp={
+              top20={crit=838,haste=950,mastery=1013,versatility=1175},
+              top50={crit=675,haste=775,mastery=944,versatility=1000},
+              top80={crit=463,haste=667,mastery=875,versatility=748},
+            },
+            raid={
+              top20={crit=775,haste=875,mastery=725,versatility=375},
+              top50={crit=775,haste=875,mastery=725,versatility=375},
+              top80={crit=775,haste=875,mastery=725,versatility=375},
+            },
           },
           wildstalker={
-            mplus={crit=875,haste=1138,mastery=1200,versatility=515},
-            pvp={crit=130,haste=387,mastery=1038,versatility=1252},
-            raid={crit=825,haste=1025,mastery=1025,versatility=625},
+            mplus={
+              top20={crit=875,haste=1138,mastery=1200,versatility=515},
+              top50={crit=770,haste=990,mastery=1145,versatility=400},
+              top80={crit=653,haste=909,mastery=1059,versatility=338},
+            },
+            pvp={
+              top20={crit=130,haste=387,mastery=1038,versatility=1252},
+              top50={crit=76,haste=288,mastery=940,versatility=1209},
+              top80={crit=76,haste=227,mastery=844,versatility=1196},
+            },
+            raid={
+              top20={crit=825,haste=1025,mastery=1025,versatility=625},
+              top50={crit=792,haste=942,mastery=892,versatility=475},
+              top80={crit=738,haste=900,mastery=850,versatility=315},
+            },
           },
         },
         talents={
@@ -5610,19 +5898,19 @@ ClassCodexSource["ugg"] = {
         trinkets={
           all={
             all={
-              {bonusIDs={13440,6652,12699,13654},itemId=193701,pop=33.7,tier="S"},
+              {bonusIDs={13440,42,12699,13654},itemId=193701,pop=33.7,tier="S"},
               {bonusIDs={6652,13335,13654},itemId=249343,pop=12.3,tier="B"},
-              {bonusIDs={13440,6652,12699,12846},itemId=273796,pop=11.3,tier="B"},
-              {bonusIDs={13440,6652,12699,12843},itemId=159617,pop=5,tier="B"},
-              {bonusIDs={13440,6652,12699,12846},itemId=250214,pop=4.6,tier="C"},
-              {bonusIDs={12843,13440,6652,12699},itemId=250228,pop=3.6,tier="C"},
-              {bonusIDs={6652,12830},itemId=274493,pop=3.1,tier="C"},
-              {bonusIDs={13440,6652,12699,12844},itemId=250215,pop=3,tier="C"},
-              {bonusIDs={12843,13440,40,12699},itemId=158374,pop=2.8,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=273796,pop=11.3,tier="B"},
+              {bonusIDs={13440,6652,12699,12846},itemId=159617,pop=5,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250214,pop=4.6,tier="C"},
+              {bonusIDs={13440,6652,12699,12846},itemId=250228,pop=3.6,tier="C"},
+              {bonusIDs={6652,12846},itemId=274493,pop=3.1,tier="C"},
+              {bonusIDs={13440,6652,12699,12843},itemId=250215,pop=3,tier="C"},
+              {bonusIDs={13440,6652,12699,12846},itemId=158374,pop=2.8,tier="C"},
               {bonusIDs={12843,13440,6652,12699},itemId=250225,pop=2.6,tier="C"},
-              {bonusIDs={6652,13333,12836},itemId=270175,pop=2.5,tier="C"},
-              {bonusIDs={13440,6652,12699,13654},itemId=250256,pop=2.4,tier="C"},
-              {bonusIDs={6652,12846,13185},itemId=248583,pop=2.2,tier="C"},
+              {bonusIDs={6652,13333,12838},itemId=270175,pop=2.5,tier="C"},
+              {bonusIDs={13440,6652,12699,12806},itemId=250256,pop=2.4,tier="C"},
+              {bonusIDs={13183,6652,12843},itemId=248583,pop=2.2,tier="C"},
             },
             pvp={
               {bonusIDs={13650,13657},itemId=270556,pop=49.1,tier="S"},
@@ -5867,19 +6155,55 @@ ClassCodexSource["ugg"] = {
         },
         statTargets={
           all={
-            mplus={crit=963,haste=1298,mastery=863,versatility=675},
-            pvp={crit=913,haste=738,mastery=915,versatility=1275},
-            raid={crit=855,haste=1338,mastery=625,versatility=675},
+            mplus={
+              top20={crit=963,haste=1298,mastery=863,versatility=675},
+              top50={crit=821,haste=1198,mastery=715,versatility=594},
+              top80={crit=736,haste=1104,mastery=601,versatility=499},
+            },
+            pvp={
+              top20={crit=913,haste=738,mastery=915,versatility=1275},
+              top50={crit=353,haste=575,mastery=766,versatility=1155},
+              top80={crit=353,haste=484,mastery=646,versatility=1053},
+            },
+            raid={
+              top20={crit=855,haste=1338,mastery=625,versatility=675},
+              top50={crit=842,haste=1283,mastery=568,versatility=575},
+              top80={crit=752,haste=1096,mastery=470,versatility=480},
+            },
           },
           ["druid-of-the-claw"]={
-            mplus={crit=925,haste=1125,mastery=900,versatility=625},
-            pvp={crit=525,haste=725,mastery=575,versatility=1225},
-            raid={crit=1075,haste=1025,mastery=175,versatility=375},
+            mplus={
+              top20={crit=925,haste=1125,mastery=900,versatility=625},
+              top50={crit=850,haste=1108,mastery=808,versatility=575},
+              top80={crit=765,haste=1005,mastery=617,versatility=475},
+            },
+            pvp={
+              top20={crit=525,haste=725,mastery=575,versatility=1225},
+              top50={crit=425,haste=575,mastery=525,versatility=1158},
+              top80={crit=288,haste=375,mastery=450,versatility=1025},
+            },
+            raid={
+              top20={crit=1075,haste=1025,mastery=175,versatility=375},
+              top50={crit=1075,haste=1025,mastery=175,versatility=375},
+              top80={crit=1075,haste=1025,mastery=175,versatility=375},
+            },
           },
           ["elunes-chosen"]={
-            mplus={crit=963,haste=1298,mastery=863,versatility=675},
-            pvp={crit=913,haste=738,mastery=915,versatility=1275},
-            raid={crit=855,haste=1338,mastery=625,versatility=675},
+            mplus={
+              top20={crit=963,haste=1298,mastery=863,versatility=675},
+              top50={crit=821,haste=1198,mastery=715,versatility=594},
+              top80={crit=736,haste=1104,mastery=601,versatility=499},
+            },
+            pvp={
+              top20={crit=913,haste=738,mastery=915,versatility=1275},
+              top50={crit=353,haste=575,mastery=766,versatility=1155},
+              top80={crit=353,haste=484,mastery=646,versatility=1053},
+            },
+            raid={
+              top20={crit=855,haste=1338,mastery=625,versatility=675},
+              top50={crit=842,haste=1283,mastery=568,versatility=575},
+              top80={crit=752,haste=1096,mastery=470,versatility=480},
+            },
           },
         },
         talents={
@@ -6318,17 +6642,17 @@ ClassCodexSource["ugg"] = {
           all={
             all={
               {bonusIDs={6652,13335,13654},itemId=249343,pop=14.1,tier="B"},
-              {bonusIDs={13440,6652,12699,12846},itemId=273796,pop=12.3,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=273796,pop=12.3,tier="B"},
               {bonusIDs={6652,13335,13786},itemId=268292,pop=6.4,tier="B"},
-              {bonusIDs={12843,13440,6652,12699},itemId=250228,pop=5.6,tier="B"},
-              {bonusIDs={13440,6652,12699,12844},itemId=250215,pop=5.4,tier="B"},
-              {bonusIDs={13440,6652,12699,13654},itemId=250256,pop=5.4,tier="B"},
-              {bonusIDs={13440,6652,12699,13654},itemId=193701,pop=4.6,tier="C"},
-              {bonusIDs={12843,13440,41,12699},itemId=250245,pop=4.6,tier="C"},
+              {bonusIDs={13440,6652,12699,12846},itemId=250228,pop=5.6,tier="B"},
+              {bonusIDs={13440,6652,12699,12843},itemId=250215,pop=5.4,tier="B"},
+              {bonusIDs={13440,6652,12699,12806},itemId=250256,pop=5.4,tier="B"},
+              {bonusIDs={13440,42,12699,13654},itemId=193701,pop=4.6,tier="C"},
+              {bonusIDs={13440,6652,12699,12846},itemId=250245,pop=4.6,tier="C"},
               {bonusIDs={6652,13335,13654},itemId=260235,pop=4.4,tier="C"},
               {bonusIDs={13440,6652,12699,13654},itemId=250144,pop=3.8,tier="C"},
-              {bonusIDs={13440,6652,12699,12846},itemId=250214,pop=3.8,tier="C"},
-              {bonusIDs={6652,12830},itemId=274493,pop=3.7,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250214,pop=3.8,tier="C"},
+              {bonusIDs={6652,12846},itemId=274493,pop=3.7,tier="C"},
             },
             pvp={
               {bonusIDs={13650,13657},itemId=270558,pop=40,tier="S"},
@@ -6564,19 +6888,55 @@ ClassCodexSource["ugg"] = {
         },
         statTargets={
           all={
-            mplus={crit=681,haste=1345,mastery=1330,versatility=440},
-            pvp={crit=31,haste=857,mastery=1084,versatility=1160},
-            raid={crit=485,haste=1505,mastery=1225,versatility=358},
+            mplus={
+              top20={crit=681,haste=1345,mastery=1330,versatility=440},
+              top50={crit=480,haste=1247,mastery=1230,versatility=321},
+              top80={crit=388,haste=1172,mastery=1146,versatility=275},
+            },
+            pvp={
+              top20={crit=31,haste=857,mastery=1084,versatility=1160},
+              top50={crit=31,haste=666,mastery=1021,versatility=1093},
+              top80={crit=31,haste=542,mastery=953,versatility=973},
+            },
+            raid={
+              top20={crit=485,haste=1505,mastery=1225,versatility=358},
+              top50={crit=389,haste=1420,mastery=1175,versatility=262},
+              top80={crit=338,haste=1338,mastery=1097,versatility=246},
+            },
           },
           ["keeper-of-the-grove"]={
-            mplus={crit=915,haste=1415,mastery=1175,versatility=389},
-            pvp={crit=31,haste=857,mastery=1084,versatility=1160},
-            raid={crit=425,haste=925,mastery=1375,versatility=225},
+            mplus={
+              top20={crit=915,haste=1415,mastery=1175,versatility=389},
+              top50={crit=750,haste=1229,mastery=1052,versatility=329},
+              top80={crit=583,haste=1141,mastery=975,versatility=248},
+            },
+            pvp={
+              top20={crit=31,haste=857,mastery=1084,versatility=1160},
+              top50={crit=31,haste=666,mastery=1021,versatility=1093},
+              top80={crit=31,haste=542,mastery=953,versatility=973},
+            },
+            raid={
+              top20={crit=425,haste=925,mastery=1375,versatility=225},
+              top50={crit=425,haste=925,mastery=1375,versatility=225},
+              top80={crit=425,haste=925,mastery=1375,versatility=225},
+            },
           },
           wildstalker={
-            mplus={crit=681,haste=1345,mastery=1330,versatility=440},
-            pvp={crit=61,haste=1025,mastery=1120,versatility=1213},
-            raid={crit=485,haste=1505,mastery=1225,versatility=358},
+            mplus={
+              top20={crit=681,haste=1345,mastery=1330,versatility=440},
+              top50={crit=480,haste=1247,mastery=1230,versatility=321},
+              top80={crit=388,haste=1172,mastery=1146,versatility=275},
+            },
+            pvp={
+              top20={crit=61,haste=1025,mastery=1120,versatility=1213},
+              top50={crit=61,haste=805,mastery=1023,versatility=1088},
+              top80={crit=61,haste=642,mastery=961,versatility=934},
+            },
+            raid={
+              top20={crit=485,haste=1505,mastery=1225,versatility=358},
+              top50={crit=389,haste=1420,mastery=1175,versatility=262},
+              top80={crit=338,haste=1338,mastery=1097,versatility=246},
+            },
           },
         },
         talents={
@@ -7026,15 +7386,15 @@ ClassCodexSource["ugg"] = {
             all={
               {bonusIDs={6652,13335,13654},itemId=249343,pop=25.5,tier="A"},
               {bonusIDs={6652,13335,13654},itemId=249809,pop=12.7,tier="B"},
-              {bonusIDs={13440,6652,12699,13654},itemId=250256,pop=9.3,tier="B"},
+              {bonusIDs={13440,6652,12699,12806},itemId=250256,pop=9.3,tier="B"},
               {bonusIDs={6652,13335,13786},itemId=268292,pop=8.1,tier="B"},
-              {bonusIDs={13440,6652,12699,12846},itemId=250214,pop=7.3,tier="B"},
-              {bonusIDs={6652,13333,12838},itemId=270162,pop=4.8,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250214,pop=7.3,tier="B"},
+              {bonusIDs={40,13334,12849},itemId=270162,pop=4.8,tier="C"},
               {bonusIDs={6652,13334,12841},itemId=270167,pop=4.4,tier="C"},
-              {bonusIDs={13440,6652,12699,12846},itemId=273796,pop=4.2,tier="C"},
-              {bonusIDs={6652,12830},itemId=274493,pop=3.4,tier="C"},
-              {bonusIDs={12841,6652},itemId=251792,pop=3,tier="C"},
-              {bonusIDs={12843,13440,6652,12699},itemId=250255,pop=2.5,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=273796,pop=4.2,tier="C"},
+              {bonusIDs={6652,12846},itemId=274493,pop=3.4,tier="C"},
+              {bonusIDs={6652,12846},itemId=251792,pop=3,tier="C"},
+              {bonusIDs={13439,6652,12699,12838},itemId=250255,pop=2.5,tier="C"},
             },
             pvp={{bonusIDs={13650,13657},itemId=270558,pop=48.2,tier="S"},{bonusIDs={13650,13657},itemId=270556,pop=46.7,tier="S"}},
           },
@@ -7281,19 +7641,55 @@ ClassCodexSource["ugg"] = {
         },
         statTargets={
           all={
-            mplus={crit=1200,haste=796,mastery=1195,versatility=238},
-            pvp={crit=725,haste=1038,mastery=738,versatility=1363},
-            raid={crit=1195,haste=1017,mastery=1105,versatility=267},
+            mplus={
+              top20={crit=1200,haste=796,mastery=1195,versatility=238},
+              top50={crit=1120,haste=765,mastery=1052,versatility=207},
+              top80={crit=1049,haste=651,mastery=914,versatility=133},
+            },
+            pvp={
+              top20={crit=725,haste=1038,mastery=738,versatility=1363},
+              top50={crit=386,haste=947,mastery=464,versatility=1275},
+              top80={crit=206,haste=812,mastery=253,versatility=1205},
+            },
+            raid={
+              top20={crit=1195,haste=1017,mastery=1105,versatility=267},
+              top50={crit=1075,haste=929,mastery=913,versatility=202},
+              top80={crit=967,haste=869,mastery=769,versatility=127},
+            },
           },
           chronowarden={
-            mplus={crit=1150,haste=919,mastery=1283,versatility=238},
-            pvp={crit=725,haste=1025,mastery=1025,versatility=1275},
-            raid={crit=1175,haste=850,mastery=1600,versatility=258},
+            mplus={
+              top20={crit=1150,haste=919,mastery=1283,versatility=238},
+              top50={crit=1028,haste=806,mastery=1138,versatility=169},
+              top80={crit=951,haste=743,mastery=1025,versatility=116},
+            },
+            pvp={
+              top20={crit=725,haste=1025,mastery=1025,versatility=1275},
+              top50={crit=492,haste=825,mastery=858,versatility=925},
+              top80={crit=305,haste=763,mastery=688,versatility=925},
+            },
+            raid={
+              top20={crit=1175,haste=850,mastery=1600,versatility=258},
+              top50={crit=1063,haste=763,mastery=1292,versatility=225},
+              top80={crit=932,haste=654,mastery=1232,versatility=131},
+            },
           },
           scalecommander={
-            mplus={crit=1200,haste=796,mastery=1195,versatility=238},
-            pvp={crit=725,haste=1038,mastery=738,versatility=1363},
-            raid={crit=1195,haste=1017,mastery=1105,versatility=267},
+            mplus={
+              top20={crit=1200,haste=796,mastery=1195,versatility=238},
+              top50={crit=1120,haste=765,mastery=1052,versatility=207},
+              top80={crit=1049,haste=651,mastery=914,versatility=133},
+            },
+            pvp={
+              top20={crit=725,haste=1038,mastery=738,versatility=1363},
+              top50={crit=386,haste=947,mastery=464,versatility=1275},
+              top80={crit=206,haste=812,mastery=253,versatility=1205},
+            },
+            raid={
+              top20={crit=1195,haste=1017,mastery=1105,versatility=267},
+              top50={crit=1075,haste=929,mastery=913,versatility=202},
+              top80={crit=967,haste=869,mastery=769,versatility=127},
+            },
           },
         },
         talents={
@@ -7719,16 +8115,16 @@ ClassCodexSource["ugg"] = {
             all={
               {bonusIDs={13440,6652,12699,13654},itemId=250223,pop=11.9,tier="B"},
               {bonusIDs={6652,13335,13654},itemId=249346,pop=11.8,tier="B"},
-              {bonusIDs={13440,6652,12699,12846},itemId=250224,pop=9.9,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250224,pop=9.9,tier="B"},
               {bonusIDs={6652,13335,13654},itemId=249810,pop=9.5,tier="B"},
-              {bonusIDs={13440,6652,12699,13654},itemId=250256,pop=8.6,tier="B"},
-              {bonusIDs={13440,6652,12699,12844},itemId=250215,pop=8.5,tier="B"},
+              {bonusIDs={13440,6652,12699,12806},itemId=250256,pop=8.6,tier="B"},
+              {bonusIDs={13440,6652,12699,12843},itemId=250215,pop=8.5,tier="B"},
               {bonusIDs={6652,13335,13654},itemId=249343,pop=5.3,tier="B"},
-              {bonusIDs={6652,13334,12846},itemId=270161,pop=4.2,tier="C"},
-              {bonusIDs={13440,6652,12699,12846},itemId=250214,pop=4.1,tier="C"},
-              {bonusIDs={6652,12830},itemId=274493,pop=3.3,tier="C"},
-              {bonusIDs={12843,13440,6652,12699},itemId=273794,pop=3.2,tier="C"},
-              {bonusIDs={13440,6652,12699,12846},itemId=273796,pop=3.1,tier="C"},
+              {bonusIDs={6652,13334,12843},itemId=270161,pop=4.2,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250214,pop=4.1,tier="C"},
+              {bonusIDs={6652,12846},itemId=274493,pop=3.3,tier="C"},
+              {bonusIDs={13439,6652,12699,12838},itemId=273794,pop=3.2,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=273796,pop=3.1,tier="C"},
             },
             pvp={
               {bonusIDs={13650,13657},itemId=270556,pop=44.4,tier="S"},
@@ -7960,19 +8356,55 @@ ClassCodexSource["ugg"] = {
         },
         statTargets={
           all={
-            mplus={crit=1246,haste=879,mastery=875,versatility=304},
-            pvp={crit=545,haste=840,mastery=819,versatility=1241},
-            raid={crit=1246,haste=898,mastery=875,versatility=308},
+            mplus={
+              top20={crit=1246,haste=879,mastery=875,versatility=304},
+              top50={crit=1160,haste=823,mastery=816,versatility=230},
+              top80={crit=1109,haste=796,mastery=730,versatility=188},
+            },
+            pvp={
+              top20={crit=545,haste=840,mastery=819,versatility=1241},
+              top50={crit=140,haste=702,mastery=703,versatility=1207},
+              top80={crit=140,haste=582,mastery=585,versatility=1182},
+            },
+            raid={
+              top20={crit=1246,haste=898,mastery=875,versatility=308},
+              top50={crit=1167,haste=837,mastery=830,versatility=251},
+              top80={crit=1127,haste=755,mastery=799,versatility=208},
+            },
           },
           flameshaper={
-            mplus={crit=1300,haste=958,mastery=1100,versatility=250},
-            pvp={crit=775,haste=525,mastery=975,versatility=125},
-            raid={crit=1305,haste=932,mastery=1083,versatility=305},
+            mplus={
+              top20={crit=1300,haste=958,mastery=1100,versatility=250},
+              top50={crit=1155,haste=875,mastery=905,versatility=200},
+              top80={crit=1019,haste=794,mastery=731,versatility=164},
+            },
+            pvp={
+              top20={crit=775,haste=525,mastery=975,versatility=125},
+              top50={crit=775,haste=525,mastery=975,versatility=125},
+              top80={crit=775,haste=525,mastery=975,versatility=125},
+            },
+            raid={
+              top20={crit=1305,haste=932,mastery=1083,versatility=305},
+              top50={crit=1183,haste=883,mastery=835,versatility=195},
+              top80={crit=1108,haste=825,mastery=741,versatility=138},
+            },
           },
           scalecommander={
-            mplus={crit=1246,haste=879,mastery=875,versatility=304},
-            pvp={crit=545,haste=840,mastery=819,versatility=1241},
-            raid={crit=1246,haste=898,mastery=875,versatility=308},
+            mplus={
+              top20={crit=1246,haste=879,mastery=875,versatility=304},
+              top50={crit=1160,haste=823,mastery=816,versatility=230},
+              top80={crit=1109,haste=796,mastery=730,versatility=188},
+            },
+            pvp={
+              top20={crit=545,haste=840,mastery=819,versatility=1241},
+              top50={crit=140,haste=702,mastery=703,versatility=1207},
+              top80={crit=140,haste=582,mastery=585,versatility=1182},
+            },
+            raid={
+              top20={crit=1246,haste=898,mastery=875,versatility=308},
+              top50={crit=1167,haste=837,mastery=830,versatility=251},
+              top80={crit=1127,haste=755,mastery=799,versatility=208},
+            },
           },
         },
         talents={
@@ -8403,17 +8835,17 @@ ClassCodexSource["ugg"] = {
           all={
             all={
               {bonusIDs={6652,13335,13654},itemId=249346,pop=16.9,tier="A"},
-              {bonusIDs={13440,6652,12699,12846},itemId=273796,pop=12.9,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=273796,pop=12.9,tier="B"},
               {bonusIDs={6652,13335,13654},itemId=249343,pop=11.6,tier="B"},
-              {bonusIDs={13440,6652,12699,12844},itemId=250215,pop=7.3,tier="B"},
-              {bonusIDs={13440,6652,12699,12846},itemId=250224,pop=6.3,tier="B"},
+              {bonusIDs={13440,6652,12699,12843},itemId=250215,pop=7.3,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250224,pop=6.3,tier="B"},
               {bonusIDs={13440,6652,12699,13654},itemId=250223,pop=4.3,tier="C"},
               {bonusIDs={12830},itemId=264507,pop=3.8,tier="C"},
               {bonusIDs={6652,13335,13654},itemId=249810,pop=3.7,tier="C"},
               {bonusIDs={6652,13335,13654},itemId=249809,pop=3.6,tier="C"},
               {bonusIDs={13440,6652,12699,13654},itemId=250144,pop=3.6,tier="C"},
-              {bonusIDs={13440,6652,12699,12846},itemId=250214,pop=3.5,tier="C"},
-              {bonusIDs={6652,13333,11215,12838},itemId=270164,pop=3.5,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250214,pop=3.5,tier="C"},
+              {bonusIDs={6652,13333,12838},itemId=270164,pop=3.5,tier="C"},
             },
             pvp={
               {bonusIDs={6652,12827},itemId=274493,pop=100,tier="S"},
@@ -8647,19 +9079,55 @@ ClassCodexSource["ugg"] = {
         },
         statTargets={
           all={
-            mplus={crit=1085,haste=1054,mastery=1147,versatility=371},
-            pvp={crit=90,haste=1084,mastery=520,versatility=1242},
-            raid={crit=1008,haste=1004,mastery=1555,versatility=365},
+            mplus={
+              top20={crit=1085,haste=1054,mastery=1147,versatility=371},
+              top50={crit=1017,haste=914,mastery=984,versatility=322},
+              top80={crit=936,haste=806,mastery=932,versatility=247},
+            },
+            pvp={
+              top20={crit=90,haste=1084,mastery=520,versatility=1242},
+              top50={crit=90,haste=1019,mastery=319,versatility=1208},
+              top80={crit=90,haste=924,mastery=233,versatility=1193},
+            },
+            raid={
+              top20={crit=1008,haste=1004,mastery=1555,versatility=365},
+              top50={crit=907,haste=900,mastery=1300,versatility=271},
+              top80={crit=832,haste=748,mastery=1130,versatility=198},
+            },
           },
           chronowarden={
-            mplus={crit=1142,haste=1175,mastery=1025,versatility=275},
-            pvp={crit=121,haste=1064,mastery=738,versatility=1243},
-            raid={crit=1008,haste=1004,mastery=1555,versatility=365},
+            mplus={
+              top20={crit=1142,haste=1175,mastery=1025,versatility=275},
+              top50={crit=986,haste=1044,mastery=906,versatility=220},
+              top80={crit=882,haste=942,mastery=833,versatility=206},
+            },
+            pvp={
+              top20={crit=121,haste=1064,mastery=738,versatility=1243},
+              top50={crit=121,haste=962,mastery=443,versatility=1206},
+              top80={crit=121,haste=900,mastery=299,versatility=1186},
+            },
+            raid={
+              top20={crit=1008,haste=1004,mastery=1555,versatility=365},
+              top50={crit=907,haste=900,mastery=1300,versatility=271},
+              top80={crit=832,haste=748,mastery=1130,versatility=198},
+            },
           },
           flameshaper={
-            mplus={crit=1085,haste=1054,mastery=1147,versatility=371},
-            pvp={crit=90,haste=1084,mastery=520,versatility=1242},
-            raid={crit=1305,haste=750,mastery=1305,versatility=254},
+            mplus={
+              top20={crit=1085,haste=1054,mastery=1147,versatility=371},
+              top50={crit=1017,haste=914,mastery=984,versatility=322},
+              top80={crit=936,haste=806,mastery=932,versatility=247},
+            },
+            pvp={
+              top20={crit=90,haste=1084,mastery=520,versatility=1242},
+              top50={crit=90,haste=1019,mastery=319,versatility=1208},
+              top80={crit=90,haste=924,mastery=233,versatility=1193},
+            },
+            raid={
+              top20={crit=1305,haste=750,mastery=1305,versatility=254},
+              top50={crit=1164,haste=650,mastery=1187,versatility=194},
+              top80={crit=1131,haste=584,mastery=1108,versatility=137},
+            },
           },
         },
         talents={
@@ -9109,15 +9577,15 @@ ClassCodexSource["ugg"] = {
             all={
               {bonusIDs={6652,13335,13654},itemId=249343,pop=17.1,tier="A"},
               {bonusIDs={6652,13335,13786},itemId=268292,pop=13.5,tier="B"},
-              {bonusIDs={6652,13333,12838},itemId=270162,pop=11,tier="B"},
+              {bonusIDs={40,13334,12849},itemId=270162,pop=11,tier="B"},
               {bonusIDs={6652,13335,13654},itemId=249809,pop=10.3,tier="B"},
               {bonusIDs={12830},itemId=264507,pop=7.4,tier="B"},
-              {bonusIDs={13440,6652,12699,12844},itemId=250215,pop=5.4,tier="B"},
-              {bonusIDs={13440,6652,12699,12846},itemId=250214,pop=5,tier="C"},
-              {bonusIDs={13440,6652,12699,13654},itemId=250256,pop=4.4,tier="C"},
-              {bonusIDs={13440,6652,12699,12846},itemId=273796,pop=3.9,tier="C"},
-              {bonusIDs={6652,12830},itemId=274493,pop=3.2,tier="C"},
-              {bonusIDs={6652,13333,11215,12838},itemId=270164,pop=2.7,tier="C"},
+              {bonusIDs={13440,6652,12699,12843},itemId=250215,pop=5.4,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250214,pop=5,tier="C"},
+              {bonusIDs={13440,6652,12699,12806},itemId=250256,pop=4.4,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=273796,pop=3.9,tier="C"},
+              {bonusIDs={6652,12846},itemId=274493,pop=3.2,tier="C"},
+              {bonusIDs={6652,13333,12838},itemId=270164,pop=2.7,tier="C"},
             },
             pvp={{bonusIDs={13650,13657},itemId=270558,pop=50,tier="S"},{bonusIDs={13650,13657},itemId=270556,pop=49.2,tier="S"}},
           },
@@ -9338,19 +9806,55 @@ ClassCodexSource["ugg"] = {
         },
         statTargets={
           all={
-            mplus={crit=1259,haste=775,mastery=1261,versatility=418},
-            pvp={crit=62,haste=469,mastery=978,versatility=1243},
-            raid={crit=1058,haste=975,mastery=1275,versatility=238},
+            mplus={
+              top20={crit=1259,haste=775,mastery=1261,versatility=418},
+              top50={crit=1167,haste=655,mastery=1103,versatility=322},
+              top80={crit=1081,haste=573,mastery=1063,versatility=228},
+            },
+            pvp={
+              top20={crit=62,haste=469,mastery=978,versatility=1243},
+              top50={crit=62,haste=348,mastery=874,versatility=1214},
+              top80={crit=62,haste=311,mastery=825,versatility=1214},
+            },
+            raid={
+              top20={crit=1058,haste=975,mastery=1275,versatility=238},
+              top50={crit=875,haste=882,mastery=1154,versatility=188},
+              top80={crit=717,haste=752,mastery=1013,versatility=157},
+            },
           },
           ["dark-ranger"]={
-            mplus={crit=1225,haste=1125,mastery=1675,versatility=225},
-            pvp={crit=25,haste=425,mastery=725,versatility=1275},
-            raid={crit=1058,haste=975,mastery=1275,versatility=238},
+            mplus={
+              top20={crit=1225,haste=1125,mastery=1675,versatility=225},
+              top50={crit=1042,haste=875,mastery=1225,versatility=158},
+              top80={crit=938,haste=763,mastery=1138,versatility=138},
+            },
+            pvp={
+              top20={crit=25,haste=425,mastery=725,versatility=1275},
+              top50={crit=25,haste=425,mastery=725,versatility=1275},
+              top80={crit=25,haste=375,mastery=625,versatility=1225},
+            },
+            raid={
+              top20={crit=1058,haste=975,mastery=1275,versatility=238},
+              top50={crit=875,haste=882,mastery=1154,versatility=188},
+              top80={crit=717,haste=752,mastery=1013,versatility=157},
+            },
           },
           ["pack-leader"]={
-            mplus={crit=1259,haste=775,mastery=1261,versatility=418},
-            pvp={crit=62,haste=469,mastery=978,versatility=1243},
-            raid={crit=1595,haste=955,mastery=1255,versatility=445},
+            mplus={
+              top20={crit=1259,haste=775,mastery=1261,versatility=418},
+              top50={crit=1167,haste=655,mastery=1103,versatility=322},
+              top80={crit=1081,haste=573,mastery=1063,versatility=228},
+            },
+            pvp={
+              top20={crit=62,haste=469,mastery=978,versatility=1243},
+              top50={crit=62,haste=348,mastery=874,versatility=1214},
+              top80={crit=62,haste=311,mastery=825,versatility=1214},
+            },
+            raid={
+              top20={crit=1595,haste=955,mastery=1255,versatility=445},
+              top50={crit=1437,haste=802,mastery=1079,versatility=315},
+              top80={crit=1248,haste=661,mastery=996,versatility=254},
+            },
           },
         },
         talents={
@@ -9779,17 +10283,17 @@ ClassCodexSource["ugg"] = {
         trinkets={
           all={
             all={
-              {bonusIDs={13440,6652,12699,13654},itemId=193701,pop=25.4,tier="A"},
+              {bonusIDs={13440,42,12699,13654},itemId=193701,pop=25.4,tier="A"},
               {bonusIDs={6652,13335,13654},itemId=249343,pop=15,tier="A"},
-              {bonusIDs={13440,6652,12699,12846},itemId=273796,pop=9.6,tier="B"},
-              {bonusIDs={13440,6652,12699,12844},itemId=250215,pop=8.1,tier="B"},
-              {bonusIDs={13440,6652,12699,12843},itemId=159617,pop=6.3,tier="B"},
-              {bonusIDs={42,13335,13654},itemId=249806,pop=5.3,tier="B"},
-              {bonusIDs={13440,6652,12699,12846},itemId=250214,pop=4.7,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=273796,pop=9.6,tier="B"},
+              {bonusIDs={13440,6652,12699,12843},itemId=250215,pop=8.1,tier="B"},
+              {bonusIDs={13440,6652,12699,12846},itemId=159617,pop=6.3,tier="B"},
+              {bonusIDs={6652,13335,13654},itemId=249806,pop=5.3,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250214,pop=4.7,tier="C"},
               {bonusIDs={6652,13333,12838},itemId=270165,pop=4.1,tier="C"},
-              {bonusIDs={12843,13440,6652,12699},itemId=250228,pop=3,tier="C"},
-              {bonusIDs={6652,12830},itemId=274493,pop=3,tier="C"},
-              {bonusIDs={13440,6652,12699,12806},itemId=252420,pop=2.4,tier="C"},
+              {bonusIDs={13440,6652,12699,12846},itemId=250228,pop=3,tier="C"},
+              {bonusIDs={6652,12846},itemId=274493,pop=3,tier="C"},
+              {bonusIDs={13440,6652,12699,13654},itemId=252420,pop=2.4,tier="C"},
             },
             pvp={{bonusIDs={13650,13657},itemId=270556,pop=51.6,tier="S"},{bonusIDs={13650,13657},itemId=270558,pop=50.3,tier="S"}},
           },
@@ -10010,19 +10514,55 @@ ClassCodexSource["ugg"] = {
         },
         statTargets={
           all={
-            mplus={crit=1620,haste=694,mastery=1114,versatility=367},
-            pvp={crit=525,haste=494,mastery=1023,versatility=1241},
-            raid={crit=1630,haste=554,mastery=1131,versatility=425},
+            mplus={
+              top20={crit=1620,haste=694,mastery=1114,versatility=367},
+              top50={crit=1506,haste=537,mastery=1023,versatility=304},
+              top80={crit=1409,haste=448,mastery=938,versatility=267},
+            },
+            pvp={
+              top20={crit=525,haste=494,mastery=1023,versatility=1241},
+              top50={crit=132,haste=394,mastery=932,versatility=1205},
+              top80={crit=132,haste=325,mastery=866,versatility=1179},
+            },
+            raid={
+              top20={crit=1630,haste=554,mastery=1131,versatility=425},
+              top50={crit=1572,haste=431,mastery=1069,versatility=280},
+              top80={crit=1506,haste=351,mastery=992,versatility=261},
+            },
           },
           ["dark-ranger"]={
-            mplus={crit=1725,haste=525,mastery=1025,versatility=325},
-            pvp={crit=268,haste=452,mastery=931,versatility=1255},
-            raid={crit=1425,haste=775,mastery=1125,versatility=275},
+            mplus={
+              top20={crit=1725,haste=525,mastery=1025,versatility=325},
+              top50={crit=1575,haste=525,mastery=892,versatility=300},
+              top80={crit=1300,haste=400,mastery=825,versatility=213},
+            },
+            pvp={
+              top20={crit=268,haste=452,mastery=931,versatility=1255},
+              top50={crit=85,haste=413,mastery=878,versatility=1208},
+              top80={crit=85,haste=334,mastery=792,versatility=1202},
+            },
+            raid={
+              top20={crit=1425,haste=775,mastery=1125,versatility=275},
+              top50={crit=1313,haste=575,mastery=958,versatility=225},
+              top80={crit=1313,haste=475,mastery=900,versatility=200},
+            },
           },
           sentinel={
-            mplus={crit=1620,haste=694,mastery=1114,versatility=367},
-            pvp={crit=525,haste=494,mastery=1023,versatility=1241},
-            raid={crit=1630,haste=554,mastery=1131,versatility=425},
+            mplus={
+              top20={crit=1620,haste=694,mastery=1114,versatility=367},
+              top50={crit=1506,haste=537,mastery=1023,versatility=304},
+              top80={crit=1409,haste=448,mastery=938,versatility=267},
+            },
+            pvp={
+              top20={crit=525,haste=494,mastery=1023,versatility=1241},
+              top50={crit=132,haste=394,mastery=932,versatility=1205},
+              top80={crit=132,haste=325,mastery=866,versatility=1179},
+            },
+            raid={
+              top20={crit=1630,haste=554,mastery=1131,versatility=425},
+              top50={crit=1572,haste=431,mastery=1069,versatility=280},
+              top80={crit=1506,haste=351,mastery=992,versatility=261},
+            },
           },
         },
         talents={
@@ -10464,18 +11004,18 @@ ClassCodexSource["ugg"] = {
         trinkets={
           all={
             all={
-              {bonusIDs={13440,6652,12699,13654},itemId=193701,pop=27.5,tier="A"},
-              {bonusIDs={13440,6652,12699,12846},itemId=273796,pop=14,tier="B"},
+              {bonusIDs={13440,42,12699,13654},itemId=193701,pop=27.5,tier="A"},
+              {bonusIDs={12843,13440,6652,12699},itemId=273796,pop=14,tier="B"},
               {bonusIDs={6652,13335,13654},itemId=260235,pop=10.7,tier="B"},
-              {bonusIDs={13440,6652,12699,12843},itemId=159617,pop=8.5,tier="B"},
-              {bonusIDs={13440,6652,12699,12844},itemId=250215,pop=4.6,tier="C"},
-              {bonusIDs={12843,13440,6652,12699},itemId=250228,pop=4.1,tier="C"},
+              {bonusIDs={13440,6652,12699,12846},itemId=159617,pop=8.5,tier="B"},
+              {bonusIDs={13440,6652,12699,12843},itemId=250215,pop=4.6,tier="C"},
+              {bonusIDs={13440,6652,12699,12846},itemId=250228,pop=4.1,tier="C"},
               {bonusIDs={6652,13335,13654},itemId=249343,pop=3.5,tier="C"},
               {bonusIDs={12830},itemId=264507,pop=3.5,tier="C"},
               {bonusIDs={12843,13440,6652,12699},itemId=250225,pop=3,tier="C"},
-              {bonusIDs={6652,13333,12836},itemId=270175,pop=2.8,tier="C"},
-              {bonusIDs={13440,6652,12699,12846},itemId=250214,pop=2.4,tier="C"},
-              {bonusIDs={13440,6652,12699,12806},itemId=252420,pop=2,tier="C"},
+              {bonusIDs={6652,13333,12838},itemId=270175,pop=2.8,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250214,pop=2.4,tier="C"},
+              {bonusIDs={13440,6652,12699,13654},itemId=252420,pop=2,tier="C"},
             },
             pvp={{bonusIDs={13650,13657},itemId=270556,pop=45.3,tier="S"},{bonusIDs={13650,13657},itemId=270558,pop=37.7,tier="S"}},
           },
@@ -10727,19 +11267,55 @@ ClassCodexSource["ugg"] = {
         },
         statTargets={
           all={
-            mplus={crit=1142,haste=895,mastery=1254,versatility=233},
-            pvp={crit=313,haste=644,mastery=975,versatility=1196},
-            raid={crit=1100,haste=1013,mastery=1275,versatility=300},
+            mplus={
+              top20={crit=1142,haste=895,mastery=1254,versatility=233},
+              top50={crit=975,haste=841,mastery=1143,versatility=203},
+              top80={crit=952,haste=743,mastery=1079,versatility=135},
+            },
+            pvp={
+              top20={crit=313,haste=644,mastery=975,versatility=1196},
+              top50={crit=85,haste=489,mastery=903,versatility=1176},
+              top80={crit=85,haste=423,mastery=851,versatility=1106},
+            },
+            raid={
+              top20={crit=1100,haste=1013,mastery=1275,versatility=300},
+              top50={crit=970,haste=884,mastery=1152,versatility=171},
+              top80={crit=922,haste=816,mastery=1061,versatility=128},
+            },
           },
           ["pack-leader"]={
-            mplus={crit=969,haste=1000,mastery=1288,versatility=283},
-            pvp={crit=325,haste=765,mastery=1105,versatility=1188},
-            raid={crit=1100,haste=1013,mastery=1275,versatility=300},
+            mplus={
+              top20={crit=969,haste=1000,mastery=1288,versatility=283},
+              top50={crit=930,haste=895,mastery=1175,versatility=210},
+              top80={crit=872,haste=807,mastery=1039,versatility=167},
+            },
+            pvp={
+              top20={crit=325,haste=765,mastery=1105,versatility=1188},
+              top50={crit=96,haste=548,mastery=957,versatility=1170},
+              top80={crit=96,haste=467,mastery=831,versatility=1078},
+            },
+            raid={
+              top20={crit=1100,haste=1013,mastery=1275,versatility=300},
+              top50={crit=970,haste=884,mastery=1152,versatility=171},
+              top80={crit=922,haste=816,mastery=1061,versatility=128},
+            },
           },
           sentinel={
-            mplus={crit=1142,haste=895,mastery=1254,versatility=233},
-            pvp={crit=313,haste=644,mastery=975,versatility=1196},
-            raid={crit=725,haste=925,mastery=1125,versatility=25},
+            mplus={
+              top20={crit=1142,haste=895,mastery=1254,versatility=233},
+              top50={crit=975,haste=841,mastery=1143,versatility=203},
+              top80={crit=952,haste=743,mastery=1079,versatility=135},
+            },
+            pvp={
+              top20={crit=313,haste=644,mastery=975,versatility=1196},
+              top50={crit=85,haste=489,mastery=903,versatility=1176},
+              top80={crit=85,haste=423,mastery=851,versatility=1106},
+            },
+            raid={
+              top20={crit=725,haste=925,mastery=1125,versatility=25},
+              top50={crit=725,haste=925,mastery=1125,versatility=25},
+              top80={crit=725,haste=925,mastery=1125,versatility=25},
+            },
           },
         },
         talents={
@@ -11163,19 +11739,19 @@ ClassCodexSource["ugg"] = {
         trinkets={
           all={
             all={
-              {bonusIDs={13440,6652,12699,13654},itemId=193701,pop=24.9,tier="A"},
-              {bonusIDs={13440,6652,12699,12844},itemId=250215,pop=12.8,tier="B"},
+              {bonusIDs={13440,42,12699,13654},itemId=193701,pop=24.9,tier="A"},
+              {bonusIDs={13440,6652,12699,12843},itemId=250215,pop=12.8,tier="B"},
               {bonusIDs={6652,13335,13654},itemId=249343,pop=12.4,tier="B"},
-              {bonusIDs={42,13335,13654},itemId=249806,pop=7.9,tier="B"},
-              {bonusIDs={13440,6652,12699,12846},itemId=273796,pop=5.9,tier="B"},
-              {bonusIDs={6652,12830},itemId=274493,pop=4.1,tier="C"},
+              {bonusIDs={6652,13335,13654},itemId=249806,pop=7.9,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=273796,pop=5.9,tier="B"},
+              {bonusIDs={6652,12846},itemId=274493,pop=4.1,tier="C"},
               {bonusIDs={12830},itemId=264507,pop=3.2,tier="C"},
-              {bonusIDs={12843,13440,6652,12699},itemId=273797,pop=3.2,tier="C"},
-              {bonusIDs={12843,13440,6652,12699},itemId=250228,pop=2.9,tier="C"},
-              {bonusIDs={13440,6652,12699,12846},itemId=250214,pop=2.8,tier="C"},
+              {bonusIDs={13440,6652,12699,12846},itemId=273797,pop=3.2,tier="C"},
+              {bonusIDs={13440,6652,12699,12846},itemId=250228,pop=2.9,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250214,pop=2.8,tier="C"},
               {bonusIDs={6652,13333,12838},itemId=270165,pop=2.8,tier="C"},
-              {bonusIDs={6652,12846,13185},itemId=248583,pop=2.7,tier="C"},
-              {bonusIDs={12841,6652},itemId=265657,pop=2.5,tier="C"},
+              {bonusIDs={13183,6652,12843},itemId=248583,pop=2.7,tier="C"},
+              {bonusIDs={6652,12846},itemId=265657,pop=2.5,tier="C"},
             },
             pvp={{bonusIDs={13650,13657},itemId=270556,pop=42.7,tier="S"},{bonusIDs={13650,13657},itemId=270559,pop=35,tier="S"}},
           },
@@ -11413,19 +11989,55 @@ ClassCodexSource["ugg"] = {
         },
         statTargets={
           all={
-            mplus={crit=960,haste=1223,mastery=788,versatility=538},
-            pvp={crit=658,haste=1080,mastery=669,versatility=1238},
-            raid={crit=975,haste=1125,mastery=800,versatility=556},
+            mplus={
+              top20={crit=960,haste=1223,mastery=788,versatility=538},
+              top50={crit=839,haste=1098,mastery=672,versatility=496},
+              top80={crit=793,haste=1033,mastery=599,versatility=421},
+            },
+            pvp={
+              top20={crit=658,haste=1080,mastery=669,versatility=1238},
+              top50={crit=183,haste=1025,mastery=398,versatility=1210},
+              top80={crit=183,haste=937,mastery=219,versatility=1132},
+            },
+            raid={
+              top20={crit=975,haste=1125,mastery=800,versatility=556},
+              top50={crit=860,haste=1034,mastery=708,versatility=503},
+              top80={crit=813,haste=956,mastery=640,versatility=436},
+            },
           },
           spellslinger={
-            mplus={crit=825,haste=1075,mastery=825,versatility=475},
-            pvp={crit=248,haste=1078,mastery=566,versatility=1244},
-            raid={crit=975,haste=1150,mastery=900,versatility=425},
+            mplus={
+              top20={crit=825,haste=1075,mastery=825,versatility=475},
+              top50={crit=825,haste=1050,mastery=725,versatility=450},
+              top80={crit=688,haste=938,mastery=613,versatility=313},
+            },
+            pvp={
+              top20={crit=248,haste=1078,mastery=566,versatility=1244},
+              top50={crit=70,haste=1016,mastery=254,versatility=1215},
+              top80={crit=70,haste=968,mastery=178,versatility=1199},
+            },
+            raid={
+              top20={crit=975,haste=1150,mastery=900,versatility=425},
+              top50={crit=811,haste=1050,mastery=805,versatility=335},
+              top80={crit=794,haste=994,mastery=725,versatility=244},
+            },
           },
           sunfury={
-            mplus={crit=960,haste=1223,mastery=788,versatility=538},
-            pvp={crit=658,haste=1080,mastery=669,versatility=1238},
-            raid={crit=975,haste=1125,mastery=800,versatility=556},
+            mplus={
+              top20={crit=960,haste=1223,mastery=788,versatility=538},
+              top50={crit=839,haste=1098,mastery=672,versatility=496},
+              top80={crit=793,haste=1033,mastery=599,versatility=421},
+            },
+            pvp={
+              top20={crit=658,haste=1080,mastery=669,versatility=1238},
+              top50={crit=183,haste=1025,mastery=398,versatility=1210},
+              top80={crit=183,haste=937,mastery=219,versatility=1132},
+            },
+            raid={
+              top20={crit=975,haste=1125,mastery=800,versatility=556},
+              top50={crit=860,haste=1034,mastery=708,versatility=503},
+              top80={crit=813,haste=956,mastery=640,versatility=436},
+            },
           },
         },
         talents={
@@ -11867,17 +12479,17 @@ ClassCodexSource["ugg"] = {
         trinkets={
           all={
             all={
-              {bonusIDs={13440,6652,12699,12844},itemId=250215,pop=24.8,tier="A"},
+              {bonusIDs={13440,6652,12699,12843},itemId=250215,pop=24.8,tier="A"},
               {bonusIDs={6652,13335,13654},itemId=249346,pop=16.5,tier="A"},
               {bonusIDs={6652,13335,13654},itemId=249343,pop=11.4,tier="B"},
-              {bonusIDs={13440,6652,12699,12846},itemId=250224,pop=6.2,tier="B"},
-              {bonusIDs={13440,6652,12699,12846},itemId=273796,pop=6.2,tier="B"},
-              {bonusIDs={13440,6652,12699,12846},itemId=250214,pop=5.2,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250224,pop=6.2,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=273796,pop=6.2,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250214,pop=5.2,tier="B"},
               {bonusIDs={12830},itemId=264507,pop=4.4,tier="C"},
-              {bonusIDs={13439,6652,12699,12834},itemId=250259,pop=3.8,tier="C"},
-              {bonusIDs={6652,13333,11215,12838},itemId=270164,pop=3.3,tier="C"},
-              {bonusIDs={6652,12830},itemId=274493,pop=3,tier="C"},
-              {bonusIDs={12843,13440,6652,12699},itemId=273794,pop=2.7,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250259,pop=3.8,tier="C"},
+              {bonusIDs={6652,13333,12838},itemId=270164,pop=3.3,tier="C"},
+              {bonusIDs={6652,12846},itemId=274493,pop=3,tier="C"},
+              {bonusIDs={13439,6652,12699,12838},itemId=273794,pop=2.7,tier="C"},
             },
             pvp={{bonusIDs={13650,13657},itemId=270556,pop=42.1,tier="S"},{bonusIDs={13650,13657},itemId=270558,pop=40.4,tier="S"}},
           },
@@ -12124,19 +12736,55 @@ ClassCodexSource["ugg"] = {
         },
         statTargets={
           all={
-            mplus={crit=758,haste=1442,mastery=1008,versatility=481},
-            pvp={crit=76,haste=1077,mastery=146,versatility=1288},
-            raid={crit=375,haste=1125,mastery=825,versatility=275},
+            mplus={
+              top20={crit=758,haste=1442,mastery=1008,versatility=481},
+              top50={crit=504,haste=1286,mastery=960,versatility=443},
+              top80={crit=442,haste=1192,mastery=845,versatility=354},
+            },
+            pvp={
+              top20={crit=76,haste=1077,mastery=146,versatility=1288},
+              top50={crit=76,haste=1022,mastery=54,versatility=1269},
+              top80={crit=76,haste=989,mastery=54,versatility=1242},
+            },
+            raid={
+              top20={crit=375,haste=1125,mastery=825,versatility=275},
+              top50={crit=375,haste=1125,mastery=825,versatility=275},
+              top80={crit=375,haste=1125,mastery=825,versatility=275},
+            },
           },
           frostfire={
-            mplus={crit=575,haste=1325,mastery=1025,versatility=175},
-            pvp={crit=33,haste=1054,mastery=116,versatility=1292},
-            raid={crit=375,haste=1125,mastery=825,versatility=275},
+            mplus={
+              top20={crit=575,haste=1325,mastery=1025,versatility=175},
+              top50={crit=575,haste=1325,mastery=1025,versatility=175},
+              top80={crit=425,haste=1100,mastery=900,versatility=150},
+            },
+            pvp={
+              top20={crit=33,haste=1054,mastery=116,versatility=1292},
+              top50={crit=33,haste=1040,mastery=57,versatility=1267},
+              top80={crit=33,haste=970,mastery=57,versatility=1240},
+            },
+            raid={
+              top20={crit=375,haste=1125,mastery=825,versatility=275},
+              top50={crit=375,haste=1125,mastery=825,versatility=275},
+              top80={crit=375,haste=1125,mastery=825,versatility=275},
+            },
           },
           sunfury={
-            mplus={crit=758,haste=1442,mastery=1008,versatility=481},
-            pvp={crit=76,haste=1077,mastery=146,versatility=1288},
-            raid={crit=775,haste=975,mastery=975,versatility=75},
+            mplus={
+              top20={crit=758,haste=1442,mastery=1008,versatility=481},
+              top50={crit=504,haste=1286,mastery=960,versatility=443},
+              top80={crit=442,haste=1192,mastery=845,versatility=354},
+            },
+            pvp={
+              top20={crit=76,haste=1077,mastery=146,versatility=1288},
+              top50={crit=76,haste=1022,mastery=54,versatility=1269},
+              top80={crit=76,haste=989,mastery=54,versatility=1242},
+            },
+            raid={
+              top20={crit=775,haste=975,mastery=975,versatility=75},
+              top50={crit=775,haste=975,mastery=975,versatility=75},
+              top80={crit=775,haste=975,mastery=975,versatility=75},
+            },
           },
         },
         talents={
@@ -12524,14 +13172,14 @@ ClassCodexSource["ugg"] = {
             all={
               {bonusIDs={13440,6652,12699,13654},itemId=250144,pop=25,tier="A"},
               {bonusIDs={6652,13335,13654},itemId=249346,pop=21.7,tier="A"},
-              {bonusIDs={13440,6652,12699,12846},itemId=273796,pop=11.5,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=273796,pop=11.5,tier="B"},
               {bonusIDs={6652,13335,13654},itemId=249343,pop=8.5,tier="B"},
-              {bonusIDs={13440,6652,12699,12846},itemId=250224,pop=5.5,tier="B"},
-              {bonusIDs={13439,6652,12699,12838},itemId=273649,pop=5.4,tier="B"},
-              {bonusIDs={13440,6652,12699,12846},itemId=250214,pop=5.3,tier="B"},
-              {bonusIDs={13440,6652,12699,13654},itemId=250256,pop=4.1,tier="C"},
-              {bonusIDs={13439,6652,12699,12834},itemId=250259,pop=2.8,tier="C"},
-              {bonusIDs={6652,13333,11215,12838},itemId=270164,pop=2.4,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250224,pop=5.5,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=273649,pop=5.4,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250214,pop=5.3,tier="B"},
+              {bonusIDs={13440,6652,12699,12806},itemId=250256,pop=4.1,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250259,pop=2.8,tier="C"},
+              {bonusIDs={6652,13333,12838},itemId=270164,pop=2.4,tier="C"},
               {bonusIDs={6652,13335,13654},itemId=249809,pop=2.1,tier="C"},
             },
             pvp={
@@ -12780,19 +13428,55 @@ ClassCodexSource["ugg"] = {
         },
         statTargets={
           all={
-            mplus={crit=1050,haste=905,mastery=1046,versatility=388},
-            pvp={crit=59,haste=1105,mastery=282,versatility=1288},
-            raid={crit=850,haste=1050,mastery=850,versatility=525},
+            mplus={
+              top20={crit=1050,haste=905,mastery=1046,versatility=388},
+              top50={crit=981,haste=853,mastery=954,versatility=290},
+              top80={crit=914,haste=804,mastery=936,versatility=221},
+            },
+            pvp={
+              top20={crit=59,haste=1105,mastery=282,versatility=1288},
+              top50={crit=59,haste=1039,mastery=96,versatility=1250},
+              top80={crit=59,haste=988,mastery=96,versatility=1222},
+            },
+            raid={
+              top20={crit=850,haste=1050,mastery=850,versatility=525},
+              top50={crit=825,haste=988,mastery=792,versatility=450},
+              top80={crit=765,haste=933,mastery=715,versatility=405},
+            },
           },
           frostfire={
-            mplus={crit=1188,haste=1063,mastery=1125,versatility=425},
-            pvp={crit=725,haste=875,mastery=575,versatility=1275},
-            raid={crit=275,haste=1225,mastery=825,versatility=525},
+            mplus={
+              top20={crit=1188,haste=1063,mastery=1125,versatility=425},
+              top50={crit=1020,haste=880,mastery=990,versatility=271},
+              top80={crit=928,haste=778,mastery=959,versatility=246},
+            },
+            pvp={
+              top20={crit=725,haste=875,mastery=575,versatility=1275},
+              top50={crit=200,haste=875,mastery=275,versatility=1225},
+              top80={crit=200,haste=850,mastery=225,versatility=963},
+            },
+            raid={
+              top20={crit=275,haste=1225,mastery=825,versatility=525},
+              top50={crit=275,haste=1225,mastery=825,versatility=525},
+              top80={crit=275,haste=1225,mastery=825,versatility=525},
+            },
           },
           spellslinger={
-            mplus={crit=1050,haste=905,mastery=1046,versatility=388},
-            pvp={crit=59,haste=1105,mastery=282,versatility=1288},
-            raid={crit=850,haste=1050,mastery=850,versatility=525},
+            mplus={
+              top20={crit=1050,haste=905,mastery=1046,versatility=388},
+              top50={crit=981,haste=853,mastery=954,versatility=290},
+              top80={crit=914,haste=804,mastery=936,versatility=221},
+            },
+            pvp={
+              top20={crit=59,haste=1105,mastery=282,versatility=1288},
+              top50={crit=59,haste=1039,mastery=96,versatility=1250},
+              top80={crit=59,haste=988,mastery=96,versatility=1222},
+            },
+            raid={
+              top20={crit=850,haste=1050,mastery=850,versatility=525},
+              top50={crit=825,haste=988,mastery=792,versatility=450},
+              top80={crit=765,haste=933,mastery=715,versatility=405},
+            },
           },
         },
         talents={
@@ -13220,15 +13904,15 @@ ClassCodexSource["ugg"] = {
             all={
               {bonusIDs={6652,13335,13654},itemId=249346,pop=31,tier="S"},
               {bonusIDs={6652,13335,13654},itemId=249343,pop=27.7,tier="A"},
-              {bonusIDs={13440,6652,12699,12846},itemId=273796,pop=7.9,tier="B"},
-              {bonusIDs={13440,6652,12699,12844},itemId=250215,pop=5.6,tier="B"},
-              {bonusIDs={13440,6652,12699,12846},itemId=250224,pop=4.5,tier="C"},
-              {bonusIDs={13440,6652,12699,12846},itemId=250214,pop=2.5,tier="C"},
-              {bonusIDs={6652,12830},itemId=274493,pop=2.4,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=273796,pop=7.9,tier="B"},
+              {bonusIDs={13440,6652,12699,12843},itemId=250215,pop=5.6,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250224,pop=4.5,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250214,pop=2.5,tier="C"},
+              {bonusIDs={6652,12846},itemId=274493,pop=2.4,tier="C"},
               {bonusIDs={13440,6652,12699,13654},itemId=250144,pop=2.3,tier="C"},
               {bonusIDs={6652,13335,13786},itemId=268292,pop=2.3,tier="C"},
-              {bonusIDs={13439,6652,12699,12834},itemId=250259,pop=2,tier="C"},
-              {bonusIDs={12841,6652},itemId=251792,pop=2,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250259,pop=2,tier="C"},
+              {bonusIDs={6652,12846},itemId=251792,pop=2,tier="C"},
               {bonusIDs={12830},itemId=264507,pop=1.9,tier="C"},
             },
             pvp={
@@ -13466,19 +14150,55 @@ ClassCodexSource["ugg"] = {
         },
         statTargets={
           all={
-            mplus={crit=1250,haste=543,mastery=938,versatility=900},
-            pvp={crit=1375,haste=325,mastery=1175,versatility=1225},
-            raid={crit=1350,haste=600,mastery=875,versatility=713},
+            mplus={
+              top20={crit=1250,haste=543,mastery=938,versatility=900},
+              top50={crit=1180,haste=447,mastery=830,versatility=831},
+              top80={crit=1117,haste=341,mastery=738,versatility=728},
+            },
+            pvp={
+              top20={crit=1375,haste=325,mastery=1175,versatility=1225},
+              top50={crit=1042,haste=225,mastery=688,versatility=1042},
+              top80={crit=963,haste=200,mastery=688,versatility=975},
+            },
+            raid={
+              top20={crit=1350,haste=600,mastery=875,versatility=713},
+              top50={crit=1308,haste=475,mastery=825,versatility=713},
+              top80={crit=1215,haste=335,mastery=755,versatility=675},
+            },
           },
           ["master-of-harmony"]={
-            mplus={crit=1250,haste=543,mastery=938,versatility=900},
-            pvp={crit=1375,haste=325,mastery=1175,versatility=1225},
-            raid={crit=1350,haste=600,mastery=875,versatility=713},
+            mplus={
+              top20={crit=1250,haste=543,mastery=938,versatility=900},
+              top50={crit=1180,haste=447,mastery=830,versatility=831},
+              top80={crit=1117,haste=341,mastery=738,versatility=728},
+            },
+            pvp={
+              top20={crit=1375,haste=325,mastery=1175,versatility=1225},
+              top50={crit=1042,haste=225,mastery=688,versatility=1042},
+              top80={crit=963,haste=200,mastery=688,versatility=975},
+            },
+            raid={
+              top20={crit=1350,haste=600,mastery=875,versatility=713},
+              top50={crit=1308,haste=475,mastery=825,versatility=713},
+              top80={crit=1215,haste=335,mastery=755,versatility=675},
+            },
           },
           ["shado-pan"]={
-            mplus={crit=1375,haste=955,mastery=945,versatility=675},
-            pvp={crit=875,haste=675,mastery=875,versatility=1175},
-            raid={crit=1375,haste=450,mastery=900,versatility=725},
+            mplus={
+              top20={crit=1375,haste=955,mastery=945,versatility=675},
+              top50={crit=1239,haste=671,mastery=870,versatility=602},
+              top80={crit=1101,haste=584,mastery=801,versatility=510},
+            },
+            pvp={
+              top20={crit=875,haste=675,mastery=875,versatility=1175},
+              top50={crit=725,haste=425,mastery=600,versatility=1075},
+              top80={crit=525,haste=325,mastery=442,versatility=858},
+            },
+            raid={
+              top20={crit=1375,haste=450,mastery=900,versatility=725},
+              top50={crit=1325,haste=338,mastery=850,versatility=675},
+              top80={crit=1275,haste=275,mastery=775,versatility=582},
+            },
           },
         },
         talents={
@@ -13939,17 +14659,17 @@ ClassCodexSource["ugg"] = {
           all={
             all={
               {bonusIDs={6652,13335,13654},itemId=249343,pop=18.9,tier="A"},
-              {bonusIDs={12843,13440,41,12699},itemId=250245,pop=7.2,tier="B"},
+              {bonusIDs={13440,6652,12699,12846},itemId=250245,pop=7.2,tier="B"},
               {bonusIDs={6652,13335,13786},itemId=268292,pop=7,tier="B"},
-              {bonusIDs={13440,6652,12699,12806},itemId=252420,pop=6.9,tier="B"},
+              {bonusIDs={13440,6652,12699,13654},itemId=252420,pop=6.9,tier="B"},
               {bonusIDs={6652,13333,12838},itemId=270160,pop=6.4,tier="B"},
-              {bonusIDs={13440,6652,12699,12844},itemId=250215,pop=6,tier="B"},
+              {bonusIDs={13440,6652,12699,12843},itemId=250215,pop=6,tier="B"},
               {bonusIDs={6652,13335,13654},itemId=260235,pop=5.8,tier="B"},
-              {bonusIDs={13440,6652,12699,12846},itemId=273796,pop=5.5,tier="B"},
-              {bonusIDs={12843,13440,6652,12699},itemId=250228,pop=4.9,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=273796,pop=5.5,tier="B"},
+              {bonusIDs={13440,6652,12699,12846},itemId=250228,pop=4.9,tier="C"},
               {bonusIDs={6652,13335,13654},itemId=249339,pop=4.1,tier="C"},
-              {bonusIDs={13440,6652,12699,12843},itemId=159617,pop=3.9,tier="C"},
-              {bonusIDs={13440,6652,12699,12846},itemId=250214,pop=3.4,tier="C"},
+              {bonusIDs={13440,6652,12699,12846},itemId=159617,pop=3.9,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250214,pop=3.4,tier="C"},
             },
             pvp={
               {bonusIDs={13650,13657},itemId=270556,pop=66.7,tier="S"},
@@ -14185,19 +14905,55 @@ ClassCodexSource["ugg"] = {
         },
         statTargets={
           all={
-            mplus={crit=1048,haste=1388,mastery=780,versatility=563},
-            pvp={crit=75,haste=1077,mastery=669,versatility=1260},
-            raid={crit=942,haste=1325,mastery=1155,versatility=483},
+            mplus={
+              top20={crit=1048,haste=1388,mastery=780,versatility=563},
+              top50={crit=947,haste=1283,mastery=613,versatility=457},
+              top80={crit=861,haste=1180,mastery=485,versatility=393},
+            },
+            pvp={
+              top20={crit=75,haste=1077,mastery=669,versatility=1260},
+              top50={crit=75,haste=933,mastery=452,versatility=1218},
+              top80={crit=75,haste=854,mastery=257,versatility=1203},
+            },
+            raid={
+              top20={crit=942,haste=1325,mastery=1155,versatility=483},
+              top50={crit=870,haste=1207,mastery=993,versatility=375},
+              top80={crit=778,haste=1093,mastery=837,versatility=316},
+            },
           },
           ["conduit-of-the-celestials"]={
-            mplus={crit=1048,haste=1388,mastery=780,versatility=563},
-            pvp={crit=800,haste=1135,mastery=744,versatility=1231},
-            raid={crit=1100,haste=1450,mastery=575,versatility=475},
+            mplus={
+              top20={crit=1048,haste=1388,mastery=780,versatility=563},
+              top50={crit=947,haste=1283,mastery=613,versatility=457},
+              top80={crit=861,haste=1180,mastery=485,versatility=393},
+            },
+            pvp={
+              top20={crit=800,haste=1135,mastery=744,versatility=1231},
+              top50={crit=290,haste=1038,mastery=596,versatility=1178},
+              top80={crit=290,haste=865,mastery=349,versatility=1032},
+            },
+            raid={
+              top20={crit=1100,haste=1450,mastery=575,versatility=475},
+              top50={crit=1025,haste=1390,mastery=350,versatility=431},
+              top80={crit=968,haste=1350,mastery=286,versatility=342},
+            },
           },
           ["master-of-harmony"]={
-            mplus={crit=975,haste=1275,mastery=875,versatility=525},
-            pvp={crit=75,haste=1077,mastery=669,versatility=1260},
-            raid={crit=942,haste=1325,mastery=1155,versatility=483},
+            mplus={
+              top20={crit=975,haste=1275,mastery=875,versatility=525},
+              top50={crit=800,haste=1208,mastery=875,versatility=425},
+              top80={crit=625,haste=1188,mastery=575,versatility=325},
+            },
+            pvp={
+              top20={crit=75,haste=1077,mastery=669,versatility=1260},
+              top50={crit=75,haste=933,mastery=452,versatility=1218},
+              top80={crit=75,haste=854,mastery=257,versatility=1203},
+            },
+            raid={
+              top20={crit=942,haste=1325,mastery=1155,versatility=483},
+              top50={crit=870,haste=1207,mastery=993,versatility=375},
+              top80={crit=778,haste=1093,mastery=837,versatility=316},
+            },
           },
         },
         talents={
@@ -14629,18 +15385,18 @@ ClassCodexSource["ugg"] = {
             all={
               {bonusIDs={6652,13335,13654},itemId=249808,pop=28.9,tier="A"},
               {bonusIDs={6652,13335,13654},itemId=249343,pop=15,tier="A"},
-              {bonusIDs={6652,13333,12838},itemId=270162,pop=10.7,tier="B"},
+              {bonusIDs={40,13334,12849},itemId=270162,pop=10.7,tier="B"},
               {bonusIDs={6652,13335,13786},itemId=268292,pop=10.5,tier="B"},
-              {bonusIDs={13440,6652,12699,13654},itemId=250256,pop=4.1,tier="C"},
+              {bonusIDs={13440,6652,12699,12806},itemId=250256,pop=4.1,tier="C"},
               {bonusIDs={6652,13334,12841},itemId=270167,pop=3.3,tier="C"},
-              {bonusIDs={6652,12846,13185},itemId=248583,pop=3,tier="C"},
+              {bonusIDs={13183,6652,12843},itemId=248583,pop=3,tier="C"},
               {bonusIDs={12843,13440,6652,12699},itemId=250248,pop=2.9,tier="C"},
-              {bonusIDs={13440,6652,12699,12846},itemId=273796,pop=2.9,tier="C"},
-              {bonusIDs={13440,6652,12699,12844},itemId=250215,pop=2.8,tier="C"},
-              {bonusIDs={12841,6652},itemId=251792,pop=2.7,tier="C"},
-              {bonusIDs={6652,12830},itemId=274493,pop=2.7,tier="C"},
-              {bonusIDs={13440,6652,12699,12846},itemId=250214,pop=2.6,tier="C"},
-              {bonusIDs={13439,6652,12699,12838},itemId=273649,pop=2.2,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=273796,pop=2.9,tier="C"},
+              {bonusIDs={13440,6652,12699,12843},itemId=250215,pop=2.8,tier="C"},
+              {bonusIDs={6652,12846},itemId=251792,pop=2.7,tier="C"},
+              {bonusIDs={6652,12846},itemId=274493,pop=2.7,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250214,pop=2.6,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=273649,pop=2.2,tier="C"},
             },
             pvp={{bonusIDs={13650,13657},itemId=270556,pop=41.7,tier="S"},{bonusIDs={13650,13657},itemId=270558,pop=41.7,tier="S"}},
           },
@@ -14870,19 +15626,55 @@ ClassCodexSource["ugg"] = {
         },
         statTargets={
           all={
-            mplus={crit=1006,haste=1058,mastery=1096,versatility=275},
-            pvp={crit=363,haste=435,mastery=1185,versatility=1191},
-            raid={crit=1008,haste=1054,mastery=1055,versatility=250},
+            mplus={
+              top20={crit=1006,haste=1058,mastery=1096,versatility=275},
+              top50={crit=945,haste=968,mastery=990,versatility=196},
+              top80={crit=861,haste=869,mastery=908,versatility=125},
+            },
+            pvp={
+              top20={crit=363,haste=435,mastery=1185,versatility=1191},
+              top50={crit=106,haste=219,mastery=1119,versatility=1165},
+              top80={crit=106,haste=219,mastery=1026,versatility=1118},
+            },
+            raid={
+              top20={crit=1008,haste=1054,mastery=1055,versatility=250},
+              top50={crit=948,haste=988,mastery=998,versatility=164},
+              top80={crit=878,haste=933,mastery=937,versatility=118},
+            },
           },
           ["conduit-of-the-celestials"]={
-            mplus={crit=855,haste=995,mastery=1155,versatility=400},
-            pvp={crit=900,haste=975,mastery=1075,versatility=1142},
-            raid={crit=1000,haste=1013,mastery=1175,versatility=313},
+            mplus={
+              top20={crit=855,haste=995,mastery=1155,versatility=400},
+              top50={crit=722,haste=911,mastery=1105,versatility=280},
+              top80={crit=691,haste=878,mastery=1010,versatility=163},
+            },
+            pvp={
+              top20={crit=900,haste=975,mastery=1075,versatility=1142},
+              top50={crit=605,haste=546,mastery=1065,versatility=1115},
+              top80={crit=347,haste=453,mastery=1019,versatility=708},
+            },
+            raid={
+              top20={crit=1000,haste=1013,mastery=1175,versatility=313},
+              top50={crit=843,haste=898,mastery=1098,versatility=198},
+              top80={crit=819,haste=891,mastery=1028,versatility=175},
+            },
           },
           ["shado-pan"]={
-            mplus={crit=1006,haste=1058,mastery=1096,versatility=275},
-            pvp={crit=363,haste=435,mastery=1185,versatility=1191},
-            raid={crit=1008,haste=1054,mastery=1055,versatility=250},
+            mplus={
+              top20={crit=1006,haste=1058,mastery=1096,versatility=275},
+              top50={crit=945,haste=968,mastery=990,versatility=196},
+              top80={crit=861,haste=869,mastery=908,versatility=125},
+            },
+            pvp={
+              top20={crit=363,haste=435,mastery=1185,versatility=1191},
+              top50={crit=106,haste=219,mastery=1119,versatility=1165},
+              top80={crit=106,haste=219,mastery=1026,versatility=1118},
+            },
+            raid={
+              top20={crit=1008,haste=1054,mastery=1055,versatility=250},
+              top50={crit=948,haste=988,mastery=998,versatility=164},
+              top80={crit=878,haste=933,mastery=937,versatility=118},
+            },
           },
         },
         talents={
@@ -15342,17 +16134,17 @@ ClassCodexSource["ugg"] = {
         trinkets={
           all={
             all={
-              {bonusIDs={13440,6652,12699,13654},itemId=193701,pop=23.6,tier="A"},
+              {bonusIDs={13440,42,12699,13654},itemId=193701,pop=23.6,tier="A"},
               {bonusIDs={6652,13335,13654},itemId=249343,pop=16.9,tier="A"},
-              {bonusIDs={13440,6652,12699,12846},itemId=273796,pop=10.6,tier="B"},
-              {bonusIDs={13440,6652,12699,12844},itemId=250215,pop=9.4,tier="B"},
-              {bonusIDs={13439,6652,12699,12834},itemId=250259,pop=7.3,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=273796,pop=10.6,tier="B"},
+              {bonusIDs={13440,6652,12699,12843},itemId=250215,pop=9.4,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250259,pop=7.3,tier="B"},
               {bonusIDs={12843,13440,6652,12699},itemId=250225,pop=4.7,tier="C"},
-              {bonusIDs={6652,13333,12836},itemId=270175,pop=3.4,tier="C"},
-              {bonusIDs={13440,6652,12699,12846},itemId=250214,pop=2.7,tier="C"},
-              {bonusIDs={13440,6652,12699,12843},itemId=159617,pop=2.6,tier="C"},
-              {bonusIDs={12843,13440,6652,12699},itemId=250228,pop=2.1,tier="C"},
-              {bonusIDs={6652,13333,12837},itemId=270166,pop=1.9,tier="C"},
+              {bonusIDs={6652,13333,12838},itemId=270175,pop=3.4,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250214,pop=2.7,tier="C"},
+              {bonusIDs={13440,6652,12699,12846},itemId=159617,pop=2.6,tier="C"},
+              {bonusIDs={13440,6652,12699,12846},itemId=250228,pop=2.1,tier="C"},
+              {bonusIDs={6652,13334,12846},itemId=270166,pop=1.9,tier="C"},
             },
             pvp={
               {bonusIDs={13650,13657},itemId=270556,pop=47.7,tier="S"},
@@ -15586,19 +16378,55 @@ ClassCodexSource["ugg"] = {
         },
         statTargets={
           all={
-            mplus={crit=897,haste=1085,mastery=1263,versatility=520},
-            pvp={crit=459,haste=801,mastery=1083,versatility=1315},
-            raid={crit=1004,haste=1058,mastery=1319,versatility=388},
+            mplus={
+              top20={crit=897,haste=1085,mastery=1263,versatility=520},
+              top50={crit=761,haste=966,mastery=1154,versatility=375},
+              top80={crit=698,haste=907,mastery=1043,versatility=319},
+            },
+            pvp={
+              top20={crit=459,haste=801,mastery=1083,versatility=1315},
+              top50={crit=132,haste=450,mastery=948,versatility=1272},
+              top80={crit=132,haste=324,mastery=880,versatility=1220},
+            },
+            raid={
+              top20={crit=1004,haste=1058,mastery=1319,versatility=388},
+              top50={crit=864,haste=968,mastery=1228,versatility=290},
+              top80={crit=759,haste=880,mastery=1193,versatility=229},
+            },
           },
           ["herald-of-the-sun"]={
-            mplus={crit=897,haste=1085,mastery=1263,versatility=520},
-            pvp={crit=459,haste=801,mastery=1083,versatility=1315},
-            raid={crit=1004,haste=1058,mastery=1319,versatility=388},
+            mplus={
+              top20={crit=897,haste=1085,mastery=1263,versatility=520},
+              top50={crit=761,haste=966,mastery=1154,versatility=375},
+              top80={crit=698,haste=907,mastery=1043,versatility=319},
+            },
+            pvp={
+              top20={crit=459,haste=801,mastery=1083,versatility=1315},
+              top50={crit=132,haste=450,mastery=948,versatility=1272},
+              top80={crit=132,haste=324,mastery=880,versatility=1220},
+            },
+            raid={
+              top20={crit=1004,haste=1058,mastery=1319,versatility=388},
+              top50={crit=864,haste=968,mastery=1228,versatility=290},
+              top80={crit=759,haste=880,mastery=1193,versatility=229},
+            },
           },
           lightsmith={
-            mplus={crit=835,haste=1133,mastery=1238,versatility=538},
-            pvp={crit=69,haste=406,mastery=986,versatility=1309},
-            raid={crit=975,haste=925,mastery=325,versatility=525},
+            mplus={
+              top20={crit=835,haste=1133,mastery=1238,versatility=538},
+              top50={crit=780,haste=1052,mastery=1055,versatility=396},
+              top80={crit=681,haste=990,mastery=909,versatility=347},
+            },
+            pvp={
+              top20={crit=69,haste=406,mastery=986,versatility=1309},
+              top50={crit=69,haste=268,mastery=907,versatility=1276},
+              top80={crit=69,haste=221,mastery=871,versatility=1255},
+            },
+            raid={
+              top20={crit=975,haste=925,mastery=325,versatility=525},
+              top50={crit=975,haste=925,mastery=325,versatility=525},
+              top80={crit=975,haste=925,mastery=325,versatility=525},
+            },
           },
         },
         talents={
@@ -16048,17 +16876,17 @@ ClassCodexSource["ugg"] = {
             all={
               {bonusIDs={6652,13335,13654},itemId=249343,pop=16.3,tier="A"},
               {bonusIDs={6652,13335,13786},itemId=268292,pop=11.1,tier="B"},
-              {bonusIDs={13440,6652,12699,12846},itemId=250214,pop=9.1,tier="B"},
-              {bonusIDs={6652,13333,12838},itemId=270162,pop=8.7,tier="B"},
-              {bonusIDs={13440,6652,12699,12844},itemId=250215,pop=8.2,tier="B"},
-              {bonusIDs={13440,6652,12699,12846},itemId=273796,pop=6.4,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250214,pop=9.1,tier="B"},
+              {bonusIDs={40,13334,12849},itemId=270162,pop=8.7,tier="B"},
+              {bonusIDs={13440,6652,12699,12843},itemId=250215,pop=8.2,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=273796,pop=6.4,tier="B"},
               {bonusIDs={6652,13335,13654},itemId=249809,pop=6,tier="B"},
-              {bonusIDs={6652,12830},itemId=274493,pop=4,tier="C"},
+              {bonusIDs={6652,12846},itemId=274493,pop=4,tier="C"},
               {bonusIDs={12843,13440,6652,12699},itemId=193748,pop=3.9,tier="C"},
               {bonusIDs={12843,13440,6652,12699},itemId=193757,pop=3.8,tier="C"},
               {bonusIDs={12843,13440,6652,12699},itemId=250248,pop=3.8,tier="C"},
               {bonusIDs={12830},itemId=264507,pop=3,tier="C"},
-              {bonusIDs={6652,12846,13185},itemId=248583,pop=2.9,tier="C"},
+              {bonusIDs={13183,6652,12843},itemId=248583,pop=2.9,tier="C"},
             },
             pvp={{bonusIDs={13650,13657},itemId=270556,pop=40.5,tier="S"},{bonusIDs={13650,13657},itemId=270558,pop=34.4,tier="S"}},
           },
@@ -16282,19 +17110,55 @@ ClassCodexSource["ugg"] = {
         },
         statTargets={
           all={
-            mplus={crit=1086,haste=1233,mastery=748,versatility=540},
-            pvp={crit=808,haste=1050,mastery=788,versatility=1263},
-            raid={crit=1075,haste=1325,mastery=858,versatility=355},
+            mplus={
+              top20={crit=1086,haste=1233,mastery=748,versatility=540},
+              top50={crit=1020,haste=1139,mastery=673,versatility=487},
+              top80={crit=943,haste=1045,mastery=561,versatility=388},
+            },
+            pvp={
+              top20={crit=808,haste=1050,mastery=788,versatility=1263},
+              top50={crit=469,haste=898,mastery=618,versatility=1201},
+              top80={crit=270,haste=790,mastery=429,versatility=1117},
+            },
+            raid={
+              top20={crit=1075,haste=1325,mastery=858,versatility=355},
+              top50={crit=1042,haste=1192,mastery=739,versatility=342},
+              top80={crit=955,haste=995,mastery=665,versatility=285},
+            },
           },
           lightsmith={
-            mplus={crit=1086,haste=1233,mastery=748,versatility=540},
-            pvp={crit=808,haste=1050,mastery=788,versatility=1263},
-            raid={crit=1075,haste=1325,mastery=858,versatility=355},
+            mplus={
+              top20={crit=1086,haste=1233,mastery=748,versatility=540},
+              top50={crit=1020,haste=1139,mastery=673,versatility=487},
+              top80={crit=943,haste=1045,mastery=561,versatility=388},
+            },
+            pvp={
+              top20={crit=808,haste=1050,mastery=788,versatility=1263},
+              top50={crit=469,haste=898,mastery=618,versatility=1201},
+              top80={crit=270,haste=790,mastery=429,versatility=1117},
+            },
+            raid={
+              top20={crit=1075,haste=1325,mastery=858,versatility=355},
+              top50={crit=1042,haste=1192,mastery=739,versatility=342},
+              top80={crit=955,haste=995,mastery=665,versatility=285},
+            },
           },
           templar={
-            mplus={crit=1139,haste=1258,mastery=954,versatility=468},
-            pvp={crit=875,haste=925,mastery=692,versatility=1325},
-            raid={crit=1150,haste=1275,mastery=755,versatility=358},
+            mplus={
+              top20={crit=1139,haste=1258,mastery=954,versatility=468},
+              top50={crit=1046,haste=1113,mastery=818,versatility=379},
+              top80={crit=925,haste=984,mastery=715,versatility=325},
+            },
+            pvp={
+              top20={crit=875,haste=925,mastery=692,versatility=1325},
+              top50={crit=732,haste=746,mastery=625,versatility=1111},
+              top80={crit=452,haste=630,mastery=575,versatility=911},
+            },
+            raid={
+              top20={crit=1150,haste=1275,mastery=755,versatility=358},
+              top50={crit=1000,haste=1210,mastery=670,versatility=325},
+              top80={crit=897,haste=1131,mastery=575,versatility=269},
+            },
           },
         },
         talents={
@@ -16748,15 +17612,15 @@ ClassCodexSource["ugg"] = {
         trinkets={
           all={
             all={
-              {bonusIDs={13440,6652,12699,12846},itemId=273796,pop=9.5,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=273796,pop=9.5,tier="B"},
               {bonusIDs={6652,13335,13654},itemId=249343,pop=9,tier="B"},
-              {bonusIDs={12843,13440,6652,12699},itemId=250228,pop=8.9,tier="B"},
+              {bonusIDs={13440,6652,12699,12846},itemId=250228,pop=8.9,tier="B"},
               {bonusIDs={6652,13335,13654},itemId=249342,pop=8.4,tier="B"},
-              {bonusIDs={13440,6652,12699,12846},itemId=193762,pop=6.6,tier="B"},
-              {bonusIDs={12843,13440,40,12699},itemId=250229,pop=5.5,tier="B"},
-              {bonusIDs={12843,13440,41,12699},itemId=250245,pop=5.1,tier="B"},
-              {bonusIDs={13440,6652,12699,12846},itemId=273795,pop=4.5,tier="C"},
-              {bonusIDs={13440,6652,12699,13654},itemId=250256,pop=3.3,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=193762,pop=6.6,tier="B"},
+              {bonusIDs={13440,6652,12699,12846},itemId=250229,pop=5.5,tier="B"},
+              {bonusIDs={13440,6652,12699,12846},itemId=250245,pop=5.1,tier="B"},
+              {bonusIDs={12843,13440,42,12699},itemId=273795,pop=4.5,tier="C"},
+              {bonusIDs={13440,6652,12699,12806},itemId=250256,pop=3.3,tier="C"},
               {bonusIDs={6652,13335,13786},itemId=268292,pop=3.2,tier="C"},
               {bonusIDs={6652,13333,12838},itemId=270165,pop=3.1,tier="C"},
               {bonusIDs={6652,13333,12838},itemId=270160,pop=2.9,tier="C"},
@@ -16989,19 +17853,55 @@ ClassCodexSource["ugg"] = {
         },
         statTargets={
           all={
-            mplus={crit=1195,haste=818,mastery=1085,versatility=404},
-            pvp={crit=84,haste=378,mastery=941,versatility=1413},
-            raid={crit=1139,haste=1065,mastery=1215,versatility=250},
+            mplus={
+              top20={crit=1195,haste=818,mastery=1085,versatility=404},
+              top50={crit=1100,haste=763,mastery=979,versatility=300},
+              top80={crit=1020,haste=665,mastery=913,versatility=227},
+            },
+            pvp={
+              top20={crit=84,haste=378,mastery=941,versatility=1413},
+              top50={crit=84,haste=205,mastery=895,versatility=1342},
+              top80={crit=84,haste=205,mastery=840,versatility=1300},
+            },
+            raid={
+              top20={crit=1139,haste=1065,mastery=1215,versatility=250},
+              top50={crit=1062,haste=929,mastery=1042,versatility=225},
+              top80={crit=1028,haste=820,mastery=943,versatility=145},
+            },
           },
           ["herald-of-the-sun"]={
-            mplus={crit=1068,haste=895,mastery=1135,versatility=300},
-            pvp={crit=84,haste=378,mastery=941,versatility=1413},
-            raid={crit=1139,haste=1065,mastery=1215,versatility=250},
+            mplus={
+              top20={crit=1068,haste=895,mastery=1135,versatility=300},
+              top50={crit=998,haste=843,mastery=1021,versatility=240},
+              top80={crit=978,haste=786,mastery=958,versatility=193},
+            },
+            pvp={
+              top20={crit=84,haste=378,mastery=941,versatility=1413},
+              top50={crit=84,haste=205,mastery=895,versatility=1342},
+              top80={crit=84,haste=205,mastery=840,versatility=1300},
+            },
+            raid={
+              top20={crit=1139,haste=1065,mastery=1215,versatility=250},
+              top50={crit=1062,haste=929,mastery=1042,versatility=225},
+              top80={crit=1028,haste=820,mastery=943,versatility=145},
+            },
           },
           templar={
-            mplus={crit=1195,haste=818,mastery=1085,versatility=404},
-            pvp={crit=104,haste=505,mastery=922,versatility=1360},
-            raid={crit=1525,haste=1025,mastery=775,versatility=325},
+            mplus={
+              top20={crit=1195,haste=818,mastery=1085,versatility=404},
+              top50={crit=1100,haste=763,mastery=979,versatility=300},
+              top80={crit=1020,haste=665,mastery=913,versatility=227},
+            },
+            pvp={
+              top20={crit=104,haste=505,mastery=922,versatility=1360},
+              top50={crit=104,haste=327,mastery=899,versatility=1315},
+              top80={crit=104,haste=232,mastery=835,versatility=1306},
+            },
+            raid={
+              top20={crit=1525,haste=1025,mastery=775,versatility=325},
+              top50={crit=1275,haste=1000,mastery=750,versatility=225},
+              top80={crit=1092,haste=975,mastery=642,versatility=158},
+            },
           },
         },
         talents={
@@ -17443,16 +18343,16 @@ ClassCodexSource["ugg"] = {
         trinkets={
           all={
             all={
-              {bonusIDs={13440,6652,12699,13654},itemId=193701,pop=35.3,tier="S"},
+              {bonusIDs={13440,42,12699,13654},itemId=193701,pop=35.3,tier="S"},
               {bonusIDs={6652,13335,13654},itemId=249343,pop=12.4,tier="B"},
-              {bonusIDs={13440,6652,12699,12846},itemId=273796,pop=10,tier="B"},
-              {bonusIDs={13439,6652,12699,12834},itemId=250259,pop=7.7,tier="B"},
-              {bonusIDs={13440,6652,12699,12846},itemId=193762,pop=4.9,tier="C"},
-              {bonusIDs={12843,13440,6652,12699},itemId=250228,pop=3.2,tier="C"},
-              {bonusIDs={6652,12830},itemId=274493,pop=3,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=273796,pop=10,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250259,pop=7.7,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=193762,pop=4.9,tier="C"},
+              {bonusIDs={13440,6652,12699,12846},itemId=250228,pop=3.2,tier="C"},
+              {bonusIDs={6652,12846},itemId=274493,pop=3,tier="C"},
               {bonusIDs={6652,13335,13654},itemId=260235,pop=2.9,tier="C"},
               {bonusIDs={6652,13335,13654},itemId=249342,pop=2.7,tier="C"},
-              {bonusIDs={12843,13440,40,12699},itemId=250229,pop=2.3,tier="C"},
+              {bonusIDs={13440,6652,12699,12846},itemId=250229,pop=2.3,tier="C"},
               {bonusIDs={6652,13333,12838},itemId=270165,pop=1.9,tier="C"},
             },
             pvp={{bonusIDs={13650,13657},itemId=270556,pop=37.2,tier="S"},{bonusIDs={13650,13657},itemId=270558,pop=34.8,tier="S"}},
@@ -17685,19 +18585,55 @@ ClassCodexSource["ugg"] = {
         },
         statTargets={
           all={
-            mplus={crit=942,haste=1418,mastery=1025,versatility=245},
-            pvp={crit=39,haste=896,mastery=967,versatility=1238},
-            raid={crit=875,haste=1403,mastery=1097,versatility=310},
+            mplus={
+              top20={crit=942,haste=1418,mastery=1025,versatility=245},
+              top50={crit=839,haste=1259,mastery=935,versatility=225},
+              top80={crit=742,haste=1154,mastery=810,versatility=179},
+            },
+            pvp={
+              top20={crit=39,haste=896,mastery=967,versatility=1238},
+              top50={crit=39,haste=686,mastery=874,versatility=1203},
+              top80={crit=39,haste=559,mastery=762,versatility=1156},
+            },
+            raid={
+              top20={crit=875,haste=1403,mastery=1097,versatility=310},
+              top50={crit=790,haste=1310,mastery=994,versatility=254},
+              top80={crit=653,haste=1195,mastery=882,versatility=195},
+            },
           },
           oracle={
-            mplus={crit=942,haste=1418,mastery=1025,versatility=245},
-            pvp={crit=39,haste=896,mastery=967,versatility=1238},
-            raid={crit=875,haste=1403,mastery=1097,versatility=310},
+            mplus={
+              top20={crit=942,haste=1418,mastery=1025,versatility=245},
+              top50={crit=839,haste=1259,mastery=935,versatility=225},
+              top80={crit=742,haste=1154,mastery=810,versatility=179},
+            },
+            pvp={
+              top20={crit=39,haste=896,mastery=967,versatility=1238},
+              top50={crit=39,haste=686,mastery=874,versatility=1203},
+              top80={crit=39,haste=559,mastery=762,versatility=1156},
+            },
+            raid={
+              top20={crit=875,haste=1403,mastery=1097,versatility=310},
+              top50={crit=790,haste=1310,mastery=994,versatility=254},
+              top80={crit=653,haste=1195,mastery=882,versatility=195},
+            },
           },
           voidweaver={
-            mplus={crit=935,haste=1505,mastery=1085,versatility=346},
-            pvp={crit=85,haste=1233,mastery=875,versatility=1255},
-            raid={crit=1025,haste=1600,mastery=1008,versatility=300},
+            mplus={
+              top20={crit=935,haste=1505,mastery=1085,versatility=346},
+              top50={crit=788,haste=1334,mastery=938,versatility=284},
+              top80={crit=690,haste=1192,mastery=849,versatility=228},
+            },
+            pvp={
+              top20={crit=85,haste=1233,mastery=875,versatility=1255},
+              top50={crit=85,haste=1129,mastery=563,versatility=1196},
+              top80={crit=85,haste=1060,mastery=305,versatility=1094},
+            },
+            raid={
+              top20={crit=1025,haste=1600,mastery=1008,versatility=300},
+              top50={crit=844,haste=1531,mastery=775,versatility=211},
+              top80={crit=746,haste=1433,mastery=746,versatility=182},
+            },
           },
         },
         talents={
@@ -18137,15 +19073,15 @@ ClassCodexSource["ugg"] = {
               {bonusIDs={6652,13335,13786},itemId=268292,pop=11,tier="B"},
               {bonusIDs={6652,13335,13654},itemId=249808,pop=8.9,tier="B"},
               {bonusIDs={6652,13335,13654},itemId=249346,pop=7.9,tier="B"},
-              {bonusIDs={13440,6652,12699,13654},itemId=250256,pop=5.7,tier="B"},
-              {bonusIDs={6652,13333,12838},itemId=270162,pop=5.7,tier="B"},
+              {bonusIDs={13440,6652,12699,12806},itemId=250256,pop=5.7,tier="B"},
+              {bonusIDs={40,13334,12849},itemId=270162,pop=5.7,tier="B"},
               {bonusIDs={6652,13334,12841},itemId=270167,pop=4.2,tier="C"},
-              {bonusIDs={12841,6652},itemId=251792,pop=4,tier="C"},
-              {bonusIDs={13440,6652,12699,12846},itemId=250214,pop=3.9,tier="C"},
-              {bonusIDs={6652,13334,12844},itemId=270169,pop=3.9,tier="C"},
-              {bonusIDs={6652,12830},itemId=274493,pop=3.8,tier="C"},
-              {bonusIDs={13440,6652,12699,12844},itemId=250215,pop=3.5,tier="C"},
-              {bonusIDs={13440,6652,12699,12846},itemId=250224,pop=3.3,tier="C"},
+              {bonusIDs={6652,12846},itemId=251792,pop=4,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250214,pop=3.9,tier="C"},
+              {bonusIDs={6652,13334,12846},itemId=270169,pop=3.9,tier="C"},
+              {bonusIDs={6652,12846},itemId=274493,pop=3.8,tier="C"},
+              {bonusIDs={13440,6652,12699,12843},itemId=250215,pop=3.5,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250224,pop=3.3,tier="C"},
             },
             pvp={{bonusIDs={13650,13657},itemId=270558,pop=55.2,tier="S"},{bonusIDs={13650,13657},itemId=270556,pop=55.2,tier="S"}},
           },
@@ -18366,19 +19302,55 @@ ClassCodexSource["ugg"] = {
         },
         statTargets={
           all={
-            mplus={crit=1195,haste=1188,mastery=1050,versatility=395},
-            pvp={crit=49,haste=1042,mastery=969,versatility=1238},
-            raid={crit=1245,haste=1335,mastery=1217,versatility=336},
+            mplus={
+              top20={crit=1195,haste=1188,mastery=1050,versatility=395},
+              top50={crit=1061,haste=1008,mastery=867,versatility=316},
+              top80={crit=944,haste=928,mastery=744,versatility=260},
+            },
+            pvp={
+              top20={crit=49,haste=1042,mastery=969,versatility=1238},
+              top50={crit=49,haste=816,mastery=837,versatility=1197},
+              top80={crit=49,haste=605,mastery=717,versatility=1171},
+            },
+            raid={
+              top20={crit=1245,haste=1335,mastery=1217,versatility=336},
+              top50={crit=1113,haste=1038,mastery=1067,versatility=296},
+              top80={crit=970,haste=838,mastery=955,versatility=234},
+            },
           },
           archon={
-            mplus={crit=1142,haste=992,mastery=1042,versatility=488},
-            pvp={crit=1075,haste=725,mastery=475,versatility=25},
-            raid={crit=1375,haste=825,mastery=1100,versatility=275},
+            mplus={
+              top20={crit=1142,haste=992,mastery=1042,versatility=488},
+              top50={crit=1000,haste=875,mastery=967,versatility=408},
+              top80={crit=950,haste=750,mastery=885,versatility=238},
+            },
+            pvp={
+              top20={crit=1075,haste=725,mastery=475,versatility=25},
+              top50={crit=1075,haste=725,mastery=475,versatility=25},
+              top80={crit=1075,haste=725,mastery=475,versatility=25},
+            },
+            raid={
+              top20={crit=1375,haste=825,mastery=1100,versatility=275},
+              top50={crit=1258,haste=725,mastery=1025,versatility=275},
+              top80={crit=1105,haste=625,mastery=842,versatility=255},
+            },
           },
           oracle={
-            mplus={crit=1195,haste=1188,mastery=1050,versatility=395},
-            pvp={crit=49,haste=1042,mastery=969,versatility=1238},
-            raid={crit=1245,haste=1335,mastery=1217,versatility=336},
+            mplus={
+              top20={crit=1195,haste=1188,mastery=1050,versatility=395},
+              top50={crit=1061,haste=1008,mastery=867,versatility=316},
+              top80={crit=944,haste=928,mastery=744,versatility=260},
+            },
+            pvp={
+              top20={crit=49,haste=1042,mastery=969,versatility=1238},
+              top50={crit=49,haste=816,mastery=837,versatility=1197},
+              top80={crit=49,haste=605,mastery=717,versatility=1171},
+            },
+            raid={
+              top20={crit=1245,haste=1335,mastery=1217,versatility=336},
+              top50={crit=1113,haste=1038,mastery=1067,versatility=296},
+              top80={crit=970,haste=838,mastery=955,versatility=234},
+            },
           },
         },
         talents={
@@ -18834,15 +19806,15 @@ ClassCodexSource["ugg"] = {
             all={
               {bonusIDs={6652,13335,13786},itemId=268292,pop=15.6,tier="A"},
               {bonusIDs={6652,13335,13654},itemId=249343,pop=11,tier="B"},
-              {bonusIDs={6652,13333,12838},itemId=270162,pop=9.2,tier="B"},
+              {bonusIDs={40,13334,12849},itemId=270162,pop=9.2,tier="B"},
               {bonusIDs={6652,13335,13654},itemId=249808,pop=6.7,tier="B"},
-              {bonusIDs={13440,6652,12699,12844},itemId=250215,pop=6.6,tier="B"},
+              {bonusIDs={13440,6652,12699,12843},itemId=250215,pop=6.6,tier="B"},
               {bonusIDs={6652,13335,13654},itemId=249809,pop=6.2,tier="B"},
-              {bonusIDs={13440,6652,12699,12846},itemId=250214,pop=5.4,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250214,pop=5.4,tier="B"},
               {bonusIDs={12830},itemId=264507,pop=5.1,tier="B"},
-              {bonusIDs={13440,6652,12699,12846},itemId=273796,pop=5.1,tier="B"},
-              {bonusIDs={6652,12830},itemId=274493,pop=3.5,tier="C"},
-              {bonusIDs={12843,13440,6652,12699},itemId=250255,pop=3.4,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=273796,pop=5.1,tier="B"},
+              {bonusIDs={6652,12846},itemId=274493,pop=3.5,tier="C"},
+              {bonusIDs={13439,6652,12699,12838},itemId=250255,pop=3.4,tier="C"},
             },
             pvp={
               {bonusIDs={12833,13439,6652,12699},itemId=193757,pop=100,tier="S"},
@@ -19077,19 +20049,55 @@ ClassCodexSource["ugg"] = {
         },
         statTargets={
           all={
-            mplus={crit=1017,haste=1125,mastery=1147,versatility=181},
-            pvp={crit=46,haste=1106,mastery=188,versatility=1290},
-            raid={crit=942,haste=1111,mastery=1225,versatility=163},
+            mplus={
+              top20={crit=1017,haste=1125,mastery=1147,versatility=181},
+              top50={crit=882,haste=1056,mastery=1102,versatility=81},
+              top80={crit=813,haste=959,mastery=1063,versatility=81},
+            },
+            pvp={
+              top20={crit=46,haste=1106,mastery=188,versatility=1290},
+              top50={crit=46,haste=1033,mastery=78,versatility=1252},
+              top80={crit=46,haste=995,mastery=78,versatility=1221},
+            },
+            raid={
+              top20={crit=942,haste=1111,mastery=1225,versatility=163},
+              top50={crit=867,haste=988,mastery=1165,versatility=119},
+              top80={crit=775,haste=923,mastery=1090,versatility=83},
+            },
           },
           archon={
-            mplus={crit=1017,haste=1125,mastery=1147,versatility=181},
-            pvp={crit=286,haste=1067,mastery=545,versatility=1244},
-            raid={crit=942,haste=1111,mastery=1225,versatility=163},
+            mplus={
+              top20={crit=1017,haste=1125,mastery=1147,versatility=181},
+              top50={crit=882,haste=1056,mastery=1102,versatility=81},
+              top80={crit=813,haste=959,mastery=1063,versatility=81},
+            },
+            pvp={
+              top20={crit=286,haste=1067,mastery=545,versatility=1244},
+              top50={crit=94,haste=1035,mastery=183,versatility=1216},
+              top80={crit=94,haste=992,mastery=183,versatility=1209},
+            },
+            raid={
+              top20={crit=942,haste=1111,mastery=1225,versatility=163},
+              top50={crit=867,haste=988,mastery=1165,versatility=119},
+              top80={crit=775,haste=923,mastery=1090,versatility=83},
+            },
           },
           voidweaver={
-            mplus={crit=975,haste=1118,mastery=1105,versatility=235},
-            pvp={crit=46,haste=1106,mastery=188,versatility=1290},
-            raid={crit=775,haste=775,mastery=1275,versatility=75},
+            mplus={
+              top20={crit=975,haste=1118,mastery=1105,versatility=235},
+              top50={crit=852,haste=1025,mastery=1042,versatility=140},
+              top80={crit=820,haste=957,mastery=970,versatility=106},
+            },
+            pvp={
+              top20={crit=46,haste=1106,mastery=188,versatility=1290},
+              top50={crit=46,haste=1033,mastery=78,versatility=1252},
+              top80={crit=46,haste=995,mastery=78,versatility=1221},
+            },
+            raid={
+              top20={crit=775,haste=775,mastery=1275,versatility=75},
+              top50={crit=775,haste=775,mastery=1275,versatility=75},
+              top80={crit=775,haste=775,mastery=1275,versatility=75},
+            },
           },
         },
         talents={
@@ -19544,17 +20552,17 @@ ClassCodexSource["ugg"] = {
           all={
             all={
               {bonusIDs={6652,13335,13654},itemId=249343,pop=26.4,tier="A"},
-              {bonusIDs={13440,6652,12699,12844},itemId=250215,pop=14.1,tier="B"},
+              {bonusIDs={13440,6652,12699,12843},itemId=250215,pop=14.1,tier="B"},
               {bonusIDs={6652,13335,13654},itemId=249346,pop=14,tier="B"},
-              {bonusIDs={13440,6652,12699,12846},itemId=273796,pop=12.6,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=273796,pop=12.6,tier="B"},
               {bonusIDs={13440,6652,12699,13654},itemId=250144,pop=5.4,tier="B"},
-              {bonusIDs={13440,6652,12699,12846},itemId=250214,pop=3.8,tier="C"},
-              {bonusIDs={13440,6652,12699,12846},itemId=250224,pop=3.3,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250214,pop=3.8,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250224,pop=3.3,tier="C"},
               {bonusIDs={6652,13334,12841},itemId=270167,pop=2.8,tier="C"},
-              {bonusIDs={6652,12830},itemId=274493,pop=2.5,tier="C"},
+              {bonusIDs={6652,12846},itemId=274493,pop=2.5,tier="C"},
               {bonusIDs={12830},itemId=264507,pop=2.2,tier="C"},
               {bonusIDs={6652,13335,13786},itemId=268292,pop=1.6,tier="C"},
-              {bonusIDs={6652,13333,11215,12838},itemId=270164,pop=1.6,tier="C"},
+              {bonusIDs={6652,13333,12838},itemId=270164,pop=1.6,tier="C"},
             },
             pvp={{bonusIDs={13650,13657},itemId=270558,pop=51.1,tier="S"},{bonusIDs={13650,13657},itemId=270556,pop=48.9,tier="S"}},
           },
@@ -19814,19 +20822,55 @@ ClassCodexSource["ugg"] = {
         },
         statTargets={
           all={
-            mplus={crit=1161,haste=1075,mastery=900,versatility=433},
-            pvp={crit=139,haste=290,mastery=1068,versatility=1190},
-            raid={crit=1175,haste=900,mastery=1142,versatility=750},
+            mplus={
+              top20={crit=1161,haste=1075,mastery=900,versatility=433},
+              top50={crit=1078,haste=1025,mastery=758,versatility=291},
+              top80={crit=1002,haste=946,mastery=707,versatility=242},
+            },
+            pvp={
+              top20={crit=139,haste=290,mastery=1068,versatility=1190},
+              top50={crit=65,haste=175,mastery=1036,versatility=1190},
+              top80={crit=65,haste=175,mastery=977,versatility=1152},
+            },
+            raid={
+              top20={crit=1175,haste=900,mastery=1142,versatility=750},
+              top50={crit=800,haste=900,mastery=1113,versatility=613},
+              top80={crit=658,haste=833,mastery=983,versatility=508},
+            },
           },
           deathstalker={
-            mplus={crit=1161,haste=1075,mastery=900,versatility=433},
-            pvp={crit=1050,haste=988,mastery=1138,versatility=1175},
-            raid={crit=1175,haste=900,mastery=1142,versatility=750},
+            mplus={
+              top20={crit=1161,haste=1075,mastery=900,versatility=433},
+              top50={crit=1078,haste=1025,mastery=758,versatility=291},
+              top80={crit=1002,haste=946,mastery=707,versatility=242},
+            },
+            pvp={
+              top20={crit=1050,haste=988,mastery=1138,versatility=1175},
+              top50={crit=284,haste=606,mastery=1050,versatility=1150},
+              top80={crit=284,haste=382,mastery=917,versatility=987},
+            },
+            raid={
+              top20={crit=1175,haste=900,mastery=1142,versatility=750},
+              top50={crit=800,haste=900,mastery=1113,versatility=613},
+              top80={crit=658,haste=833,mastery=983,versatility=508},
+            },
           },
           fatebound={
-            mplus={crit=1308,haste=1063,mastery=842,versatility=183},
-            pvp={crit=139,haste=290,mastery=1068,versatility=1190},
-            raid={crit=1125,haste=1075,mastery=875,versatility=125},
+            mplus={
+              top20={crit=1308,haste=1063,mastery=842,versatility=183},
+              top50={crit=1192,haste=968,mastery=746,versatility=183},
+              top80={crit=1075,haste=914,mastery=697,versatility=147},
+            },
+            pvp={
+              top20={crit=139,haste=290,mastery=1068,versatility=1190},
+              top50={crit=65,haste=175,mastery=1036,versatility=1190},
+              top80={crit=65,haste=175,mastery=977,versatility=1152},
+            },
+            raid={
+              top20={crit=1125,haste=1075,mastery=875,versatility=125},
+              top50={crit=1125,haste=1075,mastery=875,versatility=125},
+              top80={crit=1050,haste=925,mastery=700,versatility=75},
+            },
           },
         },
         talents={
@@ -20266,18 +21310,18 @@ ClassCodexSource["ugg"] = {
         trinkets={
           all={
             all={
-              {bonusIDs={13440,6652,12699,13654},itemId=193701,pop=28.3,tier="A"},
+              {bonusIDs={13440,42,12699,13654},itemId=193701,pop=28.3,tier="A"},
               {bonusIDs={6652,13335,13654},itemId=249343,pop=17.1,tier="A"},
-              {bonusIDs={13440,6652,12699,12846},itemId=273796,pop=10.2,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=273796,pop=10.2,tier="B"},
               {bonusIDs={12843,13440,6652,12699},itemId=250225,pop=7.6,tier="B"},
-              {bonusIDs={13439,6652,12699,12834},itemId=250259,pop=7.1,tier="B"},
-              {bonusIDs={12843,13440,6652,12699},itemId=250228,pop=3.1,tier="C"},
-              {bonusIDs={13440,6652,12699,12843},itemId=159617,pop=3,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250259,pop=7.1,tier="B"},
+              {bonusIDs={13440,6652,12699,12846},itemId=250228,pop=3.1,tier="C"},
+              {bonusIDs={13440,6652,12699,12846},itemId=159617,pop=3,tier="C"},
               {bonusIDs={6652,13333,12838},itemId=270165,pop=2.8,tier="C"},
-              {bonusIDs={6652,13333,12836},itemId=270175,pop=2.8,tier="C"},
-              {bonusIDs={6652,13334,12849},itemId=270168,pop=2.7,tier="C"},
-              {bonusIDs={13440,6652,12699,12844},itemId=250215,pop=2.5,tier="C"},
-              {bonusIDs={13440,6652,12699,12846},itemId=250214,pop=2.1,tier="C"},
+              {bonusIDs={6652,13333,12838},itemId=270175,pop=2.8,tier="C"},
+              {bonusIDs={6652,13334,12844},itemId=270168,pop=2.7,tier="C"},
+              {bonusIDs={13440,6652,12699,12843},itemId=250215,pop=2.5,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250214,pop=2.1,tier="C"},
             },
             pvp={{bonusIDs={13650,13657},itemId=270556,pop=46.1,tier="S"},{bonusIDs={13650,13657},itemId=270559,pop=33.6,tier="S"}},
           },
@@ -20529,15 +21573,50 @@ ClassCodexSource["ugg"] = {
         },
         statTargets={
           all={
-            mplus={crit=1396,haste=1065,mastery=587,versatility=537},
-            pvp={crit=896,haste=980,mastery=420,versatility=1275},
-            raid={crit=1375,haste=1275,mastery=375,versatility=525},
+            mplus={
+              top20={crit=1396,haste=1065,mastery=587,versatility=537},
+              top50={crit=1266,haste=1016,mastery=482,versatility=487},
+              top80={crit=1145,haste=974,mastery=389,versatility=371},
+            },
+            pvp={
+              top20={crit=896,haste=980,mastery=420,versatility=1275},
+              top50={crit=543,haste=909,mastery=133,versatility=1198},
+              top80={crit=310,haste=846,mastery=133,versatility=1143},
+            },
+            raid={
+              top20={crit=1375,haste=1275,mastery=375,versatility=525},
+              top50={crit=1325,haste=1125,mastery=350,versatility=500},
+              top80={crit=1200,haste=1013,mastery=275,versatility=313},
+            },
           },
-          fatebound={pvp={crit=785,haste=825,mastery=565,versatility=1283},raid={crit=1225,haste=1025,mastery=325,versatility=575}},
+          fatebound={
+            pvp={
+              top20={crit=785,haste=825,mastery=565,versatility=1283},
+              top50={crit=575,haste=757,mastery=411,versatility=1233},
+              top80={crit=398,haste=650,mastery=218,versatility=1169},
+            },
+            raid={
+              top20={crit=1225,haste=1025,mastery=325,versatility=575},
+              top50={crit=1225,haste=1025,mastery=325,versatility=575},
+              top80={crit=950,haste=975,mastery=275,versatility=400},
+            },
+          },
           trickster={
-            mplus={crit=1396,haste=1065,mastery=587,versatility=537},
-            pvp={crit=896,haste=980,mastery=420,versatility=1275},
-            raid={crit=1375,haste=1275,mastery=375,versatility=525},
+            mplus={
+              top20={crit=1396,haste=1065,mastery=587,versatility=537},
+              top50={crit=1266,haste=1016,mastery=482,versatility=487},
+              top80={crit=1145,haste=974,mastery=389,versatility=371},
+            },
+            pvp={
+              top20={crit=896,haste=980,mastery=420,versatility=1275},
+              top50={crit=543,haste=909,mastery=133,versatility=1198},
+              top80={crit=310,haste=846,mastery=133,versatility=1143},
+            },
+            raid={
+              top20={crit=1375,haste=1275,mastery=375,versatility=525},
+              top50={crit=1325,haste=1125,mastery=350,versatility=500},
+              top80={crit=1200,haste=1013,mastery=275,versatility=313},
+            },
           },
         },
         talents={
@@ -20914,17 +21993,17 @@ ClassCodexSource["ugg"] = {
           all={
             all={
               {bonusIDs={6652,13335,13654},itemId=249343,pop=24.2,tier="A"},
-              {bonusIDs={13440,6652,12699,12844},itemId=250215,pop=8.1,tier="B"},
-              {bonusIDs={13439,6652,12699,12834},itemId=250259,pop=7.9,tier="B"},
+              {bonusIDs={13440,6652,12699,12843},itemId=250215,pop=8.1,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250259,pop=7.9,tier="B"},
               {bonusIDs={6652,13335,13654},itemId=260235,pop=7.9,tier="B"},
-              {bonusIDs={13440,6652,12699,12806},itemId=252420,pop=7.4,tier="B"},
-              {bonusIDs={12843,13440,6652,12699},itemId=273797,pop=6.1,tier="B"},
+              {bonusIDs={13440,6652,12699,13654},itemId=252420,pop=7.4,tier="B"},
+              {bonusIDs={13440,6652,12699,12846},itemId=273797,pop=6.1,tier="B"},
               {bonusIDs={12843,13440,6652,12699},itemId=250225,pop=6,tier="B"},
-              {bonusIDs={13440,6652,12699,12843},itemId=159617,pop=4.8,tier="C"},
-              {bonusIDs={13440,6652,12699,12846},itemId=273796,pop=4.2,tier="C"},
-              {bonusIDs={12843,13440,6652,12699},itemId=250228,pop=3.2,tier="C"},
-              {bonusIDs={6652,12830},itemId=274493,pop=3.2,tier="C"},
-              {bonusIDs={12841,6652},itemId=265657,pop=3,tier="C"},
+              {bonusIDs={13440,6652,12699,12846},itemId=159617,pop=4.8,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=273796,pop=4.2,tier="C"},
+              {bonusIDs={13440,6652,12699,12846},itemId=250228,pop=3.2,tier="C"},
+              {bonusIDs={6652,12846},itemId=274493,pop=3.2,tier="C"},
+              {bonusIDs={6652,12846},itemId=265657,pop=3,tier="C"},
             },
             pvp={{bonusIDs={13650,13657},itemId=270556,pop=34.8,tier="S"},{bonusIDs={13650,13657},itemId=270558,pop=32.3,tier="S"}},
           },
@@ -21154,19 +22233,55 @@ ClassCodexSource["ugg"] = {
         },
         statTargets={
           all={
-            mplus={crit=969,haste=992,mastery=1175,versatility=483},
-            pvp={crit=202,haste=483,mastery=1034,versatility=1183},
-            raid={crit=988,haste=1113,mastery=1095,versatility=450},
+            mplus={
+              top20={crit=969,haste=992,mastery=1175,versatility=483},
+              top50={crit=801,haste=906,mastery=1114,versatility=408},
+              top80={crit=728,haste=835,mastery=1006,versatility=385},
+            },
+            pvp={
+              top20={crit=202,haste=483,mastery=1034,versatility=1183},
+              top50={crit=102,haste=301,mastery=970,versatility=1157},
+              top80={crit=102,haste=241,mastery=909,versatility=1120},
+            },
+            raid={
+              top20={crit=988,haste=1113,mastery=1095,versatility=450},
+              top50={crit=865,haste=943,mastery=1025,versatility=320},
+              top80={crit=744,haste=866,mastery=950,versatility=250},
+            },
           },
           deathstalker={
-            mplus={crit=969,haste=992,mastery=1175,versatility=483},
-            pvp={crit=202,haste=483,mastery=1034,versatility=1183},
-            raid={crit=944,haste=1040,mastery=1203,versatility=552},
+            mplus={
+              top20={crit=969,haste=992,mastery=1175,versatility=483},
+              top50={crit=801,haste=906,mastery=1114,versatility=408},
+              top80={crit=728,haste=835,mastery=1006,versatility=385},
+            },
+            pvp={
+              top20={crit=202,haste=483,mastery=1034,versatility=1183},
+              top50={crit=102,haste=301,mastery=970,versatility=1157},
+              top80={crit=102,haste=241,mastery=909,versatility=1120},
+            },
+            raid={
+              top20={crit=944,haste=1040,mastery=1203,versatility=552},
+              top50={crit=725,haste=988,mastery=1147,versatility=509},
+              top80={crit=616,haste=884,mastery=1077,versatility=463},
+            },
           },
           trickster={
-            mplus={crit=913,haste=1088,mastery=1175,versatility=475},
-            pvp={crit=296,haste=404,mastery=1047,versatility=1196},
-            raid={crit=988,haste=1113,mastery=1095,versatility=450},
+            mplus={
+              top20={crit=913,haste=1088,mastery=1175,versatility=475},
+              top50={crit=765,haste=905,mastery=1050,versatility=364},
+              top80={crit=729,haste=867,mastery=1002,versatility=252},
+            },
+            pvp={
+              top20={crit=296,haste=404,mastery=1047,versatility=1196},
+              top50={crit=174,haste=272,mastery=975,versatility=1172},
+              top80={crit=113,haste=209,mastery=874,versatility=1151},
+            },
+            raid={
+              top20={crit=988,haste=1113,mastery=1095,versatility=450},
+              top50={crit=865,haste=943,mastery=1025,versatility=320},
+              top80={crit=744,haste=866,mastery=950,versatility=250},
+            },
           },
         },
         talents={
@@ -21608,17 +22723,17 @@ ClassCodexSource["ugg"] = {
         trinkets={
           all={
             all={
-              {bonusIDs={41,13335,12806},itemId=249344,pop=24.1,tier="A"},
+              {bonusIDs={6652,13335,13654},itemId=249344,pop=24.1,tier="A"},
               {bonusIDs={6652,13335,13654},itemId=249343,pop=18.7,tier="A"},
-              {bonusIDs={13440,6652,12699,12844},itemId=250215,pop=10.8,tier="B"},
-              {bonusIDs={13439,6652,12699,12834},itemId=250259,pop=7.4,tier="B"},
-              {bonusIDs={12843,13440,6652,12699},itemId=273797,pop=7.4,tier="B"},
-              {bonusIDs={13440,6652,12699,12846},itemId=273796,pop=5.2,tier="B"},
-              {bonusIDs={13440,6652,12699,12846},itemId=250214,pop=5.1,tier="B"},
-              {bonusIDs={6652,13333,12836},itemId=270175,pop=4.8,tier="C"},
+              {bonusIDs={13440,6652,12699,12843},itemId=250215,pop=10.8,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250259,pop=7.4,tier="B"},
+              {bonusIDs={13440,6652,12699,12846},itemId=273797,pop=7.4,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=273796,pop=5.2,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250214,pop=5.1,tier="B"},
+              {bonusIDs={6652,13333,12838},itemId=270175,pop=4.8,tier="C"},
               {bonusIDs={6652,13333,12838},itemId=270165,pop=3.9,tier="C"},
-              {bonusIDs={13440,6652,12699,12843},itemId=159617,pop=2.8,tier="C"},
-              {bonusIDs={6652,12830},itemId=274493,pop=2.3,tier="C"},
+              {bonusIDs={13440,6652,12699,12846},itemId=159617,pop=2.8,tier="C"},
+              {bonusIDs={6652,12846},itemId=274493,pop=2.3,tier="C"},
             },
             pvp={{bonusIDs={13650,13657},itemId=270556,pop=41.7,tier="S"},{bonusIDs={13650,13657},itemId=270558,pop=22,tier="S"}},
           },
@@ -21852,16 +22967,51 @@ ClassCodexSource["ugg"] = {
         },
         statTargets={
           all={
-            mplus={crit=1088,haste=956,mastery=1039,versatility=329},
-            pvp={crit=492,haste=948,mastery=604,versatility=1310},
-            raid={crit=1032,haste=985,mastery=1108,versatility=365},
+            mplus={
+              top20={crit=1088,haste=956,mastery=1039,versatility=329},
+              top50={crit=953,haste=845,mastery=975,versatility=266},
+              top80={crit=916,haste=778,mastery=915,versatility=237},
+            },
+            pvp={
+              top20={crit=492,haste=948,mastery=604,versatility=1310},
+              top50={crit=123,haste=893,mastery=244,versatility=1276},
+              top80={crit=123,haste=857,mastery=199,versatility=1236},
+            },
+            raid={
+              top20={crit=1032,haste=985,mastery=1108,versatility=365},
+              top50={crit=950,haste=858,mastery=1025,versatility=256},
+              top80={crit=858,haste=796,mastery=939,versatility=185},
+            },
           },
           farseer={
-            mplus={crit=1088,haste=956,mastery=1039,versatility=329},
-            pvp={crit=492,haste=948,mastery=604,versatility=1310},
-            raid={crit=1032,haste=985,mastery=1108,versatility=365},
+            mplus={
+              top20={crit=1088,haste=956,mastery=1039,versatility=329},
+              top50={crit=953,haste=845,mastery=975,versatility=266},
+              top80={crit=916,haste=778,mastery=915,versatility=237},
+            },
+            pvp={
+              top20={crit=492,haste=948,mastery=604,versatility=1310},
+              top50={crit=123,haste=893,mastery=244,versatility=1276},
+              top80={crit=123,haste=857,mastery=199,versatility=1236},
+            },
+            raid={
+              top20={crit=1032,haste=985,mastery=1108,versatility=365},
+              top50={crit=950,haste=858,mastery=1025,versatility=256},
+              top80={crit=858,haste=796,mastery=939,versatility=185},
+            },
           },
-          stormbringer={pvp={crit=825,haste=975,mastery=125,versatility=1225},raid={crit=915,haste=825,mastery=1325,versatility=342}},
+          stormbringer={
+            pvp={
+              top20={crit=825,haste=975,mastery=125,versatility=1225},
+              top50={crit=525,haste=900,mastery=58,versatility=1225},
+              top80={crit=358,haste=658,mastery=58,versatility=1208},
+            },
+            raid={
+              top20={crit=915,haste=825,mastery=1325,versatility=342},
+              top50={crit=875,haste=733,mastery=1158,versatility=267},
+              top80={crit=814,haste=650,mastery=1047,versatility=214},
+            },
+          },
         },
         talents={
           farseer={
@@ -22301,18 +23451,18 @@ ClassCodexSource["ugg"] = {
         trinkets={
           all={
             all={
-              {bonusIDs={13440,6652,12699,12846},itemId=273796,pop=20.2,tier="A"},
+              {bonusIDs={12843,13440,6652,12699},itemId=273796,pop=20.2,tier="A"},
               {bonusIDs={13440,6652,12699,13654},itemId=250144,pop=19.6,tier="A"},
               {bonusIDs={6652,13335,13654},itemId=249343,pop=9,tier="B"},
-              {bonusIDs={13440,6652,12699,12844},itemId=250215,pop=8.9,tier="B"},
-              {bonusIDs={13440,6652,12699,12846},itemId=250214,pop=8,tier="B"},
-              {bonusIDs={13440,6652,12699,12846},itemId=250224,pop=4,tier="C"},
+              {bonusIDs={13440,6652,12699,12843},itemId=250215,pop=8.9,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250214,pop=8,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250224,pop=4,tier="C"},
               {bonusIDs={12830},itemId=264507,pop=3.9,tier="C"},
               {bonusIDs={6652,13335,13654},itemId=249346,pop=3.5,tier="C"},
-              {bonusIDs={6652,13333,11215,12838},itemId=270164,pop=3.4,tier="C"},
+              {bonusIDs={6652,13333,12838},itemId=270164,pop=3.4,tier="C"},
               {bonusIDs={6652,13335,13654},itemId=249809,pop=3.2,tier="C"},
-              {bonusIDs={12843,13440,6652,12699},itemId=273794,pop=3.1,tier="C"},
-              {bonusIDs={6652,12830},itemId=274493,pop=2.8,tier="C"},
+              {bonusIDs={13439,6652,12699,12838},itemId=273794,pop=3.1,tier="C"},
+              {bonusIDs={6652,12846},itemId=274493,pop=2.8,tier="C"},
             },
             pvp={
               {bonusIDs={13650,13657},itemId=270556,pop=40.1,tier="S"},
@@ -22563,19 +23713,55 @@ ClassCodexSource["ugg"] = {
         },
         statTargets={
           all={
-            mplus={crit=825,haste=1039,mastery=1258,versatility=275},
-            pvp={crit=95,haste=994,mastery=636,versatility=1366},
-            raid={crit=645,haste=1138,mastery=1292,versatility=363},
+            mplus={
+              top20={crit=825,haste=1039,mastery=1258,versatility=275},
+              top50={crit=750,haste=992,mastery=1146,versatility=183},
+              top80={crit=625,haste=927,mastery=1066,versatility=134},
+            },
+            pvp={
+              top20={crit=95,haste=994,mastery=636,versatility=1366},
+              top50={crit=95,haste=920,mastery=378,versatility=1305},
+              top80={crit=95,haste=860,mastery=224,versatility=1266},
+            },
+            raid={
+              top20={crit=645,haste=1138,mastery=1292,versatility=363},
+              top50={crit=596,haste=1067,mastery=1175,versatility=261},
+              top80={crit=547,haste=925,mastery=1142,versatility=219},
+            },
           },
           stormbringer={
-            mplus={crit=825,haste=1039,mastery=1258,versatility=275},
-            pvp={crit=95,haste=994,mastery=636,versatility=1366},
-            raid={crit=992,haste=1075,mastery=1175,versatility=242},
+            mplus={
+              top20={crit=825,haste=1039,mastery=1258,versatility=275},
+              top50={crit=750,haste=992,mastery=1146,versatility=183},
+              top80={crit=625,haste=927,mastery=1066,versatility=134},
+            },
+            pvp={
+              top20={crit=95,haste=994,mastery=636,versatility=1366},
+              top50={crit=95,haste=920,mastery=378,versatility=1305},
+              top80={crit=95,haste=860,mastery=224,versatility=1266},
+            },
+            raid={
+              top20={crit=992,haste=1075,mastery=1175,versatility=242},
+              top50={crit=875,haste=1017,mastery=1068,versatility=169},
+              top80={crit=786,haste=936,mastery=1025,versatility=150},
+            },
           },
           totemic={
-            mplus={crit=675,haste=625,mastery=1175,versatility=175},
-            pvp={crit=25,haste=1008,mastery=217,versatility=1289},
-            raid={crit=645,haste=1138,mastery=1292,versatility=363},
+            mplus={
+              top20={crit=675,haste=625,mastery=1175,versatility=175},
+              top50={crit=675,haste=625,mastery=1175,versatility=175},
+              top80={crit=675,haste=625,mastery=1175,versatility=175},
+            },
+            pvp={
+              top20={crit=25,haste=1008,mastery=217,versatility=1289},
+              top50={crit=25,haste=939,mastery=204,versatility=1289},
+              top80={crit=25,haste=875,mastery=144,versatility=1254},
+            },
+            raid={
+              top20={crit=645,haste=1138,mastery=1292,versatility=363},
+              top50={crit=596,haste=1067,mastery=1175,versatility=261},
+              top80={crit=547,haste=925,mastery=1142,versatility=219},
+            },
           },
         },
         talents={
@@ -22993,18 +24179,18 @@ ClassCodexSource["ugg"] = {
         trinkets={
           all={
             all={
-              {bonusIDs={13440,6652,12699,13654},itemId=193701,pop=21,tier="A"},
-              {bonusIDs={13440,6652,12699,12846},itemId=273796,pop=18,tier="A"},
+              {bonusIDs={13440,42,12699,13654},itemId=193701,pop=21,tier="A"},
+              {bonusIDs={12843,13440,6652,12699},itemId=273796,pop=18,tier="A"},
               {bonusIDs={6652,13335,13654},itemId=249343,pop=16.1,tier="A"},
               {bonusIDs={12843,13440,6652,12699},itemId=250225,pop=6.2,tier="B"},
-              {bonusIDs={13440,6652,12699,12844},itemId=250215,pop=5.7,tier="B"},
-              {bonusIDs={12843,13440,6652,12699},itemId=250228,pop=3.9,tier="C"},
-              {bonusIDs={13440,6652,12699,12846},itemId=250214,pop=3.6,tier="C"},
+              {bonusIDs={13440,6652,12699,12843},itemId=250215,pop=5.7,tier="B"},
+              {bonusIDs={13440,6652,12699,12846},itemId=250228,pop=3.9,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250214,pop=3.6,tier="C"},
               {bonusIDs={6652,13333,12838},itemId=270165,pop=2.9,tier="C"},
-              {bonusIDs={13440,6652,12699,12806},itemId=252420,pop=2.7,tier="C"},
-              {bonusIDs={6652,12830},itemId=274493,pop=2.6,tier="C"},
-              {bonusIDs={12841,6652},itemId=265657,pop=2.5,tier="C"},
-              {bonusIDs={13439,6652,12699,12834},itemId=250259,pop=2.2,tier="C"},
+              {bonusIDs={13440,6652,12699,13654},itemId=252420,pop=2.7,tier="C"},
+              {bonusIDs={6652,12846},itemId=274493,pop=2.6,tier="C"},
+              {bonusIDs={6652,12846},itemId=265657,pop=2.5,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250259,pop=2.2,tier="C"},
             },
             pvp={
               {bonusIDs={13650,13657},itemId=270556,pop=78.6,tier="S"},
@@ -23228,19 +24414,55 @@ ClassCodexSource["ugg"] = {
         },
         statTargets={
           all={
-            mplus={crit=1266,haste=938,mastery=736,versatility=747},
-            pvp={crit=542,haste=610,mastery=968,versatility=1193},
-            raid={crit=1183,haste=1055,mastery=885,versatility=505},
+            mplus={
+              top20={crit=1266,haste=938,mastery=736,versatility=747},
+              top50={crit=1193,haste=827,mastery=549,versatility=615},
+              top80={crit=1075,haste=758,mastery=494,versatility=546},
+            },
+            pvp={
+              top20={crit=542,haste=610,mastery=968,versatility=1193},
+              top50={crit=148,haste=416,mastery=843,versatility=1193},
+              top80={crit=148,haste=378,mastery=790,versatility=1165},
+            },
+            raid={
+              top20={crit=1183,haste=1055,mastery=885,versatility=505},
+              top50={crit=1116,haste=920,mastery=748,versatility=406},
+              top80={crit=1042,haste=819,mastery=608,versatility=369},
+            },
           },
           farseer={
-            mplus={crit=1158,haste=1063,mastery=708,versatility=608},
-            pvp={crit=61,haste=896,mastery=905,versatility=1236},
-            raid={crit=1183,haste=1055,mastery=885,versatility=505},
+            mplus={
+              top20={crit=1158,haste=1063,mastery=708,versatility=608},
+              top50={crit=1050,haste=946,mastery=650,versatility=500},
+              top80={crit=953,haste=892,mastery=569,versatility=431},
+            },
+            pvp={
+              top20={crit=61,haste=896,mastery=905,versatility=1236},
+              top50={crit=61,haste=588,mastery=861,versatility=1202},
+              top80={crit=61,haste=494,mastery=760,versatility=1193},
+            },
+            raid={
+              top20={crit=1183,haste=1055,mastery=885,versatility=505},
+              top50={crit=1116,haste=920,mastery=748,versatility=406},
+              top80={crit=1042,haste=819,mastery=608,versatility=369},
+            },
           },
           totemic={
-            mplus={crit=1266,haste=938,mastery=736,versatility=747},
-            pvp={crit=542,haste=610,mastery=968,versatility=1193},
-            raid={crit=1350,haste=985,mastery=615,versatility=717},
+            mplus={
+              top20={crit=1266,haste=938,mastery=736,versatility=747},
+              top50={crit=1193,haste=827,mastery=549,versatility=615},
+              top80={crit=1075,haste=758,mastery=494,versatility=546},
+            },
+            pvp={
+              top20={crit=542,haste=610,mastery=968,versatility=1193},
+              top50={crit=148,haste=416,mastery=843,versatility=1193},
+              top80={crit=148,haste=378,mastery=790,versatility=1165},
+            },
+            raid={
+              top20={crit=1350,haste=985,mastery=615,versatility=717},
+              top50={crit=1216,haste=907,mastery=484,versatility=645},
+              top80={crit=1150,haste=801,mastery=428,versatility=550},
+            },
           },
         },
         talents={
@@ -23691,16 +24913,16 @@ ClassCodexSource["ugg"] = {
               {bonusIDs={6652,13335,13654},itemId=249343,pop=11.8,tier="B"},
               {bonusIDs={6652,13335,13786},itemId=268292,pop=11.3,tier="B"},
               {bonusIDs={12830},itemId=264507,pop=9.9,tier="B"},
-              {bonusIDs={6652,13333,12838},itemId=270162,pop=8,tier="B"},
-              {bonusIDs={13440,6652,12699,12844},itemId=250215,pop=7.9,tier="B"},
+              {bonusIDs={40,13334,12849},itemId=270162,pop=8,tier="B"},
+              {bonusIDs={13440,6652,12699,12843},itemId=250215,pop=7.9,tier="B"},
               {bonusIDs={13440,6652,12699,13654},itemId=252411,pop=7,tier="B"},
               {bonusIDs={12843,13440,6652,12699},itemId=193757,pop=5.1,tier="B"},
-              {bonusIDs={13440,6652,12699,12846},itemId=250214,pop=4.8,tier="C"},
-              {bonusIDs={13440,6652,12699,12846},itemId=273796,pop=4.8,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250214,pop=4.8,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=273796,pop=4.8,tier="C"},
               {bonusIDs={6652,13335,13654},itemId=249809,pop=4.2,tier="C"},
-              {bonusIDs={6652,12830},itemId=274493,pop=4.2,tier="C"},
-              {bonusIDs={12843,13440,6652,12699},itemId=250255,pop=4.1,tier="C"},
-              {bonusIDs={6652,12846,13185},itemId=248583,pop=3.6,tier="C"},
+              {bonusIDs={6652,12846},itemId=274493,pop=4.2,tier="C"},
+              {bonusIDs={13439,6652,12699,12838},itemId=250255,pop=4.1,tier="C"},
+              {bonusIDs={13183,6652,12843},itemId=248583,pop=3.6,tier="C"},
             },
             pvp={{bonusIDs={13650,13657},itemId=270556,pop=46.8,tier="S"},{bonusIDs={13650,13657},itemId=270558,pop=46.8,tier="S"}},
           },
@@ -23950,19 +25172,55 @@ ClassCodexSource["ugg"] = {
         },
         statTargets={
           all={
-            mplus={crit=1025,haste=1248,mastery=854,versatility=270},
-            pvp={crit=56,haste=1066,mastery=149,versatility=1292},
-            raid={crit=1067,haste=1163,mastery=875,versatility=388},
+            mplus={
+              top20={crit=1025,haste=1248,mastery=854,versatility=270},
+              top50={crit=980,haste=1144,mastery=799,versatility=213},
+              top80={crit=880,haste=1052,mastery=727,versatility=139},
+            },
+            pvp={
+              top20={crit=56,haste=1066,mastery=149,versatility=1292},
+              top50={crit=56,haste=1024,mastery=65,versatility=1263},
+              top80={crit=56,haste=995,mastery=65,versatility=1240},
+            },
+            raid={
+              top20={crit=1067,haste=1163,mastery=875,versatility=388},
+              top50={crit=980,haste=1093,mastery=792,versatility=339},
+              top80={crit=892,haste=1056,mastery=717,versatility=244},
+            },
           },
           hellcaller={
-            mplus={crit=950,haste=1150,mastery=1000,versatility=425},
-            pvp={crit=25,haste=1125,mastery=150,versatility=1275},
-            raid={crit=1067,haste=1163,mastery=875,versatility=388},
+            mplus={
+              top20={crit=950,haste=1150,mastery=1000,versatility=425},
+              top50={crit=950,haste=1125,mastery=835,versatility=325},
+              top80={crit=858,haste=875,mastery=835,versatility=295},
+            },
+            pvp={
+              top20={crit=25,haste=1125,mastery=150,versatility=1275},
+              top50={crit=25,haste=1030,mastery=58,versatility=1245},
+              top80={crit=25,haste=1013,mastery=58,versatility=1229},
+            },
+            raid={
+              top20={crit=1067,haste=1163,mastery=875,versatility=388},
+              top50={crit=980,haste=1093,mastery=792,versatility=339},
+              top80={crit=892,haste=1056,mastery=717,versatility=244},
+            },
           },
           ["soul-harvester"]={
-            mplus={crit=1025,haste=1248,mastery=854,versatility=270},
-            pvp={crit=56,haste=1066,mastery=149,versatility=1292},
-            raid={crit=1075,haste=1025,mastery=675,versatility=275},
+            mplus={
+              top20={crit=1025,haste=1248,mastery=854,versatility=270},
+              top50={crit=980,haste=1144,mastery=799,versatility=213},
+              top80={crit=880,haste=1052,mastery=727,versatility=139},
+            },
+            pvp={
+              top20={crit=56,haste=1066,mastery=149,versatility=1292},
+              top50={crit=56,haste=1024,mastery=65,versatility=1263},
+              top80={crit=56,haste=995,mastery=65,versatility=1240},
+            },
+            raid={
+              top20={crit=1075,haste=1025,mastery=675,versatility=275},
+              top50={crit=1075,haste=975,mastery=650,versatility=250},
+              top80={crit=1042,haste=925,mastery=608,versatility=225},
+            },
           },
         },
         talents={
@@ -24393,16 +25651,16 @@ ClassCodexSource["ugg"] = {
             all={
               {bonusIDs={13440,6652,12699,13654},itemId=250144,pop=25.5,tier="A"},
               {bonusIDs={6652,13335,13654},itemId=249343,pop=22,tier="A"},
-              {bonusIDs={13440,6652,12699,12846},itemId=273796,pop=10.8,tier="B"},
-              {bonusIDs={13439,6652,12699,12838},itemId=273649,pop=9.3,tier="B"},
-              {bonusIDs={13440,6652,12699,12846},itemId=250224,pop=8.9,tier="B"},
-              {bonusIDs={13440,6652,12699,12844},itemId=250215,pop=6,tier="B"},
-              {bonusIDs={6652,12830},itemId=274493,pop=2.5,tier="C"},
-              {bonusIDs={6652,13333,11215,12838},itemId=270164,pop=2,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=273796,pop=10.8,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=273649,pop=9.3,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250224,pop=8.9,tier="B"},
+              {bonusIDs={13440,6652,12699,12843},itemId=250215,pop=6,tier="B"},
+              {bonusIDs={6652,12846},itemId=274493,pop=2.5,tier="C"},
+              {bonusIDs={6652,13333,12838},itemId=270164,pop=2,tier="C"},
               {bonusIDs={6652,13334,12841},itemId=270167,pop=2,tier="C"},
-              {bonusIDs={42,13333,12838},itemId=270170,pop=2,tier="C"},
-              {bonusIDs={13440,6652,12699,12846},itemId=250214,pop=1.7,tier="C"},
-              {bonusIDs={13440,6652,12699,13654},itemId=250256,pop=1.5,tier="C"},
+              {bonusIDs={6652,13333,12838},itemId=270170,pop=2,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250214,pop=1.7,tier="C"},
+              {bonusIDs={13440,6652,12699,12806},itemId=250256,pop=1.5,tier="C"},
             },
             pvp={{bonusIDs={13650,13657},itemId=270558,pop=48.5,tier="S"},{bonusIDs={13650,13657},itemId=270556,pop=47,tier="S"}},
           },
@@ -24654,16 +25912,51 @@ ClassCodexSource["ugg"] = {
         },
         statTargets={
           all={
-            mplus={crit=1135,haste=1185,mastery=975,versatility=289},
-            pvp={crit=47,haste=1059,mastery=210,versatility=1251},
-            raid={crit=1065,haste=957,mastery=1058,versatility=325},
+            mplus={
+              top20={crit=1135,haste=1185,mastery=975,versatility=289},
+              top50={crit=1037,haste=1007,mastery=885,versatility=163},
+              top80={crit=961,haste=948,mastery=808,versatility=127},
+            },
+            pvp={
+              top20={crit=47,haste=1059,mastery=210,versatility=1251},
+              top50={crit=47,haste=1006,mastery=87,versatility=1216},
+              top80={crit=47,haste=959,mastery=87,versatility=1200},
+            },
+            raid={
+              top20={crit=1065,haste=957,mastery=1058,versatility=325},
+              top50={crit=1018,haste=916,mastery=925,versatility=240},
+              top80={crit=955,haste=852,mastery=853,versatility=221},
+            },
           },
           diabolist={
-            mplus={crit=1135,haste=1185,mastery=975,versatility=289},
-            pvp={crit=832,haste=1085,mastery=775,versatility=1239},
-            raid={crit=1065,haste=957,mastery=1058,versatility=325},
+            mplus={
+              top20={crit=1135,haste=1185,mastery=975,versatility=289},
+              top50={crit=1037,haste=1007,mastery=885,versatility=163},
+              top80={crit=961,haste=948,mastery=808,versatility=127},
+            },
+            pvp={
+              top20={crit=832,haste=1085,mastery=775,versatility=1239},
+              top50={crit=649,haste=1019,mastery=577,versatility=1197},
+              top80={crit=344,haste=957,mastery=322,versatility=903},
+            },
+            raid={
+              top20={crit=1065,haste=957,mastery=1058,versatility=325},
+              top50={crit=1018,haste=916,mastery=925,versatility=240},
+              top80={crit=955,haste=852,mastery=853,versatility=221},
+            },
           },
-          ["soul-harvester"]={pvp={crit=47,haste=1059,mastery=210,versatility=1251},raid={crit=1045,haste=1150,mastery=1013,versatility=383}},
+          ["soul-harvester"]={
+            pvp={
+              top20={crit=47,haste=1059,mastery=210,versatility=1251},
+              top50={crit=47,haste=1006,mastery=87,versatility=1216},
+              top80={crit=47,haste=959,mastery=87,versatility=1200},
+            },
+            raid={
+              top20={crit=1045,haste=1150,mastery=1013,versatility=383},
+              top50={crit=946,haste=987,mastery=905,versatility=288},
+              top80={crit=894,haste=950,mastery=825,versatility=217},
+            },
+          },
         },
         talents={
           diabolist={
@@ -25033,16 +26326,16 @@ ClassCodexSource["ugg"] = {
           all={
             all={
               {bonusIDs={13440,6652,12699,13654},itemId=250144,pop=30.7,tier="S"},
-              {bonusIDs={13440,6652,12699,12846},itemId=273796,pop=14.1,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=273796,pop=14.1,tier="B"},
               {bonusIDs={6652,13335,13654},itemId=249343,pop=13.8,tier="B"},
-              {bonusIDs={13440,6652,12699,12844},itemId=250215,pop=10.2,tier="B"},
-              {bonusIDs={13440,6652,12699,12846},itemId=250224,pop=5.4,tier="B"},
-              {bonusIDs={13440,6652,12699,12846},itemId=250214,pop=4,tier="C"},
-              {bonusIDs={6652,13333,11215,12838},itemId=270164,pop=3.2,tier="C"},
-              {bonusIDs={13439,6652,12699,12834},itemId=250259,pop=2.6,tier="C"},
-              {bonusIDs={6652,12830},itemId=274493,pop=2.6,tier="C"},
+              {bonusIDs={13440,6652,12699,12843},itemId=250215,pop=10.2,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250224,pop=5.4,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250214,pop=4,tier="C"},
+              {bonusIDs={6652,13333,12838},itemId=270164,pop=3.2,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250259,pop=2.6,tier="C"},
+              {bonusIDs={6652,12846},itemId=274493,pop=2.6,tier="C"},
               {bonusIDs={6652,13334,12841},itemId=270167,pop=2.4,tier="C"},
-              {bonusIDs={12843,13440,6652,12699},itemId=273794,pop=2,tier="C"},
+              {bonusIDs={13439,6652,12699,12838},itemId=273794,pop=2,tier="C"},
               {bonusIDs={6652,13335,13654},itemId=249809,pop=1.9,tier="C"},
             },
             pvp={{bonusIDs={13650,13657},itemId=270558,pop=47.2,tier="S"},{bonusIDs={13650,13657},itemId=270556,pop=45.8,tier="S"}},
@@ -25273,19 +26566,55 @@ ClassCodexSource["ugg"] = {
         },
         statTargets={
           all={
-            mplus={crit=1003,haste=1081,mastery=1025,versatility=325},
-            pvp={crit=52,haste=1115,mastery=298,versatility=1249},
-            raid={crit=994,haste=1075,mastery=1000,versatility=300},
+            mplus={
+              top20={crit=1003,haste=1081,mastery=1025,versatility=325},
+              top50={crit=956,haste=1007,mastery=960,versatility=257},
+              top80={crit=884,haste=935,mastery=881,versatility=169},
+            },
+            pvp={
+              top20={crit=52,haste=1115,mastery=298,versatility=1249},
+              top50={crit=52,haste=1042,mastery=103,versatility=1207},
+              top80={crit=52,haste=984,mastery=103,versatility=1207},
+            },
+            raid={
+              top20={crit=994,haste=1075,mastery=1000,versatility=300},
+              top50={crit=937,haste=975,mastery=904,versatility=238},
+              top80={crit=851,haste=923,mastery=833,versatility=152},
+            },
           },
           diabolist={
-            mplus={crit=1003,haste=1081,mastery=1025,versatility=325},
-            pvp={crit=975,haste=1025,mastery=675,versatility=1225},
-            raid={crit=994,haste=1075,mastery=1000,versatility=300},
+            mplus={
+              top20={crit=1003,haste=1081,mastery=1025,versatility=325},
+              top50={crit=956,haste=1007,mastery=960,versatility=257},
+              top80={crit=884,haste=935,mastery=881,versatility=169},
+            },
+            pvp={
+              top20={crit=975,haste=1025,mastery=675,versatility=1225},
+              top50={crit=695,haste=950,mastery=465,versatility=1185},
+              top80={crit=397,haste=913,mastery=275,versatility=869},
+            },
+            raid={
+              top20={crit=994,haste=1075,mastery=1000,versatility=300},
+              top50={crit=937,haste=975,mastery=904,versatility=238},
+              top80={crit=851,haste=923,mastery=833,versatility=152},
+            },
           },
           hellcaller={
-            mplus={crit=1075,haste=1155,mastery=975,versatility=295},
-            pvp={crit=52,haste=1115,mastery=298,versatility=1249},
-            raid={crit=1035,haste=944,mastery=1225,versatility=225},
+            mplus={
+              top20={crit=1075,haste=1155,mastery=975,versatility=295},
+              top50={crit=986,haste=975,mastery=871,versatility=200},
+              top80={crit=933,haste=913,mastery=798,versatility=127},
+            },
+            pvp={
+              top20={crit=52,haste=1115,mastery=298,versatility=1249},
+              top50={crit=52,haste=1042,mastery=103,versatility=1207},
+              top80={crit=52,haste=984,mastery=103,versatility=1207},
+            },
+            raid={
+              top20={crit=1035,haste=944,mastery=1225,versatility=225},
+              top50={crit=943,haste=921,mastery=1071,versatility=195},
+              top80={crit=875,haste=891,mastery=999,versatility=115},
+            },
           },
         },
         talents={
@@ -25716,17 +27045,17 @@ ClassCodexSource["ugg"] = {
           all={
             all={
               {bonusIDs={6652,13335,13654},itemId=249343,pop=16.5,tier="A"},
-              {bonusIDs={13440,6652,12699,12844},itemId=250215,pop=15.9,tier="A"},
+              {bonusIDs={13440,6652,12699,12843},itemId=250215,pop=15.9,tier="A"},
               {bonusIDs={13440,6652,12699,13654},itemId=250144,pop=11.8,tier="B"},
               {bonusIDs={6652,13335,13654},itemId=249346,pop=10,tier="B"},
-              {bonusIDs={13440,6652,12699,12846},itemId=273796,pop=5.8,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=273796,pop=5.8,tier="B"},
               {bonusIDs={6652,13335,13654},itemId=249809,pop=4.7,tier="C"},
-              {bonusIDs={13440,6652,12699,12846},itemId=250224,pop=4.7,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250224,pop=4.7,tier="C"},
               {bonusIDs={12830},itemId=264507,pop=4.6,tier="C"},
-              {bonusIDs={13440,6652,12699,12846},itemId=250214,pop=3.7,tier="C"},
-              {bonusIDs={13439,6652,12699,12834},itemId=250259,pop=3.4,tier="C"},
-              {bonusIDs={12843,13440,6652,12699},itemId=273794,pop=3,tier="C"},
-              {bonusIDs={6652,13333,11215,12838},itemId=270164,pop=2.9,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250214,pop=3.7,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250259,pop=3.4,tier="C"},
+              {bonusIDs={13439,6652,12699,12838},itemId=273794,pop=3,tier="C"},
+              {bonusIDs={6652,13333,12838},itemId=270164,pop=2.9,tier="C"},
             },
             pvp={{bonusIDs={13650,13657},itemId=270556,pop=53.5,tier="S"},{bonusIDs={13650,13657},itemId=270558,pop=52.7,tier="S"}},
           },
@@ -25975,19 +27304,55 @@ ClassCodexSource["ugg"] = {
         },
         statTargets={
           all={
-            mplus={crit=1296,haste=1129,mastery=739,versatility=309},
-            pvp={crit=755,haste=939,mastery=464,versatility=1361},
-            raid={crit=1331,haste=1100,mastery=788,versatility=325},
+            mplus={
+              top20={crit=1296,haste=1129,mastery=739,versatility=309},
+              top50={crit=1173,haste=1040,mastery=601,versatility=252},
+              top80={crit=1091,haste=978,mastery=575,versatility=183},
+            },
+            pvp={
+              top20={crit=755,haste=939,mastery=464,versatility=1361},
+              top50={crit=171,haste=901,mastery=334,versatility=1329},
+              top80={crit=171,haste=834,mastery=236,versatility=1296},
+            },
+            raid={
+              top20={crit=1331,haste=1100,mastery=788,versatility=325},
+              top50={crit=1300,haste=1030,mastery=592,versatility=215},
+              top80={crit=1213,haste=956,mastery=572,versatility=130},
+            },
           },
           colossus={
-            mplus={crit=975,haste=1225,mastery=525,versatility=25},
-            pvp={crit=375,haste=875,mastery=325,versatility=1425},
-            raid={crit=1025,haste=1125,mastery=975,versatility=475},
+            mplus={
+              top20={crit=975,haste=1225,mastery=525,versatility=25},
+              top50={crit=975,haste=1225,mastery=525,versatility=25},
+              top80={crit=975,haste=1225,mastery=525,versatility=25},
+            },
+            pvp={
+              top20={crit=375,haste=875,mastery=325,versatility=1425},
+              top50={crit=192,haste=738,mastery=192,versatility=1342},
+              top80={crit=125,haste=738,mastery=145,versatility=1313},
+            },
+            raid={
+              top20={crit=1025,haste=1125,mastery=975,versatility=475},
+              top50={crit=925,haste=925,mastery=775,versatility=450},
+              top80={crit=813,haste=725,mastery=575,versatility=263},
+            },
           },
           slayer={
-            mplus={crit=1296,haste=1129,mastery=739,versatility=309},
-            pvp={crit=755,haste=939,mastery=464,versatility=1361},
-            raid={crit=1331,haste=1100,mastery=788,versatility=325},
+            mplus={
+              top20={crit=1296,haste=1129,mastery=739,versatility=309},
+              top50={crit=1173,haste=1040,mastery=601,versatility=252},
+              top80={crit=1091,haste=978,mastery=575,versatility=183},
+            },
+            pvp={
+              top20={crit=755,haste=939,mastery=464,versatility=1361},
+              top50={crit=171,haste=901,mastery=334,versatility=1329},
+              top80={crit=171,haste=834,mastery=236,versatility=1296},
+            },
+            raid={
+              top20={crit=1331,haste=1100,mastery=788,versatility=325},
+              top50={crit=1300,haste=1030,mastery=592,versatility=215},
+              top80={crit=1213,haste=956,mastery=572,versatility=130},
+            },
           },
         },
         talents={
@@ -26422,15 +27787,15 @@ ClassCodexSource["ugg"] = {
           all={
             all={
               {bonusIDs={6652,13335,13654},itemId=249342,pop=20.1,tier="A"},
-              {bonusIDs={13440,6652,12699,12846},itemId=273796,pop=15,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=273796,pop=15,tier="B"},
               {bonusIDs={6652,13335,13654},itemId=249343,pop=10.2,tier="B"},
-              {bonusIDs={12843,13440,40,12699},itemId=250229,pop=8.3,tier="B"},
-              {bonusIDs={12843,13440,6652,12699},itemId=250228,pop=7,tier="B"},
-              {bonusIDs={13439,6652,12699,12834},itemId=250259,pop=3.8,tier="C"},
+              {bonusIDs={13440,6652,12699,12846},itemId=250229,pop=8.3,tier="B"},
+              {bonusIDs={13440,6652,12699,12846},itemId=250228,pop=7,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250259,pop=3.8,tier="C"},
               {bonusIDs={6652,13333,12838},itemId=270165,pop=3.7,tier="C"},
-              {bonusIDs={6652,12830},itemId=274493,pop=3.5,tier="C"},
+              {bonusIDs={6652,12846},itemId=274493,pop=3.5,tier="C"},
               {bonusIDs={12830},itemId=264507,pop=3.3,tier="C"},
-              {bonusIDs={12841,6652},itemId=265657,pop=3.1,tier="C"},
+              {bonusIDs={6652,12846},itemId=265657,pop=3.1,tier="C"},
               {bonusIDs={6652,13335,13654},itemId=260235,pop=2.7,tier="C"},
             },
             pvp={{bonusIDs={13650,13657},itemId=270556,pop=60,tier="S"},{bonusIDs={13650,13657},itemId=270558,pop=60,tier="S"}},
@@ -26683,19 +28048,55 @@ ClassCodexSource["ugg"] = {
         },
         statTargets={
           all={
-            mplus={crit=1085,haste=1275,mastery=1275,versatility=338},
-            pvp={crit=61,haste=892,mastery=828,versatility=1398},
-            raid={crit=955,haste=1175,mastery=1275,versatility=325},
+            mplus={
+              top20={crit=1085,haste=1275,mastery=1275,versatility=338},
+              top50={crit=879,haste=1122,mastery=1129,versatility=300},
+              top80={crit=703,haste=1090,mastery=1050,versatility=243},
+            },
+            pvp={
+              top20={crit=61,haste=892,mastery=828,versatility=1398},
+              top50={crit=61,haste=700,mastery=680,versatility=1364},
+              top80={crit=61,haste=603,mastery=614,versatility=1318},
+            },
+            raid={
+              top20={crit=955,haste=1175,mastery=1275,versatility=325},
+              top50={crit=820,haste=1068,mastery=1220,versatility=250},
+              top80={crit=691,haste=1040,mastery=1140,versatility=228},
+            },
           },
           ["mountain-thane"]={
-            mplus={crit=933,haste=1150,mastery=1238,versatility=417},
-            pvp={crit=61,haste=892,mastery=828,versatility=1398},
-            raid={crit=955,haste=1175,mastery=1275,versatility=325},
+            mplus={
+              top20={crit=933,haste=1150,mastery=1238,versatility=417},
+              top50={crit=848,haste=1098,mastery=1193,versatility=334},
+              top80={crit=728,haste=1061,mastery=1089,versatility=261},
+            },
+            pvp={
+              top20={crit=61,haste=892,mastery=828,versatility=1398},
+              top50={crit=61,haste=700,mastery=680,versatility=1364},
+              top80={crit=61,haste=603,mastery=614,versatility=1318},
+            },
+            raid={
+              top20={crit=955,haste=1175,mastery=1275,versatility=325},
+              top50={crit=820,haste=1068,mastery=1220,versatility=250},
+              top80={crit=691,haste=1040,mastery=1140,versatility=228},
+            },
           },
           slayer={
-            mplus={crit=1085,haste=1275,mastery=1275,versatility=338},
-            pvp={crit=625,haste=1295,mastery=965,versatility=1311},
-            raid={crit=1325,haste=1025,mastery=1225,versatility=375},
+            mplus={
+              top20={crit=1085,haste=1275,mastery=1275,versatility=338},
+              top50={crit=879,haste=1122,mastery=1129,versatility=300},
+              top80={crit=703,haste=1090,mastery=1050,versatility=243},
+            },
+            pvp={
+              top20={crit=625,haste=1295,mastery=965,versatility=1311},
+              top50={crit=425,haste=1025,mastery=830,versatility=1230},
+              top80={crit=235,haste=884,mastery=725,versatility=993},
+            },
+            raid={
+              top20={crit=1325,haste=1025,mastery=1225,versatility=375},
+              top50={crit=1150,haste=1025,mastery=1200,versatility=375},
+              top80={crit=813,haste=988,mastery=963,versatility=263},
+            },
           },
         },
         talents={
@@ -27115,14 +28516,14 @@ ClassCodexSource["ugg"] = {
             all={
               {bonusIDs={6652,13335,13654},itemId=249343,pop=35.6,tier="S"},
               {bonusIDs={6652,13335,13654},itemId=249342,pop=23.9,tier="A"},
-              {bonusIDs={13439,6652,12699,12834},itemId=250259,pop=5,tier="B"},
-              {bonusIDs={12843,13440,6652,12699},itemId=250228,pop=4.5,tier="C"},
-              {bonusIDs={13440,6652,12699,12846},itemId=273796,pop=4.5,tier="C"},
-              {bonusIDs={12843,13440,40,12699},itemId=250229,pop=3.4,tier="C"},
-              {bonusIDs={13440,6652,12699,13654},itemId=193701,pop=2.9,tier="C"},
-              {bonusIDs={6652,12830},itemId=274493,pop=2.8,tier="C"},
-              {bonusIDs={6652,12846,13185},itemId=248583,pop=2.3,tier="C"},
-              {bonusIDs={13440,6652,12699,12846},itemId=193762,pop=1.9,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=250259,pop=5,tier="B"},
+              {bonusIDs={13440,6652,12699,12846},itemId=250228,pop=4.5,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=273796,pop=4.5,tier="C"},
+              {bonusIDs={13440,6652,12699,12846},itemId=250229,pop=3.4,tier="C"},
+              {bonusIDs={13440,42,12699,13654},itemId=193701,pop=2.9,tier="C"},
+              {bonusIDs={6652,12846},itemId=274493,pop=2.8,tier="C"},
+              {bonusIDs={13183,6652,12843},itemId=248583,pop=2.3,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=193762,pop=1.9,tier="C"},
               {bonusIDs={13440,6652,12699,12846},itemId=250238,pop=1.8,tier="C"},
               {bonusIDs={6652,13333,12838},itemId=270165,pop=1.8,tier="C"},
             },
@@ -27359,19 +28760,55 @@ ClassCodexSource["ugg"] = {
         },
         statTargets={
           all={
-            mplus={crit=1138,haste=1317,mastery=725,versatility=469},
-            pvp={crit=875,haste=1100,mastery=675,versatility=1275},
-            raid={crit=1125,haste=1292,mastery=742,versatility=408},
+            mplus={
+              top20={crit=1138,haste=1317,mastery=725,versatility=469},
+              top50={crit=1037,haste=1196,mastery=642,versatility=381},
+              top80={crit=955,haste=1127,mastery=540,versatility=287},
+            },
+            pvp={
+              top20={crit=875,haste=1100,mastery=675,versatility=1275},
+              top50={crit=636,haste=914,mastery=514,versatility=1225},
+              top80={crit=369,haste=804,mastery=404,versatility=1025},
+            },
+            raid={
+              top20={crit=1125,haste=1292,mastery=742,versatility=408},
+              top50={crit=996,haste=1225,mastery=604,versatility=350},
+              top80={crit=915,haste=1135,mastery=540,versatility=257},
+            },
           },
           colossus={
-            mplus={crit=1075,haste=1175,mastery=675,versatility=500},
-            pvp={crit=350,haste=800,mastery=750,versatility=1158},
-            raid={crit=975,haste=925,mastery=125,versatility=575},
+            mplus={
+              top20={crit=1075,haste=1175,mastery=675,versatility=500},
+              top50={crit=1058,haste=1108,mastery=625,versatility=463},
+              top80={crit=995,haste=965,mastery=500,versatility=425},
+            },
+            pvp={
+              top20={crit=350,haste=800,mastery=750,versatility=1158},
+              top50={crit=308,haste=563,mastery=663,versatility=1158},
+              top80={crit=255,haste=485,mastery=625,versatility=1075},
+            },
+            raid={
+              top20={crit=975,haste=925,mastery=125,versatility=575},
+              top50={crit=975,haste=925,mastery=125,versatility=575},
+              top80={crit=975,haste=925,mastery=125,versatility=575},
+            },
           },
           ["mountain-thane"]={
-            mplus={crit=1138,haste=1317,mastery=725,versatility=469},
-            pvp={crit=875,haste=1100,mastery=675,versatility=1275},
-            raid={crit=1125,haste=1292,mastery=742,versatility=408},
+            mplus={
+              top20={crit=1138,haste=1317,mastery=725,versatility=469},
+              top50={crit=1037,haste=1196,mastery=642,versatility=381},
+              top80={crit=955,haste=1127,mastery=540,versatility=287},
+            },
+            pvp={
+              top20={crit=875,haste=1100,mastery=675,versatility=1275},
+              top50={crit=636,haste=914,mastery=514,versatility=1225},
+              top80={crit=369,haste=804,mastery=404,versatility=1025},
+            },
+            raid={
+              top20={crit=1125,haste=1292,mastery=742,versatility=408},
+              top50={crit=996,haste=1225,mastery=604,versatility=350},
+              top80={crit=915,haste=1135,mastery=540,versatility=257},
+            },
           },
         },
         talents={
@@ -27809,14 +29246,14 @@ ClassCodexSource["ugg"] = {
             all={
               {bonusIDs={6652,13335,13654},itemId=249343,pop=18.2,tier="A"},
               {bonusIDs={6652,13335,13654},itemId=249342,pop=16.5,tier="A"},
-              {bonusIDs={13440,6652,12699,12846},itemId=273796,pop=7.4,tier="B"},
-              {bonusIDs={12843,13440,40,12699},itemId=250229,pop=6,tier="B"},
-              {bonusIDs={12843,13440,6652,12699},itemId=250228,pop=5.4,tier="B"},
-              {bonusIDs={12843,13440,41,12699},itemId=250245,pop=5.4,tier="B"},
+              {bonusIDs={12843,13440,6652,12699},itemId=273796,pop=7.4,tier="B"},
+              {bonusIDs={13440,6652,12699,12846},itemId=250229,pop=6,tier="B"},
+              {bonusIDs={13440,6652,12699,12846},itemId=250228,pop=5.4,tier="B"},
+              {bonusIDs={13440,6652,12699,12846},itemId=250245,pop=5.4,tier="B"},
               {bonusIDs={6652,13335,13786},itemId=268292,pop=3.5,tier="C"},
-              {bonusIDs={6652,12830},itemId=274493,pop=3.2,tier="C"},
-              {bonusIDs={13440,6652,12699,12846},itemId=193762,pop=2.7,tier="C"},
-              {bonusIDs={13440,6652,12699,13654},itemId=250256,pop=2.7,tier="C"},
+              {bonusIDs={6652,12846},itemId=274493,pop=3.2,tier="C"},
+              {bonusIDs={12843,13440,6652,12699},itemId=193762,pop=2.7,tier="C"},
+              {bonusIDs={13440,6652,12699,12806},itemId=250256,pop=2.7,tier="C"},
               {bonusIDs={6652,13333,12838},itemId=270165,pop=2.5,tier="C"},
               {bonusIDs={6652,13333,12838},itemId=270160,pop=2.2,tier="C"},
             },
@@ -27830,7 +29267,7 @@ ClassCodexSource["ugg"] = {
       },
     },
   },
-  meta={contentHash="9142bf830cb093e3",generatedAt="2026-08-30T10:27:40.434Z",schemaVersion=1,source="ugg"},
+  meta={contentHash="9ccc5dc463fd6f02",generatedAt="2026-08-31T12:28:19.610Z",schemaVersion=1,source="ugg"},
   reference={
     encounters={
       bosses={

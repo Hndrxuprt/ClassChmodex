@@ -85,7 +85,7 @@ ClassCodexSource["icyveins"] = {
               {bonusIDs={13848,13662,13750},itemId=268259,slot="Waist",source="Coiled Altar in Venomous Abyss"},
               {bonusIDs={4786,12806},itemId=271878,slot="Legs",source="Ula'tek in Venomous Abyss"},
               {bonusIDs={4786,12854},itemId=268260,slot="Feet",source="Vashnik the Malignant in Venomous Abyss"},
-              {bonusIDs={13750,4786,12854},itemId=268251,slot="Finger 1",source="Twin Fangs in Venomous Abyss"},
+              {bonusIDs={12854},itemId=268252,slot="Finger 1",source="Sszorak"},
               {bonusIDs={13750,4786,12854},itemId=268249,slot="Finger 2",source="Vashnik the Malignant in Venomous Abyss"},
               {bonusIDs={4687,13848},itemId=270175,slot="Trinket 1",source="Ula'tek in Venomous Abyss"},
               {bonusIDs={4786,13848},itemId=270173,slot="Trinket 2",source="Coiled Altar in Venomous Abyss"},
@@ -1383,8 +1383,8 @@ ClassCodexSource["icyveins"] = {
               ["Finger 2"]={{id=243956}},
               Head={{id=244007}},
               Legs={{id=244640}},
-              ["Main Hand"]={{id=243970}},
-              ["Off Hand"]={{id=243970}},
+              ["Main Hand"]={{id=273072}},
+              ["Off Hand"]={{id=273072}},
               Shoulders={{id=243990}},
             },
             pvp={
@@ -1412,7 +1412,7 @@ ClassCodexSource["icyveins"] = {
               {bonusIDs={12854},itemId=159327,slot="Feet",source="Temple of Sethraliss"},
               {bonusIDs={12854},itemId=268249,slot="Finger 1",source="Vashnik"},
               {bonusIDs={12854},itemId=158366,slot="Finger 2",source="Temple of Sethraliss"},
-              {bonusIDs={13848},itemId=270175,slot="Trinket 1",source="Ula'tek"},
+              {bonusIDs={13848},itemId=270168,slot="Trinket 1",source="Ula'tek"},
               {bonusIDs={13848},itemId=270173,slot="Trinket 2",source="Coiled Altar"},
               {bonusIDs={13848},itemId=268209,slot="Main Hand",source="Coiled Altar"},
               {bonusIDs={13751,12497,13836,13771,8791},itemId=237840,slot="Off Hand",source="Crafted by Blacksmithing"},
@@ -1466,7 +1466,7 @@ ClassCodexSource["icyveins"] = {
               {bonusIDs={12854},itemId=268261,slot="Feet",source="Twin Fangs"},
               {bonusIDs={12854},itemId=268249,slot="Finger 1",source="Vashnik"},
               {bonusIDs={12854},itemId=268252,slot="Finger 2",source="Sszorak"},
-              {bonusIDs={13848},itemId=270175,slot="Trinket 1",source="Ula'tek"},
+              {bonusIDs={13848},itemId=270168,slot="Trinket 1",source="Ula'tek"},
               {bonusIDs={13848},itemId=270173,slot="Trinket 2",source="Coiled Altar"},
               {bonusIDs={13848},itemId=268209,slot="Main Hand",source="Coiled Altar"},
               {bonusIDs={13751,12497,13836,13771,8791},itemId=237840,slot="Off Hand",source="Crafted by Blacksmithing"},
@@ -1520,13 +1520,13 @@ ClassCodexSource["icyveins"] = {
                   text="Cast {442294}",
                 },
                 {heroRequired={"Fel-Scarred"},text="Cast {210152} with {452402} active"},
-                {heroRequired={"Fel-Scarred"},text="Cast {210152} during {258860} or with {452402} active"},
-                {heroRequired={"Aldrachi Reaver"},text="Cast {210152} during {258860}"},
                 {
                   heroRequired={"Fel-Scarred"},
                   note="If {191427} is almost ready, dump both charges to make use of the reset.",
                   text="Cast {258920} if at 2 charges",
                 },
+                {heroRequired={"Fel-Scarred"},text="Cast {210152} during {258860} or with {452402} active"},
+                {heroRequired={"Aldrachi Reaver"},text="Cast {210152} during {258860}"},
                 {heroRequired={"Fel-Scarred"},text="Cast {201427} with {452402} active"},
                 {heroRequired={"Aldrachi Reaver"},text="Cast {198013}"},
                 {
@@ -1613,13 +1613,13 @@ ClassCodexSource["icyveins"] = {
                   text="Cast {442294}",
                 },
                 {heroRequired={"Fel-Scarred"},text="Cast {210152} with {452402} active"},
-                {heroRequired={"Fel-Scarred"},text="Cast {210152} during {258860} or with {452402} active"},
-                {heroRequired={"Aldrachi Reaver"},text="Cast {210152} during {258860}"},
                 {
                   heroRequired={"Fel-Scarred"},
                   note="If {191427} is almost ready, dump both charges to make use of the reset.",
                   text="Cast {258920} if at 2 charges",
                 },
+                {heroRequired={"Fel-Scarred"},text="Cast {210152} during {258860} or with {452402} active"},
+                {heroRequired={"Aldrachi Reaver"},text="Cast {210152} during {258860}"},
                 {heroRequired={"Fel-Scarred"},text="Cast {201427} with {452402} active"},
                 {heroRequired={"Aldrachi Reaver"},text="Cast {198013}"},
                 {
@@ -1711,9 +1711,7 @@ ClassCodexSource["icyveins"] = {
             raid={
               {
                 export="CEkAAAAAAAAAAAAAAAAAAAAAAYgZmZMjZmZmxMZMzAAAAAAAmNjZbmxYmtZmxyMjZsMzwMLzsMDGGLbMhxMjhFAAAAAAAwMDwAAAAwA",
-                label="Raid",
-                labels={"Single-Target"},
-                recommended=true,
+                label="Single-Target",
               },
             },
           },
@@ -1733,8 +1731,9 @@ ClassCodexSource["icyveins"] = {
             },
             mplus={
               {
-                export="CEkAAAAAAAAAAAAAAAAAAAAAAYmZGzMjZMzMzMmJjZGAAAAAAwsZMbzMGDegZsMz8AzwMjxsMw2sZGDzGTjZmxwGAAAAAAAAzMYAAAAYA",
+                export="CEkAAAAAAAAAAAAAAAAAAAAAAYmZGzMjZMzMzMmJjZGAAAAAAwsZMbzMGDmZsMz8AzwMDmlB2mFzYY2YaMzMG2AAAAAAAAYmBDAAAAD",
                 label="Raid / Cleave",
+                recommended=true,
               },
               {
                 export="CEkAAAAAAAAAAAAAAAAAAAAAAYmZGzMz2MmZmxYmMmZAAAAAAAzixsNDzMwMWmZmZYmBzyAbzmZMMbMNmZGzYDAAAYAAAAMzgBAAAgB",
@@ -1751,12 +1750,18 @@ ClassCodexSource["icyveins"] = {
             },
             raid={
               {
-                export="CEkAAAAAAAAAAAAAAAAAAAAAAYAzMjZMzMzMmJjZGAAAAAAwsZMbzMGjlZmxyMzDMzsMzsMGDsNLmxwsx0wMjhNAAAAAAAAmZwAAAAwA",
-                label="Raid / Single-Target",
+                export="CEkAAAAAAAAAAAAAAAAAAAAAAYmZGzMjZMzMzMmJjZGAAAAAAwsZMbzMGDmZsMz8AzwMDmlB2mFzYY2YaMzMG2AAAAAAAAYmBDAAAAD",
+                label="Raid / Cleave",
+                recommended=true,
               },
               {
-                export="CEkAAAAAAAAAAAAAAAAAAAAAAYmZGzMjZMzMzMmJjZGAAAAAAwsZMbzMGDegZsMz8AzwMjxsMw2sZGDzGTjZmxwGAAAAAAAAzMYAAAAYA",
-                label="Raid / Cleave",
+                export="CEkAAAAAAAAAAAAAAAAAAAAAAYAzMjZMzMzMmJjZGAAAAAAwsZMbzMGjlZmxyMzDMzsMzsMGDsNLmxwsx0wMjhNAAAAAAAAmZwAAAAwA",
+                label="Raid / Single-Target",
+                recommended=true,
+              },
+              {
+                export="CEkAAAAAAAAAAAAAAAAAAAAAAYmZGzMjZMzMzMmJjZGAAAAAAwsZMbzMGDmZsMzYGmZMmlB2mFzYY2YaMzMG2AAAAAAAAYmBDAAAAD",
+                label="Raid",
               },
             },
           },
@@ -1766,6 +1771,7 @@ ClassCodexSource["icyveins"] = {
             all={
               {bonusIDs={13848},itemId=270173,tier="S"},
               {bonusIDs={13848},itemId=268209,tier="S"},
+              {bonusIDs={13848},itemId=270168,tier="S"},
               {bonusIDs={13848},itemId=270175,tier="S"},
               {bonusIDs={12854},itemId=250225,tier="A"},
               {bonusIDs={12854},itemId=270165,tier="A"},
@@ -1774,7 +1780,6 @@ ClassCodexSource["icyveins"] = {
               {bonusIDs={12854},itemId=250259,tier="A"},
               {bonusIDs={12854},itemId=270164,tier="B"},
               {bonusIDs={12854},itemId=250228,tier="B"},
-              {bonusIDs={13848},itemId=270168,tier="B"},
               {bonusIDs={12854},itemId=250215,tier="B"},
               {bonusIDs={12854},itemId=159617,tier="B"},
               {bonusIDs={12850},itemId=248583,tier="B"},
@@ -2042,7 +2047,7 @@ ClassCodexSource["icyveins"] = {
             },
           },
         },
-        statPriority={all={all={secondary={{"haste"},{"versatility","crit"},{"mastery"}}}}},
+        statPriority={all={all={secondary={{"haste"},{"mastery","versatility","crit"}}}}},
         talents={
           ["aldrachi-reaver"]={
             delve={
@@ -4144,7 +4149,7 @@ ClassCodexSource["icyveins"] = {
             },
             raid={
               {
-                export="CwbBAAAAAAAAAAAAAAAAAAAAAAAAAAAmZmZwMjBzY2MMzMbYAAwMjZMDGzIzMDAAAwMzMZGzMmtZGAYgxM2YBGYGGawYBGzMAjB",
+                export="CwbBAAAAAAAAAAAAAAAAAAAAAAAAAAAmZmZwMjBzY2MMzMbYAAgZMjBzYGZmZAAAAmZmJzYmxsNzMAYgxM2YBGYGGawYBGzMAjB",
                 label="Raid",
               },
             },
@@ -4180,9 +4185,13 @@ ClassCodexSource["icyveins"] = {
             },
             raid={
               {
-                export="CwbBAAAAAAAAAAAAAAAAAAAAAAAAAAAMzMDmZMYGzmhZmZbYAAwMjZMDGzIzMDAAAwMzMZGzMmtZGAYGzALgFwMMB2MsZYAMzMGA",
+                export="CwbBAAAAAAAAAAAAAAAAAAAAAAAAAAAMzMDmZMYGzmhZmZbAAAMjZMYGzIzMDAAAwMzMZmZmxsNzMAYGzALgFwMMB2MsZYAMzMGA",
                 label="Raid",
                 recommended=true,
+              },
+              {
+                export="CwbBAAAAAAAAAAAAAAAAAAAAAAAAAAAMzMDmZMYGzmhZmZbYAAwMjZMDGzIzMDAAAwMzMZGzMmtZGAYGzALgFwMMB2MsZYAMzMGA",
+                label="Raid (Easy Mode)",
               },
             },
           },
@@ -4495,7 +4504,7 @@ ClassCodexSource["icyveins"] = {
           ["pack-leader"]={
             delve={
               {
-                export="C0PAAAAAAAAAAAAAAAAAAAAAAAMmxwCsAzwQDbAAYGzMzsYGzMzMjZGMzYmhZGzMzgxYGzMMmGAAAAAAAAYmxYAzsBYZmFw2AwA",
+                export="C0PAAAAAAAAAAAAAAAAAAAAAAAMmxwCsAzwQDbAAYGzMzs8AzYmZmZMzgZGzMMzYmZGMGzYmhx0AAAAAAAAAzMGDYmNALzsA2GAA",
                 label="Delves",
                 recommended=true,
               },
@@ -4513,7 +4522,7 @@ ClassCodexSource["icyveins"] = {
                 recommended=true,
               },
               {
-                export="C0PAAAAAAAAAAAAAAAAAAAAAAAMmxwCsAzwQDbAAYGzMzsYGzMzMjZGMzYmhZGzMzYbmZMjZYZMNDAAAAAAAA8AjxAmZDAzCYbAYA",
+                export="C0PAAAAAAAAAAAAAAAAAAAAAAAMmxwCsAzwQDbAAYGzMzs8AzYmZmZMzgZGzMMzYmZGbzMjZMDLjpZAAAAAAAAgHYMGwMbAYWAbDAA",
                 label="Mythic+",
                 labels={"AoE"},
                 recommended=true,
@@ -4542,10 +4551,6 @@ ClassCodexSource["icyveins"] = {
                 export="C0PAAAAAAAAAAAAAAAAAAAAAAAMmxwCsAzwQDbAAYGmZmlZGzMzMjZGMzYmhZGzYmFzMjZMDGTzAAAAAAAAgxMzAMzGsBzCYbAYA",
                 label="Raid AoE / Cleave",
                 recommended=true,
-              },
-              {
-                export="C0PAAAAAAAAAAAAAAAAAAAAAAAMmxwCsAzwQDbAAYGGzsMzwMmZMDzMGzMMzYGzsYmZMjZwYaGAAAAwMAAAMmZGgZ2gNYWAbDAD",
-                label="Single-Target (Easy Mode)",
               },
             },
           },
@@ -4961,11 +4966,6 @@ ClassCodexSource["icyveins"] = {
               {
                 export="C4PAAAAAAAAAAAAAAAAAAAAAAwGMwMGNWGAzgNAAAAAAAAwMmZmx2MmZGzwyYaGDmlttZmZmZmZmZhZWGmBAAwDMGDAzYDMAbMz2MG",
                 label="Mythic+",
-                recommended=true,
-              },
-              {
-                export="C4PAAAAAAAAAAAAAAAAAAAAAAwCMwMGNWGAzgNAAAAAAAAwMmZmx2MmZGzwyYaGDmltlZmZmZmZmZhZWGmBAAwDMGDAzYDMAbMz2MG",
-                label="Mythic+ (Weekly Key)",
                 labels={"Dungeon"},
                 recommended=true,
                 tags={"Weekly Key","High Key"},
@@ -5000,9 +5000,9 @@ ClassCodexSource["icyveins"] = {
             all={
               {bonusIDs={13848},itemId=270175,tier="S"},
               {bonusIDs={13848},itemId=270173,tier="S"},
+              {itemId=270168,tier="S"},
               {itemId=273796,tier="A"},
               {bonusIDs={12854},itemId=159617,tier="A"},
-              {itemId=270168,tier="A"},
               {itemId=250225,tier="B"},
               {itemId=250215,tier="B"},
               {itemId=270165,tier="B"},
@@ -5032,7 +5032,7 @@ ClassCodexSource["icyveins"] = {
               ["Finger 2"]={{id=243956}},
               Head={{id=243950}},
               Legs={{id=244640}},
-              ["Main Hand"]={{id=243973}},
+              ["Main Hand"]={{id=273072}},
               Shoulders={{id=244021}},
             },
           },
@@ -5212,12 +5212,14 @@ ClassCodexSource["icyveins"] = {
                 {heroRequired={"Pack Leader"},text="Cast {1250646}."},
                 {heroRequired={"Sentinel"},text="Cast {259489} if you have no {260285} left."},
                 {heroRequired={"Sentinel"},text="Cast {259489} if you have no {260285} left and {1250646} is on cooldown."},
-                {heroRequired={"Sentinel"},text="Cast {1261193} if the target has no {1253601}."},
                 {
                   heroRequired={"Sentinel"},
-                  text="Cast {259495} if the target has {1253601}, or if it is within 5 seconds of reaching 2 charges.",
+                  text="Cast {259495} if the target has {1253601}, or if it is within 4 seconds of reaching 2 charges.",
                 },
                 {heroRequired={"Sentinel"},text="Cast {1264902}."},
+                {heroRequired={"Sentinel"},text="Cast {186270}. Every 2nd Raptor is a {1259003}."},
+                {heroRequired={"Sentinel"},text="Cast {259489} as a filler, but prefer {1250646} if available."},
+                {heroRequired={"Sentinel"},text="Cast {259495}."},
               },
             },
             ["single-target-opener"]={
@@ -5251,7 +5253,8 @@ ClassCodexSource["icyveins"] = {
                 {heroRequired={"Sentinel"},text="{259495}"},
                 {heroRequired={"Sentinel"},text="Continue with the priority list as described below."},
                 {heroRequired={"Sentinel"},text="{259495} around 1 sec before combat begins."},
-                {heroRequired={"Sentinel"},text="{1250646}, alongside your Potion, on-use Trinket, Racials, etc."},
+                {heroRequired={"Sentinel"},text="{1261193}, alongside your Potion, on-use Trinket, Racials, etc."},
+                {heroRequired={"Sentinel"},text="{1250646}"},
                 {heroRequired={"Sentinel"},text="{259495}"},
                 {heroRequired={"Sentinel"},text="Continue with the priority list as described below."},
               },
@@ -10957,14 +10960,9 @@ ClassCodexSource["icyveins"] = {
             },
             pvp={
               {
-                export="CgQAAAAAAAAAAAAAAAAAAAAAAAAAAgBAAAAzMzYbZMzMPwMzMmZGDLwGMjFN2GAzAbYmBzyMzMa2WmZWYMbsZMDzMb2GAAMAmZMmZAYMYA",
-                label="Blitz",
-                recommended=true,
-              },
-              {
-                export="CgQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwglFAPAGwYYB2gZswYbAMDsBwMbjxwssMzsMmBWMmZMzsNbGAAAYmBzMAwgB",
-                honor={290250,305483,204336},
+                export="CgQAAAAAAAAAAAAAAAAAAAAAAAAAAgBAAAAzMmltlxMzMzMzMzMjhFYDmxiGbDgZgN8AzgZbMGNLLzMLjZgFjZGzMbzmBAAAmZwMDAjBD",
                 label="PvP",
+                recommended=true,
               },
             },
             raid={
@@ -12952,7 +12950,7 @@ ClassCodexSource["icyveins"] = {
       },
     },
   },
-  meta={contentHash="d516e43ea7f8ae02",generatedAt="2026-08-28T18:01:31.585Z",schemaVersion=1,source="icyveins"},
+  meta={contentHash="2063ff48ded36f8d",generatedAt="2026-08-31T10:30:33.137Z",schemaVersion=1,source="icyveins"},
   reference={
     heroNames={
       ["aldrachi-reaver"]="Aldrachi Reaver",

@@ -392,7 +392,9 @@ local TGT_MAX_ROWS = 4
 local TGT_ROW_HEIGHT = 40
 local TGT_ROW_GAP = 5
 local BAR_HEIGHT = 16
-local BAR_MAX_RATIO = 1.3
+local TARGET_TICK_FRAC = 0.8
+
+local renderTargets
 
 local DISPLAY_ORDER = { "mastery", "haste", "crit", "versatility" }
 
@@ -413,11 +415,61 @@ local STATUS_ICONS = {
         texCoord = { 0, 1, 1, 0 },
     },
 }
-local BAR_COLORS = {
-    above = { 0.35, 0.65, 1.00 },
+local BAR_BAND_COLORS = {
+    farBelow = { 0.80, 0.16, 0.16 },
+    below = { 0.95, 0.45, 0.38 },
     at = { 0.40, 1.00, 0.45 },
-    below = { 0.95, 0.40, 0.40 },
+    above = { 0.38, 0.66, 1.00 },
+    farAbove = { 0.22, 0.44, 1.00 },
+    neutral = { 0.55, 0.55, 0.60 },
 }
+
+local function BandFromPct(pct)
+    pct = pct or 0
+    if pct <= -20 then
+        return "farBelow"
+    elseif pct <= -5 then
+        return "below"
+    elseif pct < 5 then
+        return "at"
+    elseif pct <= 30 then
+        return "above"
+    else
+        return "farAbove"
+    end
+end
+
+local function SetBarBand(bar, band)
+    if bar._colorBand == band then return end
+    bar._colorBand = band
+    local c = BAR_BAND_COLORS[band] or BAR_BAND_COLORS.neutral
+    bar.fill:SetVertexColor(c[1], c[2], c[3], 1)
+end
+
+local function ApplyBarLayout(bar)
+    local inner = math.max(0, (bar:GetWidth() or 0) - 4)
+    local p = bar.progress or 0
+    local fillW = math.max(p > 0 and 2 or 0, math.min(p * inner, inner))
+    if bar._lastFillW ~= fillW then
+        bar.fill:SetWidth(fillW)
+        bar._lastFillW = fillW
+    end
+    if bar.tick then
+        local tf = bar.tickFrac
+        if tf then
+            local tickX = 2 + math.floor(tf * inner + 0.5)
+            if bar._lastTickX ~= tickX then
+                bar.tick:ClearAllPoints()
+                bar.tick:SetPoint("TOP", bar, "TOPLEFT", tickX, -2)
+                bar.tick:SetPoint("BOTTOM", bar, "BOTTOMLEFT", tickX, 2)
+                bar._lastTickX = tickX
+            end
+            bar.tick:Show()
+        else
+            bar.tick:Hide()
+        end
+    end
+end
 
 local function MakeBar(row)
     local barFrame = CreateFrame("Frame", nil, row)
@@ -497,16 +549,8 @@ local function MakeBar(row)
     tick:SetWidth(2)
     barFrame.tick = tick
 
-    barFrame:SetScript("OnSizeChanged", function(self, w)
-        local p = self.progress or 0
-        local inner = math.max(0, w - 4)
-        self.fill:SetWidth(math.max(p > 0 and 2 or 0, math.min(p * inner, inner)))
-        if self.tick then
-            local tickX = 2 + math.floor((1 / BAR_MAX_RATIO) * inner + 0.5)
-            self.tick:ClearAllPoints()
-            self.tick:SetPoint("TOP", self, "TOPLEFT", tickX, -2)
-            self.tick:SetPoint("BOTTOM", self, "BOTTOMLEFT", tickX, 2)
-        end
+    barFrame:SetScript("OnSizeChanged", function(self)
+        ApplyBarLayout(self)
     end)
     barFrame.fill = fill
     return barFrame
@@ -537,6 +581,56 @@ local function buildTargets(inst, opts)
         end
     end)
     if inst.subHeader.AddHeaderWidget then inst.subHeader:AddHeaderWidget(inst.uggIcon) end
+
+    local binCog = CreateFrame("Button", nil, inst.subHeader)
+    binCog:SetSize(14, 14)
+    binCog:RegisterForClicks("LeftButtonUp")
+    local binCogIcon = binCog:CreateTexture(nil, "ARTWORK")
+    binCogIcon:SetAllPoints()
+    binCogIcon:SetAtlas("QuestLog-icon-setting")
+    binCogIcon:SetVertexColor(0.6, 0.6, 0.6)
+    binCog:SetScript("OnEnter", function(self)
+        binCogIcon:SetVertexColor(1, 1, 1)
+        ns.Tooltip
+            .Open(self, "ANCHOR_RIGHT")
+            .Title(L["section.stat_targets"] or "Stat Targets")
+            .Hint(L["stat_targets.bin_picker"] or "")
+            .Show()
+    end)
+    binCog:SetScript("OnLeave", function()
+        binCogIcon:SetVertexColor(0.6, 0.6, 0.6)
+        ns.Tooltip.Hide()
+    end)
+    binCog:SetScript("OnClick", function(self)
+        if not (MenuUtil and MenuUtil.CreateContextMenu) then return end
+        MenuUtil.CreateContextMenu(self, function(_, root)
+            root:CreateTitle(L["section.stat_targets"] or "Stat Targets")
+            for _, b in ipairs(ns.STAT_TARGET_BINS) do
+                local key = b.key
+                local radio = root:CreateRadio(ns.StatTargetBinLabel(key), function()
+                    return ns.GetStatTargetBin() == key
+                end, function()
+                    ns.SetStatTargetBin(key)
+                    if ns.InvalidateTooltipCache then ns.InvalidateTooltipCache() end
+                    if inst.lastArgs then renderTargets(inst, inst.lastArgs) end
+                    return MenuResponse.Refresh
+                end)
+                local desc = ns.StatTargetBinTooltip and ns.StatTargetBinTooltip(key)
+                if desc and radio and radio.SetTooltip then
+                    radio:SetTooltip(function(tip)
+                        ns.Tooltip.MenuTip(tip, ns.StatTargetBinLabel(key), desc)
+                    end)
+                end
+            end
+        end)
+    end)
+    binCog:Hide()
+    inst.binCog = binCog
+    if ns.MakeCogGlow then
+        ns.MakeCogGlow(binCog, binCogIcon)
+        ns.MakeLabelMenuHotspot(inst.subHeader, binCog)
+    end
+    if inst.subHeader.AddHeaderWidget then inst.subHeader:AddHeaderWidget(binCog) end
 
     inst.ctxDropdown = ns.CreateOptionDropdown(inst.ddName, inst.content)
     inst.ctxDropdown:SetPoint("TOPLEFT", 0, 0)
@@ -581,7 +675,15 @@ local function buildTargets(inst, opts)
     inst.emptyFallback:Hide()
 end
 
-local function renderTargets(inst, args)
+local function resetBinChrome(inst)
+    if inst.binCog then inst.binCog:Hide() end
+    if inst.subHeader and inst.subHeader.label then
+        inst.subHeader.label:SetText(L["section.stat_targets"] or "Stat Targets")
+    end
+end
+
+function renderTargets(inst, args)
+    inst.lastArgs = args
     inst.emptyFallback:Hide()
     local classToken = args.classToken
     local specKey = args.specKey
@@ -591,6 +693,7 @@ local function renderTargets(inst, args)
             inst.rows[i]:Hide()
         end
         if inst.uggIcon then inst.uggIcon:Hide() end
+        resetBinChrome(inst)
         return 0
     end
 
@@ -616,6 +719,7 @@ local function renderTargets(inst, args)
             inst.rows[i]:Hide()
         end
         if inst.uggIcon then inst.uggIcon:Hide() end
+        resetBinChrome(inst)
         -- A spec with no targets at all (e.g. a young season with too few
         -- parses) still gets the section, with a note instead of rows —
         -- callers treat any positive return as "section shown".
@@ -643,7 +747,20 @@ local function renderTargets(inst, args)
         for i = 1, TGT_MAX_ROWS do
             inst.rows[i]:Hide()
         end
+        resetBinChrome(inst)
         return 0
+    end
+
+    local showCurrent = args.showCurrent ~= false
+
+    if inst.binCog then inst.binCog:SetShown(snapshot.multiBin == true) end
+    if inst.subHeader and inst.subHeader.label then
+        local base = L["section.stat_targets"] or "Stat Targets"
+        if snapshot.multiBin then
+            inst.subHeader.label:SetText(base .. " · " .. ns.StatTargetBinLabel(snapshot.bin))
+        else
+            inst.subHeader.label:SetText(base)
+        end
     end
 
     local yOffset = -(tgtSubHeaderHeight(inst) + 4)
@@ -661,15 +778,20 @@ local function renderTargets(inst, args)
         yOffset = yOffset - TGT_ROW_HEIGHT - TGT_ROW_GAP
 
         row.statName:SetText(ns.STAT_LABELS[statKey] or statKey)
-        local showCurrent = args.showCurrent ~= false
 
-        local kind, progress
+        local bar = row.bar
+        local band = "neutral"
+        local progress = 0
+        local tickFrac = hasTarget and TARGET_TICK_FRAC or nil
+
         if showCurrent then
             local current = ns.GetPlayerStatRating(statKey)
             local livePct = ns.GetPlayerStatPercent(statKey)
-            if current then
-                kind = hasTarget and (ns.ClassifyStatDelta(current, target) or "below") or "at"
-                local status = STATUS_ICONS[kind]
+            if hasTarget and current then
+                progress = math.min((current / target) * TARGET_TICK_FRAC, 1)
+                local kind, pct = ns.ClassifyStatDelta(current, target)
+                band = BandFromPct(pct)
+                local status = STATUS_ICONS[kind or "below"]
                 row.statusIcon:SetTexture(status.texture)
                 row.statusIcon:SetTexCoord(
                     status.texCoord[1],
@@ -680,10 +802,13 @@ local function renderTargets(inst, args)
                 row.statusIcon:SetVertexColor(status.r, status.g, status.b)
                 row.statusIcon:Show()
                 row.rating:SetText(string.format("%.1f%%  |cff9a9a9a%d / %d|r", livePct, current, target))
-            else
-                kind = "at"
+            elseif hasTarget then
                 row.statusIcon:Hide()
-                row.rating:SetText(hasTarget and string.format("|cff9a9a9a— / %d|r", target) or "—")
+                row.rating:SetText(string.format("|cff9a9a9a— / %d|r", target))
+            else
+                tickFrac = nil
+                row.statusIcon:Hide()
+                row.rating:SetText(current and string.format("%.1f%%", livePct) or "—")
             end
             local marginal = ns.GetMarginalDR and ns.GetMarginalDR(livePct) or 1
             if marginal >= 1 then
@@ -712,31 +837,23 @@ local function renderTargets(inst, args)
                 end)
                 row._statTooltipBound = true
             end
-            local ratio = (current and hasTarget) and (current / target) or 1
-            progress = math.min(ratio, BAR_MAX_RATIO) / BAR_MAX_RATIO
         else
-            kind = "at"
             row.statusIcon:Hide()
-            row.rating:SetText(hasTarget and string.format("|cff9a9a9a%d|r", target) or "")
-            row.rating:SetTextColor(0.85, 0.85, 0.85)
             row:EnableMouse(false)
-            progress = hasTarget and (1 / BAR_MAX_RATIO) or 0
-        end
-        row.bar.progress = progress
-        local barW = row.bar:GetWidth()
-        local inner = math.max(0, barW - 4)
-        row.bar.fill:SetWidth(math.max(progress > 0 and 2 or 0, math.min(progress * inner, inner)))
-
-        if row.bar.tick then
-            local tickX = 2 + math.floor((1 / BAR_MAX_RATIO) * inner + 0.5)
-            row.bar.tick:ClearAllPoints()
-            row.bar.tick:SetPoint("TOP", row.bar, "TOPLEFT", tickX, -2)
-            row.bar.tick:SetPoint("BOTTOM", row.bar, "BOTTOMLEFT", tickX, 2)
-            row.bar.tick:Show()
+            row.rating:SetTextColor(0.85, 0.85, 0.85)
+            if hasTarget then
+                progress = TARGET_TICK_FRAC
+                row.rating:SetText(string.format("|cff9a9a9a%d|r", target))
+            else
+                tickFrac = nil
+                row.rating:SetText("")
+            end
         end
 
-        local barColor = BAR_COLORS[kind]
-        row.bar.fill:SetVertexColor(barColor[1], barColor[2], barColor[3], 1)
+        bar.progress = progress
+        bar.tickFrac = tickFrac
+        SetBarBand(bar, band)
+        ApplyBarLayout(bar)
     end
 
     for i = visibleCount + 1, TGT_MAX_ROWS do

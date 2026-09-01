@@ -276,7 +276,7 @@ local function BuildJournalLootIndex()
     if journalLootScanTried then return end
     journalLootScanTried = true
     if not (C_EncounterJournal and C_EncounterJournal.GetLootInfoByIndex and EJ_SelectEncounter and EJ_GetNumLoot) then
-        print("|cffff3333Class Codex:|r journal loot index unavailable (journal API missing)")
+        print("|cffff3333Class Codex:|r " .. ns.L["dungeon.journal_unavailable"])
         return
     end
     journalLootByItem = {}
@@ -330,10 +330,10 @@ local function BuildJournalLootIndex()
     if prevLootClass ~= nil and EJ_SetLootFilter then pcall(EJ_SetLootFilter, prevLootClass or 0, prevLootSpec or 0) end
     if not ok then
         journalLootByItem = nil
-        print("|cffff3333Class Codex:|r journal loot index build failed: " .. tostring(err))
+        print("|cffff3333Class Codex:|r " .. string.format(ns.L["dungeon.journal_build_failed"], tostring(err)))
     elseif not next(journalLootByItem) then
         journalLootByItem = nil
-        print("|cffff3333Class Codex:|r journal loot index built empty — journal difficulty may hide loot")
+        print("|cffff3333Class Codex:|r " .. ns.L["dungeon.journal_empty"])
     end
 end
 

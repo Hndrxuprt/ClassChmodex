@@ -1251,11 +1251,17 @@ local function CreateOptionDropdown(name, parent, width)
             else
                 label, value = opt, opt
             end
-            rootDescription:CreateRadio(label, function()
+            local radio = rootDescription:CreateRadio(label, function()
                 return value == dd._current
             end, function()
                 if dd._onSelect then dd._onSelect(value) end
             end)
+            if type(opt) == "table" and opt.tooltip and radio and radio.SetTooltip then
+                local tipTitle, tipBody = label, opt.tooltip
+                radio:SetTooltip(function(tip)
+                    ns.Tooltip.MenuTip(tip, tipTitle, tipBody)
+                end)
+            end
         end
     end)
 
@@ -1764,11 +1770,7 @@ local function CreateSourceButton(name, parent, badgeSize)
     end)
 
     btn:SetScript("OnEnter", function(self)
-        ns.Tooltip
-            .Open(self, "ANCHOR_RIGHT")
-            .Title("Context")
-            .Hint("Source, content type, hero spec — click to change.")
-            .Show()
+        ns.Tooltip.Open(self, "ANCHOR_RIGHT").Title(L["context.selector_title"]).Hint(L["context.selector_hint"]).Show()
     end)
     btn:SetScript("OnLeave", function()
         ns.Tooltip.Hide()
@@ -3259,7 +3261,7 @@ local function SetupWidgetButton()
                 end)
             end
         end)
-        if not ok then print("|cffff0000Class Codex:|r Panel error: " .. tostring(err)) end
+        if not ok then print("|cffff0000Class Codex:|r " .. string.format(L["error.panel"], tostring(err))) end
     end
 
     local function OnAnyHostHide()
@@ -3320,7 +3322,7 @@ function ClassCodex_OnAddonCompartmentEnter(_, menuButtonFrame)
     ns.Tooltip
         .Open(menuButtonFrame, "ANCHOR_RIGHT")
         .Intro("Class Codex v" .. ver)
-        .Body("Click to open Compendium")
+        .Body(L["tooltip.open_compendium"])
         .Show()
 end
 
@@ -3986,6 +3988,7 @@ eventFrame:SetScript("OnEvent", function(_, event, arg1)
         local dbDefaults = {
             showLoginMessage = false,
             showTooltipBadges = true,
+            statTargetBin = "top20",
             tooltipFooterMode = 2,
             showUggBisTooltip = true,
             showIcyVeinsBisTooltip = true,
@@ -4323,7 +4326,7 @@ SlashCmdList["CLASSCODEX"] = function(msg)
         if panel:IsShown() then ns:UpdatePanel() end
     elseif msg == "help" then
         local sc = ns.FixSlash("/cc")
-        print("|cff00ccffClass Codex|r commands:")
+        print("|cff00ccffClass Codex|r " .. L["chat.commands_header"])
         print("  " .. sc)
         print("  " .. sc .. " compendium")
         print("  " .. sc .. " reset")

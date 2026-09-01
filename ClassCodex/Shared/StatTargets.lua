@@ -14,6 +14,55 @@ for key, label in pairs(ns.STAT_LABELS) do
     ns.STAT_KEY_FROM_LABEL[label] = key
 end
 
+ns.STAT_TARGET_BINS = {
+    { key = "top20", pct = 20 },
+    { key = "top50", pct = 50 },
+    { key = "top80", pct = 80 },
+}
+
+local BIN_PCT = {}
+for _, b in ipairs(ns.STAT_TARGET_BINS) do
+    BIN_PCT[b.key] = b.pct
+end
+
+function ns.GetStatTargetBin()
+    local b = ClassCodexDB and ClassCodexDB.statTargetBin
+    if BIN_PCT[b] then return b end
+    return "top20"
+end
+
+function ns.SetStatTargetBin(bin)
+    if not BIN_PCT[bin] or not ClassCodexDB then return end
+    ClassCodexDB.statTargetBin = bin
+end
+
+function ns.StatTargetBinLabel(bin)
+    local pct = BIN_PCT[bin] or BIN_PCT.top20
+    local fmt = (ns.L and ns.L["stat_targets.bin"]) or "Top %d%%"
+    return string.format(fmt, pct)
+end
+
+function ns.StatTargetBinTooltip(bin)
+    return ns.L and ns.L["stat_targets.bin_desc." .. bin]
+end
+
+local function binsDiffer(leaf)
+    local first
+    for _, b in ipairs(ns.STAT_TARGET_BINS) do
+        local t = leaf[b.key]
+        if t then
+            if not first then
+                first = t
+            else
+                for _, k in ipairs(ns.STAT_KEYS) do
+                    if (first[k] or 0) ~= (t[k] or 0) then return true end
+                end
+            end
+        end
+    end
+    return false
+end
+
 ns.UNIVERSAL_DR = {
     crit = 1380,
     haste = 1320,
@@ -90,7 +139,22 @@ function ns.GetStatTargets(classToken, specKey, context, source, heroSlug)
         targets = ns.SourceValue and ns.SourceValue("ugg", classToken, specKey, "statTargets", hero, ctx)
     end
     if not targets then return nil end
-    return { targets = targets }
+
+    local bin = ns.GetStatTargetBin()
+    local isBinned = targets.top20 ~= nil or targets.top50 ~= nil or targets.top80 ~= nil
+    local chosen, usedBin
+    if isBinned then
+        if targets[bin] then
+            chosen, usedBin = targets[bin], bin
+        else
+            chosen = targets.top20 or targets.top50 or targets.top80
+            usedBin = targets.top20 and "top20" or targets.top50 and "top50" or "top80"
+        end
+    else
+        chosen, usedBin = targets, "top20"
+    end
+    if not chosen then return nil end
+    return { targets = chosen, bin = usedBin, multiBin = isBinned and binsDiffer(targets) or false }
 end
 
 local STAT_PRIORITY_DISPLAY =
@@ -310,7 +374,11 @@ function ns.AppendStatExtrasToTooltip(tooltip, statKey, snapshot, opts)
     if not opts.omitTarget and target and target > 0 then
         if opts.includeTitle then tooltip:AddLine(" ") end
         local cl, cr = COLORS.muted, COLORS.intro
-        tooltip:AddDoubleLine("Target", string.format("%d", target), cl[1], cl[2], cl[3], cr[1], cr[2], cr[3])
+        local targetLabel = "Target"
+        if snapshot and snapshot.multiBin and snapshot.bin and ns.StatTargetBinLabel then
+            targetLabel = string.format("Target (%s)", ns.StatTargetBinLabel(snapshot.bin))
+        end
+        tooltip:AddDoubleLine(targetLabel, string.format("%d", target), cl[1], cl[2], cl[3], cr[1], cr[2], cr[3])
         if current then
             local kind = ns.ClassifyStatDelta(current, target) or "below"
             local diff = current - target

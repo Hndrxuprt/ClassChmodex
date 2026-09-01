@@ -74,7 +74,7 @@ local function makeCtxCog(inst)
         ns.Tooltip
             .Open(self, "ANCHOR_RIGHT")
             .Title(L["section.rotation"] or "Rotation")
-            .Hint("Click to switch rotation.")
+            .Hint(L["rotation.cog_hint"])
             .Show()
     end)
     cog:SetScript("OnLeave", function()

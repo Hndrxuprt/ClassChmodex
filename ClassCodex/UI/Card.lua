@@ -68,7 +68,7 @@ function ns.CreateCard(parent, opts)
     heroTex:SetAllPoints(heroBtn)
     heroBtn.tex = heroTex
     heroBtn:SetScript("OnEnter", function(self)
-        if self.tip then ns.Tooltip.Open(self, "ANCHOR_RIGHT").Title(self.tip).Body("Hero talent").Show() end
+        if self.tip then ns.Tooltip.Open(self, "ANCHOR_RIGHT").Title(self.tip).Body(ns.L["card.hero_talent"]).Show() end
     end)
     heroBtn:SetScript("OnLeave", function()
         ns.Tooltip.Hide()
@@ -102,7 +102,7 @@ function ns.CreateCard(parent, opts)
     starTex:SetTexture("Interface\\Common\\FavoritesIcon")
     local starTipTags = nil
     star:SetScript("OnEnter", function(self)
-        local t = ns.Tooltip.Open(self, "ANCHOR_RIGHT").Title("Recommended")
+        local t = ns.Tooltip.Open(self, "ANCHOR_RIGHT").Title(ns.L["talent_pane.recommended"])
         -- Source-authored labels (High Key, Weekly Key, …) ride on the star
         -- instead of cluttering the visible label.
         if starTipTags and #starTipTags > 0 then t.Body(table.concat(starTipTags, ", ")) end
@@ -122,7 +122,7 @@ function ns.CreateCard(parent, opts)
     checkTex:SetAllPoints()
     checkTex:SetTexture("Interface\\RaidFrame\\ReadyCheck-Ready")
     appliedCheck:SetScript("OnEnter", function(self)
-        ns.Tooltip.Open(self, "ANCHOR_RIGHT").Title("Currently applied").Show()
+        ns.Tooltip.Open(self, "ANCHOR_RIGHT").Title(ns.L["card.currently_applied"]).Show()
     end)
     appliedCheck:SetScript("OnLeave", function()
         ns.Tooltip.Hide()

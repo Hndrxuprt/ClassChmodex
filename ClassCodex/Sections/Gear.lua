@@ -135,7 +135,7 @@ local function makeCog(inst, ctx)
         ns.Tooltip
             .Open(self, "ANCHOR_RIGHT")
             .Title(L["tab.best_in_slot"] or "Best in Slot")
-            .Hint("Click to change build or view.")
+            .Hint(L["gear.cog_hint"])
             .Show()
     end)
     cog:SetScript("OnLeave", function()
