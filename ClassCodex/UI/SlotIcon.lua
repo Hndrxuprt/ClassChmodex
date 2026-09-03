@@ -338,7 +338,6 @@ function ns.LayoutTable(content, rows, items, opts)
         row.spellId = item.spellId
         row.bonusIDs = item.bonusIDs
         row.catalystItemId = item.catalystItemId
-        row.catalystBonusIDs = item.catalystBonusIDs
         row.ejClassID = item.ejClassID
         row.ejSpecID = item.ejSpecID
         row.altItemId = nil

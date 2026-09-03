@@ -108,15 +108,14 @@ local function ResolveRow(entry, whLookup, context)
     return source or "", bonusIDs
 end
 
--- Catalyst entries: the tier piece (entry.item) displays, and the conversion
--- preserves the source's upgrade track — the bonuses apply to the DISPLAYED
--- item (chat links, tooltips, dressing room render at the rolled item level;
--- wowhead models it the same way: item=<tier id>&bonus=…&original-item=<src>).
--- The source id is kept for the "Converted from" tooltip line.
+-- Catalyst entries: the bonuses ride the DISPLAYED tier piece — the real
+-- in-game link of a catalyzed item is exactly that (tier id + chain, linkLevel
+-- filled), and the engine applies the 12.1 conversion's retained source stats
+-- to it. The source id is kept for the "Converted from" tooltip line.
 local function ResolveStatIds(entry, bonusIDs)
     local cat = entry.item and entry.item.catalyst
-    if cat then return cat.bonusIDs, cat.itemId, cat.bonusIDs end
-    return bonusIDs, nil, nil
+    if cat then return cat.bonusIDs, cat.itemId end
+    return bonusIDs, nil
 end
 
 local CONTENT_LABEL = { mplus = "Mythic+", raid = "Raid", pvp = "PvP" }
@@ -260,7 +259,6 @@ local function layoutGrid(content, icons, items)
         ic.itemId = item.itemId
         ic.bonusIDs = item.bonusIDs
         ic.catalystItemId = item.catalystItemId
-        ic.catalystBonusIDs = item.catalystBonusIDs
         ic.ejClassID = item.ejClassID
         ic.ejSpecID = item.ejSpecID
         ic.altItemId = nil
@@ -426,14 +424,13 @@ local function render(inst, args)
         for i = 1, count do
             local entry = selectedSlots[i]
             local source, bonusIDs = ResolveRow(entry, nil, ctxBonus)
-            local rowBonus, catalystItemId, catalystBonusIDs = ResolveStatIds(entry, bonusIDs)
+            local rowBonus, catalystItemId = ResolveStatIds(entry, bonusIDs)
             local owned = ns.IsItemOwned(entry.item.itemId)
             if inst.gateOwned then owned = owned and ns.compOwnClass end
             items[#items + 1] = {
                 itemId = entry.item.itemId,
                 bonusIDs = rowBonus,
                 catalystItemId = catalystItemId,
-                catalystBonusIDs = catalystBonusIDs,
                 ejClassID = ejClassID,
                 ejSpecID = ejSpecID,
                 sourceText = (source ~= "" and source) or nil,
@@ -450,14 +447,13 @@ local function render(inst, args)
         for i = 1, count do
             local entry = selectedSlots[i]
             local source, bonusIDs = ResolveRow(entry, nil, ctxBonus)
-            local rowBonus, catalystItemId, catalystBonusIDs = ResolveStatIds(entry, bonusIDs)
+            local rowBonus, catalystItemId = ResolveStatIds(entry, bonusIDs)
             local owned = ns.IsItemOwned(entry.item.itemId)
             if inst.gateOwned then owned = owned and ns.compOwnClass end
             items[#items + 1] = {
                 itemId = entry.item.itemId,
                 bonusIDs = rowBonus,
                 catalystItemId = catalystItemId,
-                catalystBonusIDs = catalystBonusIDs,
                 ejClassID = ejClassID,
                 ejSpecID = ejSpecID,
                 sourceText = (source ~= "" and source) or nil,
@@ -484,7 +480,7 @@ local function render(inst, args)
             local entry = selectedSlots[i]
             local row = inst.rows[i]
             local source, bonusIDs = ResolveRow(entry, nil, ctxBonus)
-            local rowBonus, catalystItemId, catalystBonusIDs = ResolveStatIds(entry, bonusIDs)
+            local rowBonus, catalystItemId = ResolveStatIds(entry, bonusIDs)
             local itemLabel = ns.FormatItem(entry.item)
             row.itemText:SetText(itemLabel)
             local hasSource = showSource and source and source ~= ""
@@ -501,7 +497,6 @@ local function render(inst, args)
             row.itemId = entry.item.itemId
             row.bonusIDs = rowBonus
             row.catalystItemId = catalystItemId
-            row.catalystBonusIDs = catalystBonusIDs
             row.ejClassID = ejClassID
             row.ejSpecID = ejSpecID
             row.altItemId = nil

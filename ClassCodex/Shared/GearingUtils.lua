@@ -772,20 +772,75 @@ local function GetItemLink(itemId)
     return link
 end
 
+-- 12.1 catalyst conversions keep the SOURCE item's secondary stats, but the
+-- engine attaches that roll to the real item instance only — no synthetic link
+-- carries it (even the bag item's own link string re-renders as the tier's
+-- base stats; AllTheThings models the result in its own DB for the same
+-- reason). Catalyst rows therefore render the tier link and overwrite its stat
+-- lines positionally from the source link's own tooltip: the primary and
+-- stamina lines carry identical values on both items, so the whole +stat block
+-- swaps cleanly and the secondaries come out as the source's retained roll.
+local function IsStatLine(text)
+    return text ~= nil and text:find("^%+[%d,]+%s") ~= nil
+end
+
+local function CaptureStatLines(sourceLink)
+    if not (sourceLink and pcall(GameTooltip.SetHyperlink, GameTooltip, sourceLink)) then return nil end
+    local lines = {}
+    for i = 2, GameTooltip:NumLines() do
+        local fs = _G["GameTooltipTextLeft" .. i]
+        local text = fs and fs:GetText()
+        if IsStatLine(text) then lines[#lines + 1] = text end
+    end
+    return lines[1] and lines or nil
+end
+
+local function ApplyStatLines(sourceLines)
+    local tier = {}
+    for i = 2, GameTooltip:NumLines() do
+        local fs = _G["GameTooltipTextLeft" .. i]
+        if fs and IsStatLine(fs:GetText()) then tier[#tier + 1] = fs end
+    end
+    for i = 1, math.min(#tier, #sourceLines) do
+        if tier[i]:GetText() ~= sourceLines[i] then tier[i]:SetText(sourceLines[i]) end
+    end
+end
+
 --- The full hyperlink for an item with its bonus-list ids. GetItemInfo's cached
 --- link is always the BASE version — without the bonuses a BiS pick renders at
 --- its base item level (e.g. 219 instead of the bonus-encoded 344), so chat
 --- links and dressing-room previews must be built from the ids directly.
-function ns.BuildItemLink(itemId, bonusIDs)
+---
+--- Field layout mirrors a REAL in-game link: linkLevel (player level) in field
+--- 9, trailing colon. sourceItemId (catalyst rows) appends the item modifier
+--- the engine itself writes for catalyzed items — "1 modifier, type 64, value
+--- = source item id" (captured from a live conversion:
+--- item:271540:…:5:1558:…:1:64:272239:) — which is what makes the tooltip
+--- apply the conversion's retained source stats.
+function ns.BuildItemLink(itemId, bonusIDs, sourceItemId)
     if not itemId then return nil end
     if bonusIDs and #bonusIDs > 0 then
-        -- 11 empty fields sit between the item id and the bonus count (enchant,
-        -- 4 gems, suffix, unique, linkLevel, spec, modifiers mask, itemContext)
-        -- — 12 colons total, matching the retail item-string layout
-        -- (item:ID:…:50:72::22:COUNT:bonus…). Tooltips only apply the bonuses
-        -- from a COMPLETE hyperlink (|Hitem:…|h[name]|h), not the bare
-        -- "item:…" string.
-        local bare = format("item:%d::::::::::::%d:%s", itemId, #bonusIDs, table.concat(bonusIDs, ":"))
+        -- 7 empty fields (enchant, 4 gems, suffix, unique), linkLevel, 3 more
+        -- (spec, modifiers mask, itemContext), then the bonus count.
+        local bare
+        if sourceItemId then
+            bare = format(
+                "item:%d::::::::%d::::%d:%s:1:64:%d:",
+                itemId,
+                UnitLevel("player") or MAX_PLAYER_LEVEL,
+                #bonusIDs,
+                table.concat(bonusIDs, ":"),
+                sourceItemId
+            )
+        else
+            bare = format(
+                "item:%d::::::::%d::::%d:%s:",
+                itemId,
+                UnitLevel("player") or MAX_PLAYER_LEVEL,
+                #bonusIDs,
+                table.concat(bonusIDs, ":")
+            )
+        end
         -- Prefer the CLIENT's own link for this exact bonus combo: GetItemInfo
         -- on an item string returns the engine-sanctioned hyperlink (correct
         -- color placement, whatever field layout this client build validates
@@ -819,7 +874,8 @@ end
 
 local function HandleItemClick(self)
     if not self.itemId then return end
-    local link = (ns.BuildItemLink and ns.BuildItemLink(self.itemId, self.bonusIDs)) or GetItemLink(self.itemId)
+    local link = (ns.BuildItemLink and ns.BuildItemLink(self.itemId, self.bonusIDs, self.catalystItemId))
+        or GetItemLink(self.itemId)
     if not link then return end -- uncached item; BuildItemLink already requested the load, next click works
     if IsModifiedClick("CHATLINK") then
         -- Bag behaviour: insert into the open chat box only; never open chat
@@ -1054,7 +1110,8 @@ local function OpenItemContextMenu(row)
             end)
         end
         root:CreateButton((L and L["item.menu.link_chat"]) or "Link in chat", function()
-            local link = (ns.BuildItemLink and ns.BuildItemLink(itemId, row.bonusIDs)) or GetItemLink(itemId)
+            local link = (ns.BuildItemLink and ns.BuildItemLink(itemId, row.bonusIDs, row.catalystItemId))
+                or GetItemLink(itemId)
             if link then
                 if not ChatEdit_InsertLink(link) then ChatFrame_OpenChat(link) end
             end
@@ -1090,16 +1147,21 @@ local function SetupItemTooltip(row)
             GameTooltip:Show()
         elseif self.itemId then
             GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-            -- The tooltip shows the item itself; catalyst rows additionally
-            -- carry a "Converted from: <source>" line under the Source line.
             if self.bonusIDs and #self.bonusIDs > 0 then
                 -- BuildItemLink returns nil while the item is uncached
                 -- (GetItemLink has nothing yet); SetHyperlink(nil) then errors
                 -- later inside the engine's async tooltip handler, beyond the
                 -- pcall. Fall back to SetItemByID, which waits for data cleanly.
-                local link = ns.BuildItemLink(self.itemId, self.bonusIDs)
+                local link = ns.BuildItemLink(self.itemId, self.bonusIDs, self.catalystItemId)
                 local ok = link and pcall(GameTooltip.SetHyperlink, GameTooltip, link)
                 if not (link and ok) then GameTooltip:SetItemByID(self.itemId) end
+                if self.catalystItemId and ok and link then
+                    local sourceLines = CaptureStatLines(ns.BuildItemLink(self.catalystItemId, self.bonusIDs))
+                    if sourceLines then
+                        ok = pcall(GameTooltip.SetHyperlink, GameTooltip, link)
+                        if ok then ApplyStatLines(sourceLines) end
+                    end
+                end
             else
                 GameTooltip:SetItemByID(self.itemId)
             end
@@ -1117,7 +1179,7 @@ local function SetupItemTooltip(row)
             if self.catalystItemId then
                 ns.Tooltip.Double(
                     L["gear.tooltip.catalyst"],
-                    FormatItem({ itemId = self.catalystItemId, bonusIDs = self.catalystBonusIDs }),
+                    FormatItem({ itemId = self.catalystItemId, bonusIDs = self.bonusIDs }),
                     "muted",
                     "title"
                 )

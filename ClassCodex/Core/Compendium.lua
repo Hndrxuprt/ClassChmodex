@@ -841,9 +841,7 @@ function ns:UpdateCompendium()
 
     ns:LayoutCompendium()
 
-    if tabRedirected and UI.pane then
-        UI.pane:ScrollToTab(activeTab)
-    end
+    if tabRedirected and UI.pane then UI.pane:ScrollToTab(activeTab) end
 end
 
 local function RenderStatPrioritySection(specData, heroTalent)
