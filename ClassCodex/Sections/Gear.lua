@@ -108,10 +108,10 @@ local function ResolveRow(entry, whLookup, context)
     return source or "", bonusIDs
 end
 
--- Catalyst entries: the bonuses ride the DISPLAYED tier piece — the real
--- in-game link of a catalyzed item is exactly that (tier id + chain, linkLevel
--- filled), and the engine applies the 12.1 conversion's retained source stats
--- to it. The source id is kept for the "Converted from" tooltip line.
+-- Catalyst entries: the bonuses ride the DISPLAYED tier piece and the source
+-- id rides the link as item modifier 64 (the engine's original-item pointer,
+-- which applies the conversion's retained source stats). The source id also
+-- feeds the "Catalyzed from" tooltip line.
 local function ResolveStatIds(entry, bonusIDs)
     local cat = entry.item and entry.item.catalyst
     if cat then return cat.bonusIDs, cat.itemId end
@@ -391,7 +391,7 @@ local function render(inst, args)
     if inst.header and inst.header.label then
         local base = L["tab.best_in_slot"] or "Best in Slot"
         if curVariant and curVariant ~= "" then
-            inst.header.label:SetText(base .. " · " .. curVariant)
+            inst.header.label:SetText(base .. " " .. ns.DOT_SEPARATOR .. " " .. curVariant)
         else
             inst.header.label:SetText(base)
         end

@@ -248,7 +248,7 @@ local function render(inst, args)
     if inst.header and inst.header.label then
         local base = inst.baseTitle or L["section.rotation"] or "Rotation"
         if showCtx and inst.currentContext and inst.currentContext ~= "" then
-            inst.header.label:SetText(base .. " · " .. inst.currentContext)
+            inst.header.label:SetText(base .. " " .. ns.DOT_SEPARATOR .. " " .. inst.currentContext)
         else
             inst.header.label:SetText(base)
         end

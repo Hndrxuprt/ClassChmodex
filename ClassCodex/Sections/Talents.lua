@@ -182,7 +182,7 @@ local function render(inst, args)
                 suffix = isRec and "Recommended" or nil
             end
             if suffix then
-                inst.header.label:SetText(base .. " · " .. suffix)
+                inst.header.label:SetText(base .. " " .. ns.DOT_SEPARATOR .. " " .. suffix)
             else
                 inst.header.label:SetText(base)
             end

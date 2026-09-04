@@ -772,40 +772,6 @@ local function GetItemLink(itemId)
     return link
 end
 
--- 12.1 catalyst conversions keep the SOURCE item's secondary stats, but the
--- engine attaches that roll to the real item instance only — no synthetic link
--- carries it (even the bag item's own link string re-renders as the tier's
--- base stats; AllTheThings models the result in its own DB for the same
--- reason). Catalyst rows therefore render the tier link and overwrite its stat
--- lines positionally from the source link's own tooltip: the primary and
--- stamina lines carry identical values on both items, so the whole +stat block
--- swaps cleanly and the secondaries come out as the source's retained roll.
-local function IsStatLine(text)
-    return text ~= nil and text:find("^%+[%d,]+%s") ~= nil
-end
-
-local function CaptureStatLines(sourceLink)
-    if not (sourceLink and pcall(GameTooltip.SetHyperlink, GameTooltip, sourceLink)) then return nil end
-    local lines = {}
-    for i = 2, GameTooltip:NumLines() do
-        local fs = _G["GameTooltipTextLeft" .. i]
-        local text = fs and fs:GetText()
-        if IsStatLine(text) then lines[#lines + 1] = text end
-    end
-    return lines[1] and lines or nil
-end
-
-local function ApplyStatLines(sourceLines)
-    local tier = {}
-    for i = 2, GameTooltip:NumLines() do
-        local fs = _G["GameTooltipTextLeft" .. i]
-        if fs and IsStatLine(fs:GetText()) then tier[#tier + 1] = fs end
-    end
-    for i = 1, math.min(#tier, #sourceLines) do
-        if tier[i]:GetText() ~= sourceLines[i] then tier[i]:SetText(sourceLines[i]) end
-    end
-end
-
 --- The full hyperlink for an item with its bonus-list ids. GetItemInfo's cached
 --- link is always the BASE version — without the bonuses a BiS pick renders at
 --- its base item level (e.g. 219 instead of the bonus-encoded 344), so chat
@@ -1155,13 +1121,6 @@ local function SetupItemTooltip(row)
                 local link = ns.BuildItemLink(self.itemId, self.bonusIDs, self.catalystItemId)
                 local ok = link and pcall(GameTooltip.SetHyperlink, GameTooltip, link)
                 if not (link and ok) then GameTooltip:SetItemByID(self.itemId) end
-                if self.catalystItemId and ok and link then
-                    local sourceLines = CaptureStatLines(ns.BuildItemLink(self.catalystItemId, self.bonusIDs))
-                    if sourceLines then
-                        ok = pcall(GameTooltip.SetHyperlink, GameTooltip, link)
-                        if ok then ApplyStatLines(sourceLines) end
-                    end
-                end
             else
                 GameTooltip:SetItemByID(self.itemId)
             end

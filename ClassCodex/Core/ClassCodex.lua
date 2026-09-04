@@ -3646,7 +3646,7 @@ local function BuildTooltipEntries(itemId)
                             end
                             shortTabs[#shortTabs + 1] = short
                         end
-                        s = s .. " \194\183 " .. "|cff00ccff" .. table.concat(shortTabs, ", ") .. "|r"
+                        s = s .. " " .. ns.DOT_SEPARATOR .. " " .. "|cff00ccff" .. table.concat(shortTabs, ", ") .. "|r"
                     elseif showLabel then
                         s = s .. (showIcon and " " or "") .. "|cff00ccffIV|r"
                     end
@@ -3940,7 +3940,7 @@ local function OnTooltipItem(tooltip, tooltipData)
                         ctxPart = ctxPart .. " |T" .. vtex .. ":14:14|t"
                         if showLabel then ctxPart = ctxPart .. " " .. cachedRanksVariant end
                     else
-                        ctxPart = ctxPart .. " · " .. cachedRanksVariant
+                        ctxPart = ctxPart .. " " .. ns.DOT_SEPARATOR .. " " .. cachedRanksVariant
                     end
                 end
                 tooltip:AddLine(" ")

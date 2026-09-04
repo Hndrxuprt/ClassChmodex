@@ -329,7 +329,7 @@ local function renderPriority(inst, args)
     if inst.header and inst.header.label then
         local base = L["section.stat_priority"] or "Stat Priority"
         if hasVariants and inst.currentVariant and inst.currentVariant ~= "" then
-            inst.header.label:SetText(base .. " · " .. inst.currentVariant)
+            inst.header.label:SetText(base .. " " .. ns.DOT_SEPARATOR .. " " .. inst.currentVariant)
         else
             inst.header.label:SetText(base)
         end
@@ -757,7 +757,7 @@ function renderTargets(inst, args)
     if inst.subHeader and inst.subHeader.label then
         local base = L["section.stat_targets"] or "Stat Targets"
         if snapshot.multiBin then
-            inst.subHeader.label:SetText(base .. " · " .. ns.StatTargetBinLabel(snapshot.bin))
+            inst.subHeader.label:SetText(base .. " " .. ns.DOT_SEPARATOR .. " " .. ns.StatTargetBinLabel(snapshot.bin))
         else
             inst.subHeader.label:SetText(base)
         end

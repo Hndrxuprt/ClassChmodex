@@ -829,7 +829,7 @@ function ns:UpdateCompendium()
     if heroLabel then titleParts[#titleParts + 1] = heroLabel end
     titleParts[#titleParts + 1] = GetSpecDisplayName(selectedClass, selectedSpec)
     titleParts[#titleParts + 1] = GetClassDisplayName(selectedClass)
-    UI.frame:SetTitle("Compendium · " .. table.concat(titleParts, " "))
+    UI.frame:SetTitle("Compendium " .. ns.DOT_SEPARATOR .. " " .. table.concat(titleParts, " "))
 
     local gearData = ns.GetSpecGearData(selectedClass, selectedSpec, compSource)
     RequestAllGearItems(gearData)
