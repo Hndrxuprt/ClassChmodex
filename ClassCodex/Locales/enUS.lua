@@ -250,10 +250,13 @@ L["settings.label.stat_priority_source_line"] = "Stat Priority Source Line"
 
 L["section.stat_targets"] = "Stat Targets"
 L["stat_targets.bin"] = "Top %d%%"
-L["stat_targets.bin_picker"] = "Set which players the targets come from. Top 20%, 50%, or 80% by gear."
+L["stat_targets.bin_picker"] =
+    "Set which players the targets come from. Top 20%, 50%, or 80% by gear. Choose whether rows show values or percentages."
 L["stat_targets.bin_desc.top20"] = "The secondary-stat ratings the top 20% of players run. The hardest to reach."
 L["stat_targets.bin_desc.top50"] = "The ratings the top 50% of players run. A realistic mid-season target."
 L["stat_targets.bin_desc.top80"] = "The ratings the top 80% of players run. The most attainable of the three."
+L["settings.value.stat_targets_values"] = "Values"
+L["settings.value.stat_targets_percent"] = "Percentages"
 L["settings.label.show_stat_targets"] = "Show Stat Targets"
 L["settings.tooltip.dock_show_stat_targets"] =
     "Show the Stat Targets section (your live stats vs U.GG stat targets) on the Stats tab when the panel is docked."

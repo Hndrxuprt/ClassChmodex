@@ -339,6 +339,36 @@ function ns.ClassifyStatDelta(currentRating, targetRating)
     end
 end
 
+--- The percent the character pane would show at `targetRating` (DR included),
+--- or nil when the player's live stats can't anchor the extrapolation.
+function ns.StatGoalPercent(statKey, statPct, currentRating, targetRating)
+    if not ns.StatDR then return nil end
+    return ns.StatDR.GoalPercent(statKey, UnitLevel("player"), statPct, currentRating, targetRating)
+end
+
+--- Percent for a bare target rating, for views without the player's live
+--- stats (compendium specs other than the player's). Mastery resolves
+--- through the class/spec coefficient table; nil when that spec has no
+--- quotable per-point value.
+function ns.StatTargetPercent(statKey, targetRating, classToken, specKey)
+    if not ns.StatDR then return nil end
+    return ns.StatDR.TargetPercent(statKey, UnitLevel("player"), targetRating, classToken, specKey)
+end
+
+--- Row unit for stat targets: "pct" shows current/goal percents (DR-aware),
+--- "values" shows current/target ratings. Set from the Stat Targets cog.
+function ns.StatTargetUnit()
+    local unit = ClassCodexDB and ClassCodexDB.statTargetUnit
+    if unit == "values" or unit == "pct" then return unit end
+    return "values"
+end
+
+function ns.SetStatTargetUnit(unit)
+    if unit ~= "values" and unit ~= "pct" then return end
+    if not ClassCodexDB then return end
+    ClassCodexDB.statTargetUnit = unit
+end
+
 local STATE_COLORS = {
     above = { 0.40, 0.70, 1.00 },
     at = { 0.40, 1.00, 0.45 },
@@ -378,7 +408,13 @@ function ns.AppendStatExtrasToTooltip(tooltip, statKey, snapshot, opts)
         if snapshot and snapshot.multiBin and snapshot.bin and ns.StatTargetBinLabel then
             targetLabel = string.format("Target (%s)", ns.StatTargetBinLabel(snapshot.bin))
         end
-        tooltip:AddDoubleLine(targetLabel, string.format("%d", target), cl[1], cl[2], cl[3], cr[1], cr[2], cr[3])
+        local showPct = ns.StatTargetUnit and ns.StatTargetUnit() == "pct"
+        local goalPct = showPct
+            and current
+            and ns.StatGoalPercent
+            and ns.StatGoalPercent(statKey, livePct, current, target)
+        local targetText = goalPct and string.format("%d (%.1f%%)", target, goalPct) or string.format("%d", target)
+        tooltip:AddDoubleLine(targetLabel, targetText, cl[1], cl[2], cl[3], cr[1], cr[2], cr[3])
         if current then
             local kind = ns.ClassifyStatDelta(current, target) or "below"
             local diff = current - target

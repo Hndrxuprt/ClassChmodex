@@ -229,7 +229,9 @@ L["settings.tooltip.float_show_stat_targets"] =
     "Zeigt den Bereich 'Wertziele' (deine Live-Werte im Vergleich zu den U.GG-Statwerten) im Werte-Tab, wenn das Panel frei schwebt."
 L["stat_targets.bin"] = "Top %d%%"
 L["stat_targets.bin_picker"] =
-    "Lege fest, aus welchen Spielern die Zielwerte stammen. Top 20 %, 50 % oder 80 % nach Ausrüstung."
+    "Lege fest, aus welchen Spielern die Zielwerte stammen. Top 20 %, 50 % oder 80 % nach Ausrüstung. Lege fest, ob die Zeilen Werte oder Prozentwerte zeigen."
+L["settings.value.stat_targets_values"] = "Werte"
+L["settings.value.stat_targets_percent"] = "Prozentwerte"
 L["stat_targets.bin_desc.top20"] =
     "Die Sekundärwert-Wertungen der besten 20 % der Spieler. Am schwersten zu erreichen."
 L["stat_targets.bin_desc.top50"] =

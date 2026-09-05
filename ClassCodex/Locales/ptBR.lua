@@ -250,7 +250,9 @@ L["settings.tooltip.float_show_stat_targets"] =
     "Mostra a seção Metas de Atributos (seus atributos ao vivo comparados às metas de atributos do U.GG) na aba Atributos quando o painel está flutuante."
 L["stat_targets.bin"] = "Top %d%%"
 L["stat_targets.bin_picker"] =
-    "Define de quais jogadores os alvos são calculados. Top 20%, 50% ou 80% por equipamento."
+    "Define de quais jogadores os alvos são calculados. Top 20%, 50% ou 80% por equipamento. Escolha se as linhas mostram valores ou porcentagens."
+L["settings.value.stat_targets_values"] = "Valores"
+L["settings.value.stat_targets_percent"] = "Porcentagens"
 L["stat_targets.bin_desc.top20"] =
     "As classificações de atributos secundários que os 20% melhores jogadores usam. As mais difíceis de alcançar."
 L["stat_targets.bin_desc.top50"] =

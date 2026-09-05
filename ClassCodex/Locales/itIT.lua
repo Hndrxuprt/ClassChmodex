@@ -222,7 +222,9 @@ L["settings.label.stat_priority_source_line"] = "Riga di origine della priorità
 L["section.stat_targets"] = "Obiettivi Statistiche"
 L["stat_targets.bin"] = "Migliori %d%%"
 L["stat_targets.bin_picker"] =
-    "Scegli da quali giocatori provengono gli obiettivi. Top 20%, 50% o 80% per equipaggiamento."
+    "Scegli da quali giocatori provengono gli obiettivi. Top 20%, 50% o 80% per equipaggiamento. Scegli se le righe mostrano valori o percentuali."
+L["settings.value.stat_targets_values"] = "Valori"
+L["settings.value.stat_targets_percent"] = "Percentuali"
 L["stat_targets.bin_desc.top20"] =
     "I valori delle statistiche secondarie usati dal 20% dei migliori giocatori. I più difficili da raggiungere."
 L["stat_targets.bin_desc.top50"] =

@@ -225,7 +225,10 @@ L["settings.label.stat_priority_source_line"] = "Línea de origen de prioridad d
 L["section.stat_targets"] = "Objetivos de Atributos"
 L["settings.label.show_stat_targets"] = "Mostrar Objetivos de Atributos"
 L["stat_targets.bin"] = "%d%% superior"
-L["stat_targets.bin_picker"] = "Elige de qué jugadores provienen los objetivos. Top 20%, 50% u 80% por equipo."
+L["stat_targets.bin_picker"] =
+    "Elige de qué jugadores provienen los objetivos. Top 20%, 50% u 80% por equipo. Elige si las filas muestran valores o porcentajes."
+L["settings.value.stat_targets_values"] = "Valores"
+L["settings.value.stat_targets_percent"] = "Porcentajes"
 L["stat_targets.bin_desc.top20"] =
     "Los valores de atributos secundarios que usa el 20% superior de jugadores. Los más difíciles de alcanzar."
 L["stat_targets.bin_desc.top50"] =

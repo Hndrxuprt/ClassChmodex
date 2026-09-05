@@ -225,7 +225,9 @@ L["section.stat_targets"] = "Objectifs de stats"
 L["settings.label.show_stat_targets"] = "Afficher les objectifs de stats"
 L["stat_targets.bin"] = "Top %d%%"
 L["stat_targets.bin_picker"] =
-    "Choisissez de quels joueurs proviennent les cibles. Les 20 %, 50 % ou 80 % les mieux équipés."
+    "Choisissez de quels joueurs proviennent les cibles. Les 20 %, 50 % ou 80 % les mieux équipés. Choisissez si les lignes affichent des valeurs ou des pourcentages."
+L["settings.value.stat_targets_values"] = "Valeurs"
+L["settings.value.stat_targets_percent"] = "Pourcentages"
 L["stat_targets.bin_desc.top20"] =
     "Les valeurs de stats secondaires utilisées par les 20 % de joueurs les mieux équipés. Les plus difficiles à atteindre."
 L["stat_targets.bin_desc.top50"] =

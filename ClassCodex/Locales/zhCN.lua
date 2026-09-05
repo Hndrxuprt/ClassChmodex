@@ -222,7 +222,10 @@ L["settings.tooltip.dock_show_stat_targets"] =
 L["settings.tooltip.float_show_stat_targets"] =
     "面板浮动时，在属性标签上显示属性目标部分（你的实时属性与 U.GG 属性目标对比）。"
 L["stat_targets.bin"] = "前 %d%%"
-L["stat_targets.bin_picker"] = "设置目标数据来自哪些玩家。按装备排名前 20%、50% 或 80%。"
+L["stat_targets.bin_picker"] =
+    "设置目标数据来自哪些玩家。按装备排名前 20%、50% 或 80%。选择各行显示数值还是百分比。"
+L["settings.value.stat_targets_values"] = "数值"
+L["settings.value.stat_targets_percent"] = "百分比"
 L["stat_targets.bin_desc.top20"] = "排名前 20% 的玩家所使用的副属性评级。最难达到。"
 L["stat_targets.bin_desc.top50"] = "排名前 50% 的玩家所使用的评级。赛季中期的现实目标。"
 L["stat_targets.bin_desc.top80"] = "排名前 80% 的玩家所使用的评级。三者中最容易达到的。"

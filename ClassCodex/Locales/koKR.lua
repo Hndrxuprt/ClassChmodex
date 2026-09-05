@@ -231,7 +231,9 @@ L["settings.tooltip.float_show_stat_targets"] =
     "패널이 떠 있을 때 능력치 탭에 능력치 목표 섹션(실시간 능력치 vs U.GG 능력치 목표)을 표시합니다."
 L["stat_targets.bin"] = "상위 %d%%"
 L["stat_targets.bin_picker"] =
-    "목표를 가져올 플레이어를 설정합니다. 장비 기준 상위 20%, 50%, 또는 80%."
+    "목표를 가져올 플레이어를 설정합니다. 장비 기준 상위 20%, 50%, 또는 80%. 행에 수치를 표시할지 퍼센트를 표시할지 선택합니다."
+L["settings.value.stat_targets_values"] = "수치"
+L["settings.value.stat_targets_percent"] = "퍼센트"
 L["stat_targets.bin_desc.top20"] =
     "상위 20% 플레이어가 사용하는 보조 능력치 수치입니다. 도달하기 가장 어렵습니다."
 L["stat_targets.bin_desc.top50"] =

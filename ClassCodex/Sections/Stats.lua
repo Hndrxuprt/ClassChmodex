@@ -389,7 +389,7 @@ end
 -- ============================================================
 
 local TGT_MAX_ROWS = 4
-local TGT_ROW_HEIGHT = 40
+local TGT_ROW_HEIGHT = 36
 local TGT_ROW_GAP = 5
 local BAR_HEIGHT = 16
 local TARGET_TICK_FRAC = 0.8
@@ -622,6 +622,30 @@ local function buildTargets(inst, opts)
                     end)
                 end
             end
+            root:CreateDivider()
+            root:CreateTitle(L["settings.value.view"] or "View")
+            local unitTips = {
+                values = "Shows your current rating next to the target rating.",
+                pct = "Shows the percent the character pane would report at the target rating.",
+            }
+            for _, unit in ipairs({ "values", "pct" }) do
+                local labelKey = unit == "values" and "settings.value.stat_targets_values"
+                    or "settings.value.stat_targets_percent"
+                local fallback = unit == "values" and "Values" or "Percentages"
+                local radio = root:CreateRadio(L[labelKey] or fallback, function()
+                    return ns.StatTargetUnit() == unit
+                end, function()
+                    ns.SetStatTargetUnit(unit)
+                    if ns.InvalidateTooltipCache then ns.InvalidateTooltipCache() end
+                    if inst.lastArgs then renderTargets(inst, inst.lastArgs) end
+                    return MenuResponse.Refresh
+                end)
+                if radio and radio.SetTooltip then
+                    radio:SetTooltip(function(tip)
+                        ns.Tooltip.MenuTip(tip, L[labelKey] or fallback, unitTips[unit])
+                    end)
+                end
+            end
         end)
     end)
     binCog:Hide()
@@ -643,28 +667,31 @@ local function buildTargets(inst, opts)
         row:SetPoint("LEFT", 0, 0)
         row:SetPoint("RIGHT", 0, 0)
 
+        local bar = MakeBar(row)
+        row.bar = bar
+
+        -- The text line hugs the bar's top edge; the icon and the numbers hang
+        -- off it with RIGHT/BOTTOM anchors so all three share one centerline.
         local statusIcon = row:CreateTexture(nil, "ARTWORK")
         statusIcon:SetSize(14, 14)
-        statusIcon:SetPoint("TOPRIGHT", -HPAD, -2)
+        statusIcon:SetPoint("BOTTOMRIGHT", bar, "TOPRIGHT", 0, 1)
         row.statusIcon = statusIcon
 
         local rating = row:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
-        -- Fixed width so a long "24.5% 1234 / 1456" can never encroach on the
-        -- stat name at narrow panel widths (an auto-width right-anchored string
-        -- grows leftward and squeezes the name to a negative width, which
-        -- renders as the two texts colliding).
+        -- Fixed width so a long "24.5% / 30.1%" can never encroach on the
+        -- stat name at narrow panel widths (an auto-width right-anchored
+        -- string grows leftward and squeezes the name to a negative width,
+        -- which renders as the two texts colliding).
         rating:SetWidth(112)
-        rating:SetPoint("TOPRIGHT", statusIcon, "TOPLEFT", -4, 0)
+        rating:SetPoint("RIGHT", statusIcon, "LEFT", -4, 0)
         rating:SetJustifyH("RIGHT")
         row.rating = rating
 
         local name = row:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
-        name:SetPoint("TOPLEFT", HPAD, -2)
+        name:SetPoint("BOTTOMLEFT", bar, "TOPLEFT", 0, 2)
         name:SetPoint("RIGHT", rating, "LEFT", -4, 0)
         name:SetJustifyH("LEFT")
         row.statName = name
-
-        row.bar = MakeBar(row)
         inst.rows[i] = row
     end
 
@@ -753,7 +780,9 @@ function renderTargets(inst, args)
 
     local showCurrent = args.showCurrent ~= false
 
-    if inst.binCog then inst.binCog:SetShown(snapshot.multiBin == true) end
+    -- The cog now also carries the goal-percent toggle, so it stays present
+    -- like the priority cog; the bin suffix stays multi-bin only.
+    if inst.binCog then inst.binCog:SetShown(true) end
     if inst.subHeader and inst.subHeader.label then
         local base = L["section.stat_targets"] or "Stat Targets"
         if snapshot.multiBin then
@@ -765,6 +794,7 @@ function renderTargets(inst, args)
 
     local yOffset = -(tgtSubHeaderHeight(inst) + 4)
     local visibleCount = 0
+    local pctMode = ns.StatTargetUnit and ns.StatTargetUnit() == "pct"
 
     for _, statKey in ipairs(DISPLAY_ORDER) do
         local target = snapshot.targets[statKey] or 0
@@ -801,10 +831,29 @@ function renderTargets(inst, args)
                 )
                 row.statusIcon:SetVertexColor(status.r, status.g, status.b)
                 row.statusIcon:Show()
-                row.rating:SetText(string.format("%.1f%%  |cff9a9a9a%d / %d|r", livePct, current, target))
+                -- Rows carry one unit, never both: percents (current/goal,
+                -- DR-aware) or values (current/target ratings). Gray always
+                -- marks the reference side of the pair.
+                if pctMode then
+                    local goalPct = livePct
+                        and ns.StatGoalPercent
+                        and ns.StatGoalPercent(statKey, livePct, current, target)
+                    if goalPct then
+                        row.rating:SetText(string.format("%.1f%% |cff9a9a9a/ %.1f%%|r", livePct, goalPct))
+                    else
+                        row.rating:SetText(livePct and string.format("%.1f%%", livePct) or "—")
+                    end
+                else
+                    row.rating:SetText(string.format("%d |cff9a9a9a/ %d|r", current, target))
+                end
             elseif hasTarget then
                 row.statusIcon:Hide()
-                row.rating:SetText(string.format("|cff9a9a9a— / %d|r", target))
+                if pctMode then
+                    local pct = ns.StatTargetPercent and ns.StatTargetPercent(statKey, target, classToken, specKey)
+                    row.rating:SetText(pct and string.format("%.1f%%", pct) or "—")
+                else
+                    row.rating:SetText(string.format("|cff9a9a9a— / %d|r", target))
+                end
             else
                 tickFrac = nil
                 row.statusIcon:Hide()
@@ -843,7 +892,17 @@ function renderTargets(inst, args)
             row.rating:SetTextColor(0.85, 0.85, 0.85)
             if hasTarget then
                 progress = TARGET_TICK_FRAC
-                row.rating:SetText(string.format("|cff9a9a9a%d|r", target))
+                -- No live stats here (compendium specs other than the
+                -- player's): percentage mode shows each target's own percent,
+                -- mastery via the per-spec coefficient table.
+                local pct = pctMode
+                    and ns.StatTargetPercent
+                    and ns.StatTargetPercent(statKey, target, classToken, specKey)
+                if pct then
+                    row.rating:SetText(string.format("%.1f%%", pct))
+                else
+                    row.rating:SetText(string.format("|cff9a9a9a%d|r", target))
+                end
             else
                 tickFrac = nil
                 row.rating:SetText("")
