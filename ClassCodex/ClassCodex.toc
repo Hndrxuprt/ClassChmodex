@@ -2,7 +2,7 @@
 ## Title: Class Codex
 ## Notes: Stat priorities, talent builds, rotation guides, and gearing recommendations for your current spec.
 ## Author: jfstn
-## Version: 1.4.0
+## Version: 1.4.1
 ## SavedVariables: ClassCodexDB
 ## SavedVariablesPerCharacter: ClassCodexCharDB
 ## X-Curse-Project-ID: 1480030
@@ -45,6 +45,7 @@ Shared\ReduceTaint.lua
 Shared\PvPTalents.lua
 Shared\OmniumFolio.lua
 Shared\TalentBuildList.lua
+Shared\TalentNames.lua
 Shared\UggContext.lua
 Shared\SpecData.lua
 Shared\RotationFormat.lua
