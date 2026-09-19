@@ -4407,7 +4407,7 @@ ClassCodexSource["icyveins"] = {
     },
     HUNTER={
       ["beast-mastery"]={
-        consumables={all={all={augmentRune={259085},flask={241322},food={255846,255845,242747},potions={241288,241308,271883}}}},
+        consumables={all={all={augmentRune={259085},flask={241322},food={255846,255845,242747},potions={241288,241308,271886,271883}}}},
         crafting={all={all={crafts={265337,244581,244584,244582},embellishments={273060,240167}}}},
         enchants={
           all={
@@ -5190,10 +5190,6 @@ ClassCodexSource["icyveins"] = {
                 label="General",
                 recommended=true,
               },
-              {
-                export="C4PAAAAAAAAAAAAAAAAAAAAAAYzsMwAGwMsBMLAAAAAAAAgZYMjFjZmZmxwwMmZMb2mxYmZmhtxMLDGAAgZGzMzMzAYBzAswMLzYA",
-                label="Black Arrow Arena (Tar Trap)",
-              },
             },
             raid={
               {
@@ -5239,10 +5235,6 @@ ClassCodexSource["icyveins"] = {
               {
                 export="C4PAAAAAAAAAAAAAAAAAAAAAAwCMwMGNWGAzgNAAAAAAAAwMMmxixMzMzAjmxMjZbxMzMzMMjtxYZYmBAAMzYmZGgZstwyMALMziZA",
                 label="General",
-              },
-              {
-                export="C4PAAAAAAAAAAAAAAAAAAAAAAwCMwMGGLDgZwGAAAAAAAAYGGzYxYmZmZMMMzMzMzmtZwMzMjZbMzywMAAAzwMDAzYbBzAswMLzYA",
-                label="Arena (Tar Trap)",
               },
             },
             raid={
@@ -5874,18 +5866,6 @@ ClassCodexSource["icyveins"] = {
                 label="Mythic+",
               },
             },
-            pvp={
-              {
-                export="C4DAAAAAAAAAAAAAAAAAAAAAAMmtlZWmZmZzmZGMDzAAAYAAAgZmZW2mZwCAALDzMjxilZmZMzMGzMzMWYGzYGAgBAAwMLAwYAwwwA",
-                honor={235711,1220739,415945},
-                label="3v3",
-              },
-              {
-                export="C4DAAAAAAAAAAAAAAAAAAAAAAMmtlZWmZmZzmZGMDzAAAYAAAgZmZW2mZwCAALYmZMWsMzMzyMzYMzMzYhZMjZAAGAAAzsAAjBADDD",
-                honor={235711,352278,415945},
-                label="Blitz",
-              },
-            },
             raid={
               {
                 export="C4DAAAAAAAAAAAAAAAAAAAAAAYGGLzMzswMDamZGAAAGAAAYmZmllZmYBAAYmZmxmlZmZWmxYMzMYjZMzMDAwAAAMzsAAmBADzMD",
@@ -5926,6 +5906,12 @@ ClassCodexSource["icyveins"] = {
                 label="Best 3v3",
                 labels={"Best Battleground Blitz","Best"},
                 recommended=true,
+              },
+              {
+                export="C4DAAAAAAAAAAAAAAAAAAAAAAMstMzyMzMbYmBzMmBAAwAAmZGzyyyMAA2AAYBmZwmlZmZMjxMzMzMWYmZGzAAMAAADwMDMGAMMmB",
+                honor={235711,1220739,415945},
+                label="3v3",
+                labels={"Blitz"},
               },
             },
             raid={
@@ -6232,14 +6218,6 @@ ClassCodexSource["icyveins"] = {
                 label="Mythic+ (Greater Invisibility)",
               },
             },
-            pvp={
-              {
-                export="C8DAAAAAAAAAAAAAAAAAAAAAAMstMzyMzMb2MzgZYGAAAzsMjZmlZBAAAsYmxsNmZmxCAAAAAWMzMzAAADzMzwYmZZGYmBwYghZYA",
-                honor={410248,415945,1220739},
-                label="3v3",
-                labels={"Blitz"},
-              },
-            },
             raid={
               {
                 export="C8DAAAAAAAAAAAAAAAAAAAAAAYGGLzMzswMDZmZGAAAmZZGzMLzCAAAYxMDbzMzMjNAAAAAsZmxMDAAmZYmxMzMzCwMDIMGDmhxA",
@@ -6290,6 +6268,16 @@ ClassCodexSource["icyveins"] = {
                 label="Best Battleground Blitz",
                 labels={"Best"},
                 recommended=true,
+              },
+              {
+                export="C8DAAAAAAAAAAAAAAAAAAAAAAMmtlZWmZmZDzMYGmBAAwAAmZGz2yyMAAbmZMbjZmZmFAAAAAsYmZGAAwMGzgxMzyMAmZgxMAzwA",
+                honor={410248,415945,1220739},
+                label="3v3",
+              },
+              {
+                export="C8DAAAAAAAAAAAAAAAAAAAAAAMmtlZWmZmZzmZGMDzAAAYAAzMjZbZZGAgNzMmtZMmZWAAAAAwiZmZAAAzYMDGmZZGAzMwYMMMDDA",
+                honor={352278,415945,1220739},
+                label="Blitz",
               },
             },
             raid={
@@ -6595,7 +6583,11 @@ ClassCodexSource["icyveins"] = {
                 export="CAEAAAAAAAAAAAAAAAAAAAAAAMmtlZWmZmZDzMYGmZmZmZWMzMjZMDAAAMzMzyyMjNAAYBAAAsBw2yYmZALzDYMzYBAAgZWAmhxMgBDA",
                 honor={415945,410248,1220739},
                 label="3v3",
-                labels={"Blitz"},
+              },
+              {
+                export="CAEAAAAAAAAAAAAAAAAAAAAAAMmtlZWmZmZzmZGMDzMzMzMLmZmxMmBAAAmZmZZZmxGAAsAAAA2AYbZMzMgl5BMmZsAAAwMLAzwYAGMA",
+                honor={415945,352278,1220739},
+                label="Blitz",
               },
             },
             raid={
@@ -13638,7 +13630,7 @@ ClassCodexSource["icyveins"] = {
       },
     },
   },
-  meta={contentHash="a8391ca9eaedc6ef",generatedAt="2026-09-17T12:39:54.374Z",schemaVersion=1,source="icyveins"},
+  meta={contentHash="e6a4c1d6fb40a8b3",generatedAt="2026-09-18T19:54:41.338Z",schemaVersion=1,source="icyveins"},
   reference={
     heroNames={
       ["aldrachi-reaver"]="Aldrachi Reaver",
