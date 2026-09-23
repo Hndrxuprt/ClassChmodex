@@ -330,14 +330,7 @@ ClassCodexSource["icyveins"] = {
       },
       frost={
         consumables={
-          all={
-            all={
-              augmentRune={259085},
-              flask={241326,241322,241325},
-              food={255846,255845,255847,242275},
-              potions={241288,193701,241308,271883},
-            },
-          },
+          all={all={augmentRune={259085},flask={241326,241322,241325},food={255846,255845,255847,242275},potions={241288,271883}}},
         },
         crafting={
           all={
@@ -649,13 +642,13 @@ ClassCodexSource["icyveins"] = {
               {itemId=270165,tier="A"},
               {itemId=249343,tier="A"},
               {itemId=246305,tier="B"},
-              {bonusIDs={12854},itemId=250238,tier="B"},
+              {itemId=250238,tier="B"},
               {bonusIDs={12854},itemId=250228,tier="B"},
               {itemId=273796,tier="B"},
               {bonusIDs={657,10358,5871,7981},itemId=193762,tier="C"},
               {itemId=250229,tier="C"},
               {bonusIDs={657,10358,5871,7981},itemId=193757,tier="C"},
-              {itemId=273797,tier="C"},
+              {bonusIDs={12854},itemId=273797,tier="C"},
               {itemId=270163,tier="C"},
             },
             pvp={{itemId=270605,tier="S"},{itemId=270603,tier="S"}},
@@ -4034,17 +4027,17 @@ ClassCodexSource["icyveins"] = {
           flameshaper={
             mplus={
               {
-                export="CsbBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAjZwMjZGzMgBjZamZmJzM2mxMzwYmZGwMmxYmZZmZwMwMmBWALgZYCsBWGGAzMDD",
+                export="CsbBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzYMzMzMzwMwMYMTzYmJjxywMzwYmZGwMmxYmZbmZwMwMmBWAbgZYCsBWGmBYmZYA",
                 label="Mythic+",
               },
               {
                 export="CsbBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAz8ADmZMzwMwMYMTjZmJjxyMzMzwYmZGwMmZGzMLzMDmBmxMwCYDMDTgNwywAYmZYA",
-                label="Mythic+ (Arcane Intensity)",
+                label="Mythic+ (Eternity Surge)",
               },
             },
             raid={
               {
-                export="CsbBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzMDmZYGzMgBjZamZmJzM2GmZGmZmZGwMmxYmZZmZwMwMmBWALgZYCsBWGGAzMDD",
+                export="CsbBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAjZGmZYGmBMYMTjZmJjxyYmZGmZmZGwMmZGzMbzMDmBmxMwCYBMDTgNwywAYmZGD",
                 label="Raid",
               },
             },
@@ -4052,11 +4045,9 @@ ClassCodexSource["icyveins"] = {
           scalecommander={
             delve={
               {
-                export="CsbBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAjZgZYGzMgBjZamZmpZmx2MMzMzMzMzAmxMGzMLzMDMwYwGsMGN2GAzAwGGYmBDD",
-                label="Mythic+",
-                labels={"Raid Cleave / Delve","AoE"},
+                export="CsbBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAjZwMDzwMgBjZaMzMNzM2mZmZmZmZmZGwMmZGzMbzMDMwYwGsMGN2GAzAwGGYmBz4BA",
+                label="Raid Cleave / Delve",
                 recommended=true,
-                tags={"Weekly Key","High Key"},
               },
             },
             leveling={
@@ -4067,16 +4058,21 @@ ClassCodexSource["icyveins"] = {
             },
             mplus={
               {
-                export="CsbBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAjZgZYGzMgBjZamZmpZmx2MMzMzMzMzAmxMGzMLzMDMwYwGsMGN2GAzAwGGYmBDD",
-                label="Mythic+",
-                labels={"Raid Cleave / Delve","AoE"},
+                export="CsbBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAjZwMDzwMgBjZaMzMNzM2mZmZmZmZmZGwMmZGzMbzMDMwYwGsMGN2GAzAwGGYmBz4BA",
+                label="Raid Cleave / Delve",
                 recommended=true,
-                tags={"Weekly Key","High Key"},
               },
               {
-                export="CsbBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAjZAMzwMwMYMTjZmpZmZ2mhZmZmZmZGwMzMGzMLzMDMwYwGsMGN2GAzAwGGYmBDD",
+                export="CsbBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAjZwgZGmBGYMTjZmpZmZ2mZmZmZmZmZGwMzMzYmZbmZgBGD2glxox2AYGA2wMYmBDPA",
                 label="Mythic+",
                 recommended=true,
+              },
+              {
+                export="CsbBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAjZgZYGzMgBjZamZmpZmx2MMzMzMzMzAmxMGzMLzMDMwYwGsMGN2GAzAwGGYmBDD",
+                label="Mythic+ (Weekly Key)",
+                labels={"AoE"},
+                recommended=true,
+                tags={"Weekly Key","High Key"},
               },
             },
             pvp={
@@ -4095,17 +4091,18 @@ ClassCodexSource["icyveins"] = {
             },
             raid={
               {
-                export="CsbBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzMDMDzwMgBjZaMzMNjx2wMzMzMzMzAmZmxYmZZmZgBGD2glxox2AYGA2wMYmBDD",
+                export="CsbBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAjZGjxYGmBMYMTjZmpZM2GmZmZmZmZGwMmZGzMbzMDMwYwGsMGN2GAzAwGGYmBzYA",
                 label="Single-Target Raid",
-                labels={"Single-Target"},
                 recommended=true,
               },
               {
-                export="CsbBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAjZgZYGzMgBjZamZmpZmx2MMzMzMzMzAmxMGzMLzMDMwYwGsMGN2GAzAwGGYmBDD",
-                label="Mythic+",
-                labels={"Raid Cleave / Delve","AoE"},
+                export="CsbBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAjZwMDzwMgBjZaMzMNzM2mZmZmZmZmZGwMmZGzMbzMDMwYwGsMGN2GAzAwGGYmBz4BA",
+                label="Raid Cleave / Delve",
                 recommended=true,
-                tags={"Weekly Key","High Key"},
+              },
+              {
+                export="CsbBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzMDMDzwMgBjZaMzMNjx2wMzMzMzMzAmZmxYmZZmZgBGD2glxox2AYGA2wMYmBDD",
+                label="Single-Target",
               },
             },
           },
@@ -8115,12 +8112,24 @@ ClassCodexSource["icyveins"] = {
                 "{384376}",
                 "{375576}",
                 {heroRequired={"Templar"},text="{429826}"},
-                {heroRequired={"Lightsmith"},text="{53600}"},
-                {spellRequired={1267215},text="{31935}"},
-                {spellRequired={1267215},text="{53600}"},
-                "{1241288}",
-                {spellRequired={1267215},text="{53600}"},
-                "{1241288}",
+                {heroRequired={"Lightsmith"},spellRequired={1277162},text="{53600}"},
+                {heroRequired={"Lightsmith"},spellExcluded={1277162},text="{53600}"},
+                {spellRequired={1277162},text="{1241288}"},
+                {spellRequired={1267215,1277162},text="{31935}"},
+                {spellExcluded={1277162},text="{1241288}"},
+                {spellExcluded={1277162},spellRequired={1267215},text="{53600}"},
+                {spellRequired={1267215,1277162},text="{53600}"},
+                {spellExcluded={1277162},text="{1241288}"},
+                {spellRequired={1277162},text="{1241288}"},
+                {spellExcluded={1277162},spellRequired={1267215},text="{31935}"},
+                {spellRequired={1267215,1277162},text="{31935}"},
+                {spellExcluded={1277162},spellRequired={1267215},text="{53600}"},
+                {spellRequired={1267215,1277162},text="{53600}"},
+                {spellExcluded={1277162},text="{1241288}"},
+                {spellExcluded={1277162},text="{1241288}"},
+                {spellRequired={1277162},text="{1241288}"},
+                {spellRequired={1277162},text="{1241288}"},
+                {spellRequired={1267215,1277162},text="{31935}"},
                 "{53600}",
                 {spellRequired={204019},text="{204019}"},
                 {spellExcluded={1267215},spellRequired={204019},text="{204019}"},
@@ -8162,10 +8171,18 @@ ClassCodexSource["icyveins"] = {
           lightsmith={
             mplus={
               {
-                export="CIEAAAAAAAAAAAAAAAAAAAAAAsZsMLjZMzMzMLbjxsMmlZMAAAAAAAAQTzMMjZGGzWbAYgBMD2GAAAAMzstt0yMjFLLYAwYGGDAmZAYmZAjF",
+                export="CIEAAAAAAAAAAAAAAAAAAAAAAsZsMLjZMzMzMLbjxsMmlZMAADAAAAAAaamhZMzwY2aDADMgZw2AAAAgZmltlWmZsYZBDAGzwYAwMDAmZAjF",
                 label="Mythic+",
+                labels={"Dungeon"},
                 recommended=true,
-                tags={"Beginner Friendly","Weekly Key"},
+                tags={"High Key","Weekly Key"},
+              },
+            },
+            raid={
+              {
+                export="CIEAAAAAAAAAAAAAAAAAAAAAAsNDzyYGzMzMz2yYMLzilZMAADAAAAAAaamhZMzwY2aDADMgZw2AAAAgZmltlWmZsYZDDAGzwYAwMDAmZAjF",
+                label="Single-Target",
+                recommended=true,
               },
             },
           },
@@ -8174,22 +8191,9 @@ ClassCodexSource["icyveins"] = {
               {
                 export="CIEAAAAAAAAAAAAAAAAAAAAAAsZsMLjZMzMzMLbjxsMmlZMAAAAAAAAQTzMMjZGGzWbAYgBMD2GAAYmptZmlZAA2ssgBAjZYMAALzAmZGwYB",
                 label="Mythic+",
-                labels={"Delves","Dungeon","Leveling"},
+                labels={"Delves","Leveling"},
                 recommended=true,
-                tags={"Weekly Key","High Key"},
-              },
-              {
-                export="CIEAAAAAAAAAAAAAAAAAAAAAAsZYWGzYmZmZW2GjZZWmlZMAAAAAAAAQTzMMjZGGzWbAYgBMD2GAAYmptZmlZAA2ssgBAjZYMAALzAmZGwYB",
-                label="Mythic+ (High Key)",
-                recommended=true,
-                tags={"High Key"},
-              },
-            },
-            raid={
-              {
-                export="CIEAAAAAAAAAAAAAAAAAAAAAAsZmtZZmZMzMzMWGjxw2MGAAAAAAAAINGmxMzYMbtBgBMwMYbAAgZm2mZWmBAYjNMAGjZYMAALzAmZGwYB",
-                label="Single-Target",
-                recommended=true,
+                tags={"Beginner Friendly","Weekly Key"},
               },
             },
           },
@@ -11353,7 +11357,7 @@ ClassCodexSource["icyveins"] = {
               },
               embellishments={240167,273060},
             },
-            pvp={crafts={},embellishments={240167}},
+            pvp={crafts={},embellishments={244603}},
           },
         },
         enchants={
@@ -11368,7 +11372,7 @@ ClassCodexSource["icyveins"] = {
               ["Main Hand"]={{id=244029}},
               Shoulders={{id=244021}},
             },
-            pvp={Chest={{id=244002}},Feet={{id=244008}},Legs={{id=240155}},Shoulders={{id=243962}}},
+            pvp={Chest={{id=244002}},Feet={{id=244008}},Legs={{id=244603}},Shoulders={{id=243962}}},
           },
         },
         gear={
@@ -13630,7 +13634,7 @@ ClassCodexSource["icyveins"] = {
       },
     },
   },
-  meta={contentHash="f0796eeb970d137c",generatedAt="2026-09-19T19:07:57.969Z",schemaVersion=1,source="icyveins"},
+  meta={contentHash="2e7eb7b127732da5",generatedAt="2026-09-23T05:20:17.909Z",schemaVersion=1,source="icyveins"},
   reference={
     heroNames={
       ["aldrachi-reaver"]="Aldrachi Reaver",
