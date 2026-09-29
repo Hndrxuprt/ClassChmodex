@@ -473,9 +473,8 @@ ClassCodexSource["icyveins"] = {
                 {spellExcluded={207230,439843},text="{49020}"},
                 {spellRequired={439843},text="{439843}"},
                 {spellExcluded={377253},text="{196770}"},
-                {spellRequired={1249658},text="{1249658} + {51271} + Potion + Trinket + {46585}"},
-                {spellExcluded={1249658},text="{51271} + Potion + Trinket + {46585}"},
-                {spellRequired={279302},text="{279302}"},
+                {spellRequired={1249658},text="{1249658} + {51271} + {279302} + Potion + Trinket + {46585}"},
+                {spellExcluded={1249658},text="{51271} + {279302} + Potion + Trinket + {46585}"},
                 {spellExcluded={207230},spellRequired={439843},text="{49020}"},
                 {spellRequired={207230,439843},text="{207230}"},
                 "{47568}",
@@ -490,9 +489,8 @@ ClassCodexSource["icyveins"] = {
                 {spellExcluded={207230,439843},text="{49020}"},
                 {spellRequired={439843},text="{439843}"},
                 {spellExcluded={377253},text="{196770}"},
-                {spellRequired={1249658},text="{1249658} + {51271} + Potion + Trinket + {46585}"},
-                {spellExcluded={1249658},text="{51271} + Potion + Trinket + {46585}"},
-                {spellRequired={279302},text="{279302}"},
+                {spellRequired={1249658},text="{1249658} + {51271} + {279302} + Potion + Trinket + {46585}"},
+                {spellExcluded={1249658},text="{51271} + {279302} + Potion + Trinket + {46585}"},
                 {spellExcluded={207230},spellRequired={439843},text="{49020}"},
                 {spellRequired={207230,439843},text="{207230}"},
                 "{47568}",
@@ -521,9 +519,8 @@ ClassCodexSource["icyveins"] = {
                 {spellExcluded={439843},text="{49020}"},
                 {spellRequired={439843},text="{439843}"},
                 {spellExcluded={377253},text="{196770}"},
-                {spellRequired={1249658},text="{1249658} + {51271} + Potion + Trinket + {46585}"},
-                {spellExcluded={1249658},text="{51271} + Potion + Trinket + {46585}"},
-                {spellRequired={279302},text="{279302}"},
+                {spellRequired={1249658},text="{1249658} + {51271} + {279302} + Potion + Trinket + {46585}"},
+                {spellExcluded={1249658},text="{51271} + {279302} + Potion + Trinket + {46585}"},
                 {spellRequired={439843},text="{49020}"},
                 "{47568}",
                 {spellExcluded={439843},text="{49020}"},
@@ -535,9 +532,8 @@ ClassCodexSource["icyveins"] = {
                 {spellExcluded={439843},text="{49020}"},
                 {spellRequired={439843},text="{439843}"},
                 {spellExcluded={377253},text="{196770}"},
-                {spellRequired={1249658},text="{1249658} + {51271} + Potion + Trinket + {46585}"},
-                {spellExcluded={1249658},text="{51271} + Potion + Trinket + {46585}"},
-                {spellRequired={279302},text="{279302}"},
+                {spellRequired={1249658},text="{1249658} + {51271} + {279302} + Potion + Trinket + {46585}"},
+                {spellExcluded={1249658},text="{51271} + {279302} + Potion + Trinket + {46585}"},
                 {spellRequired={439843},text="{49020}"},
                 "{47568}",
                 {spellExcluded={439843},text="{49020}"},
@@ -885,16 +881,16 @@ ClassCodexSource["icyveins"] = {
                 recommended=true,
               },
               {
-                export="CwPAAAAAAAAAAAAAAAAAAAAAAAYmBjZGjZWGzMTz2MGzMMDAAAAAAAgxwMDAWmZYMzMmZGwmZzwADMbM0YBAzAYmZmZMDwMzYGD",
-                label="Disease",
-              },
-              {
                 export="CwPAAAAAAAAAAAAAAAAAAAAAAAYmBjZMDzyYmZa2mZGjhZAAAAAAAAMzwMDAWmZGjZmxMzA2MbGGYgZjhGLMAzAwYmZMDwMzYGD",
                 label="Blitz",
               },
               {
                 export="CwPAkXBWxkyfx9CbGaHonEAhLBYmBjZMDzyYmZa2mZGjhZAAAAAAAAMzwMDAWmxMjZmxMzA2MbGGyAzGDNWYAmBgxMzYGgZmxMG",
                 label="3v3",
+              },
+              {
+                export="CwPAAAAAAAAAAAAAAAAAAAAAAAYmBjZGjZWGzMTz2MGzMMDAAAAAAAgxwMDAWmZYMzMmZGwmZzwADMbM0YBAzAYmZmZMDwMzYGD",
+                label="Disease",
               },
             },
             raid={
@@ -921,6 +917,12 @@ ClassCodexSource["icyveins"] = {
               {
                 export="CwPAAAAAAAAAAAAAAAAAAAAAAAYmhZMzMDz2MzMTzmZGjZAAAAAAAAg5BGDDAWmhZ2MzYMjBGYGLassAYbwGGwMAmZmZGzgZGMjxA",
                 label="Blightfall",
+              },
+            },
+            pvp={
+              {
+                export="CwPAAAAAAAAAAAAAAAAAAAAAAAYmBjZmZYWGzMTjZmxYYGAAAAAAAAzMMzAglZmZGmZMzMGYgZsoxyGgtBbMAzAwYmZMDmZwYGD",
+                label="PvP",
               },
             },
             raid={
@@ -13639,7 +13641,7 @@ ClassCodexSource["icyveins"] = {
       },
     },
   },
-  meta={contentHash="8d4dfd5023d6ecfd",generatedAt="2026-09-27T22:48:16.353Z",schemaVersion=1,source="icyveins"},
+  meta={contentHash="672dc624f892967c",generatedAt="2026-09-28T23:25:29.347Z",schemaVersion=1,source="icyveins"},
   reference={
     heroNames={
       ["aldrachi-reaver"]="Aldrachi Reaver",
