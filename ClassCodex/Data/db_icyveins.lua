@@ -888,10 +888,6 @@ ClassCodexSource["icyveins"] = {
                 export="CwPAkXBWxkyfx9CbGaHonEAhLBYmBjZMDzyYmZa2mZGjhZAAAAAAAAMzwMDAWmxMjZmxMzA2MbGGyAzGDNWYAmBgxMzYGgZmxMG",
                 label="3v3",
               },
-              {
-                export="CwPAAAAAAAAAAAAAAAAAAAAAAAYmBjZGjZWGzMTz2MGzMMDAAAAAAAgxwMDAWmZYMzMmZGwmZzwADMbM0YBAzAYmZmZMDwMzYGD",
-                label="Disease",
-              },
             },
             raid={
               {
@@ -13641,7 +13637,7 @@ ClassCodexSource["icyveins"] = {
       },
     },
   },
-  meta={contentHash="672dc624f892967c",generatedAt="2026-09-28T23:25:29.347Z",schemaVersion=1,source="icyveins"},
+  meta={contentHash="1f852c378b414d79",generatedAt="2026-09-30T07:24:46.046Z",schemaVersion=1,source="icyveins"},
   reference={
     heroNames={
       ["aldrachi-reaver"]="Aldrachi Reaver",
