@@ -4135,7 +4135,7 @@ ClassCodexSource["icyveins"] = {
               Feet={{id=243983}},
               ["Finger 1"]={{id=243959}},
               ["Finger 2"]={{id=243959}},
-              Head={{id=243950}},
+              Head={{id=243951}},
               Legs={{id=240155}},
               ["Main Hand"]={{id=244029}},
               Shoulders={{id=244021}},
@@ -7702,7 +7702,7 @@ ClassCodexSource["icyveins"] = {
               Feet={{id=243983}},
               ["Finger 1"]={{id=243959}},
               ["Finger 2"]={{id=243959}},
-              Head={{id=243950}},
+              Head={{id=243951}},
               Legs={{id=240155}},
               ["Main Hand"]={{id=244029}},
               Shoulders={{id=244021}},
@@ -7720,7 +7720,7 @@ ClassCodexSource["icyveins"] = {
         gear={
           all={
             all={
-              {catalyst={bonusIDs={12854},itemId=239050},itemId=271465,slot="Head",source="King's Rest"},
+              {catalyst={bonusIDs={12854},itemId=251126},itemId=271465,slot="Head",source="Murder Row"},
               {bonusIDs={13848},itemId=268265,slot="Neck",source="Ula'tek"},
               {catalyst={bonusIDs={12854},itemId=239037},itemId=271463,slot="Shoulders",source="Temple of Sethraliss"},
               {bonusIDs={13848},itemId=268253,slot="Back",source="Coiled Altar"},
@@ -7729,7 +7729,7 @@ ClassCodexSource["icyveins"] = {
               {catalyst={bonusIDs={12854},itemId=159413},itemId=271466,slot="Hands",source="Catalyst + King's Rest"},
               {bonusIDs={13848},itemId=268259,slot="Waist",source="Coiled Altar"},
               {catalyst={bonusIDs={13848},itemId=271878},itemId=271464,slot="Legs",source="Catalyst + Ula'tek"},
-              {bonusIDs={12854},itemId=273777,slot="Feet",source="Altar of Fangs"},
+              {bonusIDs={12854},itemId=159412,slot="Feet",source="King's Rest"},
               {bonusIDs={12854},itemId=252258,slot="Finger 1",source="Voidscar Arena"},
               {bonusIDs={12854},itemId=268249,slot="Finger 2",source="Vashnik the Malignant"},
               {bonusIDs={12854},itemId=270162,slot="Trinket 1",source="Nek'zali the Soulcoiler"},
@@ -7738,7 +7738,7 @@ ClassCodexSource["icyveins"] = {
               {bonusIDs={12854},itemId=268262,slot="Off Hand",source="Nymrissa Wavecaller"},
             },
             mplus={
-              {catalyst={bonusIDs={12854},itemId=239050},itemId=271465,slot="Head",source="King's Rest"},
+              {catalyst={bonusIDs={12854},itemId=251126},itemId=271465,slot="Head",source="Murder Row"},
               {bonusIDs={12854},itemId=251142,slot="Neck",source="Murder Row"},
               {catalyst={bonusIDs={12854},itemId=239037},itemId=271463,slot="Shoulders",source="Temple of Sethraliss"},
               {bonusIDs={12854},itemId=251190,slot="Back",source="The Blinding Vale"},
@@ -7747,7 +7747,7 @@ ClassCodexSource["icyveins"] = {
               {catalyst={bonusIDs={12854},itemId=159413},itemId=271466,slot="Hands",source="Catalyst + King's Rest"},
               {bonusIDs={12854},itemId=159418,slot="Waist",source="King's Rest"},
               {catalyst={bonusIDs={12854},itemId=159435},itemId=271464,slot="Legs",source="Catalyst + Temple of Sethraliss"},
-              {bonusIDs={12854},itemId=273777,slot="Feet",source="Altar of Fangs"},
+              {bonusIDs={12854},itemId=159412,slot="Feet",source="King's Rest"},
               {bonusIDs={12854},itemId=158366,slot="Finger 1",source="Temple of Sethraliss"},
               {bonusIDs={12854},itemId=252258,slot="Finger 2",source="Voidscar Arena"},
               {bonusIDs={12854},itemId=250214,slot="Trinket 1",source="The Blinding Vale"},
@@ -13637,7 +13637,7 @@ ClassCodexSource["icyveins"] = {
       },
     },
   },
-  meta={contentHash="82c9c13f113f8df9",generatedAt="2026-10-01T00:16:18.815Z",schemaVersion=1,source="icyveins"},
+  meta={contentHash="19ac54f718fb347a",generatedAt="2026-10-02T11:36:30.877Z",schemaVersion=1,source="icyveins"},
   reference={
     heroNames={
       ["aldrachi-reaver"]="Aldrachi Reaver",
