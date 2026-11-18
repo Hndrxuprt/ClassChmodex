@@ -2,7 +2,7 @@
 ## Title: Class Codex
 ## Notes: Stat priorities, talent builds, rotation guides, and gearing recommendations for your current spec.
 ## Author: jfstn
-## Version: 1.6.6
+## Version: 1.6.9
 ## SavedVariables: ClassCodexDB
 ## SavedVariablesPerCharacter: ClassCodexCharDB
 ## X-Curse-Project-ID: 1480030
@@ -55,6 +55,7 @@ Shared\GearingUtils.lua
 Shared\StatDR.lua
 Shared\StatTargets.lua
 Shared\DungeonArt.lua
+Shared\RollSource.lua
 UI\Tooltip.lua
 UI\SlotIcon.lua
 UI\CollapsibleSection.lua
